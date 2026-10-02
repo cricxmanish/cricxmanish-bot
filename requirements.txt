@@ -1,0 +1,12 @@
+aiogram
+aiosqlite
+cryptography
+python-dotenv
+httpx
+opencv-python
+Pillow
+pilmoji
+qrcode
+telethon
+yt-dlp
+tzdata
