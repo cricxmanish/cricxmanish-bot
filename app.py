@@ -26526,6 +26526,35 @@ async def message_handler(message: Message) -> None:
     await maybe_send_ai_sticker(message)
 
 
+
+async def _run_render_health_server() -> None:
+    """Bind a dummy HTTP port so Render's free Web Service stays alive."""
+    try:
+        from aiohttp import web
+    except ImportError:
+        log.warning("aiohttp unavailable; skipping health server")
+        return
+    port = int(os.getenv("PORT", "10000"))
+
+    async def _ok(_request):
+        return web.Response(text="CricxManish18 bot is alive")
+
+    app = web.Application()
+    app.router.add_get("/", _ok)
+    app.router.add_get("/health", _ok)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+    log.info("Health server listening on port %s", port)
+    try:
+        while True:
+            await asyncio.sleep(3600)
+    except asyncio.CancelledError:
+        await runner.cleanup()
+        raise
+
+
 async def main() -> None:
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
     global music_assistant_label, group_activity_flush_task
@@ -48372,6 +48401,7 @@ async def main() -> None:
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
     global music_assistant_label, contest_expiry_task
     await setup_db()
+    asyncio.create_task(_run_render_health_server())
     contest_expiry_task = asyncio.create_task(contest_expiry_loop())
     cleanup_all_music_buffers()
     music_executor = ThreadPoolExecutor(
