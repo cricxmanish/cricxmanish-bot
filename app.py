@@ -15929,7 +15929,7 @@ async def death_note_finish(
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-🔥 <b>Join my channel: @cricxmanish</b>,
+            "🔥 <b>Join my channel: @cricxmanish</b>",
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
@@ -39058,7 +39058,7 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-🔥 <b>Join my channel: @cricxmanish</b>,
+            "🔥 <b>Join my channel: @cricxmanish</b>",
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
