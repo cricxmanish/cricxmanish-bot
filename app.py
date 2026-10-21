@@ -16845,6 +16845,7 @@ QUIZ_TOPIC_ALIASES = {
     "hindi to english": ("translation", "Translation", "translation"),
     "hindi": ("translation", "Translation", "translation"),
     "cricket": ("cricket", "Cricket", "cricket"),
+    "cricket": ("cricket", "Cricket", "cricket"),
 }
 REMOVED_QUIZ_TOPICS = {
     "free fire",
@@ -16939,22 +16940,17 @@ def quiz_categories_markup(page: int = 0) -> InlineKeyboardMarkup:
         ("gk", "General Knowledge"),
         ("math", "Maths"),
         ("translation", "Translation"),
+        ("cricket", "Cricket 🏏"),
     ]
-    rows = [
-        [
-            InlineKeyboardButton(
+    rows = []
+    for i in range(0, len(fixed), 2):
+        row = []
+        for key, label in fixed[i:i+2]:
+            row.append(InlineKeyboardButton(
                 text=label,
                 callback_data=f"quiz:category:{quiz_topic_slug(key)}",
-            )
-            for key, label in fixed[:2]
-        ],
-        [
-            InlineKeyboardButton(
-                text=fixed[2][1],
-                callback_data=f"quiz:category:{quiz_topic_slug(fixed[2][0])}",
-            )
-        ],
-    ]
+            ))
+        rows.append(row)
     rows.append([InlineKeyboardButton(text="Cancel", callback_data="quiz:cancel_setup")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
