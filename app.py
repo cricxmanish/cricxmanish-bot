@@ -12089,7 +12089,7 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.",
+        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -12438,7 +12438,7 @@ async def finish_arcade_game(
         f"<b>Status:</b> {status}\n\n"
         + "\n".join(lines)
         + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
-        "Start another match with the game command.",
+        "Start another match with the game command.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
     clear_arcade_players(chat_id, session)
@@ -15148,7 +15148,11 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
         "Every player received Seyu Gems based on their team.\n\n"
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
-        "Start another game with <code>/seyuki mafia</code>.",
+        "Start another game with <code>/seyuki mafia</code>."
+
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -15924,7 +15928,11 @@ async def death_note_finish(
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
         "<b>Final Role Reveal</b>\n"
         f"{role_lines}\n\n"
-        "Start another game with <code>/seyuki deathnote</code>.",
+        "Start another game with <code>/seyuki deathnote</code>."
+
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
@@ -16845,6 +16853,8 @@ QUIZ_TOPIC_ALIASES = {
     "hindi to english": ("translation", "Translation", "translation"),
     "hindi": ("translation", "Translation", "translation"),
     "cricket": ("cricket", "Cricket", "cricket"),
+    "cricket": ("cricket", "Cricket", "cricket"),
+    "cricket": ("cricket", "Cricket", "cricket"),
 }
 REMOVED_QUIZ_TOPICS = {
     "free fire",
@@ -16916,13 +16926,21 @@ def quiz_category_from_slug(slug: str) -> tuple[str, str, str]:
 
 def quiz_bank_category(session: dict[str, object]) -> str:
     topic_kind = str(session.get("topic_kind", "general"))
-    topic_key = str(session.get("topic_key", "general")).casefold()
+    topic_key = str(session.get("topic_key", "general"))
+    if "cricket" in topic_kind or "cricket" in topic_key:
+        return [
+            quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
+            quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
+            quiz_choice_question("Who won the 2011 Cricket World Cup?", "India", ["Australia", "Sri Lanka", "Pakistan"]),
+            quiz_choice_question("What is the maximum runs a batsman can score off one ball?", "6", ["4", "8", "10"]),
+            quiz_choice_question("Who is known as Captain Cool?", "MS Dhoni", ["Virat Kohli", "Rohit Sharma", "Kapil Dev"])
+        ].casefold()
     if topic_kind == "state":
         return f"state:{topic_key}"
     if topic_kind == "math":
         return "math"
-    if "cricket" in topic_kind or "cricket" in topic_key:
-        return "cricket"
+    if topic_kind == "translation":
+        return "translation"
     return "gk"
 
 
@@ -17424,7 +17442,7 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         f"{chr(10).join(lines)}\n\n"
         "<b>Seyu Gems awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
-        "Start a new quiz with /quiz."
+        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
     )
 
 
@@ -17513,7 +17531,7 @@ async def finish_quiz_timeout(
             (
                 "<b>Quiz — Game Over</b>\n\n"
                 "The quiz time limit ended. No new answers are accepted.\n"
-                "Start a new quiz with /quiz."
+                "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
             ),
             InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
@@ -17782,10 +17800,7 @@ def mathbattle_quiz_question(level: str) -> dict[str, object] | None:
 
 def local_quiz_questions(session: dict[str, object]) -> list[dict[str, object]]:
     """Return safe, easy questions that always match the selected topic."""
-    topic_kind = str(session.get("topic_kind", "general"))
-    topic_key = str(session.get("topic_key", "general"))
-    
-    if "cricket" in topic_kind or "cricket" in topic_key:
+    if "cricket" in str(session.get("topic_kind", "")).casefold() or "cricket" in str(session.get("topic_key", "")).casefold():
         return [
             quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
             quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
@@ -17798,7 +17813,8 @@ def local_quiz_questions(session: dict[str, object]) -> list[dict[str, object]]:
             quiz_choice_question("Who is known as the Rawalpindi Express?", "Shoaib Akhtar", ["Wasim Akram", "Waqar Younis", "Imran Khan"]),
             quiz_choice_question("Which team has won the most IPL titles?", "Mumbai Indians", ["Chennai Super Kings", "Kolkata Knight Riders", "Royal Challengers Bangalore"])
         ]
-        
+        topic_kind = str(session.get("topic_kind", "general"))
+    topic_key = str(session.get("topic_key", "general"))
     question_sets: dict[str, list[tuple[str, str, list[str]]]] = {
         "general": [
             ("Which planet is known as the Red Planet?", "Mars", ["Venus", "Jupiter", "Saturn"]),
@@ -18255,7 +18271,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
                                     "No Seyu Gems were awarded.\n"
-                                    "Start a new quiz with /quiz."
+                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
                                     InlineKeyboardButton(
@@ -18429,7 +18445,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     (
                         "<b>Quiz — Stopped</b>\n\n"
                         "The quiz could not continue safely. No Seyu Gems were awarded.\n"
-                        "Start a new quiz with /quiz."
+                        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
                         InlineKeyboardButton(
@@ -19552,16 +19568,11 @@ def games_menu() -> InlineKeyboardMarkup:
                     style="success",
                 ),
             ],
-                       [
+            [
                 InlineKeyboardButton(
                     text="🧠 Sequence Master",
                     callback_data="games:sequencemaster",
                     style="primary",
-                ),
-                InlineKeyboardButton(
-                    text="🏏 Cric X Manish Game",
-                    callback_data="games:cricxgame",
-                    style="success",
                 ),
             ],
             [
@@ -21713,25 +21724,6 @@ async def games_tictac(callback: CallbackQuery) -> None:
             games_menu(),
         )
 
-@router.callback_query(F.data == "games:cricxgame")
-async def games_cricxgame(callback: CallbackQuery) -> None:
-    if not await group_menu_callback_allowed(callback):
-        return
-    await callback.answer()
-    if callback.message:
-        await render_menu_text(
-            callback,
-            "<b>🏏 CRIC X MANISH GAME</b>\n\n"
-            "<b>Goal:</b> Guess the hidden Cricket word before you run out of lives!\n\n"
-            "<b>How to play</b>\n"
-            "1. Send <code>/cricxgame</code> in a group to start.\n"
-            "2. The bot will show a hint and the word as red circles (🔴).\n"
-            "3. Type single letters (like <code>A</code>, <code>B</code>) to guess.\n"
-            "4. You can also type the whole word if you know it!\n"
-            "5. You have 7 lives (❤️). A wrong letter loses a life.\n\n"
-            "<i>Play directly in the group chat!</i>",
-            games_menu(),
-        )
 
 @router.callback_query(F.data == "games:quiz")
 async def games_quiz(callback: CallbackQuery) -> None:
@@ -27125,7 +27117,7 @@ async def finish_codebreaker(
         "<b>🔐 CODE BREAKER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/codebreaker</code>.",
+        + "\n\nStart another game with <code>/codebreaker</code>.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
     codebreaker_sessions.pop(chat_id, None)
@@ -27694,7 +27686,7 @@ async def finish_sequence_master(
         "<b>🧠 SEQUENCE MASTER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/sequencemaster</code>.",
+        + "\n\nStart another game with <code>/sequencemaster</code>.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
     sequencemaster_sessions.pop(chat_id, None)
@@ -37282,7 +37274,7 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.",
+        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -37563,7 +37555,7 @@ async def finish_arcade_game(session: dict[str, object]) -> None:
         f"<b>{spec['icon']} {spec['title']} — FINAL RESULTS</b>\n\n"
         + "\n".join(lines)
         + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
-        "Start another match with the game command.",
+        "Start another match with the game command.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
     clear_arcade_players(chat_id, session)
@@ -39100,7 +39092,11 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
         "Every player received Seyu Gems based on their team.\n\n"
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
-        "Start another game with <code>/seyuki mafia</code>.",
+        "Start another game with <code>/seyuki mafia</code>."
+
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -40180,7 +40176,7 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         f"{chr(10).join(lines)}\n\n"
         "<b>Seyu Gems awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
-        "Start a new quiz with /quiz."
+        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
     )
 
 
@@ -40269,7 +40265,7 @@ async def finish_quiz_timeout(
             (
                 "<b>Quiz — Game Over</b>\n\n"
                 "The quiz time limit ended. No new answers are accepted.\n"
-                "Start a new quiz with /quiz."
+                "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
             ),
             InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
@@ -40830,7 +40826,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
                                     "No Seyu Gems were awarded.\n"
-                                    "Start a new quiz with /quiz."
+                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
                                     InlineKeyboardButton(
@@ -41004,7 +41000,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     (
                         "<b>Quiz — Stopped</b>\n\n"
                         "The quiz could not continue safely. No Seyu Gems were awarded.\n"
-                        "Start a new quiz with /quiz."
+                        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
                         InlineKeyboardButton(
