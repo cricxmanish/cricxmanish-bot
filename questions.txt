@@ -79,3 +79,50 @@
 {"category": "cricket", "level": "hard", "question": "Who has the record for the fastest century in the IPL (off 30 balls)?", "options": ["Chris Gayle", "Yusuf Pathan", "AB de Villiers", "David Miller"], "correct_index": 0}
 {"category": "cricket", "level": "hard", "question": "Which team has the highest total in IPL history (263/5)?", "options": ["Royal Challengers Bangalore", "Sunrisers Hyderabad", "Mumbai Indians", "Chennai Super Kings"], "correct_index": 0}
 {"category": "cricket", "level": "hard", "question": "Who was the first player to win the Orange Cap in the IPL?", "options": ["Shaun Marsh", "Sachin Tendulkar", "Chris Gayle", "Matthew Hayden"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Lion", "Tiger", "Elephant", "Peacock"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["5", "6", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which is the largest ocean on Earth?", "options": ["Atlantic", "Indian", "Arctic", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who is known as the Father of the Nation in India?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Bhagat Singh", "Sardar Patel"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What does CPU stand for in computers?", "options": ["Central Process Unit", "Computer Personal Unit", "Central Processing Unit", "Control Processing Unit"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Which is the smallest continent by land area?", "options": ["Europe", "Australia", "Antarctica", "South America"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the currency of Japan?", "options": ["Yuan", "Won", "Yen", "Ringgit"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "How many colors are there in a rainbow?", "options": ["5", "6", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Diwali", "Eid", "Christmas"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the hardest natural substance on Earth?", "options": ["Gold", "Iron", "Diamond", "Platinum"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which is the longest river in the world?", "options": ["Amazon", "Nile", "Yangtze", "Mississippi"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Who was the first person to step on the Moon?", "options": ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "Michael Collins"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which element has the chemical symbol 'Au'?", "options": ["Silver", "Gold", "Aluminum", "Argon"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the largest internal organ in the human body?", "options": ["Heart", "Brain", "Liver", "Lungs"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "In which year did World War II end?", "options": ["1918", "1939", "1945", "1950"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which country gifted the Statue of Liberty to the USA?", "options": ["United Kingdom", "France", "Spain", "Italy"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the capital city of Australia?", "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Who invented the telephone?", "options": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which is the only mammal capable of true flight?", "options": ["Flying Squirrel", "Bat", "Ostrich", "Penguin"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the currency of the United Kingdom?", "options": ["Euro", "Dollar", "Pound Sterling", "Franc"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which planet has the most moons?", "options": ["Jupiter", "Saturn", "Uranus", "Neptune"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the study of earthquakes called?", "options": ["Geology", "Seismology", "Meteorology", "Volcanology"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which Indian city is known as the 'Pink City'?", "options": ["Jaipur", "Jodhpur", "Udaipur", "Mysore"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who is the author of the 'Harry Potter' book series?", "options": ["J.R.R. Tolkien", "J.K. Rowling", "George R.R. Martin", "C.S. Lewis"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which is the largest desert in the world?", "options": ["Sahara", "Gobi", "Antarctic Desert", "Arabian Desert"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "What is the primary gas found in the Earth's atmosphere?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who discovered Penicillin?", "options": ["Marie Curie", "Alexander Fleming", "Louis Pasteur", "Joseph Lister"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is the chemical symbol for Tungsten?", "options": ["Tu", "Tg", "W", "Tn"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["Russia", "USA", "China", "France"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "What is the name of the largest known volcano in our solar system?", "options": ["Mount Everest", "Olympus Mons", "Mauna Loa", "Mount Kilimanjaro"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who wrote the famous book 'A Brief History of Time'?", "options": ["Albert Einstein", "Carl Sagan", "Stephen Hawking", "Neil deGrasse Tyson"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which part of the human brain regulates body temperature and hunger?", "options": ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which country was formerly known as Persia?", "options": ["Iraq", "Iran", "Syria", "Turkey"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is the rarest naturally occurring element on Earth?", "options": ["Astatine", "Francium", "Plutonium", "Radon"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who painted the 'Mona Lisa'?", "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Puerto Rico Trench", "Java Trench", "Mariana Trench", "Tonga Trench"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 15 + 27?", "options": ["42", "32", "52", "40"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 9 x 8?", "options": ["72", "64", "81", "63"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 144 / 12?", "options": ["10", "12", "14", "16"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 25% of 80?", "options": ["15", "20", "25", "30"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is the square root of 169?", "options": ["11", "12", "13", "14"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 15 squared (15^2)?", "options": ["125", "225", "250", "200"], "correct_index": 1}
+
