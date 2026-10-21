@@ -16844,6 +16844,7 @@ QUIZ_TOPIC_ALIASES = {
     "translation": ("translation", "Translation", "translation"),
     "hindi to english": ("translation", "Translation", "translation"),
     "hindi": ("translation", "Translation", "translation"),
+    "cricket": ("cricket", "Cricket", "cricket"),
 }
 REMOVED_QUIZ_TOPICS = {
     "free fire",
