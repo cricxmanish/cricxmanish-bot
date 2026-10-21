@@ -12089,7 +12089,7 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -12438,7 +12438,7 @@ async def finish_arcade_game(
         f"<b>Status:</b> {status}\n\n"
         + "\n".join(lines)
         + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
-        "Start another match with the game command.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        "Start another match with the game command.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     session["state"] = "finished"
     clear_arcade_players(chat_id, session)
@@ -15929,7 +15929,7 @@ async def death_note_finish(
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-            "🔥 <b>Join my channel: @lootxmanish</b>",
+            "🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
@@ -17431,7 +17431,7 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         f"{chr(10).join(lines)}\n\n"
         "<b>Cric Tokens awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
-        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+        "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
     )
 
 
@@ -17520,7 +17520,7 @@ async def finish_quiz_timeout(
             (
                 "<b>Quiz — Game Over</b>\n\n"
                 "The quiz time limit ended. No new answers are accepted.\n"
-                "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
             ),
             InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
@@ -18260,7 +18260,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
                                     "No Cric Tokens were awarded.\n"
-                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
                                     InlineKeyboardButton(
@@ -18434,7 +18434,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     (
                         "<b>Quiz — Stopped</b>\n\n"
                         "The quiz could not continue safely. No Cric Tokens were awarded.\n"
-                        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                        "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
                         InlineKeyboardButton(
@@ -26548,22 +26548,52 @@ async def _run_render_health_server() -> None:
 cricx_sessions: dict[int, dict[str, object]] = {}
 
 CRICX_WORDS = {
-    "CRICKET": "A bat-and-ball game played between two teams.",
-    "STADIUM": "A large sports arena where matches are played.",
-    "BATSMAN": "A player who hits the ball with a bat.",
-    "BOWLER": "A player who throws the ball towards the batsman.",
+    # Legendary Players
+    "SACHIN": "The God of Cricket, holds the record for 100 centuries.",
+    "DHONI": "Captain Cool who hit the winning six in the 2011 World Cup.",
+    "KOHLI": "The Run Machine, known for his aggressive celebrations.",
+    "ROHIT": "Hitman who scored three double centuries in ODIs.",
+    "KAPIL": "The captain who lifted the 1983 World Cup.",
+    "DRAVID": "The Wall of Indian cricket, known for his defensive technique.",
+    "YUVRAJ": "Hit six sixes in an over in the 2007 T20 World Cup.",
+    "SEHWAG": "Very aggressive opener nicknamed the Nawab of Najafgarh.",
+    "BUMRAH": "Known for his unorthodox action and deadly yorkers.",
+    "JADEJA": "Excellent fielder and spin-bowling all-rounder, 'Sir'.",
+    "GANGULY": "The Prince of Kolkata, famous for his shirt-waving at Lord's.",
+    
+    # Cricket Terms & Bowling
+    "YORKER": "A delivery aimed directly at the batsman's toes.",
+    "BOUNCER": "A short-pitched delivery aimed at the batsman's head.",
+    "GOOGLY": "A leg-spinner's delivery that turns the opposite way.",
+    "DOOSRA": "A mystery off-spinner's delivery that turns away from the batsman.",
+    "SWING": "The art of making the ball move in the air.",
+    "MAIDEN": "An over in which no runs are conceded.",
+    "HATTRICK": "Three wickets taken in three consecutive deliveries.",
+    "CHINAMAN": "A left-arm unorthodox spinner.",
+    "CARROM": "A ball that skids low and straight after pitching.",
+    
+    # Batting Terms
+    "SIXER": "A shot that clears the boundary rope without bouncing.",
+    "BOUNDARY": "A shot that reaches the edge of the field (4 runs).",
+    "HELICOPTER": "MS Dhoni's famous finishing shot.",
+    "SWEEP": "A shot played by kneeling on one leg to a spin bowler.",
+    "PULL": "A shot played to a short ball on the leg side.",
+    "CUT": "A shot played square of the wicket on the off-side.",
+    "HOOK": "A shot played to a bouncer, usually in front of square.",
+    "COVER": "A fielding position on the off-side.",
+    
+    # Records & Stadiums
+    "STUMPS": "The three wooden poles at each end of the pitch.",
+    "BAILS": "The small wooden pieces placed on top of the stumps.",
     "UMPIRE": "The official who makes decisions on the field.",
-    "WICKET": "Three stumps and two bails.",
-    "VIRAT": "Indian batsman known as the Run Machine.",
-    "ROHIT": "Indian opener famous for hitting double centuries.",
-    "DHONI": "Captain Cool who hit the 2011 World Cup winning six.",
-    "SACHIN": "The God of Cricket.",
+    "PAVILION": "The building where players sit when not on the field.",
     "TROPHY": "The prize given to the winner of a tournament.",
-    "BOUNDARY": "A shot that reaches the edge of the field.",
-    "SIXER": "A shot that goes over the boundary rope.",
-    "HELMET": "Protective headgear worn by batsmen.",
-    "VICTORY": "Winning a match.",
-    "CHAMPION": "The ultimate winner of a tournament."
+    "STADIUM": "A large sports arena where matches are played.",
+    "POWERPLAY": "The first few overs of a limited-overs match with fielding restrictions.",
+    "WICKET": "The target a bowler aims to hit, or a batsman getting out.",
+    "APPEAL": "When a team shouts to the umpire asking for an out.",
+    "TOSS": "A coin flip at the start of the match to decide who bats first.",
+    "SPIRIT": "The 'Spirit of Cricket' involves respecting opponents."
 }
 
 def cricx_display(word, guessed):
@@ -27071,7 +27101,7 @@ async def finish_codebreaker(
         "<b>🔐 CODE BREAKER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/codebreaker</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        + "\n\nStart another game with <code>/codebreaker</code>.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     session["state"] = "finished"
     codebreaker_sessions.pop(chat_id, None)
@@ -27640,7 +27670,7 @@ async def finish_sequence_master(
         "<b>🧠 SEQUENCE MASTER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/sequencemaster</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        + "\n\nStart another game with <code>/sequencemaster</code>.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     session["state"] = "finished"
     sequencemaster_sessions.pop(chat_id, None)
@@ -37228,7 +37258,7 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -37509,7 +37539,7 @@ async def finish_arcade_game(session: dict[str, object]) -> None:
         f"<b>{spec['icon']} {spec['title']} — FINAL RESULTS</b>\n\n"
         + "\n".join(lines)
         + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
-        "Start another match with the game command.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
+        "Start another match with the game command.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
     )
     session["state"] = "finished"
     clear_arcade_players(chat_id, session)
@@ -39050,7 +39080,7 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-            "🔥 <b>Join my channel: @lootxmanish</b>",
+            "🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>",
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -40130,7 +40160,7 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         f"{chr(10).join(lines)}\n\n"
         "<b>Cric Tokens awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
-        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+        "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
     )
 
 
@@ -40219,7 +40249,7 @@ async def finish_quiz_timeout(
             (
                 "<b>Quiz — Game Over</b>\n\n"
                 "The quiz time limit ended. No new answers are accepted.\n"
-                "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
             ),
             InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
@@ -40780,7 +40810,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
                                     "No Cric Tokens were awarded.\n"
-                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                                    "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
                                     InlineKeyboardButton(
@@ -40954,7 +40984,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     (
                         "<b>Quiz — Stopped</b>\n\n"
                         "The quiz could not continue safely. No Cric Tokens were awarded.\n"
-                        "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @lootxmanish</b>"
+                        "Start a new quiz with /quiz.\n\n🔥 <b>Join our channel: @lootxmanish for genuine loots + offers + tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳  </b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
                         InlineKeyboardButton(
