@@ -12089,7 +12089,6 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -15152,7 +15151,6 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-🔥 <b>Join my channel: @lootxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -15932,7 +15930,6 @@ async def death_note_finish(
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-🔥 <b>Join my channel: @lootxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
@@ -27028,7 +27025,6 @@ async def finish_codebreaker(
         "<b>🔐 CODE BREAKER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/codebreaker</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
     )
     session["state"] = "finished"
     codebreaker_sessions.pop(chat_id, None)
@@ -27597,7 +27593,6 @@ async def finish_sequence_master(
         "<b>🧠 SEQUENCE MASTER — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + ("\n".join(lines) if lines else "No players scored.")
-        + "\n\nStart another game with <code>/sequencemaster</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
     )
     session["state"] = "finished"
     sequencemaster_sessions.pop(chat_id, None)
@@ -37185,7 +37180,6 @@ async def finish_emoji_rush(
         + "\n".join(answer_lines)
         + "\n\n<b>🏆 LEADERBOARD</b>\n"
         + ("\n".join(player_lines) if player_lines else "No scores yet.")
-        + "\n\nStart a new board with <code>/emojirush</code>.\n\n🔥 <b>Join my channel: @lootxmanish</b>",
     )
     clear_arcade_players(chat_id, session)
     emoji_rush_sessions.pop(chat_id, None)
@@ -39007,7 +39001,6 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
 
             "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
-🔥 <b>Join my channel: @lootxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
