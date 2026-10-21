@@ -16923,21 +16923,13 @@ def quiz_category_from_slug(slug: str) -> tuple[str, str, str]:
 
 def quiz_bank_category(session: dict[str, object]) -> str:
     topic_kind = str(session.get("topic_kind", "general"))
-    topic_key = str(session.get("topic_key", "general"))
-    if "cricket" in topic_kind or "cricket" in topic_key:
-        return [
-            quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
-            quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
-            quiz_choice_question("Who won the 2011 Cricket World Cup?", "India", ["Australia", "Sri Lanka", "Pakistan"]),
-            quiz_choice_question("What is the maximum runs a batsman can score off one ball?", "6", ["4", "8", "10"]),
-            quiz_choice_question("Who is known as Captain Cool?", "MS Dhoni", ["Virat Kohli", "Rohit Sharma", "Kapil Dev"])
-        ].casefold()
+    topic_key = str(session.get("topic_key", "general")).casefold()
     if topic_kind == "state":
         return f"state:{topic_key}"
     if topic_kind == "math":
         return "math"
-    if topic_kind == "translation":
-        return "translation"
+    if "cricket" in topic_kind or "cricket" in topic_key:
+        return "cricket"
     return "gk"
 
 
@@ -17796,101 +17788,30 @@ def mathbattle_quiz_question(level: str) -> dict[str, object] | None:
 
 
 def local_quiz_questions(session: dict[str, object]) -> list[dict[str, object]]:
-    """Return safe, easy questions that always match the selected topic."""
-    if "cricket" in str(session.get("topic_kind", "")).casefold() or "cricket" in str(session.get("topic_key", "")).casefold():
+    topic_kind = str(session.get("topic_kind", "general"))
+    topic_key = str(session.get("topic_key", "general"))
+    if "cricket" in topic_kind or "cricket" in topic_key:
         return [
             quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
             quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
             quiz_choice_question("Who won the 2011 Cricket World Cup?", "India", ["Australia", "Sri Lanka", "Pakistan"]),
-            quiz_choice_question("What is the maximum runs a batsman can score off one ball?", "6", ["4", "8", "10"]),
             quiz_choice_question("Who is known as Captain Cool?", "MS Dhoni", ["Virat Kohli", "Rohit Sharma", "Kapil Dev"]),
-            quiz_choice_question("Which country invented cricket?", "England", ["Australia", "India", "South Africa"]),
-            quiz_choice_question("What is the length of a cricket pitch?", "22 yards", ["20 yards", "24 yards", "25 yards"]),
-            quiz_choice_question("How many stumps are there in a wicket?", "3", ["2", "4", "5"]),
-            quiz_choice_question("Who is known as the Rawalpindi Express?", "Shoaib Akhtar", ["Wasim Akram", "Waqar Younis", "Imran Khan"]),
-            quiz_choice_question("Which team has won the most IPL titles?", "Mumbai Indians", ["Chennai Super Kings", "Kolkata Knight Riders", "Royal Challengers Bangalore"])
+            quiz_choice_question("Which country invented cricket?", "England", ["Australia", "India", "South Africa"])
         ]
-        topic_kind = str(session.get("topic_kind", "general"))
-    topic_key = str(session.get("topic_key", "general"))
-    question_sets: dict[str, list[tuple[str, str, list[str]]]] = {
-        "general": [
-            ("Which planet is known as the Red Planet?", "Mars", ["Venus", "Jupiter", "Saturn"]),
-            ("What is the capital city of Japan?", "Tokyo", ["Seoul", "Beijing", "Bangkok"]),
-            ("Which ocean is the largest on Earth?", "Pacific Ocean", ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]),
-            ("Which animal is called the King of the Jungle?", "Lion", ["Tiger", "Elephant", "Leopard"]),
-            ("Which gas do plants use to make food?", "Carbon dioxide", ["Oxygen", "Nitrogen", "Helium"]),
-            ("What is the national animal of India?", "Bengal Tiger", ["Lion", "Elephant", "Peacock"]),
-            ("Which is the largest planet in our solar system?", "Jupiter", ["Earth", "Mars", "Saturn"]),
-            ("Who wrote the Indian national anthem?", "Rabindranath Tagore", ["Mahatma Gandhi", "Sarojini Naidu", "Bankim Chandra Chatterjee"]),
-            ("Which continent is India part of?", "Asia", ["Europe", "Africa", "Australia"]),
-            ("What is the currency of India?", "Indian Rupee", ["Dollar", "Yen", "Euro"]),
-            ("Which bird is the national bird of India?", "Indian Peacock", ["Eagle", "Parrot", "Swan"]),
-            ("Which instrument measures temperature?", "Thermometer", ["Barometer", "Compass", "Speedometer"]),
-        ],
-        "news": [
-            ("Which institution announces monetary policy in India?", "Reserve Bank of India", ["Election Commission of India", "NITI Aayog", "Supreme Court"]),
-            ("Who presents the Union Budget of India in Parliament?", "Finance Minister", ["Home Minister", "Chief Justice", "Speaker of Lok Sabha"]),
-            ("Which organisation is India’s space agency?", "ISRO", ["DRDO", "NASA", "BCCI"]),
-            ("What does RBI stand for?", "Reserve Bank of India", ["Revenue Board of India", "Railway Bank of India", "Regional Bank of India"]),
-            ("What does GDP measure for a country?", "Value of goods and services produced", ["Only population", "Only rainfall", "Only number of schools"]),
-            ("Which body conducts general elections in India?", "Election Commission of India", ["Reserve Bank of India", "Indian Railways", "NITI Aayog"]),
-            ("Which global body is linked with public health?", "World Health Organization", ["World Trade Organization", "United Nations Security Council", "International Monetary Fund"]),
-            ("What does G20 refer to?", "Group of major economies", ["A cricket tournament", "A space mission", "An Indian state"]),
-            ("Which ministry usually shares official weather alerts in India?", "India Meteorological Department", ["Archaeological Survey of India", "Election Commission of India", "Income Tax Department"]),
-            ("Which organisation releases the World Economic Outlook report?", "International Monetary Fund", ["World Health Organization", "UNESCO", "FIFA"]),
-        ],
-    }
     if topic_kind == "math":
-        questions: list[dict[str, object]] = []
-        for _ in range(30):
-            operation = random.choice(("add", "subtract", "multiply"))
-            if operation == "add":
-                left, right = random.randint(2, 50), random.randint(2, 50)
-                answer = left + right
-                text = f"What is {left} + {right}?"
-                distractors = [answer - 1, answer + 1, answer + 2]
-            elif operation == "subtract":
-                left, right = sorted(
-                    (random.randint(10, 75), random.randint(2, 40)),
-                    reverse=True,
-                )
-                answer = left - right
-                text = f"What is {left} - {right}?"
-                distractors = [answer - 1, answer + 1, answer + 3]
-            else:
-                left, right = random.randint(2, 12), random.randint(2, 12)
-                answer = left * right
-                text = f"What is {left} × {right}?"
-                distractors = [
-                    answer - left,
-                    answer + right,
-                    answer + left,
-                ]
-            options, correct_index = numeric_quiz_options(answer, distractors)
-            questions.append({
-                "question": text,
-                "options": options,
-                "correct_index": correct_index,
-            })
-        return questions
-    if topic_kind == "state" and topic_key in QUIZ_STATE_CAPITALS:
-        state, capital = QUIZ_STATE_CAPITALS[topic_key]
-        other_capitals = sorted({
-            value[1]
-            for _key, value in QUIZ_STATE_CAPITALS.items()
-            if value[1] != capital
-        })
-        incorrect = random.sample(other_capitals, 3)
-        templates = [
-            f"What is the capital city of {state}?",
-            f"Which city is the capital of {state}?",
-            f"Identify the capital of the Indian state {state}.",
-            f"{state} has which capital city?",
+        return [
+            quiz_choice_question("What is 15 + 27?", "42", ["32", "52", "40"]),
+            quiz_choice_question("What is 9 x 8?", "72", ["64", "81", "63"]),
+            quiz_choice_question("What is 50 - 23?", "27", ["23", "33", "37"]),
+            quiz_choice_question("What is 100 / 4?", "25", ["20", "30", "15"]),
+            quiz_choice_question("What is 12 + 18?", "30", ["28", "32", "26"])
         ]
-        return [quiz_choice_question(text, capital, incorrect) for text in templates]
     return [
-        quiz_choice_question(question, correct, incorrect)
-        for question, correct, incorrect in question_sets.get(topic_key, [])
+        quiz_choice_question("What is the capital of India?", "New Delhi", ["Mumbai", "Kolkata", "Chennai"]),
+        quiz_choice_question("Which planet is known as the Red Planet?", "Mars", ["Earth", "Jupiter", "Venus"]),
+        quiz_choice_question("What is the national animal of India?", "Tiger", ["Lion", "Elephant", "Peacock"]),
+        quiz_choice_question("How many continents are there on Earth?", "7", ["5", "6", "8"]),
+        quiz_choice_question("Which is the largest ocean on Earth?", "Pacific", ["Atlantic", "Indian", "Arctic"])
     ]
 
 
@@ -18019,163 +17940,9 @@ async def generate_quiz_question(session: dict[str, object]) -> dict[str, object
             candidate["question_hash"] = question_hash
             return candidate
             
-    # If ALL questions have been used, just return a random one instead of crashing
     chosen = random.choice(candidates)
     chosen["question_hash"] = "reused_" + str(random.randint(1,10000))
     return chosen
-
-
-async def award_quiz_rewards(
-    session: dict[str, object], ranked: list[tuple[int, int]]
-) -> None:
-    await db.execute("BEGIN IMMEDIATE")
-    try:
-        for rank, (user_id, _score) in enumerate(
-            [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
-        ):
-            player = next(player for player in session["players"] if player.id == user_id)
-            amount = QUIZ_REWARDS[rank - 1]
-            cursor = await db.execute(
-                """INSERT OR IGNORE INTO quiz_reward_claims(
-                session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
-                (session["session_id"], user_id, rank, amount),
-            )
-            if cursor.rowcount == 1:
-                await db.execute(
-                    """INSERT INTO users(user_id, first_name, username, seyu_gems)
-                    VALUES(?,?,?,?)
-                    ON CONFLICT(user_id) DO UPDATE SET
-                    first_name=excluded.first_name, username=excluded.username,
-                    seyu_gems=users.seyu_gems + excluded.seyu_gems""",
-                    (
-                        user_id,
-                        str(getattr(player, "first_name", "") or ""),
-                        str(getattr(player, "username", "") or ""),
-                        amount,
-                    ),
-                )
-        await db.commit()
-    except Exception:
-        await db.rollback()
-        raise
-
-
-def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
-    players = session["players"]
-    if session["state"] == "lobby":
-        prefix = (
-            "<b>You are already in this Quiz lobby.</b>"
-            if any(player.id == user_id for player in players)
-            else "<b>A Quiz lobby is already active in this group.</b>"
-        )
-        return (
-            f"{prefix}\n\n"
-            f"Creator: {session['creator_name']}\n"
-            f"Players: {len(players)}/{UNLIMITED_PLAYERS_LABEL}\n"
-            "Use the existing lobby. No duplicate quiz will be created."
-        )
-    prefix = (
-        "<b>You are already in an active Quiz.</b>"
-        if any(player.id == user_id for player in players)
-        else "<b>A Quiz is already active in this group.</b>"
-    )
-    return (
-        f"{prefix}\n\n"
-        f"Creator: {session['creator_name']}\n"
-        f"Players: {len(players)}\n"
-        "Wait until this quiz ends before starting another one."
-    )
-
-
-async def restore_quiz_sessions() -> None:
-    cursor = await db.execute(
-        "SELECT chat_id, message_id, state, expires_at, payload FROM quiz_sessions"
-    )
-    rows = await cursor.fetchall()
-    for row in rows:
-        chat_id = int(row["chat_id"])
-        message_id = int(row["message_id"])
-        expires_at = float(row["expires_at"])
-        if expires_at <= time.time():
-            try:
-                await bot.delete_message(chat_id, message_id)
-            except (TelegramBadRequest, TelegramForbiddenError):
-                pass
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        try:
-            data = json.loads(str(row["payload"]))
-            players = [
-                SimpleNamespace(
-                    id=int(player["id"]),
-                    first_name=str(player.get("first_name") or "Player"),
-                    username=str(player.get("username") or ""),
-                    is_bot=False,
-                )
-                for player in data["players"]
-            ]
-            state = str(row["state"])
-            if state not in {
-                "lobby", "loading", "answering", "round_result", "final_result"
-            }:
-                raise ValueError("invalid quiz state")
-            if not 1 <= len(players) <= 25:
-                raise ValueError("invalid quiz player count")
-            if not 0 <= int(data["round"]) <= max(QUIZ_ROUND_CHOICES):
-                raise ValueError("saved quiz uses an incompatible round count")
-            session = {
-                "session_id": str(data["session_id"]),
-                "state": state,
-                "creator_id": int(data["creator_id"]),
-                "creator_name": str(data["creator_name"]),
-                "topic_kind": str(data.get("topic_kind") or "general"),
-                "topic_label": str(data.get("topic_label") or "General Knowledge"),
-                "topic_key": str(data.get("topic_key") or "general"),
-                "level": str(data.get("level") or "basic"),
-                "rounds": int(data.get("rounds") or QUIZ_ROUNDS),
-                "players": players,
-                "message_id": message_id,
-                "round": int(data["round"]),
-                "scores": dict(data["scores"]),
-                "total_speed_ms": dict(data["total_speed_ms"]),
-                "question_hashes": list(data["question_hashes"]),
-                "current_question": data.get("current_question"),
-                "poll_id": data.get("poll_id"),
-                "poll_message_id": data.get("poll_message_id"),
-                "answers": dict(data.get("answers") or {}),
-                "round_started_at": data.get("round_started_at"),
-                "created_at": float(data["created_at"]),
-                "expires_at": expires_at,
-            }
-        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        quiz_sessions[chat_id] = session
-        if state == "lobby":
-            # Migrate lobbies created before the instant-play flow.
-            session["state"] = "loading"
-            session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
-            state = "loading"
-            await persist_quiz_session(chat_id, session)
-        if state == "answering" and not session.get("poll_id"):
-            # An older inline-button quiz cannot receive answers after the
-            # poll migration. Resume its current round with a fresh poll.
-            session["state"] = "loading"
-            session["round"] = max(0, int(session["round"]) - 1)
-            session["current_question"] = None
-            session["answers"] = {}
-            await persist_quiz_session(chat_id, session)
-        if session.get("poll_id"):
-            quiz_poll_sessions[str(session["poll_id"])] = chat_id
-        quiz_player_sessions[int(session["creator_id"])] = chat_id
-        for player in players:
-            quiz_player_sessions[int(player.id)] = chat_id
-        if state == "lobby":
-            quiz_tasks[chat_id] = asyncio.create_task(
-                expire_quiz_lobby(chat_id, message_id)
-            )
-        else:
-            quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
 
 async def run_quiz_session(chat_id: int) -> None:
