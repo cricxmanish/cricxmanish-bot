@@ -19552,11 +19552,16 @@ def games_menu() -> InlineKeyboardMarkup:
                     style="success",
                 ),
             ],
-            [
+                       [
                 InlineKeyboardButton(
                     text="🧠 Sequence Master",
                     callback_data="games:sequencemaster",
                     style="primary",
+                ),
+                InlineKeyboardButton(
+                    text="🏏 Cric X Manish Game",
+                    callback_data="games:cricxgame",
+                    style="success",
                 ),
             ],
             [
@@ -21708,6 +21713,25 @@ async def games_tictac(callback: CallbackQuery) -> None:
             games_menu(),
         )
 
+@router.callback_query(F.data == "games:cricxgame")
+async def games_cricxgame(callback: CallbackQuery) -> None:
+    if not await group_menu_callback_allowed(callback):
+        return
+    await callback.answer()
+    if callback.message:
+        await render_menu_text(
+            callback,
+            "<b>🏏 CRIC X MANISH GAME</b>\n\n"
+            "<b>Goal:</b> Guess the hidden Cricket word before you run out of lives!\n\n"
+            "<b>How to play</b>\n"
+            "1. Send <code>/cricxgame</code> in a group to start.\n"
+            "2. The bot will show a hint and the word as red circles (🔴).\n"
+            "3. Type single letters (like <code>A</code>, <code>B</code>) to guess.\n"
+            "4. You can also type the whole word if you know it!\n"
+            "5. You have 7 lives (❤️). A wrong letter loses a life.\n\n"
+            "<i>Play directly in the group chat!</i>",
+            games_menu(),
+        )
 
 @router.callback_query(F.data == "games:quiz")
 async def games_quiz(callback: CallbackQuery) -> None:
