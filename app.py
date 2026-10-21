@@ -15149,7 +15149,10 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         "Every player received Cric Tokens based on their team.\n\n"
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
         "Start another game with <code>/cricxmanish mafia</code>."
-        "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
+
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -15927,7 +15930,9 @@ async def death_note_finish(
         f"{role_lines}\n\n"
         "Start another game with <code>/cricxmanish deathnote</code>."
 
-            "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
@@ -19563,7 +19568,7 @@ def games_menu() -> InlineKeyboardMarkup:
                     style="success",
                 ),
             ],
-                        [
+            [
                 InlineKeyboardButton(
                     text="🧠 Sequence Master",
                     callback_data="games:sequencemaster",
@@ -19575,6 +19580,7 @@ def games_menu() -> InlineKeyboardMarkup:
                     style="success",
                 ),
             ],
+            [
                 InlineKeyboardButton(
                     text="🏠 Back to Main Menu",
                     callback_data="home",
@@ -21692,7 +21698,7 @@ async def games(callback: CallbackQuery) -> None:
     await render_menu_text(
         callback,
         "<b>🎮 CricxManish18 Games</b>\n\n"
-        "Play with your friends in a group. Choose one of eight games below "
+        "Play with your friends in a group. Choose one of nine games below "
         "to see its complete rules, commands, and reward flow.",
         games_menu(),
     )
@@ -39093,7 +39099,9 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
         "Start another game with <code>/cricxmanish mafia</code>."
 
-            "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+
+🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Start New Mafia Game",
@@ -42107,11 +42115,6 @@ def games_menu() -> InlineKeyboardMarkup:
                     text="🧠 Sequence Master",
                     callback_data="games:sequencemaster",
                     style="primary",
-                ),
-                InlineKeyboardButton(
-                    text="🏏 Cric X Manish Game",
-                    callback_data="games:cricxgame",
-                    style="success",
                 ),
             ],
             [
