@@ -19563,14 +19563,18 @@ def games_menu() -> InlineKeyboardMarkup:
                     style="success",
                 ),
             ],
-            [
+                        [
                 InlineKeyboardButton(
                     text="🧠 Sequence Master",
                     callback_data="games:sequencemaster",
                     style="primary",
                 ),
+                InlineKeyboardButton(
+                    text="🏏 Cric X Manish Game",
+                    callback_data="games:cricxgame",
+                    style="success",
+                ),
             ],
-            [
                 InlineKeyboardButton(
                     text="🏠 Back to Main Menu",
                     callback_data="home",
@@ -42104,6 +42108,11 @@ def games_menu() -> InlineKeyboardMarkup:
                     callback_data="games:sequencemaster",
                     style="primary",
                 ),
+                InlineKeyboardButton(
+                    text="🏏 Cric X Manish Game",
+                    callback_data="games:cricxgame",
+                    style="success",
+                ),
             ],
             [
                 InlineKeyboardButton(
@@ -44192,7 +44201,7 @@ async def games(callback: CallbackQuery) -> None:
     await render_menu_text(
         callback,
         "<b>🎮 CricxManish18 Games</b>\n\n"
-        "Play with your friends in a group. Choose one of eight games below "
+        "Play with your friends in a group. Choose one of nine games below "
         "to see its complete rules, commands, and reward flow.",
         games_menu(),
     )
