@@ -26561,7 +26561,89 @@ async def _run_render_health_server() -> None:
         raise
 
 
+
+# ═══════════════════ CRIC X MANISH GAME ═══════════════════
+cricx_sessions: dict[int, dict[str, object]] = {}
+
+CRICX_WORDS = ["CRICKET", "STADIUM", "BATSMAN", "BOWLER", "UMPIRE", "WICKET", "VIRAT", "ROHIT", "DHONI", "SACHIN", "TROPHY", "BOUNDARY", "SIXER", "HELMET", "VICTORY", "CHAMPION"]
+
+def cricx_display(word, guessed):
+    return " ".join([letter if letter in guessed else "🔴" for letter in word])
+
+@router.message(Command("cricxgame"))
+async def start_cricx_game(message: Message):
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("This game can only be played in a group.")
+        return
+    chat_id = message.chat.id
+    if chat_id in cricx_sessions:
+        await message.answer("A game is already running in this group!")
+        return
+    
+    word = random.choice(CRICX_WORDS)
+    cricx_sessions[chat_id] = {"word": word, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    
+    await message.answer(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"Guess the word!\n"
+        f"<code>{cricx_display(word, set())}</code>\n\n"
+        f"❤️ Lives: 7\n"
+        f"<i>Send letters or the whole word to guess.</i>"
+    )
+
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text)
+async def cricx_guess_handler(message: Message):
+    chat_id = message.chat.id
+    if chat_id not in cricx_sessions:
+        raise SkipHandler
+    
+    guess = message.text.strip().upper()
+    if guess.startswith("/"):
+        raise SkipHandler
+        
+    session = cricx_sessions[chat_id]
+    word = session["word"]
+    
+    # Guess whole word
+    if len(guess) > 1:
+        if guess == word:
+            await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won!")
+            del cricx_sessions[chat_id]
+            return
+        else:
+            session["wrong"] += 1
+    # Guess letter
+    elif len(guess) == 1 and guess.isalpha():
+        if guess in session["guessed"]:
+            raise SkipHandler
+        session["guessed"].add(guess)
+        if guess not in word:
+            session["wrong"] += 1
+    else:
+        raise SkipHandler
+
+    lives = 7 - session["wrong"]
+    
+    if lives <= 0:
+        await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
+        del cricx_sessions[chat_id]
+        return
+        
+    if all(letter in session["guessed"] for letter in word):
+        await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won!")
+        del cricx_sessions[chat_id]
+        return
+
+    await message.reply(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<code>{cricx_display(word, session['guessed'])}</code>\n\n"
+        f"❤️ Lives: {lives}\n"
+        f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
+    )
+# ═══════════════════════════════════════════════════════════
+
 async def main() -> None:
+
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
     global music_assistant_label, group_activity_flush_task
     global group_activity_window_started_at

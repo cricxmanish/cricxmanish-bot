@@ -1,0 +1,50 @@
+q1 | hard | Present | मुझे किताबें पढ़ना पसंद है। | I like reading books. | I like reading books. || I liked reading books. || I don't know the answer. || I will read books.
+q2 | basic | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || I don't know the answer. || We went to Jaipur. || We are going to Jaipur.
+q3 | basic | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || I don't know the answer. || The sun rose from the east. || The sun sets in the west.
+q4 | basic | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || I don't know the answer. || We went to Jaipur. || We are going to Jaipur.
+q5 | hard | Present | वह खाना खा रहा है। | He is eating food. | He is eating food. || I don't know the answer. || He will eat food. || He ate food.
+q6 | basic | Present | उसने मुझे एक तोहफा दिया। | He gave me a gift. | He gave me a gift. || I don't know the answer. || She gave me a gift. || He gives me a gift.
+q7 | hard | Present | उसने मुझे एक तोहफा दिया। | He gave me a gift. | He gave me a gift. || I don't know the answer. || She gave me a gift. || He gives me a gift.
+q8 | hard | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || I don't know the answer. || We went to Jaipur. || We are going to Jaipur.
+q9 | medium | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We are going to Jaipur. || I don't know the answer. || We went to Jaipur.
+q10 | medium | Present | मैं स्कूल जाता हूँ। | I go to school. | I go to school. || I don't know the answer. || I went to school. || I am going to school.
+q11 | medium | Present | क्या तुमने खाना खा लिया? | Have you eaten food? | Have you eaten food? || Did you eat food? || Will you eat food? || I don't know the answer.
+q12 | hard | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun sets in the west. || The sun rose from the east. || I don't know the answer.
+q13 | hard | Present | क्या तुमने खाना खा लिया? | Have you eaten food? | Have you eaten food? || Will you eat food? || Did you eat food? || I don't know the answer.
+q14 | basic | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || He wanted to become a doctor. || I don't know the answer. || He is a doctor.
+q15 | hard | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || He wanted to become a doctor. || I don't know the answer. || He is a doctor.
+q16 | hard | Present | उसने मुझे एक तोहफा दिया। | He gave me a gift. | He gave me a gift. || I don't know the answer. || He gives me a gift. || She gave me a gift.
+q17 | medium | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || I don't know the answer. || We went to Jaipur. || We are going to Jaipur.
+q18 | basic | Present | वह खाना खा रहा है। | He is eating food. | He is eating food. || He ate food. || He will eat food. || I don't know the answer.
+q19 | medium | Present | वह खाना खा रहा है। | He is eating food. | He is eating food. || He will eat food. || I don't know the answer. || He ate food.
+q20 | medium | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun rose from the east. || I don't know the answer. || The sun sets in the west.
+q21 | hard | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun rose from the east. || The sun sets in the west. || I don't know the answer.
+q22 | medium | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || I am Manish. || I don't know the answer. || My name was Manish.
+q23 | basic | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun rose from the east. || I don't know the answer. || The sun sets in the west.
+q24 | basic | Present | क्या तुमने खाना खा लिया? | Have you eaten food? | Have you eaten food? || Will you eat food? || Did you eat food? || I don't know the answer.
+q25 | medium | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || I don't know the answer. || The sun rose from the east. || The sun sets in the west.
+q26 | basic | Present | मुझे किताबें पढ़ना पसंद है। | I like reading books. | I like reading books. || I will read books. || I don't know the answer. || I liked reading books.
+q27 | medium | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || He is a doctor. || He wanted to become a doctor. || I don't know the answer.
+q28 | basic | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We went to Jaipur. || We are going to Jaipur. || I don't know the answer.
+q29 | basic | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun sets in the west. || I don't know the answer. || The sun rose from the east.
+q30 | medium | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun rose from the east. || The sun sets in the west. || I don't know the answer.
+q31 | basic | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || The sun sets in the west. || The sun rose from the east. || I don't know the answer.
+q32 | basic | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We are going to Jaipur. || We went to Jaipur. || I don't know the answer.
+q33 | basic | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || I don't know the answer. || We are going to Jaipur. || We went to Jaipur.
+q34 | hard | Present | उसने मुझे एक तोहफा दिया। | He gave me a gift. | He gave me a gift. || I don't know the answer. || She gave me a gift. || He gives me a gift.
+q35 | hard | Present | तुम क्या कर रहे हो? | What are you doing? | What are you doing? || I don't know the answer. || What did you do? || What will you do?
+q36 | basic | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || I am Manish. || I don't know the answer. || My name was Manish.
+q37 | medium | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || I am Manish. || I don't know the answer. || My name was Manish.
+q38 | medium | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || I don't know the answer. || He wanted to become a doctor. || He is a doctor.
+q39 | medium | Present | सूरज पूर्व से उगता है। | The sun rises from the east. | The sun rises from the east. || I don't know the answer. || The sun rose from the east. || The sun sets in the west.
+q40 | hard | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || He wanted to become a doctor. || He is a doctor. || I don't know the answer.
+q41 | hard | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || My name was Manish. || I don't know the answer. || I am Manish.
+q42 | hard | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || I am Manish. || I don't know the answer. || My name was Manish.
+q43 | medium | Present | तुम क्या कर रहे हो? | What are you doing? | What are you doing? || What did you do? || I don't know the answer. || What will you do?
+q44 | basic | Present | वह खाना खा रहा है। | He is eating food. | He is eating food. || He ate food. || He will eat food. || I don't know the answer.
+q45 | medium | Present | मैं स्कूल जाता हूँ। | I go to school. | I go to school. || I am going to school. || I went to school. || I don't know the answer.
+q46 | basic | Present | मेरा नाम मनीष है। | My name is Manish. | My name is Manish. || My name was Manish. || I am Manish. || I don't know the answer.
+q47 | basic | Present | वह एक डॉक्टर बनना चाहता है। | He wants to become a doctor. | He wants to become a doctor. || He is a doctor. || He wanted to become a doctor. || I don't know the answer.
+q48 | medium | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We are going to Jaipur. || We went to Jaipur. || I don't know the answer.
+q49 | hard | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We are going to Jaipur. || We went to Jaipur. || I don't know the answer.
+q50 | hard | Present | हम कल जयपुर जाएंगे। | We will go to Jaipur tomorrow. | We will go to Jaipur tomorrow. || We are going to Jaipur. || I don't know the answer. || We went to Jaipur.

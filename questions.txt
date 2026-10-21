@@ -1,0 +1,90 @@
+{"category": "cricket", "level": "basic", "question": "Who won the 2011 Cricket World Cup?", "options": ["India", "Australia", "Sri Lanka", "Pakistan"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which player is known as the 'God of Cricket'?", "options": ["Sachin Tendulkar", "Virat Kohli", "MS Dhoni", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "How many players are there in a cricket team?", "options": ["9", "10", "11", "12"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["Virat Kohli", "MS Dhoni", "Rohit Sharma", "Kapil Dev"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "What is the maximum runs a batsman can score off one legal ball?", "options": ["4", "6", "8", "10"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Which country invented cricket?", "options": ["England", "Australia", "India", "South Africa"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in ODIs?", "options": ["Rohit Sharma", "Sachin Tendulkar", "Virender Sehwag", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "What is the term for three wickets in three consecutive balls?", "options": ["Hat-trick", "Triple", "Hattrick", "Double"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Shoaib Akhtar", "Brett Lee", "Shaun Tait", "Mitchell Starc"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which team has won the most IPL titles?", "options": ["Chennai Super Kings", "Mumbai Indians", "Kolkata Knight Riders", "Royal Challengers Bangalore"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who was the first Indian to score a century in test cricket?", "options": ["Lala Amarnath", "Sachin Tendulkar", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "How many stumps are there in a wicket?", "options": ["2", "3", "4", "5"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "What is the length of a cricket pitch?", "options": ["20 yards", "22 yards", "24 yards", "25 yards"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most test wickets?", "options": ["Shane Warne", "Muttiah Muralitharan", "James Anderson", "Anil Kumble"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is known as the 'Rawalpindi Express'?", "options": ["Shoaib Akhtar", "Wasim Akram", "Waqar Younis", "Imran Khan"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which Indian batsman is called the 'Run Machine'?", "options": ["Virat Kohli", "Rohit Sharma", "KL Rahul", "Shikhar Dhawan"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which player scored the first double century in ODI cricket?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Rohit Sharma", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "What is a 'googly' in cricket?", "options": ["A type of bat", "A bowling delivery", "A fielding position", "A type of pitch"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is the current captain of the Indian Test team? (2024)", "options": ["Rohit Sharma", "Virat Kohli", "KL Rahul", "Jasprit Bumrah"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who wrote the Indian National Anthem?", "options": ["Rabindranath Tagore", "Mahatma Gandhi", "Bankim Chandra", "Subhash Chandra"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Lion", "Tiger", "Elephant", "Peacock"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["5", "6", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which is the largest ocean?", "options": ["Atlantic", "Indian", "Arctic", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who is known as the Father of the Nation?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Bhagat Singh", "Sardar Patel"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What does CPU stand for?", "options": ["Central Process Unit", "Computer Personal Unit", "Central Processing Unit", "Control Processing Unit"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is 15% of 200?", "options": ["25", "30", "35", "20"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["India", "Australia", "Sri Lanka", "Pakistan"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which player is known as the 'God of Cricket'?", "options": ["Sachin Tendulkar", "Virat Kohli", "MS Dhoni", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "How many players are there in a cricket team?", "options": ["9", "10", "11", "12"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who is known as Captain Cool?", "options": ["Virat Kohli", "MS Dhoni", "Rohit Sharma", "Kapil Dev"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "What is the maximum runs a batsman can score off one legal ball?", "options": ["4", "6", "8", "10"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which country invented cricket?", "options": ["England", "Australia", "India", "South Africa"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest individual score in ODIs?", "options": ["Rohit Sharma", "Sachin Tendulkar", "Virender Sehwag", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "What is the term for three wickets in three consecutive balls?", "options": ["Hat-trick", "Triple", "Hattrick", "Double"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who is the fastest bowler in cricket history?", "options": ["Shoaib Akhtar", "Brett Lee", "Shaun Tait", "Mitchell Starc"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which team has won the most IPL titles?", "options": ["Chennai Super Kings", "Mumbai Indians", "Kolkata Knight Riders", "Royal Challengers Bangalore"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in test cricket?", "options": ["Lala Amarnath", "Sachin Tendulkar", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "How many stumps are there in a wicket?", "options": ["2", "3", "4", "5"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "What is the length of a cricket pitch?", "options": ["20 yards", "22 yards", "24 yards", "25 yards"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most test wickets?", "options": ["Shane Warne", "Muttiah Muralitharan", "James Anderson", "Anil Kumble"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who is known as the 'Rawalpindi Express'?", "options": ["Shoaib Akhtar", "Wasim Akram", "Waqar Younis", "Imran Khan"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which Indian batsman is called the 'Run Machine'?", "options": ["Virat Kohli", "Rohit Sharma", "KL Rahul", "Shikhar Dhawan"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which player scored the first double century in ODI cricket?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Rohit Sharma", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "What is a 'googly' in cricket?", "options": ["A type of bat", "A bowling delivery", "A fielding position", "A type of pitch"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who is the current captain of the Indian Test team? (2024)", "options": ["Rohit Sharma", "Virat Kohli", "KL Rahul", "Jasprit Bumrah"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Who wrote the Indian National Anthem?", "options": ["Rabindranath Tagore", "Mahatma Gandhi", "Bankim Chandra", "Subhash Chandra"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "What is the national animal of India?", "options": ["Lion", "Tiger", "Elephant", "Peacock"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["5", "6", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which is the largest ocean?", "options": ["Atlantic", "Indian", "Arctic", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Who is known as the Father of the Nation?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Bhagat Singh", "Sardar Patel"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What does CPU stand for?", "options": ["Central Process Unit", "Computer Personal Unit", "Central Processing Unit", "Control Processing Unit"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which gas do plants absorb?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is 15% of 200?", "options": ["25", "30", "35", "20"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who won the 2011 Cricket World Cup?", "options": ["India", "Australia", "Sri Lanka", "Pakistan"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which player is known as the 'God of Cricket'?", "options": ["Sachin Tendulkar", "Virat Kohli", "MS Dhoni", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "How many players are there in a cricket team?", "options": ["9", "10", "11", "12"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who is known as Captain Cool?", "options": ["Virat Kohli", "MS Dhoni", "Rohit Sharma", "Kapil Dev"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "What is the maximum runs a batsman can score off one legal ball?", "options": ["4", "6", "8", "10"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Which country invented cricket?", "options": ["England", "Australia", "India", "South Africa"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the highest individual score in ODIs?", "options": ["Rohit Sharma", "Sachin Tendulkar", "Virender Sehwag", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "What is the term for three wickets in three consecutive balls?", "options": ["Hat-trick", "Triple", "Hattrick", "Double"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Shoaib Akhtar", "Brett Lee", "Shaun Tait", "Mitchell Starc"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which team has won the most IPL titles?", "options": ["Chennai Super Kings", "Mumbai Indians", "Kolkata Knight Riders", "Royal Challengers Bangalore"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the first Indian to score a century in test cricket?", "options": ["Lala Amarnath", "Sachin Tendulkar", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "How many stumps are there in a wicket?", "options": ["2", "3", "4", "5"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "What is the length of a cricket pitch?", "options": ["20 yards", "22 yards", "24 yards", "25 yards"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which bowler has taken the most test wickets?", "options": ["Shane Warne", "Muttiah Muralitharan", "James Anderson", "Anil Kumble"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who is known as the 'Rawalpindi Express'?", "options": ["Shoaib Akhtar", "Wasim Akram", "Waqar Younis", "Imran Khan"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which Indian batsman is called the 'Run Machine'?", "options": ["Virat Kohli", "Rohit Sharma", "KL Rahul", "Shikhar Dhawan"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which player scored the first double century in ODI cricket?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Rohit Sharma", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "What is a 'googly' in cricket?", "options": ["A type of bat", "A bowling delivery", "A fielding position", "A type of pitch"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who is the current captain of the Indian Test team? (2024)", "options": ["Rohit Sharma", "Virat Kohli", "KL Rahul", "Jasprit Bumrah"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who wrote the Indian National Anthem?", "options": ["Rabindranath Tagore", "Mahatma Gandhi", "Bankim Chandra", "Subhash Chandra"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Lion", "Tiger", "Elephant", "Peacock"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "How many continents are there on Earth?", "options": ["5", "6", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which is the largest ocean?", "options": ["Atlantic", "Indian", "Arctic", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who is known as the Father of the Nation?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Bhagat Singh", "Sardar Patel"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What does CPU stand for?", "options": ["Central Process Unit", "Computer Personal Unit", "Central Processing Unit", "Control Processing Unit"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which gas do plants absorb?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is 15% of 200?", "options": ["25", "30", "35", "20"], "correct_index": 1}

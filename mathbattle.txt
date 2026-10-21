@@ -1,0 +1,360 @@
+Level: basic
+Question: 10 + 19
+Answer: 29
+Level: basic
+Question: 7 + 24
+Answer: 31
+Level: basic
+Question: 10 - 16
+Answer: -6
+Level: basic
+Question: 9 + 21
+Answer: 30
+Level: basic
+Question: 9 * 6
+Answer: 54
+Level: basic
+Question: 25 * 27
+Answer: 675
+Level: basic
+Question: 29 * 12
+Answer: 348
+Level: basic
+Question: 10 + 22
+Answer: 32
+Level: basic
+Question: 8 + 17
+Answer: 25
+Level: basic
+Question: 17 - 14
+Answer: 3
+Level: basic
+Question: 22 - 18
+Answer: 4
+Level: basic
+Question: 11 * 6
+Answer: 66
+Level: basic
+Question: 7 - 28
+Answer: -21
+Level: basic
+Question: 28 * 8
+Answer: 224
+Level: basic
+Question: 1 + 9
+Answer: 10
+Level: basic
+Question: 11 - 19
+Answer: -8
+Level: basic
+Question: 17 - 4
+Answer: 13
+Level: basic
+Question: 20 + 15
+Answer: 35
+Level: basic
+Question: 9 + 3
+Answer: 12
+Level: basic
+Question: 19 + 7
+Answer: 26
+Level: basic
+Question: 23 + 6
+Answer: 29
+Level: basic
+Question: 25 + 3
+Answer: 28
+Level: basic
+Question: 29 - 8
+Answer: 21
+Level: basic
+Question: 15 * 30
+Answer: 450
+Level: basic
+Question: 6 - 22
+Answer: -16
+Level: basic
+Question: 1 + 10
+Answer: 11
+Level: basic
+Question: 9 * 6
+Answer: 54
+Level: basic
+Question: 18 + 23
+Answer: 41
+Level: basic
+Question: 23 - 6
+Answer: 17
+Level: basic
+Question: 24 + 18
+Answer: 42
+Level: basic
+Question: 26 - 17
+Answer: 9
+Level: basic
+Question: 6 * 18
+Answer: 108
+Level: basic
+Question: 2 * 17
+Answer: 34
+Level: basic
+Question: 13 + 26
+Answer: 39
+Level: basic
+Question: 13 + 10
+Answer: 23
+Level: basic
+Question: 22 * 3
+Answer: 66
+Level: basic
+Question: 14 + 8
+Answer: 22
+Level: basic
+Question: 7 - 8
+Answer: -1
+Level: basic
+Question: 2 - 1
+Answer: 1
+Level: basic
+Question: 2 - 11
+Answer: -9
+Level: medium
+Question: 33 - 25
+Answer: 8
+Level: medium
+Question: 80 * 68
+Answer: 5440
+Level: medium
+Question: 64 - 55
+Answer: 9
+Level: medium
+Question: 35 * 25
+Answer: 875
+Level: medium
+Question: 127 * 54
+Answer: 6858
+Level: medium
+Question: 52 - 5
+Answer: 47
+Level: medium
+Question: 128 + 61
+Answer: 189
+Level: medium
+Question: 23 * 27
+Answer: 621
+Level: medium
+Question: 137 + 74
+Answer: 211
+Level: medium
+Question: 44 + 55
+Answer: 99
+Level: medium
+Question: 57 + 48
+Answer: 105
+Level: medium
+Question: 83 * 10
+Answer: 830
+Level: medium
+Question: 131 - 33
+Answer: 98
+Level: medium
+Question: 90 + 8
+Answer: 98
+Level: medium
+Question: 118 - 15
+Answer: 103
+Level: medium
+Question: 79 - 73
+Answer: 6
+Level: medium
+Question: 46 + 6
+Answer: 52
+Level: medium
+Question: 62 * 86
+Answer: 5332
+Level: medium
+Question: 72 * 98
+Answer: 7056
+Level: medium
+Question: 145 * 70
+Answer: 10150
+Level: medium
+Question: 70 * 52
+Answer: 3640
+Level: medium
+Question: 130 * 44
+Answer: 5720
+Level: medium
+Question: 61 * 57
+Answer: 3477
+Level: medium
+Question: 115 * 89
+Answer: 10235
+Level: medium
+Question: 91 + 61
+Answer: 152
+Level: medium
+Question: 18 + 25
+Answer: 43
+Level: medium
+Question: 106 - 23
+Answer: 83
+Level: medium
+Question: 149 - 77
+Answer: 72
+Level: medium
+Question: 138 - 91
+Answer: 47
+Level: medium
+Question: 45 - 62
+Answer: -17
+Level: medium
+Question: 148 + 74
+Answer: 222
+Level: medium
+Question: 116 * 35
+Answer: 4060
+Level: medium
+Question: 13 - 50
+Answer: -37
+Level: medium
+Question: 68 - 46
+Answer: 22
+Level: medium
+Question: 69 + 68
+Answer: 137
+Level: medium
+Question: 96 * 50
+Answer: 4800
+Level: medium
+Question: 147 + 91
+Answer: 238
+Level: medium
+Question: 56 - 16
+Answer: 40
+Level: medium
+Question: 18 * 49
+Answer: 882
+Level: medium
+Question: 94 * 92
+Answer: 8648
+Level: hard
+Question: 151 * 165
+Answer: 24915
+Level: hard
+Question: 404 - 37
+Answer: 367
+Level: hard
+Question: 442 - 63
+Answer: 379
+Level: hard
+Question: 311 * 104
+Answer: 32344
+Level: hard
+Question: 172 - 199
+Answer: -27
+Level: hard
+Question: 155 - 198
+Answer: -43
+Level: hard
+Question: 251 * 130
+Answer: 32630
+Level: hard
+Question: 484 * 65
+Answer: 31460
+Level: hard
+Question: 86 * 70
+Answer: 6020
+Level: hard
+Question: 337 * 56
+Answer: 18872
+Level: hard
+Question: 294 + 163
+Answer: 457
+Level: hard
+Question: 223 + 200
+Answer: 423
+Level: hard
+Question: 272 + 147
+Answer: 419
+Level: hard
+Question: 431 - 33
+Answer: 398
+Level: hard
+Question: 231 - 24
+Answer: 207
+Level: hard
+Question: 267 * 47
+Answer: 12549
+Level: hard
+Question: 246 + 47
+Answer: 293
+Level: hard
+Question: 446 * 68
+Answer: 30328
+Level: hard
+Question: 461 + 118
+Answer: 579
+Level: hard
+Question: 52 * 101
+Answer: 5252
+Level: hard
+Question: 170 * 94
+Answer: 15980
+Level: hard
+Question: 319 * 151
+Answer: 48169
+Level: hard
+Question: 273 - 121
+Answer: 152
+Level: hard
+Question: 55 + 103
+Answer: 158
+Level: hard
+Question: 201 - 134
+Answer: 67
+Level: hard
+Question: 341 + 192
+Answer: 533
+Level: hard
+Question: 328 + 98
+Answer: 426
+Level: hard
+Question: 410 - 167
+Answer: 243
+Level: hard
+Question: 299 * 158
+Answer: 47242
+Level: hard
+Question: 436 * 195
+Answer: 85020
+Level: hard
+Question: 450 * 195
+Answer: 87750
+Level: hard
+Question: 301 - 115
+Answer: 186
+Level: hard
+Question: 281 - 197
+Answer: 84
+Level: hard
+Question: 382 - 90
+Answer: 292
+Level: hard
+Question: 483 + 36
+Answer: 519
+Level: hard
+Question: 163 + 36
+Answer: 199
+Level: hard
+Question: 315 - 175
+Answer: 140
+Level: hard
+Question: 291 + 114
+Answer: 405
+Level: hard
+Question: 145 - 133
+Answer: 12
+Level: hard
+Question: 491 + 79
+Answer: 570
