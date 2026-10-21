@@ -1,4 +1,4 @@
-"""Seyuki Telegram bot - single-file deployment.
+"""CricxManish18 Telegram bot - single-file deployment.
 
 Credentials are read from environment secrets and can be managed from the
 owner-only Admin Panel. Panel-managed values are encrypted at rest.
@@ -140,7 +140,7 @@ def InlineKeyboardButton(*args, **kwargs):
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-log = logging.getLogger("seyuki")
+log = logging.getLogger("cricxmanish")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 TOKEN = (
@@ -180,13 +180,13 @@ MONGO_PASSWORD = os.getenv("MONGO_PASSWORD", "").strip()
 MODEL = os.getenv("OPENROUTER_MODEL", "liquid/lfm-2.5-2.6b:free")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
 PROVIDER_ORDER = os.getenv("OPENROUTER_PROVIDER_ORDER", "").strip()
-BOT_NAME = os.getenv("BOT_NAME", "Seyuki")
+BOT_NAME = os.getenv("BOT_NAME", "CricxManish18")
 ADMIN_IDS = {
     int(value.strip())
     for value in os.getenv("ADMIN_USER_IDS", "8034386458").split(",")
     if value.strip().isdigit()
 }
-DB_PATH = os.getenv("DATABASE_PATH", "./data/seyuki.sqlite3")
+DB_PATH = os.getenv("DATABASE_PATH", "./data/cricxmanish.sqlite3")
 USERS_JSON_PATH = os.getenv("USERS_JSON_PATH", "./data/users.json")
 PENDING_STICKER_DIR = Path(os.getenv("PENDING_STICKER_DIR", "./data/pending_stickers"))
 YOUTUBE_COOKIE_DIR = Path(
@@ -210,14 +210,14 @@ DAILY_ZONE_TEMPLATE_PATH = (
     / "attached_assets"
     / "image_1789494144972.png"
 )
-DAILY_ZONE_CUSTOM_TEMPLATE_PATH = Path("./data") / "seyuki_daily_zone_template.png"
+DAILY_ZONE_CUSTOM_TEMPLATE_PATH = Path("./data") / "cricxmanish_daily_zone_template.png"
 MUSIC_TEMPLATE_DEFAULT_PATH = Path(
     os.getenv(
         "MUSIC_TEMPLATE_DEFAULT_PATH",
         str(Path(__file__).resolve().parent / "image_1790525279182.png"),
     )
 )
-MUSIC_CUSTOM_TEMPLATE_PATH = Path("./data") / "seyuki_music_template.png"
+MUSIC_CUSTOM_TEMPLATE_PATH = Path("./data") / "cricxmanish_music_template.png"
 
 if not TOKEN:
     raise RuntimeError("TELEGRAM_BOT_TOKEN is not configured")
@@ -230,8 +230,8 @@ if not API_KEY:
 router = Router()
 
 
-# ═══════════════════ Seyu Coupon System (Seyu Gems redeem) ═══════════════════
-# Coupon Manager + Your Vouchers (admin) and Store redeem (users, Seyu Gems only).
+# ═══════════════════ Cric Coupon System (Cric Tokens redeem) ═══════════════════
+# Coupon Manager + Your Vouchers (admin) and Store redeem (users, Cric Tokens only).
 seyu_coupon_waiting: dict[int, dict] = {}
 seyu_coupon_lock = asyncio.Lock()
 _seyu_coupon_ready = False
@@ -346,7 +346,7 @@ async def sc_coupon_view(ctype: str):
     vis = bool(c["visible"])
     color = c["color"]
     text = (f"{_SC_COLORS.get(color, '🔴')} <b>{sc_label(c)}</b>\n━━━━━━━━━━━━━━━━━━━━\n"
-            f"💎 Price: <b>{c['gems']}</b> Seyu Gems per coupon\n"
+            f"💎 Price: <b>{c['gems']}</b> Cric Tokens per coupon\n"
             f"📦 Available: {stock}  |  Redeemed: {redeemed}\n"
             f"👁️ Status: {'✅ ON' if vis else '🔕 OFF'}\n🎨 Color: {color}  |  Emoji: "
             f"{'custom animated emoji' if c['emoji_custom_id'] else (c['emoji'] or '—')}")
@@ -405,7 +405,7 @@ async def sc_manager_cb(callback: CallbackQuery) -> None:
     prompts = {
         "add": ("add_codes", f"➕ <b>Add Codes — {sc_label(c)}</b>\n\n• Send codes <b>one per line</b>\n• Or upload a <b>.txt file</b>\n• Duplicates auto-filtered"),
         "ren": ("rename", f"📝 <b>Rename</b> — <b>{sc_label(c)}</b>\n\nSend the new name:"),
-        "price": ("price", f"💎 <b>Edit Price</b> — <b>{sc_label(c)}</b>\nCurrent: <b>{c['gems']}</b> Seyu Gems\n\nHow many Seyu Gems for per coupon?"),
+        "price": ("price", f"💎 <b>Edit Price</b> — <b>{sc_label(c)}</b>\nCurrent: <b>{c['gems']}</b> Cric Tokens\n\nHow many Cric Tokens for per coupon?"),
         "emo": ("emoji", f"🎭 <b>Emoji</b> — <b>{sc_label(c)}</b>\n\nSend an emoji (or send <code>-</code> to remove):"),
         "rem": ("remove_codes", f"🗑️ <b>Remove Codes — {sc_label(c)}</b>\n\nSend codes to remove one per line, or upload a <b>.txt file</b>:"),
     }
@@ -477,19 +477,19 @@ async def sc_waiting_input(message: Message) -> None:
             await message.answer("❌ Name too short. Try again.")
             return
         seyu_coupon_waiting[uid] = {"step": "new_price", "name": raw[:80]}
-        await message.answer(f"✅ Name: <b>{html.escape(raw[:80])}</b>\n\nHow many <b>Seyu Gems</b> for per coupon?",
+        await message.answer(f"✅ Name: <b>{html.escape(raw[:80])}</b>\n\nHow many <b>Cric Tokens</b> for per coupon?",
                              reply_markup=sc_cancel_kb("scm:list"))
         return
     if step in ("new_price", "price"):
         if not raw.isdigit() or int(raw) <= 0:
-            await message.answer("❌ Invalid. Send a number of Seyu Gems like <code>500</code>.")
+            await message.answer("❌ Invalid. Send a number of Cric Tokens like <code>500</code>.")
             return
         gems = int(raw)
         seyu_coupon_waiting.pop(uid, None)
         if step == "price":
             await db.execute("UPDATE seyu_coupons SET gems=? WHERE ctype=?", (gems, ctype))
             await db.commit()
-            await message.answer(f"✅ Price updated to <b>{gems}</b> Seyu Gems per coupon", reply_markup=back_kb)
+            await message.answer(f"✅ Price updated to <b>{gems}</b> Cric Tokens per coupon", reply_markup=back_kb)
             return
         name = st.get("name", "Coupon")
         key = re.sub(r"[^a-z0-9_]", "_", name.lower()).strip("_")
@@ -500,7 +500,7 @@ async def sc_waiting_input(message: Message) -> None:
         await db.execute("INSERT INTO seyu_coupons(ctype, name, gems) VALUES(?,?,?)", (key, name, gems))
         await db.commit()
         await message.answer(
-            f"✅ <b>Coupon Created!</b>\n\n🏷️ Name: <b>{html.escape(name)}</b>\n💎 Price: <b>{gems}</b> Seyu Gems per coupon\n\nAdd codes now or later.",
+            f"✅ <b>Coupon Created!</b>\n\n🏷️ Name: <b>{html.escape(name)}</b>\n💎 Price: <b>{gems}</b> Cric Tokens per coupon\n\nAdd codes now or later.",
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
                 [sc_ib("➕ Add Codes", f"scm:add:{key}", "success")],
                 [sc_ib("🔙 Coupon List", "scm:list", "primary")]]))
@@ -631,7 +631,7 @@ async def sc_vouchers_cb(callback: CallbackQuery) -> None:
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[[sc_ib("🔙 Your Vouchers", "scv:open", "primary")]]))
 
 
-# ── User: Store redeem with Seyu Gems ─────────────────────────────────────────
+# ── User: Store redeem with Cric Tokens ─────────────────────────────────────────
 async def sc_store_view(user_id: int):
     await sc_ensure()
     gems = await sc_user_gems(user_id)
@@ -642,10 +642,10 @@ async def sc_store_view(user_id: int):
             continue
         stock = await sc_stock(c["ctype"])
         lines.append(f"{_SC_COLORS.get(c['color'], '🔴')} {sc_label(c)} — "
-                     f"💎 <b>{c['gems']} Seyu Gems</b>"
+                     f"💎 <b>{c['gems']} Cric Tokens</b>"
                      f" {'(' + str(stock) + ' left)' if stock else '(Out of stock)'}")
         rows.append([sc_ib(
-            f"{c['name']} — {c['gems']} Seyu Gems",
+            f"{c['name']} — {c['gems']} Cric Tokens",
             f"scs:c:{c['ctype']}",
             "primary",
             str(c["emoji_custom_id"] or ""),
@@ -653,10 +653,10 @@ async def sc_store_view(user_id: int):
     rows.append([sc_ib("🎟️ My Coupons", "scs:mine", "primary")])
     rows.append([sc_ib("🏠 Back to Main Menu", "home", "success")])
     text = (
-        f"<blockquote><b>Seyu Store</b>\n━━━━━━━━━━━━━━━━━━━━\n"
-        f"💎 Your Seyu Gems: <b>{gems:,}</b>\n\n"
+        f"<blockquote><b>Cric Store</b>\n━━━━━━━━━━━━━━━━━━━━\n"
+        f"💎 Your Cric Tokens: <b>{gems:,}</b>\n\n"
         + ("\n".join(lines) if lines else "<i>No coupons available right now. Check back soon!</i>")
-        + "\n\nRedeem coupons using your Seyu Gems.</blockquote>"
+        + "\n\nRedeem coupons using your Cric Tokens.</blockquote>"
     )
     return text, InlineKeyboardMarkup(inline_keyboard=rows)
 
@@ -687,7 +687,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
                 callback,
                 f"<blockquote>🎟️  <b>My Coupons</b>\n{_SEP}\n"
                 f"💬  <i>No coupons redeemed yet!</i>\n"
-                f"Redeem your first coupon from the <b>🛍 Seyu Store</b>.</blockquote>",
+                f"Redeem your first coupon from the <b>🛍 Cric Store</b>.</blockquote>",
                 InlineKeyboardMarkup(inline_keyboard=[back_store]))
             return
         total = len(rows)
@@ -704,7 +704,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
         lines = [
             f"🎟️ My Coupons — {fname} (ID: {uid})\n",
             f"Total: {len(batches)} order{'s' if len(batches) != 1 else ''}  |  "
-            f"{total} coupon{'s' if total != 1 else ''}  |  💎 {total_gems:,} Seyu Gems spent\n",
+            f"{total} coupon{'s' if total != 1 else ''}  |  💎 {total_gems:,} Cric Tokens spent\n",
             "=" * 50 + "\n\n",
         ]
         for idx, b in enumerate(batches, 1):
@@ -712,7 +712,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
                 f"Order #{idx}\n"
                 f"  Coupon : {b['name']}\n"
                 f"  Qty    : {len(b['codes'])}\n"
-                f"  Paid   : {b['gems'] * len(b['codes']):,} Seyu Gems\n"
+                f"  Paid   : {b['gems'] * len(b['codes']):,} Cric Tokens\n"
                 f"  Date   : {b['date']}\n"
                 f"  Codes  :\n"
                 + "\n".join(f"    {i}. {c}" for i, c in enumerate(b["codes"], 1))
@@ -749,12 +749,12 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
         rows = [qty_btns[i:i + 3] for i in range(0, len(qty_btns), 3)]
         rows.append(back_store)
         note = ("Select quantity to redeem:" if can else
-                ("❌ Out of stock." if not stock else f"❌ You need <b>{price - gems % price if gems < price else 0}</b> more Seyu Gems."))
+                ("❌ Out of stock." if not stock else f"❌ You need <b>{price - gems % price if gems < price else 0}</b> more Cric Tokens."))
         await render_menu_text(
             callback,
             f"{_SC_COLORS.get(c['color'], '🔴')} <b>{sc_label(c)}</b>\n━━━━━━━━━━━━━━━━━━━━\n"
-            f"💎 Price: <b>{price}</b> Seyu Gems per coupon\n📦 Available: <b>{stock}</b>\n"
-            f"💰 Your Seyu Gems: <b>{gems:,}</b>\n\n{note}",
+            f"💎 Price: <b>{price}</b> Cric Tokens per coupon\n📦 Available: <b>{stock}</b>\n"
+            f"💰 Your Cric Tokens: <b>{gems:,}</b>\n\n{note}",
             InlineKeyboardMarkup(inline_keyboard=rows))
         return
     try:
@@ -768,7 +768,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
         await render_menu_text(
             callback,
             f"🧾 <b>Confirm Redeem</b>\n━━━━━━━━━━━━━━━━━━━━\n🎟️ {sc_label(c)} × <b>{qty}</b>\n"
-            f"💎 Total: <b>{total:,}</b> Seyu Gems\n💰 Balance after: <b>{gems - total:,}</b>\n\n"
+            f"💎 Total: <b>{total:,}</b> Cric Tokens\n💰 Balance after: <b>{gems - total:,}</b>\n\n"
             "Codes will be sent to you in private chat.",
             InlineKeyboardMarkup(inline_keyboard=[
                 [sc_ib("✅ Confirm Redeem", f"scs:ok:{ctype}:{qty}", "success")],
@@ -788,7 +788,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
             "UPDATE users SET seyu_gems=seyu_gems-? WHERE user_id=? AND seyu_gems>=?", (total, uid, total))
         if not cur.rowcount:
             await db.commit()
-            await callback.answer(f"❌ Not enough Seyu Gems. Need {total:,}.", show_alert=True)
+            await callback.answer(f"❌ Not enough Cric Tokens. Need {total:,}.", show_alert=True)
             return
         for r in codes_rows:
             await db.execute(
@@ -797,7 +797,7 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
         await db.commit()
     codes = [r[1] for r in codes_rows]
     dm_text = (f"🎉 <b>Coupon Redeemed!</b>\n━━━━━━━━━━━━━━━━━━━━\n🎟️ {sc_label(c)} × {qty}\n"
-               f"💎 Paid: {total:,} Seyu Gems\n\n" + "\n".join(f"<code>{html.escape(x)}</code>" for x in codes))
+               f"💎 Paid: {total:,} Cric Tokens\n\n" + "\n".join(f"<code>{html.escape(x)}</code>" for x in codes))
     try:
         await callback.bot.send_message(uid, dm_text)
         await callback.answer("✅ Redeemed! Codes sent in private chat.", show_alert=True)
@@ -910,7 +910,7 @@ async def sst_open(callback: CallbackQuery) -> None:
     await callback.message.answer(
         "📊 <b>Bot Stats</b>\n\n"
         f"👥 Total Users: <b>{int(r['total']):,}</b>\n"
-        f"💎 Total Seyu Gems (all users): <b>{int(r['gems']):,}</b>\n"
+        f"💎 Total Cric Tokens (all users): <b>{int(r['gems']):,}</b>\n"
         f"🧑‍💼 Users with Gems: <b>{int(r['holders']):,}</b>",
         parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="🔄 Refresh", callback_data="sst:open")]]))
@@ -1202,7 +1202,7 @@ MUSIC_STATUS_UPDATE_SECONDS = max(
     min(30, int(os.getenv("MUSIC_STATUS_UPDATE_SECONDS", "7"))),
 )
 BOT_STARTED_AT = time.monotonic()
-MUSIC_BUFFER_DIRECTORY = Path(tempfile.gettempdir()) / "seyuki-music"
+MUSIC_BUFFER_DIRECTORY = Path(tempfile.gettempdir()) / "cricxmanish-music"
 music_buffer_gate = asyncio.Semaphore(MUSIC_BUFFER_CONCURRENCY)
 music_search_gate = asyncio.Semaphore(MUSIC_SEARCH_CONCURRENCY)
 music_preparation_locks: dict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
@@ -1365,7 +1365,7 @@ def looks_like_internal_ai_text(value: str) -> bool:
         "user's question:",
         "previous context:",
         "constraint checklist",
-        "context: seyuki",
+        "context: cricxmanish",
         "goal: answer",
         "goal: respond",
         "internal instructions",
@@ -2830,7 +2830,7 @@ def encrypt_credential(value: str) -> bytes:
     secret = os.getenv("SESSION_SECRET", "").strip()
     if not secret:
         raise RuntimeError("Encrypted credential storage is unavailable.")
-    key = hashlib.sha256(f"seyuki-credentials:{secret}".encode()).digest()
+    key = hashlib.sha256(f"cricxmanish-credentials:{secret}".encode()).digest()
     nonce = secrets.token_bytes(12)
     return nonce + AESGCM(key).encrypt(nonce, value.encode(), None)
 
@@ -2842,7 +2842,7 @@ def decrypt_credential(ciphertext: bytes) -> str:
     raw = bytes(ciphertext)
     if len(raw) <= 12:
         raise ValueError("Invalid encrypted credential.")
-    key = hashlib.sha256(f"seyuki-credentials:{secret}".encode()).digest()
+    key = hashlib.sha256(f"cricxmanish-credentials:{secret}".encode()).digest()
     return AESGCM(key).decrypt(raw[:12], raw[12:], None).decode()
 
 
@@ -3635,13 +3635,13 @@ async def set_runtime_setting(key: str, value: object) -> None:
 
 
 async def discover_voice_assistants() -> None:
-    legacy = Path("./data/seyuki_user.session")
-    managed = VOICE_SESSION_DIRECTORY / "seyuki_user.session"
+    legacy = Path("./data/cricxmanish_user.session")
+    managed = VOICE_SESSION_DIRECTORY / "cricxmanish_user.session"
     if legacy.exists() and not managed.exists():
         VOICE_SESSION_DIRECTORY.mkdir(parents=True, exist_ok=True)
-        for legacy_file in legacy.parent.glob("seyuki_user.session*"):
-            suffix = legacy_file.name.removeprefix("seyuki_user")
-            legacy_file.replace(VOICE_SESSION_DIRECTORY / f"seyuki_user{suffix}")
+        for legacy_file in legacy.parent.glob("cricxmanish_user.session*"):
+            suffix = legacy_file.name.removeprefix("cricxmanish_user")
+            legacy_file.replace(VOICE_SESSION_DIRECTORY / f"cricxmanish_user{suffix}")
     VOICE_SESSION_DIRECTORY.mkdir(parents=True, exist_ok=True)
     session_files = sorted(VOICE_SESSION_DIRECTORY.glob("*.session"))
     for session_file in session_files:
@@ -3649,11 +3649,11 @@ async def discover_voice_assistants() -> None:
         if not re.fullmatch(r"[a-z0-9][a-z0-9_-]{2,63}", basename):
             log.warning("Ignoring unsafe voice session filename: %s", session_file.name)
             continue
-        default_name = "Default assistant" if basename == "seyuki_user" else "Voice assistant"
+        default_name = "Default assistant" if basename == "cricxmanish_user" else "Voice assistant"
         await db.execute(
             """INSERT OR IGNORE INTO voice_assistants
             (session_basename, display_name, priority) VALUES(?,?,?)""",
-            (basename, default_name, 10 if basename == "seyuki_user" else 100),
+            (basename, default_name, 10 if basename == "cricxmanish_user" else 100),
         )
     await db.commit()
 
@@ -4814,7 +4814,7 @@ async def group_management_text(callback: CallbackQuery) -> str:
     return (
         "<b>Group Management</b>\n\n"
         "Choose Rules to learn the commands or Your Groups to see groups where "
-        "you are an admin and Seyuki is present."
+        "you are an admin and CricxManish18 is present."
     )
 
 
@@ -6990,7 +6990,7 @@ async def prepare_shruti_music_track(track: dict[str, object]) -> str:
             },
             headers={
                 "Accept": "audio/*, application/octet-stream",
-                "User-Agent": "Seyuki-Telegram-Bot/1.0",
+                "User-Agent": "CricxManish18-Telegram-Bot/1.0",
             },
             timeout=httpx.Timeout(
                 SHRUTI_API_TIMEOUT_SECONDS,
@@ -7323,7 +7323,7 @@ async def prepare_nextgen_music_track_with_key(
         async with music_http.stream(
             "GET",
             api_link,
-            headers={"Accept": "audio/*", "User-Agent": "Seyuki-Telegram-Bot/1.0"},
+            headers={"Accept": "audio/*", "User-Agent": "CricxManish18-Telegram-Bot/1.0"},
         ) as response:
             response.raise_for_status()
             content_length = int(response.headers.get("content-length") or 0)
@@ -7360,7 +7360,7 @@ async def prepare_direct_music_track(track: dict[str, object]) -> str:
         async with music_http.stream(
             "GET",
             str(track["url"]),
-            headers={"Accept": "*/*", "User-Agent": "Seyuki-Telegram-Bot/1.0"},
+            headers={"Accept": "*/*", "User-Agent": "CricxManish18-Telegram-Bot/1.0"},
         ) as response:
             response.raise_for_status()
             content_length = int(response.headers.get("content-length") or 0)
@@ -7384,7 +7384,7 @@ async def prepare_direct_music_track(track: dict[str, object]) -> str:
 def music_download_filename(track: dict[str, object]) -> str:
     title = re.sub(r"[^A-Za-z0-9._ -]+", "", str(track.get("title", "")))
     title = re.sub(r"\s+", " ", title).strip()[:70]
-    return f"{title or 'seyuki-song'}.mp3"
+    return f"{title or 'cricxmanish-song'}.mp3"
 
 
 async def convert_music_track_to_mp3(track: dict[str, object]) -> Path:
@@ -7458,7 +7458,7 @@ async def send_music_mp3(
                 ),
                 caption=(
                     f"🎵 {html.escape(str(track['title']))}\n"
-                    "Seyuki MP3 download"
+                    "CricxManish18 MP3 download"
                 ),
             )
     except (OSError, RuntimeError, ValueError, httpx.HTTPError) as error:
@@ -8053,7 +8053,7 @@ async def fetch_music_artwork(url: str) -> bytes | None:
                 response = await music_http.get(
                     url,
                     timeout=httpx.Timeout(12.0, connect=5.0),
-                    headers={"Accept": "image/*", "User-Agent": "Seyuki-Telegram-Bot/1.0"},
+                    headers={"Accept": "image/*", "User-Agent": "CricxManish18-Telegram-Bot/1.0"},
                 )
                 response.raise_for_status()
                 if len(response.content) > 8 * 1024 * 1024:
@@ -8228,7 +8228,7 @@ async def send_music_status_message(
         try:
             message = await bot.send_photo(
                 chat_id,
-                BufferedInputFile(card_bytes, filename="seyuki-now-playing.jpg"),
+                BufferedInputFile(card_bytes, filename="cricxmanish-now-playing.jpg"),
                 caption=text,
                 reply_markup=markup,
             )
@@ -10196,7 +10196,7 @@ def render_chat_sticker(
     avatar_bytes: bytes | None = None,
     user_id: int = 0,
 ) -> bytes:
-    """Render /setchat with Seyuki's own transparent deep-blue bubble."""
+    """Render /setchat with CricxManish18's own transparent deep-blue bubble."""
     # Chat quotes are wide Telegram bubbles, not square stickers. Keeping the
     # transparent canvas at 512x256 preserves the reference's natural size.
     image = Image.new("RGBA", (512, 256), (0, 0, 0, 0))
@@ -10471,14 +10471,14 @@ async def send_sticker_with_retry(
 
 
 def sticker_pack_name(user_id: int, pack_number: int = 1) -> str:
-    username = re.sub(r"[^a-zA-Z0-9_]", "", bot_username or "seyuki_bot").lower()
+    username = re.sub(r"[^a-zA-Z0-9_]", "", bot_username or "cricxmanish_bot").lower()
     suffix = "" if pack_number == 1 else f"_{pack_number}"
-    return f"seyuki_{user_id}{suffix}_by_{username}"[:64]
+    return f"cricxmanish_{user_id}{suffix}_by_{username}"[:64]
 
 
 def sticker_pack_title(first_name: str, username: str | None) -> str:
     owner = first_name.strip() or (username or "").strip().lstrip("@") or "User"
-    return f"Seyuki - {owner}"[:64]
+    return f"CricxManish18 - {owner}"[:64]
 
 
 async def add_sticker_to_user_pack(
@@ -10489,7 +10489,7 @@ async def add_sticker_to_user_pack(
 ) -> str | None:
     """Keep each user's stickers in their own pack, creating numbered packs when full."""
     sticker = InputSticker(
-        sticker=BufferedInputFile(sticker_bytes, filename="seyuki.webp"),
+        sticker=BufferedInputFile(sticker_bytes, filename="cricxmanish.webp"),
         format="static",
         emoji_list=["✨"],
     )
@@ -11804,7 +11804,7 @@ EMOJI_RUSH_EMOJI_NAMES = {
     "🏆": "Trophy",
 }
 ARCADE_WORDS = [
-    ("TELEGRAM", "A chat app where Seyuki lives"),
+    ("TELEGRAM", "A chat app where CricxManish18 lives"),
     ("VICTORY", "What the winner gets"),
     ("FRIEND", "Someone you invite to play"),
     ("PUZZLE", "A challenge to solve"),
@@ -11935,7 +11935,7 @@ def _end_cmd_for_title(title: str) -> str:
 
 
 REMOVED_GAME_MESSAGE = (
-    "This game has been removed from Seyuki Games. "
+    "This game has been removed from CricxManish18 Games. "
     "Please choose another game from the Games menu."
 )
 
@@ -12073,7 +12073,7 @@ async def finish_emoji_rush(
         f"<b>✅ Correct:</b> {correct_counts.get(user_id, 0)}/"
         f"{EMOJI_RUSH_TOTAL_QUESTIONS}\n"
         f"<b>⭐ Score:</b> {score} pts\n"
-        f"<b>Reward:</b> {awarded.get(user_id, 0)} Seyu Gems"
+        f"<b>Reward:</b> {awarded.get(user_id, 0)} Cric Tokens"
         for rank, (user_id, score) in enumerate(ranking, 1)
     ]
     status = (
@@ -12424,7 +12424,7 @@ async def finish_arcade_game(
         reward = awarded.get(user_id, 0)
         lines.append(
             f"{rank}. {arcade_player_label(session, user_id)} — "
-            f"<b>{score}</b> pts (+{reward} Seyu Gems)"
+            f"<b>{score}</b> pts (+{reward} Cric Tokens)"
         )
     spec = arcade_spec(session)
     status = (
@@ -12437,7 +12437,7 @@ async def finish_arcade_game(
         f"<b>{spec['icon']} {spec['title']} — FINAL RESULTS</b>\n\n"
         f"<b>Status:</b> {status}\n\n"
         + "\n".join(lines)
-        + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
+        + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
         "Start another match with the game command.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
@@ -12529,7 +12529,7 @@ async def safe_resolve_arcade_round(chat_id: int, round_number: int) -> None:
                 await bot.send_message(
                     chat_id,
                     "This quick game stopped safely because of an internal error. "
-                    "No Seyu Gems were charged.",
+                    "No Cric Tokens were charged.",
                 )
             except Exception:
                 pass
@@ -13289,7 +13289,7 @@ def crossgrid_caption_text(
 @lru_cache(maxsize=8)
 def crossgrid_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
     filenames = (
-        "/tmp/seyuki/fonts/DejaVuSans-Bold.ttf" if bold else "/tmp/seyuki/fonts/DejaVuSans.ttf",
+        "/tmp/cricxmanish/fonts/DejaVuSans-Bold.ttf" if bold else "/tmp/cricxmanish/fonts/DejaVuSans.ttf",
         "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
         if bold
@@ -13337,7 +13337,7 @@ def crossgrid_render_jpg(session: dict[str, object]) -> bytes:
     )
     draw.text(
         (width // 2, 91),
-        "SEYUKI  •  FIND THE HIDDEN WORDS",
+        "CRICXMANISH18  •  FIND THE HIDDEN WORDS",
         font=crossgrid_font(13, bold=True),
         fill="#91a5c4",
         anchor="mm",
@@ -13441,7 +13441,7 @@ async def send_crossgrid_photo(
         chat_id,
         BufferedInputFile(
             payload,
-            filename="seyuki-word-grid.jpg",
+            filename="cricxmanish-word-grid.jpg",
         ),
         caption=caption,
     )
@@ -13479,7 +13479,7 @@ async def finish_crossgrid(
     )
     lines = [
         f"{rank}. {crossgrid_player_name(crossgrid_players(session).get(user_id))} — "
-        f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Seyu Gems)"
+        f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Cric Tokens)"
         for rank, (user_id, score) in enumerate(ranking, 1)
     ]
     await send_crossgrid_photo(
@@ -14639,7 +14639,7 @@ def mafia_lobby_text(session: dict[str, object]) -> str:
         for index, player in enumerate(players, 1)
     )
     return (
-        "<b>SEYUKI MAFIA</b>\n\n"
+        "<b>CRICXMANISH18 MAFIA</b>\n\n"
         "A secret war has started in the city.\n"
         "Find the Don and eliminate the Mafia before they take control.\n\n"
         "<b>Players:</b> "
@@ -14695,7 +14695,7 @@ def mafia_role_card(session: dict[str, object], user_id: int) -> str:
             + ("\n".join(team_members) if team_members else "You are the only Bad player.")
         )
     return (
-        "<b>Your Seyuki Mafia Role</b>\n\n"
+        "<b>Your CricxManish18 Mafia Role</b>\n\n"
         f"<b>Role:</b> {MAFIA_ROLE_LABELS.get(role, role.title())}\n"
         f"<b>Team:</b> {team}\n\n"
         f"{MAFIA_ROLE_DESCRIPTIONS.get(role, '')}"
@@ -14768,11 +14768,11 @@ def mafia_night_text(session: dict[str, object]) -> str:
     round_number = int(session["round"])
     alive_count = len(session["alive"])
     return (
-        f"<b>SEYUKI MAFIA — ROUND {round_number}/4</b>\n\n"
+        f"<b>CRICXMANISH18 MAFIA — ROUND {round_number}/4</b>\n\n"
         "The city is asleep. The Mafia is hunting.\n\n"
         f"Alive players: <b>{alive_count}</b>\n"
         f"Night actions close in <b>{MAFIA_NIGHT_SECONDS} seconds</b>.\n\n"
-        "Your private role and action buttons are in Seyuki DM.\n"
+        "Your private role and action buttons are in CricxManish18 DM.\n"
         "Use the group button below if you have not checked your role yet."
     )
 
@@ -15144,11 +15144,11 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
     )
     await mafia_edit_group(
         session,
-        "<b>SEYUKI MAFIA — GAME OVER</b>\n\n"
+        "<b>CRICXMANISH18 MAFIA — GAME OVER</b>\n\n"
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
-        "Every player received Seyu Gems based on their team.\n\n"
+        "Every player received Cric Tokens based on their team.\n\n"
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
-        "Start another game with <code>/seyuki mafia</code>."
+        "Start another game with <code>/cricxmanish mafia</code>."
 
 🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
 
@@ -15251,7 +15251,7 @@ async def expire_mafia_lobby(chat_id: int, lobby_message_id: int) -> None:
         try:
             await bot.send_message(
                 chat_id=chat_id,
-                text="<b>SEYUKI MAFIA</b>\n\n"
+                text="<b>CRICXMANISH18 MAFIA</b>\n\n"
             f"The 7-minute lobby expired before {MAFIA_MIN_PLAYERS} players joined.",
             )
         except (TelegramBadRequest, TelegramForbiddenError, TelegramRetryAfter):
@@ -15293,9 +15293,9 @@ async def start_mafia_game(chat_id: int, actor_id: int, message: Message) -> Non
         cancel_mafia_task(chat_id)
         await mafia_edit_group(
             session,
-            "<b>SEYUKI MAFIA HAS STARTED</b>\n\n"
+            "<b>CRICXMANISH18 MAFIA HAS STARTED</b>\n\n"
             "Roles have been assigned privately.\n"
-            "Tap <b>Check Your Role</b> to open Seyuki DM.\n\n"
+            "Tap <b>Check Your Role</b> to open CricxManish18 DM.\n\n"
             "Round 1 Night will begin now.",
             mafia_role_check_markup(chat_id),
         )
@@ -15343,7 +15343,7 @@ async def create_mafia_lobby(message: Message) -> None:
             "votes": {},
         }
         lobby = await message.answer(
-            "<b>SEYUKI MAFIA</b>\n\n"
+            "<b>CRICXMANISH18 MAFIA</b>\n\n"
             "A secret war has started in the city.\n"
             f"Minimum {MAFIA_MIN_PLAYERS} players, maximum {MAFIA_MAX_PLAYERS} players.\n"
             "The lobby will expire in 7 minutes.\n\n"
@@ -15358,8 +15358,8 @@ async def create_mafia_lobby(message: Message) -> None:
         )
 
 
-@router.message(Command("seyuki"))
-async def seyuki_game_command(message: Message) -> None:
+@router.message(Command("cricxmanish"))
+async def cricxmanish_game_command(message: Message) -> None:
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("Group games can only be started in a group.")
         return
@@ -15577,7 +15577,7 @@ async def mafia_mayor_callback(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "mafia:over")
 async def mafia_over_callback(callback: CallbackQuery) -> None:
-    await callback.answer("Start a new game with /seyuki mafia.")
+    await callback.answer("Start a new game with /cricxmanish mafia.")
 
 
 @router.callback_query(F.data.startswith("mafia:noop:"))
@@ -15690,7 +15690,7 @@ def death_note_rules_text() -> str:
         "☠️ Roles: Kira, L, Bodyguard, Investigators, Citizens\n\n"
         "1. Tap <b>Join Game</b> in the group lobby.\n"
         "2. The creator or a group admin starts after 8 players join.\n"
-        "3. Every player receives their secret role in Seyuki DM.\n"
+        "3. Every player receives their secret role in CricxManish18 DM.\n"
         "4. At night, Kira chooses a target, L investigates, and "
         "Bodyguard protects one player.\n"
         "5. The group sees only the result and evidence—not secret identities.\n"
@@ -15928,7 +15928,7 @@ async def death_note_finish(
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
         "<b>Final Role Reveal</b>\n"
         f"{role_lines}\n\n"
-        "Start another game with <code>/seyuki deathnote</code>."
+        "Start another game with <code>/cricxmanish deathnote</code>."
 
 🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
 
@@ -15972,7 +15972,7 @@ async def death_note_begin_night(session: dict[str, object]) -> None:
         "━━━━━━━━━━━━━━━━\n\n"
         "The city is silent. Someone is making a move.\n\n"
         f"⏳ Secret actions close in <b>{DEATH_NOTE_NIGHT_SECONDS} seconds</b>.\n"
-        "📩 Check your Seyuki DM. Never reveal your private instructions.",
+        "📩 Check your CricxManish18 DM. Never reveal your private instructions.",
         death_note_role_check_markup(int(session["chat_id"])),
     )
     prompts: list[asyncio.Task] = []
@@ -16137,7 +16137,7 @@ async def death_note_open_trial(session: dict[str, object]) -> None:
         "Discussion is closed. Choose the person you suspect.\n"
         "Voting is anonymous and each alive player gets one vote.\n\n"
         f"⏳ Vote closes in <b>{DEATH_NOTE_TRIAL_SECONDS} seconds</b>.\n"
-        "📩 Check your Seyuki DM.",
+        "📩 Check your CricxManish18 DM.",
     )
     prompts = [
         death_note_send_action(
@@ -16260,7 +16260,7 @@ async def death_note_final_court(session: dict[str, object]) -> None:
         "━━━━━━━━━━━━━━━━\n\n"
         "Who is Kira? The vote is anonymous.\n"
         f"⏳ Final vote closes in <b>{DEATH_NOTE_FINAL_VOTE_SECONDS} seconds</b>.\n"
-        "📩 Check your Seyuki DM.",
+        "📩 Check your CricxManish18 DM.",
     )
     prompts = [
         death_note_send_action(
@@ -16436,7 +16436,7 @@ async def start_death_note_game(
             "━━━━━━━━━━━━━━━━\n\n"
             f"Players: <b>{len(session['players'])}</b>\n"
             "🔐 Secret roles are being assigned.\n"
-            "📩 Check your Seyuki DM.\n\n"
+            "📩 Check your CricxManish18 DM.\n\n"
             "⚠️ Never reveal your role or private information.\n"
             "🌙 Night 1 begins now.",
             death_note_role_check_markup(chat_id),
@@ -17430,17 +17430,17 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         )
         reward = reward_by_user.get(user_id, 0)
         if reward:
-            line += f" (+{reward} Seyu Gems)"
+            line += f" (+{reward} Cric Tokens)"
             reward_lines.append(
                 f"{reward_rank_by_user[user_id]}. "
-                f"{quiz_player_name(player)} — {reward} Seyu Gems"
+                f"{quiz_player_name(player)} — {reward} Cric Tokens"
             )
         lines.append(line)
     return (
         f"<b>{html.escape(quiz_title(session))} — Overall Results "
         f"({quiz_round_count(session)} Rounds)</b>\n\n"
         f"{chr(10).join(lines)}\n\n"
-        "<b>Seyu Gems awarded:</b>\n"
+        "<b>Cric Tokens awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
         "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
     )
@@ -18270,7 +18270,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                 (
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
-                                    "No Seyu Gems were awarded.\n"
+                                    "No Cric Tokens were awarded.\n"
                                     "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
@@ -18444,7 +18444,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     int(session["message_id"]),
                     (
                         "<b>Quiz — Stopped</b>\n\n"
-                        "The quiz could not continue safely. No Seyu Gems were awarded.\n"
+                        "The quiz could not continue safely. No Cric Tokens were awarded.\n"
                         "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
@@ -18898,7 +18898,7 @@ async def build_ping_status_text() -> str:
     )
 
     text = (
-        "<b>SeyukiBot Status</b>\n"
+        "<b>CricxManish18Bot Status</b>\n"
         "━━━━━━━━━━━━━━━━━━━━\n\n"
         f"<b>Database:</b> {database_text}\n"
         f"<b>Telegram API:</b> {telegram_status}\n"
@@ -19100,7 +19100,7 @@ def ai_sticker_packs_text() -> str:
         "<b>AI chat sticker packs</b>\n\n"
         f"Packs: {len(ai_sticker_packs)} configured / {enabled} enabled\n"
         f"Text-chat chance: {int(runtime_settings.get('ai_sticker_percent', 5))}%\n\n"
-        "When a user sends Seyuki a sticker, she replies with a sticker. "
+        "When a user sends CricxManish18 a sticker, she replies with a sticker. "
         "During text chats she may also send one using the configured percentage. "
         "Enabled packs rotate randomly."
     )
@@ -19224,7 +19224,7 @@ async def admin_groups_export() -> BufferedInputFile:
            LIMIT 10000"""
     )
     lines = [
-        "Seyuki managed groups",
+        "CricxManish18 managed groups",
         f"Exported at: {datetime.now(timezone.utc).isoformat()}",
         f"Groups: {len(rows)}",
         "",
@@ -19239,7 +19239,7 @@ async def admin_groups_export() -> BufferedInputFile:
             f"Bot admin since: {row['admin_since'] or row['added_at'] or 'unknown'}",
             "",
         ])
-    return BufferedInputFile("\n".join(lines).encode("utf-8"), filename="seyuki-groups.txt")
+    return BufferedInputFile("\n".join(lines).encode("utf-8"), filename="cricxmanish-groups.txt")
 
 
 def nextgen_markup() -> InlineKeyboardMarkup:
@@ -19694,7 +19694,7 @@ async def profile_text(user_id: int) -> str:
         f"<b>Profile name:</b> {html.escape(str(name))}\n"
         f"<b>Age:</b> {html.escape(str(age))}\n"
         f"<b>Gender:</b> {html.escape(str(gender))}\n"
-        f"<b>Seyu Gems:</b> {seyu_gems}\n"
+        f"<b>Cric Tokens:</b> {seyu_gems}\n"
         f"<b>Followers:</b> {follower_count}\n"
         f"<b>Following:</b> {following_count}\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -20051,7 +20051,7 @@ async def your_groups(callback: CallbackQuery) -> None:
         visible = [group for group in checked_groups if group is not None]
         your_groups_cache[user_id] = (time.monotonic(), visible)
     if visible:
-        text = "<b>Your Groups</b>\n\nGroups where you are an admin and Seyuki is active:"
+        text = "<b>Your Groups</b>\n\nGroups where you are an admin and CricxManish18 is active:"
         markup = InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(
@@ -20067,7 +20067,7 @@ async def your_groups(callback: CallbackQuery) -> None:
     else:
         text = (
             "<b>Your Groups</b>\n\n"
-            "No eligible groups found yet. Add Seyuki to a group, make her an admin, "
+            "No eligible groups found yet. Add CricxManish18 to a group, make her an admin, "
             "and send any message there first."
         )
         markup = group_back_menu()
@@ -21588,7 +21588,7 @@ async def profile_name(callback: CallbackQuery) -> None:
         await callback.message.edit_text(
             "<b>Edit Profile Name</b>\n\n"
             "Enter the name you want to display on your profile.\n"
-            "Example: <code>Seyuki Fan</code>",
+            "Example: <code>CricxManish18 Fan</code>",
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
                     text="Cancel",
@@ -21692,7 +21692,7 @@ async def games(callback: CallbackQuery) -> None:
     await callback.answer()
     await render_menu_text(
         callback,
-        "<b>🎮 Seyuki Games</b>\n\n"
+        "<b>🎮 CricxManish18 Games</b>\n\n"
         "Play with your friends in a group. Choose one of eight games below "
         "to see its complete rules, commands, and reward flow.",
         games_menu(),
@@ -21747,7 +21747,7 @@ async def games_quiz(callback: CallbackQuery) -> None:
             "3. Everyone answers the four-option Telegram quiz poll directly.\n"
             "4. Answering a poll automatically joins that user; speed breaks ties.\n"
             "5. Highest total score wins.\n\n"
-            "<b>Rewards:</b> Top 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
+            "<b>Rewards:</b> Top 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
             "<b>Players:</b> Creator is included automatically; other players join "
             "by answering any poll.",
             games_menu(),
@@ -21799,7 +21799,7 @@ def arcade_help_text(game: str) -> str:
             "<b>Medium:</b> larger numbers and mixed operators.\n"
             "<b>Hard:</b> larger, faster mixed calculations.\n\n"
             f"Play {ARCADE_ROUNDS} rounds. Correct answers are ranked by speed "
-            "and the final leaderboard awards Seyu Gems."
+            "and the final leaderboard awards Cric Tokens."
         )
     if game == "emoji":
         return (
@@ -21815,7 +21815,7 @@ def arcade_help_text(game: str) -> str:
             "<b>Warning:</b> If a board is already live, send an answer instead of "
             "starting it again.\n"
             f"<b>Players:</b> {UNLIMITED_PLAYERS_LABEL}\n"
-            "<b>Rewards:</b> Final leaderboard pays Seyu Gems."
+            "<b>Rewards:</b> Final leaderboard pays Cric Tokens."
         )
     rules = {
         "emoji": (
@@ -21859,12 +21859,12 @@ def arcade_help_text(game: str) -> str:
         "3. Type your answer in the group; no buttons or lobby are needed.\n"
         f"4. Play {ARCADE_ROUNDS} fast rounds. Every round has one answer "
         f"and {ARCADE_ROUND_SECONDS} seconds.\n"
-        "5. Fast correct answers score more points. Final rankings pay Seyu Gems.\n"
+        "5. Fast correct answers score more points. Final rankings pay Cric Tokens.\n"
         f"6. The starter or a group admin can use <code>/end "
         f"{spec['command'].lstrip('/')}</code> to end early.\n\n"
         f"{rules}\n\n"
         f"<b>Players:</b> {UNLIMITED_PLAYERS_LABEL}\n"
-        "<b>Rewards:</b> 1st 60, 2nd 40, 3rd 25, everyone else 8 Seyu Gems."
+        "<b>Rewards:</b> 1st 60, 2nd 40, 3rd 25, everyone else 8 Cric Tokens."
     )
 
 
@@ -21929,14 +21929,14 @@ async def games_crossgrid(callback: CallbackQuery) -> None:
             "• <code>/end crossgrid</code> — End it and reveal the board\n"
             "• <code>/rank crossgrid</code> — Check the global Top 10 leaderboard\n\n"
             "<b>How to play</b>\n"
-            "1. Send <code>/crossgrid</code>; Seyuki posts a random 8×8 grid.\n"
+            "1. Send <code>/crossgrid</code>; CricxManish18 posts a random 8×8 grid.\n"
             "2. Everyone answers directly in the group; no join command is needed.\n"
             "3. Send the hidden word as a normal message.\n"
             "4. The first correct answer claims that word and earns points.\n"
             "5. Every found word creates a fresh updated board message with the "
             "word crossed out.\n"
             "6. The board ends when all words are found or after 20 minutes.\n\n"
-            "<b>Rewards:</b> Points are converted into Seyu Gems in the final leaderboard.\n"
+            "<b>Rewards:</b> Points are converted into Cric Tokens in the final leaderboard.\n"
             "<b>Variety:</b> The word set and placements are randomized for every board.",
             games_menu(),
         )
@@ -22116,11 +22116,11 @@ async def leaderboard_people_view() -> tuple[str, InlineKeyboardMarkup]:
     )
     buttons: list[list[InlineKeyboardButton]] = []
     if not rows:
-        text = "<b>Top People</b>\n\nNo Seyu Gems have been earned yet."
+        text = "<b>Top People</b>\n\nNo Cric Tokens have been earned yet."
     else:
         lines = [
             "<b>Top 10 People</b>",
-            "<i>Live ranking by Seyu Gems</i>",
+            "<i>Live ranking by Cric Tokens</i>",
         ]
         chat_buttons: list[InlineKeyboardButton] = []
         for rank, row in enumerate(rows, 1):
@@ -22128,7 +22128,7 @@ async def leaderboard_people_view() -> tuple[str, InlineKeyboardMarkup]:
             username = str(row["username"] or "").strip().lstrip("@")
             lines.append(
                 f"<b>{rank}. {name}</b> — "
-                f"<b>{int(row['seyu_gems'] or 0):,}</b> Seyu Gems"
+                f"<b>{int(row['seyu_gems'] or 0):,}</b> Cric Tokens"
             )
             if username:
                 chat_buttons.append(InlineKeyboardButton(
@@ -22297,7 +22297,7 @@ async def set_image_command(message: Message) -> None:
         )
         markup = None
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki-image.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish-image.webp", markup, progress,
             "Creating your image sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -22453,7 +22453,7 @@ async def set_chat_command(message: Message) -> None:
             pending_stickers.pop(next(iter(pending_stickers)))
         markup = None
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki-chat.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish-chat.webp", markup, progress,
             "Creating chat sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -22604,7 +22604,7 @@ async def set_sticker_command(message: Message) -> None:
         markup = None
         await update_progress(90)
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish.webp", markup, progress,
             "Creating your sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -22754,7 +22754,7 @@ async def render_global_commands_panel(callback: CallbackQuery) -> None:
     if callback.message:
         await callback.message.edit_text(
             "<b>Global Custom Commands</b>\n\n"
-            "These commands work in every group where Seyuki is present. "
+            "These commands work in every group where CricxManish18 is present. "
             "Set a name such as <code>/slap</code>, then send the media for it.\n"
             "When used, both the sender and target user are tagged automatically.\n\n"
             f"Configured commands: <b>{len(commands)}</b>",
@@ -24010,7 +24010,7 @@ def daily_zone_video_template(
 ) -> tuple[Path, Path, Path, tuple[int, int, int, int]]:
     template_source, canvas_size, content_box = daily_zone_layout()
     template_handle, template_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-template-",
+        prefix="cricxmanish-daily-zone-template-",
         suffix=".png",
     )
     os.close(template_handle)
@@ -24027,7 +24027,7 @@ def daily_zone_video_template(
             format="PNG",
         )
     mask_handle, mask_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-mask-",
+        prefix="cricxmanish-daily-zone-mask-",
         suffix=".png",
     )
     os.close(mask_handle)
@@ -24119,14 +24119,14 @@ async def prepare_daily_zone_source(
         )
         staged = await bot.send_photo(
             message.chat.id,
-            BufferedInputFile(rendered, filename="seyuki-daily-zone.jpg"),
+            BufferedInputFile(rendered, filename="cricxmanish-daily-zone.jpg"),
             reply_markup=daily_zone_draft_markup(),
             **daily_zone_caption_kwargs(message),
         )
         return message.chat.id, staged.message_id, cleanup_paths
 
     source_handle, source_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-source-",
+        prefix="cricxmanish-daily-zone-source-",
         suffix=".mp4",
     )
     os.close(source_handle)
@@ -24424,7 +24424,7 @@ async def render_daily_zone_panel(callback: CallbackQuery) -> None:
         return
     await render_admin_text_panel(
         callback,
-        "<b>Seyuki Daily Zone</b>\n\n"
+        "<b>CricxManish18 Daily Zone</b>\n\n"
         f"{daily_zone_template_status()}\n\n"
         f"{music_template_status()}\n\n"
         "One active template is used for every Daily Zone photo and video. "
@@ -25596,7 +25596,7 @@ async def save_daily_zone_template_upload(message: Message) -> tuple[int, int]:
     DAILY_ZONE_CUSTOM_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     temp_handle, temp_name = tempfile.mkstemp(
         dir=str(DAILY_ZONE_CUSTOM_TEMPLATE_PATH.parent),
-        prefix="seyuki-daily-zone-template-upload-",
+        prefix="cricxmanish-daily-zone-template-upload-",
         suffix=".png",
     )
     os.close(temp_handle)
@@ -25623,7 +25623,7 @@ async def save_music_template_upload(message: Message) -> tuple[int, int]:
     MUSIC_CUSTOM_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     temp_handle, temp_name = tempfile.mkstemp(
         dir=str(MUSIC_CUSTOM_TEMPLATE_PATH.parent),
-        prefix="seyuki-music-template-upload-",
+        prefix="cricxmanish-music-template-upload-",
         suffix=".png",
     )
     os.close(temp_handle)
@@ -26486,7 +26486,7 @@ async def message_handler(message: Message) -> None:
         await process_group_afk_activity(message)
         # In groups, ignore the common deep-link probe from regular members.
         # Admins/owner may still use /start with the bot username and receive
-        # the normal Seyuki response.
+        # the normal CricxManish18 response.
         if message.text and bot_username:
             start_match = re.match(r"^\s*/start(?:@[\w_]+)?(?:\s+(.*))?\s*$", message.text, re.IGNORECASE)
             if start_match:
@@ -26701,14 +26701,14 @@ async def main() -> None:
     cleanup_all_music_buffers()
     music_executor = ThreadPoolExecutor(
         max_workers=MUSIC_WORKER_THREADS,
-        thread_name_prefix="seyuki-music",
+        thread_name_prefix="cricxmanish-music",
     )
     http = httpx.AsyncClient(
         base_url="https://openrouter.ai/api/v1",
         headers={
             "Content-Type": "application/json",
             "HTTP-Referer": "https://replit.com",
-            "X-Title": "Seyuki Telegram Bot",
+            "X-Title": "CricxManish18 Telegram Bot",
         },
         timeout=httpx.Timeout(AI_REQUEST_TIMEOUT_SECONDS, connect=6.0),
     )
@@ -26716,7 +26716,7 @@ async def main() -> None:
         base_url=MUSIC_SOURCE_BASE_URL,
         headers={
             "Accept": "application/json",
-            "User-Agent": "Seyuki-Telegram-Bot/1.0",
+            "User-Agent": "CricxManish18-Telegram-Bot/1.0",
         },
         timeout=httpx.Timeout(15.0, connect=8.0),
         limits=httpx.Limits(
@@ -27110,7 +27110,7 @@ async def finish_codebreaker(
         )
         lines.append(
             f"{rank}. {codebreaker_player_name(player)} — "
-            f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Seyu Gems)"
+            f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Cric Tokens)"
         )
     await bot.send_message(
         chat_id,
@@ -27434,7 +27434,7 @@ def codebreaker_help_text() -> str:
         "<code>map</code> first to receive yours.\n\n"
         f"<b>Players:</b> {UNLIMITED_PLAYERS_LABEL}\n"
         "Correct answers score more when they arrive quickly. "
-        "The final leaderboard awards Seyu Gems."
+        "The final leaderboard awards Cric Tokens."
     )
 
 
@@ -27673,7 +27673,7 @@ async def finish_sequence_master(
     players = sequence_master_players(session)
     lines = [
         f"{rank}. {sequence_master_player_name(players[user_id])} — "
-        f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Seyu Gems)"
+        f"<b>{score}</b> pts (+{awarded.get(user_id, 0)} Cric Tokens)"
         for rank, (user_id, score) in enumerate(ranking, 1)
     ]
     status = (
@@ -27955,7 +27955,7 @@ def sequence_master_help_text() -> str:
         "<b>Hard:</b> mixed multi-step patterns that change every round.\n\n"
         f"<b>Players:</b> {UNLIMITED_PLAYERS_LABEL}\n"
         "Questions are randomized and duplicate questions are avoided. "
-        "Fast correct answers score more points and the final leaderboard awards Seyu Gems."
+        "Fast correct answers score more points and the final leaderboard awards Cric Tokens."
     )
 
 
@@ -27973,7 +27973,7 @@ async def games_sequencemaster(callback: CallbackQuery) -> None:
 
 
 if __name__ == "__main__":
-    asyncio.run(main());r'''Seyuki Telegram bot - single-file deployment.
+    asyncio.run(main());r'''CricxManish18 Telegram bot - single-file deployment.
 
 Credentials are read from environment secrets and can be managed from the
 owner-only Admin Panel. Panel-managed values are encrypted at rest.
@@ -28115,7 +28115,7 @@ def InlineKeyboardButton(*args, **kwargs):
 
 load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-log = logging.getLogger("seyuki")
+log = logging.getLogger("cricxmanish")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 TOKEN = (
@@ -28152,13 +28152,13 @@ MONGO_PASSWORD = os.getenv("MONGO_PASSWORD", "").strip()
 MODEL = os.getenv("OPENROUTER_MODEL", "liquid/lfm-2.5-2.6b:free")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
 PROVIDER_ORDER = os.getenv("OPENROUTER_PROVIDER_ORDER", "").strip()
-BOT_NAME = os.getenv("BOT_NAME", "Seyuki")
+BOT_NAME = os.getenv("BOT_NAME", "CricxManish18")
 ADMIN_IDS = {
     int(value.strip())
     for value in os.getenv("ADMIN_USER_IDS", "8034386458").split(",")
     if value.strip().isdigit()
 }
-DB_PATH = os.getenv("DATABASE_PATH", "./data/seyuki.sqlite3")
+DB_PATH = os.getenv("DATABASE_PATH", "./data/cricxmanish.sqlite3")
 USERS_JSON_PATH = os.getenv("USERS_JSON_PATH", "./data/users.json")
 PENDING_STICKER_DIR = Path(os.getenv("PENDING_STICKER_DIR", "./data/pending_stickers"))
 YOUTUBE_COOKIE_DIR = Path(
@@ -28182,7 +28182,7 @@ DAILY_ZONE_TEMPLATE_PATH = (
     / "attached_assets"
     / "image_1789494144972.png"
 )
-DAILY_ZONE_CUSTOM_TEMPLATE_PATH = Path("./data") / "seyuki_daily_zone_template.png"
+DAILY_ZONE_CUSTOM_TEMPLATE_PATH = Path("./data") / "cricxmanish_daily_zone_template.png"
 
 if not TOKEN:
     raise RuntimeError("TELEGRAM_BOT_TOKEN is not configured")
@@ -28374,7 +28374,7 @@ MUSIC_STATUS_UPDATE_SECONDS = max(
     min(30, int(os.getenv("MUSIC_STATUS_UPDATE_SECONDS", "7"))),
 )
 BOT_STARTED_AT = time.monotonic()
-MUSIC_BUFFER_DIRECTORY = Path(tempfile.gettempdir()) / "seyuki-music"
+MUSIC_BUFFER_DIRECTORY = Path(tempfile.gettempdir()) / "cricxmanish-music"
 music_buffer_gate = asyncio.Semaphore(MUSIC_BUFFER_CONCURRENCY)
 music_search_gate = asyncio.Semaphore(MUSIC_SEARCH_CONCURRENCY)
 music_preparation_locks: dict[str, asyncio.Lock] = defaultdict(asyncio.Lock)
@@ -28531,7 +28531,7 @@ def looks_like_internal_ai_text(value: str) -> bool:
         "user's question:",
         "previous context:",
         "constraint checklist",
-        "context: seyuki",
+        "context: cricxmanish",
         "goal: answer",
         "goal: respond",
         "internal instructions",
@@ -29007,7 +29007,7 @@ def encrypt_credential(value: str) -> bytes:
     secret = os.getenv("SESSION_SECRET", "").strip()
     if not secret:
         raise RuntimeError("Encrypted credential storage is unavailable.")
-    key = hashlib.sha256(f"seyuki-credentials:{secret}".encode()).digest()
+    key = hashlib.sha256(f"cricxmanish-credentials:{secret}".encode()).digest()
     nonce = secrets.token_bytes(12)
     return nonce + AESGCM(key).encrypt(nonce, value.encode(), None)
 
@@ -29019,7 +29019,7 @@ def decrypt_credential(ciphertext: bytes) -> str:
     raw = bytes(ciphertext)
     if len(raw) <= 12:
         raise ValueError("Invalid encrypted credential.")
-    key = hashlib.sha256(f"seyuki-credentials:{secret}".encode()).digest()
+    key = hashlib.sha256(f"cricxmanish-credentials:{secret}".encode()).digest()
     return AESGCM(key).decrypt(raw[:12], raw[12:], None).decode()
 
 
@@ -29810,13 +29810,13 @@ async def set_runtime_setting(key: str, value: object) -> None:
 
 
 async def discover_voice_assistants() -> None:
-    legacy = Path("./data/seyuki_user.session")
-    managed = VOICE_SESSION_DIRECTORY / "seyuki_user.session"
+    legacy = Path("./data/cricxmanish_user.session")
+    managed = VOICE_SESSION_DIRECTORY / "cricxmanish_user.session"
     if legacy.exists() and not managed.exists():
         VOICE_SESSION_DIRECTORY.mkdir(parents=True, exist_ok=True)
-        for legacy_file in legacy.parent.glob("seyuki_user.session*"):
-            suffix = legacy_file.name.removeprefix("seyuki_user")
-            legacy_file.replace(VOICE_SESSION_DIRECTORY / f"seyuki_user{suffix}")
+        for legacy_file in legacy.parent.glob("cricxmanish_user.session*"):
+            suffix = legacy_file.name.removeprefix("cricxmanish_user")
+            legacy_file.replace(VOICE_SESSION_DIRECTORY / f"cricxmanish_user{suffix}")
     VOICE_SESSION_DIRECTORY.mkdir(parents=True, exist_ok=True)
     session_files = sorted(VOICE_SESSION_DIRECTORY.glob("*.session"))
     for session_file in session_files:
@@ -29824,11 +29824,11 @@ async def discover_voice_assistants() -> None:
         if not re.fullmatch(r"[a-z0-9][a-z0-9_-]{2,63}", basename):
             log.warning("Ignoring unsafe voice session filename: %s", session_file.name)
             continue
-        default_name = "Default assistant" if basename == "seyuki_user" else "Voice assistant"
+        default_name = "Default assistant" if basename == "cricxmanish_user" else "Voice assistant"
         await db.execute(
             """INSERT OR IGNORE INTO voice_assistants
             (session_basename, display_name, priority) VALUES(?,?,?)""",
-            (basename, default_name, 10 if basename == "seyuki_user" else 100),
+            (basename, default_name, 10 if basename == "cricxmanish_user" else 100),
         )
     await db.commit()
 
@@ -30852,7 +30852,7 @@ async def group_management_text(callback: CallbackQuery) -> str:
     return (
         "<b>Group Management</b>\n\n"
         "Choose Rules to learn the commands or Your Groups to see groups where "
-        "you are an admin and Seyuki is present."
+        "you are an admin and CricxManish18 is present."
     )
 
 
@@ -32996,7 +32996,7 @@ async def prepare_shruti_music_track(track: dict[str, object]) -> str:
             },
             headers={
                 "Accept": "audio/*, application/octet-stream",
-                "User-Agent": "Seyuki-Telegram-Bot/1.0",
+                "User-Agent": "CricxManish18-Telegram-Bot/1.0",
             },
             timeout=httpx.Timeout(
                 SHRUTI_API_TIMEOUT_SECONDS,
@@ -33329,7 +33329,7 @@ async def prepare_nextgen_music_track_with_key(
         async with music_http.stream(
             "GET",
             api_link,
-            headers={"Accept": "audio/*", "User-Agent": "Seyuki-Telegram-Bot/1.0"},
+            headers={"Accept": "audio/*", "User-Agent": "CricxManish18-Telegram-Bot/1.0"},
         ) as response:
             response.raise_for_status()
             content_length = int(response.headers.get("content-length") or 0)
@@ -33366,7 +33366,7 @@ async def prepare_direct_music_track(track: dict[str, object]) -> str:
         async with music_http.stream(
             "GET",
             str(track["url"]),
-            headers={"Accept": "*/*", "User-Agent": "Seyuki-Telegram-Bot/1.0"},
+            headers={"Accept": "*/*", "User-Agent": "CricxManish18-Telegram-Bot/1.0"},
         ) as response:
             response.raise_for_status()
             content_length = int(response.headers.get("content-length") or 0)
@@ -33390,7 +33390,7 @@ async def prepare_direct_music_track(track: dict[str, object]) -> str:
 def music_download_filename(track: dict[str, object]) -> str:
     title = re.sub(r"[^A-Za-z0-9._ -]+", "", str(track.get("title", "")))
     title = re.sub(r"\s+", " ", title).strip()[:70]
-    return f"{title or 'seyuki-song'}.mp3"
+    return f"{title or 'cricxmanish-song'}.mp3"
 
 
 async def convert_music_track_to_mp3(track: dict[str, object]) -> Path:
@@ -33464,7 +33464,7 @@ async def send_music_mp3(
                 ),
                 caption=(
                     f"🎵 {html.escape(str(track['title']))}\n"
-                    "Seyuki MP3 download"
+                    "CricxManish18 MP3 download"
                 ),
             )
     except (OSError, RuntimeError, ValueError, httpx.HTTPError) as error:
@@ -35725,7 +35725,7 @@ def render_chat_sticker(
     avatar_bytes: bytes | None = None,
     user_id: int = 0,
 ) -> bytes:
-    """Render /setchat with Seyuki's own transparent deep-blue bubble."""
+    """Render /setchat with CricxManish18's own transparent deep-blue bubble."""
     # Chat quotes are wide Telegram bubbles, not square stickers. Keeping the
     # transparent canvas at 512x256 preserves the reference's natural size.
     image = Image.new("RGBA", (512, 256), (0, 0, 0, 0))
@@ -36000,14 +36000,14 @@ async def send_sticker_with_retry(
 
 
 def sticker_pack_name(user_id: int, pack_number: int = 1) -> str:
-    username = re.sub(r"[^a-zA-Z0-9_]", "", bot_username or "seyuki_bot").lower()
+    username = re.sub(r"[^a-zA-Z0-9_]", "", bot_username or "cricxmanish_bot").lower()
     suffix = "" if pack_number == 1 else f"_{pack_number}"
-    return f"seyuki_{user_id}{suffix}_by_{username}"[:64]
+    return f"cricxmanish_{user_id}{suffix}_by_{username}"[:64]
 
 
 def sticker_pack_title(first_name: str, username: str | None) -> str:
     owner = first_name.strip() or (username or "").strip().lstrip("@") or "User"
-    return f"Seyuki - {owner}"[:64]
+    return f"CricxManish18 - {owner}"[:64]
 
 
 async def add_sticker_to_user_pack(
@@ -36018,7 +36018,7 @@ async def add_sticker_to_user_pack(
 ) -> str | None:
     """Keep each user's stickers in their own pack, creating numbered packs when full."""
     sticker = InputSticker(
-        sticker=BufferedInputFile(sticker_bytes, filename="seyuki.webp"),
+        sticker=BufferedInputFile(sticker_bytes, filename="cricxmanish.webp"),
         format="static",
         emoji_list=["✨"],
     )
@@ -37087,7 +37087,7 @@ EMOJI_RUSH_EMOJI_NAMES = {
     "🧳": "Luggage",
 }
 ARCADE_WORDS = [
-    ("TELEGRAM", "A chat app where Seyuki lives"),
+    ("TELEGRAM", "A chat app where CricxManish18 lives"),
     ("VICTORY", "What the winner gets"),
     ("FRIEND", "Someone you invite to play"),
     ("PUZZLE", "A challenge to solve"),
@@ -37258,7 +37258,7 @@ async def finish_emoji_rush(
         f"<b>✅ Correct:</b> {correct_counts.get(user_id, 0)}/"
         f"{EMOJI_RUSH_TOTAL_QUESTIONS}\n"
         f"<b>⭐ Score:</b> {score} pts\n"
-        f"<b>Reward:</b> {awarded.get(user_id, 0)} Seyu Gems"
+        f"<b>Reward:</b> {awarded.get(user_id, 0)} Cric Tokens"
         for rank, (user_id, score) in enumerate(ranking, 1)
     ]
     status = (
@@ -37547,14 +37547,14 @@ async def finish_arcade_game(session: dict[str, object]) -> None:
         reward = awarded.get(user_id, 0)
         lines.append(
             f"{rank}. {arcade_player_label(session, user_id)} — "
-            f"<b>{score}</b> pts (+{reward} Seyu Gems)"
+            f"<b>{score}</b> pts (+{reward} Cric Tokens)"
         )
     spec = arcade_spec(session)
     await bot.send_message(
         chat_id,
         f"<b>{spec['icon']} {spec['title']} — FINAL RESULTS</b>\n\n"
         + "\n".join(lines)
-        + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
+        + "\n\nTop 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
         "Start another match with the game command.\n\n🔥 <b>Join my channel: @cricxmanish</b>",
     )
     session["state"] = "finished"
@@ -37632,7 +37632,7 @@ async def safe_resolve_arcade_round(chat_id: int, round_number: int) -> None:
                 await bot.send_message(
                     chat_id,
                     "This quick game stopped safely because of an internal error. "
-                    "No Seyu Gems were charged.",
+                    "No Cric Tokens were charged.",
                 )
             except Exception:
                 pass
@@ -38583,7 +38583,7 @@ def mafia_lobby_text(session: dict[str, object]) -> str:
         for index, player in enumerate(players, 1)
     )
     return (
-        "<b>SEYUKI MAFIA</b>\n\n"
+        "<b>CRICXMANISH18 MAFIA</b>\n\n"
         "A secret war has started in the city.\n"
         "Find the Don and eliminate the Mafia before they take control.\n\n"
         "<b>Players:</b> "
@@ -38639,7 +38639,7 @@ def mafia_role_card(session: dict[str, object], user_id: int) -> str:
             + ("\n".join(team_members) if team_members else "You are the only Bad player.")
         )
     return (
-        "<b>Your Seyuki Mafia Role</b>\n\n"
+        "<b>Your CricxManish18 Mafia Role</b>\n\n"
         f"<b>Role:</b> {MAFIA_ROLE_LABELS.get(role, role.title())}\n"
         f"<b>Team:</b> {team}\n\n"
         f"{MAFIA_ROLE_DESCRIPTIONS.get(role, '')}"
@@ -38712,11 +38712,11 @@ def mafia_night_text(session: dict[str, object]) -> str:
     round_number = int(session["round"])
     alive_count = len(session["alive"])
     return (
-        f"<b>SEYUKI MAFIA — ROUND {round_number}/4</b>\n\n"
+        f"<b>CRICXMANISH18 MAFIA — ROUND {round_number}/4</b>\n\n"
         "The city is asleep. The Mafia is hunting.\n\n"
         f"Alive players: <b>{alive_count}</b>\n"
         f"Night actions close in <b>{MAFIA_NIGHT_SECONDS} seconds</b>.\n\n"
-        "Your private role and action buttons are in Seyuki DM.\n"
+        "Your private role and action buttons are in CricxManish18 DM.\n"
         "Use the group button below if you have not checked your role yet."
     )
 
@@ -39088,11 +39088,11 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
     )
     await mafia_edit_group(
         session,
-        "<b>SEYUKI MAFIA — GAME OVER</b>\n\n"
+        "<b>CRICXMANISH18 MAFIA — GAME OVER</b>\n\n"
         f"<b>{winning_team} wins!</b>\n{reason}\n\n"
-        "Every player received Seyu Gems based on their team.\n\n"
+        "Every player received Cric Tokens based on their team.\n\n"
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
-        "Start another game with <code>/seyuki mafia</code>."
+        "Start another game with <code>/cricxmanish mafia</code>."
 
 🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
 
@@ -39195,7 +39195,7 @@ async def expire_mafia_lobby(chat_id: int, lobby_message_id: int) -> None:
         try:
             await bot.send_message(
                 chat_id=chat_id,
-                text="<b>SEYUKI MAFIA</b>\n\n"
+                text="<b>CRICXMANISH18 MAFIA</b>\n\n"
             f"The 7-minute lobby expired before {MAFIA_MIN_PLAYERS} players joined.",
             )
         except (TelegramBadRequest, TelegramForbiddenError, TelegramRetryAfter):
@@ -39237,9 +39237,9 @@ async def start_mafia_game(chat_id: int, actor_id: int, message: Message) -> Non
         cancel_mafia_task(chat_id)
         await mafia_edit_group(
             session,
-            "<b>SEYUKI MAFIA HAS STARTED</b>\n\n"
+            "<b>CRICXMANISH18 MAFIA HAS STARTED</b>\n\n"
             "Roles have been assigned privately.\n"
-            "Tap <b>Check Your Role</b> to open Seyuki DM.\n\n"
+            "Tap <b>Check Your Role</b> to open CricxManish18 DM.\n\n"
             "Round 1 Night will begin now.",
             mafia_role_check_markup(chat_id),
         )
@@ -39283,7 +39283,7 @@ async def create_mafia_lobby(message: Message) -> None:
             "votes": {},
         }
         lobby = await message.answer(
-            "<b>SEYUKI MAFIA</b>\n\n"
+            "<b>CRICXMANISH18 MAFIA</b>\n\n"
             "A secret war has started in the city.\n"
             f"Minimum {MAFIA_MIN_PLAYERS} players, maximum {MAFIA_MAX_PLAYERS} players.\n"
             "The lobby will expire in 7 minutes.\n\n"
@@ -39298,8 +39298,8 @@ async def create_mafia_lobby(message: Message) -> None:
         )
 
 
-@router.message(Command("seyuki"))
-async def seyuki_game_command(message: Message) -> None:
+@router.message(Command("cricxmanish"))
+async def cricxmanish_game_command(message: Message) -> None:
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("Mafia can only be started in a group.")
         return
@@ -39515,7 +39515,7 @@ async def mafia_mayor_callback(callback: CallbackQuery) -> None:
 
 @router.callback_query(F.data == "mafia:over")
 async def mafia_over_callback(callback: CallbackQuery) -> None:
-    await callback.answer("Start a new game with /seyuki mafia.")
+    await callback.answer("Start a new game with /cricxmanish mafia.")
 
 
 @router.callback_query(F.data.startswith("mafia:noop:"))
@@ -40164,17 +40164,17 @@ def quiz_final_text(session: dict[str, object], ranked: list[tuple[int, int]]) -
         )
         reward = reward_by_user.get(user_id, 0)
         if reward:
-            line += f" (+{reward} Seyu Gems)"
+            line += f" (+{reward} Cric Tokens)"
             reward_lines.append(
                 f"{reward_rank_by_user[user_id]}. "
-                f"{quiz_player_name(player)} — {reward} Seyu Gems"
+                f"{quiz_player_name(player)} — {reward} Cric Tokens"
             )
         lines.append(line)
     return (
         f"<b>{html.escape(quiz_title(session))} — Overall Results "
         f"({quiz_round_count(session)} Rounds)</b>\n\n"
         f"{chr(10).join(lines)}\n\n"
-        "<b>Seyu Gems awarded:</b>\n"
+        "<b>Cric Tokens awarded:</b>\n"
         f"{chr(10).join(reward_lines) or 'None'}\n\n"
         "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
     )
@@ -40825,7 +40825,7 @@ async def run_quiz_session(chat_id: int) -> None:
                                 (
                                     "<b>Quiz — Stopped</b>\n\n"
                                     "A fresh quiz question could not be generated. "
-                                    "No Seyu Gems were awarded.\n"
+                                    "No Cric Tokens were awarded.\n"
                                     "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                                 ),
                                 InlineKeyboardMarkup(inline_keyboard=[[
@@ -40999,7 +40999,7 @@ async def run_quiz_session(chat_id: int) -> None:
                     int(session["message_id"]),
                     (
                         "<b>Quiz — Stopped</b>\n\n"
-                        "The quiz could not continue safely. No Seyu Gems were awarded.\n"
+                        "The quiz could not continue safely. No Cric Tokens were awarded.\n"
                         "Start a new quiz with /quiz.\n\n🔥 <b>Join my channel: @cricxmanish</b>"
                     ),
                     InlineKeyboardMarkup(inline_keyboard=[[
@@ -41449,7 +41449,7 @@ async def build_ping_status_text() -> str:
     )
 
     text = (
-        "<b>SeyukiBot Status</b>\n"
+        "<b>CricxManish18Bot Status</b>\n"
         "━━━━━━━━━━━━━━━━━━━━\n\n"
         f"<b>Database:</b> {database_text}\n"
         f"<b>Telegram API:</b> {telegram_status}\n"
@@ -41641,7 +41641,7 @@ def ai_sticker_packs_text() -> str:
         "<b>AI chat sticker packs</b>\n\n"
         f"Packs: {len(ai_sticker_packs)} configured / {enabled} enabled\n"
         f"Text-chat chance: {int(runtime_settings.get('ai_sticker_percent', 5))}%\n\n"
-        "When a user sends Seyuki a sticker, she replies with a sticker. "
+        "When a user sends CricxManish18 a sticker, she replies with a sticker. "
         "During text chats she may also send one using the configured percentage. "
         "Enabled packs rotate randomly."
     )
@@ -41765,7 +41765,7 @@ async def admin_groups_export() -> BufferedInputFile:
            LIMIT 10000"""
     )
     lines = [
-        "Seyuki managed groups",
+        "CricxManish18 managed groups",
         f"Exported at: {datetime.now(timezone.utc).isoformat()}",
         f"Groups: {len(rows)}",
         "",
@@ -41780,7 +41780,7 @@ async def admin_groups_export() -> BufferedInputFile:
             f"Bot admin since: {row['admin_since'] or row['added_at'] or 'unknown'}",
             "",
         ])
-    return BufferedInputFile("\n".join(lines).encode("utf-8"), filename="seyuki-groups.txt")
+    return BufferedInputFile("\n".join(lines).encode("utf-8"), filename="cricxmanish-groups.txt")
 
 
 def nextgen_markup() -> InlineKeyboardMarkup:
@@ -42231,7 +42231,7 @@ async def profile_text(user_id: int) -> str:
         f"<b>Profile name:</b> {html.escape(str(name))}\n"
         f"<b>Age:</b> {html.escape(str(age))}\n"
         f"<b>Gender:</b> {html.escape(str(gender))}\n"
-        f"<b>Seyu Gems:</b> {seyu_gems}\n"
+        f"<b>Cric Tokens:</b> {seyu_gems}\n"
         f"<b>Followers:</b> {follower_count}\n"
         f"<b>Following:</b> {following_count}\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -42471,9 +42471,9 @@ async def store(callback: CallbackQuery) -> None:
     await callback.answer()
     await render_menu_text(
         callback,
-        "<b>Seyu Store</b>\n\n"
+        "<b>Cric Store</b>\n\n"
         "Store is coming soon.\n"
-        "Seyu Gems earning and spending options will be added later.",
+        "Cric Tokens earning and spending options will be added later.",
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(text="🏠 Back to Main Menu", callback_data="home", style="success"),
         ]]),
@@ -42557,7 +42557,7 @@ async def your_groups(callback: CallbackQuery) -> None:
     checked_groups = await asyncio.gather(*(eligible_group(row) for row in rows))
     visible = [group for group in checked_groups if group is not None]
     if visible:
-        text = "<b>Your Groups</b>\n\nGroups where you are an admin and Seyuki is active:"
+        text = "<b>Your Groups</b>\n\nGroups where you are an admin and CricxManish18 is active:"
         markup = InlineKeyboardMarkup(
             inline_keyboard=[
                 [InlineKeyboardButton(
@@ -42573,7 +42573,7 @@ async def your_groups(callback: CallbackQuery) -> None:
     else:
         text = (
             "<b>Your Groups</b>\n\n"
-            "No eligible groups found yet. Add Seyuki to a group, make her an admin, "
+            "No eligible groups found yet. Add CricxManish18 to a group, make her an admin, "
             "and send any message there first."
         )
         markup = group_back_menu()
@@ -44094,7 +44094,7 @@ async def profile_name(callback: CallbackQuery) -> None:
         await callback.message.edit_text(
             "<b>Edit Profile Name</b>\n\n"
             "Enter the name you want to display on your profile.\n"
-            "Example: <code>Seyuki Fan</code>",
+            "Example: <code>CricxManish18 Fan</code>",
             reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
                 InlineKeyboardButton(
                     text="Cancel",
@@ -44198,7 +44198,7 @@ async def games(callback: CallbackQuery) -> None:
     await callback.answer()
     await render_menu_text(
         callback,
-        "<b>🎮 Seyuki Games</b>\n\n"
+        "<b>🎮 CricxManish18 Games</b>\n\n"
         "Play with your friends in a group. Choose one of eight games below "
         "to see its complete rules, commands, and reward flow.",
         games_menu(),
@@ -44253,7 +44253,7 @@ async def games_quiz(callback: CallbackQuery) -> None:
             "3. Everyone answers the four-option Telegram quiz poll directly.\n"
             "4. Answering a poll automatically joins that user; speed breaks ties.\n"
             "5. Highest total score wins.\n\n"
-            "<b>Rewards:</b> Top 5 players with positive scores receive 100, 80, 70, 60, and 50 Seyu Gems.\n"
+            "<b>Rewards:</b> Top 5 players with positive scores receive 100, 80, 70, 60, and 50 Cric Tokens.\n"
             "<b>Players:</b> Creator is included automatically; other players join "
             "by answering any poll.",
             games_menu(),
@@ -44274,19 +44274,19 @@ async def games_mafia(callback: CallbackQuery) -> None:
             "<b>Players:</b> 2–20\n"
             "<b>Goal:</b> Good players eliminate the Bad team; Mafia reaches parity.\n\n"
             "<b>Commands</b>\n"
-            "• <code>/seyuki mafia</code> — Create a 7-minute lobby\n"
+            "• <code>/cricxmanish mafia</code> — Create a 7-minute lobby\n"
             "• <code>/st mafia</code> — Start after at least 2 players join\n\n"
             "<b>How to play</b>\n"
             "1. Players tap <b>Tap to Join</b> in the group.\n"
             "2. The creator or a group admin starts the game.\n"
-            "3. Seyuki sends roles and secret actions in private DM.\n"
+            "3. CricxManish18 sends roles and secret actions in private DM.\n"
             "4. Night: Mafia suggests, Don confirms, Detective investigates, "
             "and Doctor protects.\n"
             "5. Morning: results are revealed; then the group discusses.\n"
             "6. Voting is a separate round: each alive player gets one vote.\n"
             "7. After four rounds, the winning team and all roles are revealed.\n\n"
-            "<b>Rewards:</b> Winning team gets 25 Seyu Gems; other players get 5.\n"
-            "<b>Note:</b> Players must open Seyuki DM for private role actions.",
+            "<b>Rewards:</b> Winning team gets 25 Cric Tokens; other players get 5.\n"
+            "<b>Note:</b> Players must open CricxManish18 DM for private role actions.",
             games_menu(),
         )
 
@@ -44322,7 +44322,7 @@ def arcade_help_text(game: str) -> str:
             "<b>Warning:</b> If a board is already live, the command joins that board; "
             "it does not create a second one.\n"
             "<b>Players:</b> 1–20\n"
-            "<b>Rewards:</b> Final leaderboard pays Seyu Gems."
+            "<b>Rewards:</b> Final leaderboard pays Cric Tokens."
         )
     rules = {
         "emoji": (
@@ -44372,10 +44372,10 @@ def arcade_help_text(game: str) -> str:
         "3. Type your answer in the group; no buttons or lobby are needed.\n"
         f"4. Play {ARCADE_ROUNDS} fast rounds. Every round has one answer "
         f"and {ARCADE_ROUND_SECONDS} seconds.\n"
-        "5. Fast correct answers score more points. Final rankings pay Seyu Gems.\n\n"
+        "5. Fast correct answers score more points. Final rankings pay Cric Tokens.\n\n"
         f"{rules}\n\n"
         f"<b>Players:</b> 1–{ARCADE_MAX_PLAYERS}\n"
-        "<b>Rewards:</b> 1st 60, 2nd 40, 3rd 25, everyone else 8 Seyu Gems."
+        "<b>Rewards:</b> 1st 60, 2nd 40, 3rd 25, everyone else 8 Cric Tokens."
     )
 
 
@@ -44511,7 +44511,7 @@ async def set_image_command(message: Message) -> None:
         )
         markup = None
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki-image.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish-image.webp", markup, progress,
             "Creating your image sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -44667,7 +44667,7 @@ async def set_chat_command(message: Message) -> None:
             pending_stickers.pop(next(iter(pending_stickers)))
         markup = None
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki-chat.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish-chat.webp", markup, progress,
             "Creating chat sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -44818,7 +44818,7 @@ async def set_sticker_command(message: Message) -> None:
         markup = None
         await update_progress(90)
         sticker_message = await send_sticker_with_retry(
-            message, sticker_bytes, "seyuki.webp", markup, progress,
+            message, sticker_bytes, "cricxmanish.webp", markup, progress,
             "Creating your sticker...",
         )
         pending_sticker_messages[content_hash] = (
@@ -44968,7 +44968,7 @@ async def render_global_commands_panel(callback: CallbackQuery) -> None:
     if callback.message:
         await callback.message.edit_text(
             "<b>Global Custom Commands</b>\n\n"
-            "These commands work in every group where Seyuki is present. "
+            "These commands work in every group where CricxManish18 is present. "
             "Set a name such as <code>/slap</code>, then send the media for it.\n"
             "When used, both the sender and target user are tagged automatically.\n\n"
             f"Configured commands: <b>{len(commands)}</b>",
@@ -46156,7 +46156,7 @@ def daily_zone_video_template(
 ) -> tuple[Path, Path, Path, tuple[int, int, int, int]]:
     template_source, canvas_size, content_box = daily_zone_layout()
     template_handle, template_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-template-",
+        prefix="cricxmanish-daily-zone-template-",
         suffix=".png",
     )
     os.close(template_handle)
@@ -46173,7 +46173,7 @@ def daily_zone_video_template(
             format="PNG",
         )
     mask_handle, mask_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-mask-",
+        prefix="cricxmanish-daily-zone-mask-",
         suffix=".png",
     )
     os.close(mask_handle)
@@ -46265,14 +46265,14 @@ async def prepare_daily_zone_source(
         )
         staged = await bot.send_photo(
             message.chat.id,
-            BufferedInputFile(rendered, filename="seyuki-daily-zone.jpg"),
+            BufferedInputFile(rendered, filename="cricxmanish-daily-zone.jpg"),
             reply_markup=daily_zone_draft_markup(),
             **daily_zone_caption_kwargs(message),
         )
         return message.chat.id, staged.message_id, cleanup_paths
 
     source_handle, source_name = tempfile.mkstemp(
-        prefix="seyuki-daily-zone-source-",
+        prefix="cricxmanish-daily-zone-source-",
         suffix=".mp4",
     )
     os.close(source_handle)
@@ -46570,7 +46570,7 @@ async def render_daily_zone_panel(callback: CallbackQuery) -> None:
         return
     await render_admin_text_panel(
         callback,
-        "<b>Seyuki Daily Zone</b>\n\n"
+        "<b>CricxManish18 Daily Zone</b>\n\n"
         f"{daily_zone_template_status()}\n\n"
         "One active template is used for every Daily Zone photo and video. "
         "Any video ratio is fitted inside the template's black media window "
@@ -47668,7 +47668,7 @@ async def save_daily_zone_template_upload(message: Message) -> tuple[int, int]:
     DAILY_ZONE_CUSTOM_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     temp_handle, temp_name = tempfile.mkstemp(
         dir=str(DAILY_ZONE_CUSTOM_TEMPLATE_PATH.parent),
-        prefix="seyuki-daily-zone-template-upload-",
+        prefix="cricxmanish-daily-zone-template-upload-",
         suffix=".png",
     )
     os.close(temp_handle)
@@ -48474,7 +48474,7 @@ async def message_handler(message: Message) -> None:
         await process_group_afk_activity(message)
         # In groups, ignore the common deep-link probe from regular members.
         # Admins/owner may still use /start with the bot username and receive
-        # the normal Seyuki response.
+        # the normal CricxManish18 response.
         if message.text and bot_username:
             start_match = re.match(r"^\s*/start(?:@[\w_]+)?(?:\s+(.*))?\s*$", message.text, re.IGNORECASE)
             if start_match:
@@ -48549,14 +48549,14 @@ async def main() -> None:
     cleanup_all_music_buffers()
     music_executor = ThreadPoolExecutor(
         max_workers=MUSIC_WORKER_THREADS,
-        thread_name_prefix="seyuki-music",
+        thread_name_prefix="cricxmanish-music",
     )
     http = httpx.AsyncClient(
         base_url="https://openrouter.ai/api/v1",
         headers={
             "Content-Type": "application/json",
             "HTTP-Referer": "https://replit.com",
-            "X-Title": "Seyuki Telegram Bot",
+            "X-Title": "CricxManish18 Telegram Bot",
         },
         timeout=httpx.Timeout(AI_REQUEST_TIMEOUT_SECONDS, connect=6.0),
     )
@@ -48564,7 +48564,7 @@ async def main() -> None:
         base_url=MUSIC_SOURCE_BASE_URL,
         headers={
             "Accept": "application/json",
-            "User-Agent": "Seyuki-Telegram-Bot/1.0",
+            "User-Agent": "CricxManish18-Telegram-Bot/1.0",
         },
         timeout=httpx.Timeout(15.0, connect=8.0),
         limits=httpx.Limits(
