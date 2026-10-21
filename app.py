@@ -15150,7 +15150,7 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
         "Start another game with <code>/cricxmanish mafia</code>."
 
-🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+            "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
 🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
@@ -15930,7 +15930,7 @@ async def death_note_finish(
         f"{role_lines}\n\n"
         "Start another game with <code>/cricxmanish deathnote</code>."
 
-🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+            "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
 🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
@@ -19526,66 +19526,26 @@ def games_menu() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton(
-                    text="❌⭕ Tic Tac Toe",
-                    callback_data="games:tictac",
-                    style="primary",
-                ),
-                InlineKeyboardButton(
-                    text="🧠 Quiz",
-                    callback_data="games:quiz",
-                    style="success",
-                ),
+                InlineKeyboardButton(text="❌⭕ Tic Tac Toe", callback_data="games:tictac", style="primary"),
+                InlineKeyboardButton(text="🧠 Quiz", callback_data="games:quiz", style="success"),
             ],
             [
-                InlineKeyboardButton(
-                    text="🎭 Emoji Rush",
-                    callback_data="games:emoji",
-                    style="primary",
-                ),
+                InlineKeyboardButton(text="🎭 Emoji Rush", callback_data="games:emoji", style="primary"),
             ],
             [
-                InlineKeyboardButton(
-                    text="⚡ Math Battle",
-                    callback_data="games:mathbattle",
-                    style="success",
-                ),
-                InlineKeyboardButton(
-                    text="🔤 Translation",
-                    callback_data="games:translation",
-                    style="primary",
-                ),
+                InlineKeyboardButton(text="⚡ Math Battle", callback_data="games:mathbattle", style="success"),
+                InlineKeyboardButton(text="🔤 Translation", callback_data="games:translation", style="primary"),
             ],
             [
-                InlineKeyboardButton(
-                    text="🧩 Cross Grid",
-                    callback_data="games:crossgrid",
-                    style="primary",
-                ),
-                InlineKeyboardButton(
-                    text="🔐 Code Breaker",
-                    callback_data="games:codebreaker",
-                    style="success",
-                ),
+                InlineKeyboardButton(text="🧩 Cross Grid", callback_data="games:crossgrid", style="primary"),
+                InlineKeyboardButton(text="🔐 Code Breaker", callback_data="games:codebreaker", style="success"),
             ],
             [
-                InlineKeyboardButton(
-                    text="🧠 Sequence Master",
-                    callback_data="games:sequencemaster",
-                    style="primary",
-                ),
-                InlineKeyboardButton(
-                    text="🏏 Cric X Manish Game",
-                    callback_data="games:cricxgame",
-                    style="success",
-                ),
+                InlineKeyboardButton(text="🧠 Sequence Master", callback_data="games:sequencemaster", style="primary"),
+                InlineKeyboardButton(text="🏏 Cric X Manish Game", callback_data="games:cricxgame", style="success"),
             ],
             [
-                InlineKeyboardButton(
-                    text="🏠 Back to Main Menu",
-                    callback_data="home",
-                    style="danger",
-                )
+                InlineKeyboardButton(text="🏠 Back to Main Menu", callback_data="home", style="danger"),
             ],
         ]
     )
@@ -39099,7 +39059,7 @@ async def mafia_finish(session: dict[str, object], winner: str, reason: str) -> 
         f"<b>Role Reveal</b>\n{role_lines}\n\n"
         "Start another game with <code>/cricxmanish mafia</code>."
 
-🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
+            "\n\n🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>",
 
 🔥 <b>Join my channel: @cricxmanish</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
