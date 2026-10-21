@@ -13162,7 +13162,9 @@ def crossgrid_file_bank() -> list[tuple[str, str]]:
 
 
 def crossgrid_make_puzzle() -> dict[str, object]:
-    bank = crossgrid_file_bank() or list(CROSSGRID_WORD_BANK)
+    bank = crossgrid_file_bank()
+    if not bank:
+        bank = list(CROSSGRID_WORD_BANK)
     for _ in range(100):
         selected = random.sample(bank, CROSSGRID_WORD_COUNT)
         signature = "|".join(sorted(word for word, _clue in selected))
@@ -26564,7 +26566,24 @@ async def _run_render_health_server() -> None:
 # ═══════════════════ CRIC X MANISH GAME ═══════════════════
 cricx_sessions: dict[int, dict[str, object]] = {}
 
-CRICX_WORDS = ["CRICKET", "STADIUM", "BATSMAN", "BOWLER", "UMPIRE", "WICKET", "VIRAT", "ROHIT", "DHONI", "SACHIN", "TROPHY", "BOUNDARY", "SIXER", "HELMET", "VICTORY", "CHAMPION"]
+CRICX_WORDS = {
+    "CRICKET": "A bat-and-ball game played between two teams.",
+    "STADIUM": "A large sports arena where matches are played.",
+    "BATSMAN": "A player who hits the ball with a bat.",
+    "BOWLER": "A player who throws the ball towards the batsman.",
+    "UMPIRE": "The official who makes decisions on the field.",
+    "WICKET": "Three stumps and two bails.",
+    "VIRAT": "Indian batsman known as the Run Machine.",
+    "ROHIT": "Indian opener famous for hitting double centuries.",
+    "DHONI": "Captain Cool who hit the 2011 World Cup winning six.",
+    "SACHIN": "The God of Cricket.",
+    "TROPHY": "The prize given to the winner of a tournament.",
+    "BOUNDARY": "A shot that reaches the edge of the field.",
+    "SIXER": "A shot that goes over the boundary rope.",
+    "HELMET": "Protective headgear worn by batsmen.",
+    "VICTORY": "Winning a match.",
+    "CHAMPION": "The ultimate winner of a tournament."
+}
 
 def cricx_display(word, guessed):
     return " ".join([letter if letter in guessed else "🔴" for letter in word])
@@ -26579,15 +26598,16 @@ async def start_cricx_game(message: Message):
         await message.answer("A game is already running in this group!")
         return
     
-    word = random.choice(CRICX_WORDS)
-    cricx_sessions[chat_id] = {"word": word, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    word = random.choice(list(CRICX_WORDS.keys()))
+    hint = CRICX_WORDS[word]
+    cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
     
     await message.answer(
         f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
-        f"Guess the word!\n"
+        f"<b>Hint:</b> <i>{hint}</i>\n"
         f"<code>{cricx_display(word, set())}</code>\n\n"
         f"❤️ Lives: 7\n"
-        f"<i>Send letters or the whole word to guess.</i>"
+        f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
     )
 
 @router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text)
@@ -26635,6 +26655,7 @@ async def cricx_guess_handler(message: Message):
 
     await message.reply(
         f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{session['hint']}</i>\n"
         f"<code>{cricx_display(word, session['guessed'])}</code>\n\n"
         f"❤️ Lives: {lives}\n"
         f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
@@ -39618,6 +39639,7 @@ def quiz_categories_markup(page: int = 0) -> InlineKeyboardMarkup:
     fixed = [
         ("gk", "General Knowledge"),
         ("math", "Maths"),
+        ("cricket", "Cricket 🏏"),
     ]
     rows = [
         [
