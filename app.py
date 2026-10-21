@@ -15927,9 +15927,7 @@ async def death_note_finish(
         f"{role_lines}\n\n"
         "Start another game with <code>/cricxmanish deathnote</code>."
 
-🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>
-
-🔥 <b>Join my channel: @cricxmanish</b>,
+🔥 <b>Hope You enjoyed the Game, Join Our channel: @lootxmanish for genuine loots,offers and tricks with cricket love ~ जय हिंद जय भारत 🇮🇳🇮🇳</b>,
         InlineKeyboardMarkup(inline_keyboard=[[
             InlineKeyboardButton(
                 text="Game Over",
