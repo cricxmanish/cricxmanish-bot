@@ -16923,21 +16923,13 @@ def quiz_category_from_slug(slug: str) -> tuple[str, str, str]:
 
 def quiz_bank_category(session: dict[str, object]) -> str:
     topic_kind = str(session.get("topic_kind", "general"))
-    topic_key = str(session.get("topic_key", "general"))
-    if "cricket" in topic_kind or "cricket" in topic_key:
-        return [
-            quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
-            quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
-            quiz_choice_question("Who won the 2011 Cricket World Cup?", "India", ["Australia", "Sri Lanka", "Pakistan"]),
-            quiz_choice_question("What is the maximum runs a batsman can score off one ball?", "6", ["4", "8", "10"]),
-            quiz_choice_question("Who is known as Captain Cool?", "MS Dhoni", ["Virat Kohli", "Rohit Sharma", "Kapil Dev"])
-        ].casefold()
+    topic_key = str(session.get("topic_key", "general")).casefold()
     if topic_kind == "state":
         return f"state:{topic_key}"
     if topic_kind == "math":
         return "math"
-    if topic_kind == "translation":
-        return "translation"
+    if "cricket" in topic_kind or "cricket" in topic_key:
+        return "cricket"
     return "gk"
 
 
