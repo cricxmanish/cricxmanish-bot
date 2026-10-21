@@ -16846,6 +16846,7 @@ QUIZ_TOPIC_ALIASES = {
     "hindi": ("translation", "Translation", "translation"),
     "cricket": ("cricket", "Cricket", "cricket"),
     "cricket": ("cricket", "Cricket", "cricket"),
+    "cricket": ("cricket", "Cricket", "cricket"),
 }
 REMOVED_QUIZ_TOPICS = {
     "free fire",
@@ -17791,7 +17792,20 @@ def mathbattle_quiz_question(level: str) -> dict[str, object] | None:
 
 def local_quiz_questions(session: dict[str, object]) -> list[dict[str, object]]:
     """Return safe, easy questions that always match the selected topic."""
-    topic_kind = str(session.get("topic_kind", "general"))
+    if "cricket" in str(session.get("topic_kind", "")).casefold() or "cricket" in str(session.get("topic_key", "")).casefold():
+        return [
+            quiz_choice_question("Who is known as the God of Cricket?", "Sachin Tendulkar", ["Virat Kohli", "MS Dhoni", "Rohit Sharma"]),
+            quiz_choice_question("How many players are in a cricket team?", "11", ["9", "10", "12"]),
+            quiz_choice_question("Who won the 2011 Cricket World Cup?", "India", ["Australia", "Sri Lanka", "Pakistan"]),
+            quiz_choice_question("What is the maximum runs a batsman can score off one ball?", "6", ["4", "8", "10"]),
+            quiz_choice_question("Who is known as Captain Cool?", "MS Dhoni", ["Virat Kohli", "Rohit Sharma", "Kapil Dev"]),
+            quiz_choice_question("Which country invented cricket?", "England", ["Australia", "India", "South Africa"]),
+            quiz_choice_question("What is the length of a cricket pitch?", "22 yards", ["20 yards", "24 yards", "25 yards"]),
+            quiz_choice_question("How many stumps are there in a wicket?", "3", ["2", "4", "5"]),
+            quiz_choice_question("Who is known as the Rawalpindi Express?", "Shoaib Akhtar", ["Wasim Akram", "Waqar Younis", "Imran Khan"]),
+            quiz_choice_question("Which team has won the most IPL titles?", "Mumbai Indians", ["Chennai Super Kings", "Kolkata Knight Riders", "Royal Challengers Bangalore"])
+        ]
+        topic_kind = str(session.get("topic_kind", "general"))
     topic_key = str(session.get("topic_key", "general"))
     question_sets: dict[str, list[tuple[str, str, list[str]]]] = {
         "general": [
