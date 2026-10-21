@@ -17683,12 +17683,11 @@ def translation_file_bank() -> dict[str, list[tuple[str, str, list[str]]]]:
         return bank
     for line in text.splitlines():
         parts = [p.strip() for p in line.split("|")]
-        if len(parts) < 7:
+        if len(parts) < 11:
             continue
         _qid, level, tense, question, answer = parts[:5]
-        opts_raw = "|".join(parts[5:-1])
         level = level.casefold()
-        options = [o.strip() for o in opts_raw.split("||") if o.strip()]
+        options = [parts[5], parts[7], parts[9], parts[11]]
         if level not in bank or not question or len(options) != 4:
             continue
         if answer not in options or len({o.casefold() for o in options}) != 4:
@@ -26480,7 +26479,7 @@ async def message_handler(message: Message) -> None:
             and message.reply_to_message.from_user.id == bot.id
         )
         if not (mentioned or named or replied):
-            return
+            raise SkipHandler
         now = time.monotonic()
         if now - last_group_reply[message.chat.id] < 1.0:
             return
@@ -48442,7 +48441,7 @@ async def message_handler(message: Message) -> None:
             and message.reply_to_message.from_user.id == bot.id
         )
         if not (mentioned or named or replied):
-            return
+            raise SkipHandler
         now = time.monotonic()
         if now - last_group_reply[message.chat.id] < 1.0:
             return
