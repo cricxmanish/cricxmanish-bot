@@ -1,300 +1,600 @@
-{"category": "math", "level": "basic", "question": "What is 23 - 29?", "options": ["8", "-8", "-2", "-6"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 47 + 7?", "options": ["58", "52", "54", "71"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 99 * 6?", "options": ["594", "604", "614", "586"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 31 - 28?", "options": ["16", "0", "10", "3"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 93 * 9?", "options": ["852", "837", "841", "834"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 179 - 11?", "options": ["172", "159", "168", "188"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 21 + 44?", "options": ["80", "70", "65", "63"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 19 * 3?", "options": ["77", "56", "60", "57"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 174 - 10?", "options": ["155", "169", "177", "164"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 31 - 43?", "options": ["-11", "-12", "6", "-20"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 82 + 6?", "options": ["91", "88", "101", "86"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 57 * 20?", "options": ["1155", "1147", "1140", "1133"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 25 - 35?", "options": ["-10", "-5", "1", "-13"], "correct_index": 0}
-{"category": "math", "level": "medium", "question": "What is 60 + 11?", "options": ["91", "80", "71", "67"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 163 - 8?", "options": ["159", "155", "147", "175"], "correct_index": 1}
-{"category": "math", "level": "basic", "question": "What is 21 + 43?", "options": ["70", "64", "77", "63"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 64 + 3?", "options": ["60", "85", "67", "75"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 189 * 19?", "options": ["3610", "3591", "3582", "3598"], "correct_index": 1}
-{"category": "math", "level": "basic", "question": "What is 6 - 26?", "options": ["-25", "-9", "-20", "-18"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 54 * 4?", "options": ["216", "213", "229", "225"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 61 - 14?", "options": ["67", "56", "45", "47"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 27 - 23?", "options": ["-2", "16", "4", "12"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 27 + 8?", "options": ["35", "36", "34", "55"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 66 * 7?", "options": ["459", "462", "482", "463"], "correct_index": 1}
-{"category": "math", "level": "basic", "question": "What is 7 - 23?", "options": ["1", "-21", "-16", "-10"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 97 + 5?", "options": ["102", "117", "95", "105"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 89 * 9?", "options": ["816", "798", "801", "804"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 44 + 28?", "options": ["71", "89", "74", "72"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 76 + 10?", "options": ["86", "99", "96", "77"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 62 * 16?", "options": ["994", "991", "992", "1012"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 14 - 26?", "options": ["-10", "-14", "-12", "1"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 12 * 2?", "options": ["33", "24", "41", "16"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 181 - 17?", "options": ["158", "175", "164", "172"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 18 + 43?", "options": ["60", "71", "61", "80"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 31 + 10?", "options": ["41", "46", "56", "31"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 179 - 5?", "options": ["180", "186", "169", "174"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 10 + 11?", "options": ["30", "41", "18", "21"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 31 + 4?", "options": ["35", "41", "30", "48"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 50 - 10?", "options": ["40", "49", "32", "55"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 32 + 32?", "options": ["61", "64", "68", "81"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 72 + 4?", "options": ["96", "81", "67", "76"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 138 - 6?", "options": ["124", "140", "132", "143"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 35 + 42?", "options": ["77", "97", "75", "84"], "correct_index": 0}
-{"category": "math", "level": "medium", "question": "What is 46 * 12?", "options": ["554", "543", "552", "564"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 117 * 10?", "options": ["1165", "1189", "1180", "1170"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 47 - 36?", "options": ["6", "20", "27", "11"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 80 * 2?", "options": ["160", "179", "168", "157"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 55 - 20?", "options": ["35", "34", "39", "48"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 9 + 26?", "options": ["35", "36", "55", "28"], "correct_index": 0}
-{"category": "math", "level": "medium", "question": "What is 41 + 5?", "options": ["46", "49", "44", "64"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 186 * 15?", "options": ["2789", "2803", "2790", "2799"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 18 - 40?", "options": ["-7", "-22", "-30", "-16"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 39 + 3?", "options": ["43", "53", "35", "42"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 123 - 10?", "options": ["113", "131", "104", "120"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 14 + 42?", "options": ["47", "61", "56", "76"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 50 * 8?", "options": ["409", "399", "400", "420"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 180 * 14?", "options": ["2520", "2521", "2534", "2512"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 2 - 5?", "options": ["13", "7", "-3", "-5"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 59 * 2?", "options": ["112", "118", "132", "120"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 57 - 7?", "options": ["50", "53", "46", "65"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 4 - 46?", "options": ["-26", "-42", "-35", "-51"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 77 * 10?", "options": ["780", "781", "770", "763"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 55 * 6?", "options": ["335", "343", "321", "330"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 4 + 14?", "options": ["28", "18", "33", "16"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 74 * 8?", "options": ["590", "592", "604", "594"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 197 * 9?", "options": ["1791", "1772", "1775", "1773"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 26 + 50?", "options": ["76", "77", "92", "74"], "correct_index": 0}
-{"category": "math", "level": "medium", "question": "What is 89 * 8?", "options": ["710", "712", "731", "719"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 166 - 7?", "options": ["159", "173", "167", "156"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 21 + 27?", "options": ["49", "48", "66", "47"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 63 * 6?", "options": ["383", "394", "371", "378"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 173 * 5?", "options": ["872", "863", "882", "865"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 49 + 22?", "options": ["77", "84", "71", "61"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 19 * 12?", "options": ["223", "228", "246", "233"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 131 - 13?", "options": ["135", "115", "122", "118"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 50 + 1?", "options": ["71", "48", "54", "51"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 86 * 3?", "options": ["268", "277", "255", "258"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 69 - 17?", "options": ["66", "44", "61", "52"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 39 + 40?", "options": ["77", "84", "96", "79"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 16 + 9?", "options": ["35", "22", "25", "40"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 79 * 16?", "options": ["1282", "1254", "1264", "1266"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 36 + 46?", "options": ["91", "78", "82", "99"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 48 + 9?", "options": ["76", "53", "65", "57"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 134 * 19?", "options": ["2546", "2539", "2565", "2548"], "correct_index": 0}
-{"category": "math", "level": "basic", "question": "What is 14 + 1?", "options": ["18", "15", "33", "14"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 86 * 2?", "options": ["183", "171", "172", "182"], "correct_index": 2}
-{"category": "math", "level": "hard", "question": "What is 54 * 7?", "options": ["397", "386", "378", "368"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 22 - 28?", "options": ["3", "-12", "5", "-6"], "correct_index": 3}
-{"category": "math", "level": "medium", "question": "What is 52 * 5?", "options": ["259", "260", "262", "271"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 185 - 12?", "options": ["169", "186", "179", "173"], "correct_index": 3}
-{"category": "math", "level": "basic", "question": "What is 37 - 4?", "options": ["47", "30", "33", "39"], "correct_index": 2}
-{"category": "math", "level": "medium", "question": "What is 49 * 6?", "options": ["294", "295", "289", "305"], "correct_index": 0}
-{"category": "math", "level": "hard", "question": "What is 97 - 16?", "options": ["73", "100", "81", "90"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 35 - 11?", "options": ["24", "22", "26", "37"], "correct_index": 0}
-{"category": "math", "level": "medium", "question": "What is 14 + 2?", "options": ["35", "16", "19", "6"], "correct_index": 1}
-{"category": "math", "level": "hard", "question": "What is 116 - 9?", "options": ["103", "118", "107", "110"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 41 - 8?", "options": ["34", "33", "53", "23"], "correct_index": 1}
-{"category": "math", "level": "medium", "question": "What is 26 * 12?", "options": ["302", "313", "330", "312"], "correct_index": 3}
-{"category": "math", "level": "hard", "question": "What is 53 - 15?", "options": ["34", "40", "38", "58"], "correct_index": 2}
-{"category": "math", "level": "basic", "question": "What is 32 + 34?", "options": ["81", "61", "66", "71"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who is known as the God of Cricket?", "options": ["Sachin Tendulkar", "MS Dhoni", "Virat Kohli", "Rohit Sharma"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "How many players are in a cricket team?", "options": ["12", "11", "9", "10"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Who won the 2011 Cricket World Cup?", "options": ["Australia", "Pakistan", "India", "Sri Lanka"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "What is the maximum runs a batsman can score off one ball?", "options": ["4", "6", "10", "8"], "correct_index": 1}
-{"category": "cricket", "level": "medium", "question": "Who is known as Captain Cool?", "options": ["Kapil Dev", "Virat Kohli", "MS Dhoni", "Rohit Sharma"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Which country invented cricket?", "options": ["Australia", "South Africa", "England", "India"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "What is the length of a cricket pitch?", "options": ["22 yards", "25 yards", "20 yards", "24 yards"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "How many stumps are there in a wicket?", "options": ["2", "3", "4", "5"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "What is the term for a batsman scoring zero runs?", "options": ["Zero", "Duck", "Goose", "Blank"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "What is the color of the ball used in Test cricket?", "options": ["Red", "Yellow", "White", "Pink"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Who was the captain of India in the 1983 World Cup?", "options": ["Sunil Gavaskar", "Ravi Shastri", "Kapil Dev", "Dilip Vengsarkar"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "How many wickets must fall to end an innings in an ODI?", "options": ["8", "9", "10", "11"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Which Indian player is nicknamed 'Chiku'?", "options": ["Virat Kohli", "Rohit Sharma", "MS Dhoni", "Hardik Pandya"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Which country won the inaugural T20 World Cup in 2007?", "options": ["Pakistan", "Australia", "India", "West Indies"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Which player is known as 'The Wall' of Indian cricket?", "options": ["Rahul Dravid", "VVS Laxman", "Sachin Tendulkar", "Sourav Ganguly"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Who scored the first double century in ODI cricket?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Chris Gayle", "Rohit Sharma"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Brian Lara", "Virat Kohli", "Sachin Tendulkar", "Matthew Hayden"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Muttiah Muralitharan", "James Anderson", "Anil Kumble", "Shane Warne"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Herschelle Gibbs", "Chris Gayle", "Yuvraj Singh", "Kieron Pollard"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Who has scored the fastest century in ODI cricket?", "options": ["AB de Villiers", "Rohit Sharma", "Chris Gayle", "Shahid Afridi"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Which Indian player scored 264 runs in an ODI match?", "options": ["Virender Sehwag", "Virat Kohli", "Rohit Sharma", "Sachin Tendulkar"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Which country won the first ever Cricket World Cup in 1975?", "options": ["Australia", "India", "England", "West Indies"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score 10,000 runs in ODI cricket?", "options": ["Inzamam-ul-Haq", "Sachin Tendulkar", "Ricky Ponting", "Sourav Ganguly"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Which Indian bowler has taken a hat-trick in the 2011 World Cup?", "options": ["Munaf Patel", "Harbhajan Singh", "Zaheer Khan", "Yuvraj Singh"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Who has the record for the most catches in Test cricket?", "options": ["Jacques Kallis", "Ricky Ponting", "Mahela Jayawardene", "Rahul Dravid"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Which player has scored the most centuries in international cricket?", "options": ["Sachin Tendulkar", "Kumar Sangakkara", "Virat Kohli", "Ricky Ponting"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Shoaib Akhtar", "Brett Lee", "Shaun Tait", "Mitchell Starc"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Which team won the first IPL season in 2008?", "options": ["Mumbai Indians", "Deccan Chargers", "Chennai Super Kings", "Rajasthan Royals"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Which batsman is famously known as 'Mr. 360'?", "options": ["Suryakumar Yadav", "Glenn Maxwell", "Suresh Raina", "AB de Villiers"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Andy Sandham", "Don Bradman", "Wally Hammond", "Brian Lara"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest score by a batsman on Test debut?", "options": ["Yasir Hameed", "Rohit Sharma", "Tip Foster", "Lawrence Rowe"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Which bowler has the best bowling figures in an ODI match?", "options": ["Rashid Khan", "Chaminda Vaas", "Shahid Afridi", "Shane Bond"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Who was the first captain to win the T20 World Cup twice?", "options": ["Kane Williamson", "MS Dhoni", "Eoin Morgan", "Darren Sammy"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Which player has the record for the fastest Test century?", "options": ["Misbah-ul-Haq", "Adam Gilchrist", "Viv Richards", "Brendon McCullum"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a single Test innings?", "options": ["Javagal Srinath", "Harbhajan Singh", "Anil Kumble", "R Ashwin"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who scored the first century in T20 internationals?", "options": ["Chris Gayle", "Brendon McCullum", "Mahela Jayawardene", "Suresh Raina"], "correct_index": 1}
-{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in a single World Cup edition?", "options": ["Mitchell Starc", "Glenn McGrath", "Zaheer Khan", "Muttiah Muralitharan"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Which team has won the most consecutive Test matches?", "options": ["Australia", "England", "West Indies", "India"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Who was the first cricketer to score 10,000 runs in Test cricket?", "options": ["Sunil Gavaskar", "Allan Border", "Brian Lara", "Sachin Tendulkar"], "correct_index": 1}
-{"category": "cricket", "level": "medium", "question": "Who was the first team to win the IPL twice?", "options": ["Rajasthan Royals", "Chennai Super Kings", "Kolkata Knight Riders", "Mumbai Indians"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Who is the only player to score a century in their 100th Test match?", "options": ["Ricky Ponting", "Sachin Tendulkar", "Hashim Amla", "Colin Cowdrey"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["KL Rahul", "AB de Villiers", "Yuvraj Singh", "Chris Gayle"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who was the first bowler to take a hat-trick in the IPL?", "options": ["Makhaya Ntini", "Amit Mishra", "L Balaji", "Lasith Malinga"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Which batsman was the first to score a century in all Test-playing nations?", "options": ["Rahul Dravid", "Sachin Tendulkar", "Jacques Kallis", "Ricky Ponting"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Who was the first Indian to take 100 wickets in IPL?", "options": ["Yuzvendra Chahal", "Harbhajan Singh", "Amit Mishra", "Lasith Malinga"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who was the first batsman to score 1000 runs in a calendar year?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Ricky Ponting", "Sunil Gavaskar"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Shane Warne", "Anil Kumble", "Muttiah Muralitharan", "James Anderson"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Which player holds the record for the most sixes in Test cricket?", "options": ["Brendon McCullum", "Chris Gayle", "Ben Stokes", "Adam Gilchrist"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who was the first player to hit 100 sixes in ODI cricket?", "options": ["Sanath Jayasuriya", "Chris Gayle", "Shahid Afridi", "Sachin Tendulkar"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who is known as the God of Cricket?", "options": ["Sachin Tendulkar", "Virat Kohli", "MS Dhoni", "Rohit Sharma"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "How many players are in a cricket team?", "options": ["10", "12", "9", "11"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["India", "Sri Lanka", "Australia", "Pakistan"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "What is the maximum runs a batsman can score off one ball?", "options": ["4", "8", "6", "10"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["MS Dhoni", "Virat Kohli", "Kapil Dev", "Rohit Sharma"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Which country invented cricket?", "options": ["South Africa", "England", "India", "Australia"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "What is the length of a cricket pitch?", "options": ["22 yards", "24 yards", "25 yards", "20 yards"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "How many stumps are there in a wicket?", "options": ["3", "4", "5", "2"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "What is the term for a batsman scoring zero runs?", "options": ["Blank", "Goose", "Duck", "Zero"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "What is the color of the ball used in Test cricket?", "options": ["Pink", "White", "Yellow", "Red"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who was the captain of India in the 1983 World Cup?", "options": ["Dilip Vengsarkar", "Sunil Gavaskar", "Ravi Shastri", "Kapil Dev"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "How many wickets must fall to end an innings in an ODI?", "options": ["10", "11", "8", "9"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Which Indian player is nicknamed 'Chiku'?", "options": ["MS Dhoni", "Virat Kohli", "Rohit Sharma", "Hardik Pandya"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Which country won the inaugural T20 World Cup in 2007?", "options": ["West Indies", "Australia", "Pakistan", "India"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Which player is known as 'The Wall' of Indian cricket?", "options": ["Rahul Dravid", "VVS Laxman", "Sachin Tendulkar", "Sourav Ganguly"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who scored the first double century in ODI cricket?", "options": ["Rohit Sharma", "Chris Gayle", "Sachin Tendulkar", "Virender Sehwag"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Gautam Gambhir", "Yuvraj Singh", "MS Dhoni", "Virat Kohli"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Virat Kohli", "Brian Lara", "Matthew Hayden", "Sachin Tendulkar"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["James Anderson", "Shane Warne", "Muttiah Muralitharan", "Anil Kumble"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Yuvraj Singh", "Kieron Pollard", "Herschelle Gibbs", "Chris Gayle"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 43 + 49?", "options": ["104", "92", "88", "117"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 100 + 5?", "options": ["97", "131", "107", "105"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 191 - 5?", "options": ["190", "214", "173", "186"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 48 + 35?", "options": ["108", "83", "88", "76"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 68 - 7?", "options": ["76", "57", "61", "79"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 173 * 6?", "options": ["1038", "1060", "1045", "1036"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 13 - 43?", "options": ["-39", "-3", "-30", "-26"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 74 + 4?", "options": ["78", "106", "91", "67"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 65 * 16?", "options": ["1026", "1056", "1040", "1042"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 5 - 41?", "options": ["-50", "-10", "-36", "-32"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 41 * 5?", "options": ["227", "197", "205", "208"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 152 / 8?", "options": ["19", "4", "26", "40"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 32 + 26?", "options": ["76", "72", "45", "58"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 32 - 12?", "options": ["11", "23", "20", "45"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 144 / 16?", "options": ["16", "-2", "9", "36"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 13 - 46?", "options": ["-8", "-20", "-33", "-44"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 24 - 3?", "options": ["29", "37", "21", "15"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 94 - 10?", "options": ["72", "92", "109", "84"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 30 - 44?", "options": ["-22", "0", "-14", "4"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 54 + 6?", "options": ["81", "45", "60", "65"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 158 - 6?", "options": ["143", "161", "180", "152"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 11 - 13?", "options": ["7", "26", "-13", "-2"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 32 - 9?", "options": ["41", "23", "24", "19"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 177 * 10?", "options": ["1783", "1770", "1787", "1769"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 20 - 11?", "options": ["35", "16", "-1", "9"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 34 - 9?", "options": ["27", "44", "25", "14"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 54 / 18?", "options": ["-12", "22", "3", "6"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 35 - 47?", "options": ["-12", "9", "1", "-27"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 66 * 4?", "options": ["264", "265", "261", "293"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 152 / 19?", "options": ["8", "25", "10", "-7"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 16 - 15?", "options": ["5", "1", "29", "-2"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 53 + 9?", "options": ["51", "79", "62", "75"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 96 - 15?", "options": ["81", "70", "108", "91"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 28 + 39?", "options": ["67", "68", "91", "55"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 85 - 10?", "options": ["67", "75", "85", "100"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 48 / 12?", "options": ["6", "4", "31", "-4"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 29 + 48?", "options": ["80", "97", "69", "77"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 54 - 6?", "options": ["37", "76", "63", "48"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 159 * 10?", "options": ["1614", "1590", "1586", "1600"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 46 - 29?", "options": ["45", "32", "10", "17"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 26 + 6?", "options": ["45", "51", "32", "25"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 124 * 5?", "options": ["623", "620", "647", "608"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 8 + 2?", "options": ["16", "10", "32", "-5"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 44 * 5?", "options": ["220", "230", "238", "219"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 63 - 13?", "options": ["50", "58", "36", "74"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 27 - 26?", "options": ["1", "19", "-12", "9"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 22 * 9?", "options": ["194", "212", "198", "215"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 130 / 10?", "options": ["34", "9", "24", "13"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 6 - 28?", "options": ["2", "-21", "-25", "-22"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 100 + 9?", "options": ["96", "109", "115", "133"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 170 * 6?", "options": ["1010", "1048", "1020", "1031"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 41 - 29?", "options": ["23", "37", "2", "12"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 92 - 9?", "options": ["77", "91", "83", "105"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 136 / 17?", "options": ["6", "38", "13", "8"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 3 + 12?", "options": ["2", "30", "15", "33"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 66 * 8?", "options": ["540", "528", "521", "550"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 132 - 9?", "options": ["117", "134", "145", "123"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 29 - 47?", "options": ["3", "-18", "-33", "-17"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 56 + 3?", "options": ["85", "74", "51", "59"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 116 * 12?", "options": ["1386", "1392", "1412", "1401"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 2 + 34?", "options": ["30", "43", "36", "60"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 65 * 3?", "options": ["194", "195", "225", "204"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 145 / 5?", "options": ["29", "22", "53", "43"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 14 - 25?", "options": ["10", "-14", "-11", "2"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 88 * 8?", "options": ["704", "692", "723", "707"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 73 * 19?", "options": ["1377", "1387", "1400", "1409"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 17 - 43?", "options": ["-14", "-29", "-26", "1"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 88 + 8?", "options": ["120", "96", "82", "102"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 162 / 18?", "options": ["32", "6", "9", "13"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 22 + 33?", "options": ["65", "55", "45", "75"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 83 * 5?", "options": ["410", "421", "431", "415"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 92 * 15?", "options": ["1392", "1373", "1396", "1380"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 33 + 21?", "options": ["66", "47", "54", "71"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 59 + 11?", "options": ["78", "62", "70", "89"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 70 / 7?", "options": ["11", "7", "26", "10"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 42 + 8?", "options": ["50", "74", "39", "65"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 95 * 10?", "options": ["965", "967", "950", "939"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 74 * 13?", "options": ["952", "962", "980", "975"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 49 - 22?", "options": ["39", "15", "27", "50"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 26 * 2?", "options": ["38", "52", "70", "61"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 84 / 14?", "options": ["33", "13", "6", "-3"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 9 - 5?", "options": ["25", "9", "1", "4"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 11 * 11?", "options": ["139", "125", "121", "117"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 116 - 5?", "options": ["141", "117", "98", "111"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 17 - 25?", "options": ["-8", "-18", "19", "-3"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 23 - 7?", "options": ["16", "30", "32", "11"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 126 / 7?", "options": ["7", "35", "20", "18"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 13 + 32?", "options": ["63", "45", "48", "40"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 95 * 6?", "options": ["565", "588", "577", "570"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 51 * 8?", "options": ["423", "433", "408", "396"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 47 - 15?", "options": ["53", "43", "28", "32"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 65 * 10?", "options": ["674", "650", "656", "644"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 200 - 18?", "options": ["212", "182", "191", "169"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 48 + 39?", "options": ["102", "87", "105", "85"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 55 + 2?", "options": ["42", "58", "57", "79"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 81 * 8?", "options": ["654", "643", "664", "648"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 33 + 19?", "options": ["39", "62", "52", "75"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 48 - 5?", "options": ["43", "29", "64", "51"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 115 - 17?", "options": ["117", "95", "110", "98"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 26 - 22?", "options": ["14", "25", "2", "4"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 38 * 2?", "options": ["76", "89", "72", "105"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 87 - 17?", "options": ["92", "58", "70", "85"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 49 - 40?", "options": ["9", "29", "18", "0"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 100 - 12?", "options": ["88", "89", "112", "83"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 96 / 8?", "options": ["22", "12", "41", "4"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 12 + 11?", "options": ["40", "23", "24", "12"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 39 + 3?", "options": ["44", "42", "31", "70"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 66 / 11?", "options": ["32", "6", "-2", "12"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 27 - 15?", "options": ["12", "35", "1", "13"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 38 * 7?", "options": ["264", "282", "266", "270"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 136 * 8?", "options": ["1117", "1095", "1088", "1075"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 12 + 23?", "options": ["20", "38", "35", "63"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 49 + 11?", "options": ["80", "60", "50", "61"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 126 / 7?", "options": ["33", "40", "13", "18"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 7 - 15?", "options": ["12", "-1", "-8", "-9"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 66 - 10?", "options": ["52", "56", "63", "83"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 170 / 10?", "options": ["41", "9", "17", "20"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 17 + 9?", "options": ["43", "12", "26", "40"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 48 * 12?", "options": ["568", "576", "582", "600"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 151 * 13?", "options": ["1950", "1963", "1978", "1980"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 26 + 48?", "options": ["67", "93", "74", "88"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 47 - 12?", "options": ["61", "36", "24", "35"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 95 / 19?", "options": ["19", "25", "5", "4"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 32 - 25?", "options": ["7", "25", "4", "13"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 20 * 2?", "options": ["40", "33", "52", "65"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 192 - 19?", "options": ["169", "184", "196", "173"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 48 + 45?", "options": ["121", "90", "93", "98"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 50 - 8?", "options": ["51", "40", "42", "58"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 120 / 12?", "options": ["16", "6", "31", "10"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 2 - 35?", "options": ["-33", "-38", "-15", "-23"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 93 - 6?", "options": ["75", "94", "87", "104"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 173 * 7?", "options": ["1237", "1220", "1211", "1196"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 45 - 14?", "options": ["31", "20", "34", "59"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 71 + 3?", "options": ["69", "74", "102", "84"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 99 / 9?", "options": ["11", "32", "10", "18"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 8 + 9?", "options": ["17", "15", "24", "36"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 86 + 2?", "options": ["78", "88", "112", "100"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 162 / 18?", "options": ["9", "27", "3", "19"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 48 + 29?", "options": ["76", "77", "95", "92"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 56 - 7?", "options": ["60", "47", "65", "49"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 150 / 15?", "options": ["2", "18", "10", "28"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 27 + 4?", "options": ["39", "31", "16", "60"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 17 + 9?", "options": ["49", "20", "29", "26"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 61 * 8?", "options": ["477", "504", "488", "497"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 36 + 27?", "options": ["66", "50", "79", "63"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 91 * 4?", "options": ["358", "364", "376", "389"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 115 / 5?", "options": ["23", "18", "51", "33"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 28 - 5?", "options": ["23", "18", "48", "24"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 84 + 10?", "options": ["106", "116", "94", "86"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 98 * 11?", "options": ["1064", "1078", "1088", "1106"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 40 + 31?", "options": ["100", "71", "83", "61"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 76 * 5?", "options": ["383", "405", "380", "373"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 93 - 6?", "options": ["98", "75", "105", "87"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 4 + 48?", "options": ["44", "72", "52", "63"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 24 - 9?", "options": ["27", "15", "39", "1"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 117 * 6?", "options": ["689", "732", "717", "702"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 7 - 40?", "options": ["-14", "-19", "-34", "-33"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 31 + 9?", "options": ["40", "55", "30", "57"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 187 / 11?", "options": ["9", "36", "28", "17"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 34 - 39?", "options": ["8", "-5", "-13", "17"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 41 + 5?", "options": ["46", "67", "45", "54"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 50 * 11?", "options": ["550", "548", "572", "563"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 45 - 43?", "options": ["8", "29", "-6", "2"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 61 + 9?", "options": ["91", "75", "70", "66"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 180 / 10?", "options": ["28", "18", "43", "13"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 26 + 27?", "options": ["83", "53", "49", "54"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 27 - 11?", "options": ["16", "12", "28", "42"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 182 * 15?", "options": ["2732", "2722", "2730", "2750"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 26 + 11?", "options": ["57", "33", "37", "49"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 58 + 3?", "options": ["71", "61", "89", "56"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 54 / 9?", "options": ["1", "17", "6", "23"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 32 + 34?", "options": ["81", "66", "54", "94"], "correct_index": 1}
+{"category": "math", "level": "medium", "question": "What is 31 - 10?", "options": ["38", "21", "7", "29"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 111 - 10?", "options": ["96", "127", "101", "109"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 22 + 29?", "options": ["67", "58", "51", "36"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 86 + 8?", "options": ["116", "100", "94", "88"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 102 - 16?", "options": ["107", "71", "95", "86"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 22 - 3?", "options": ["21", "45", "15", "19"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 74 + 5?", "options": ["107", "79", "81", "72"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 50 / 5?", "options": ["10", "24", "9", "27"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 34 - 14?", "options": ["20", "7", "44", "35"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 16 * 4?", "options": ["63", "91", "77", "64"], "correct_index": 3}
+{"category": "math", "level": "hard", "question": "What is 144 * 9?", "options": ["1296", "1326", "1299", "1290"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 3 + 23?", "options": ["17", "52", "38", "26"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 35 + 4?", "options": ["25", "41", "39", "60"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 100 / 20?", "options": ["5", "23", "14", "3"], "correct_index": 0}
+{"category": "math", "level": "basic", "question": "What is 23 + 40?", "options": ["63", "85", "49", "64"], "correct_index": 0}
+{"category": "math", "level": "medium", "question": "What is 95 - 9?", "options": ["86", "94", "71", "103"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 139 - 8?", "options": ["119", "131", "140", "158"], "correct_index": 1}
+{"category": "math", "level": "basic", "question": "What is 49 + 47?", "options": ["94", "110", "96", "113"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 34 * 5?", "options": ["172", "157", "170", "187"], "correct_index": 2}
+{"category": "math", "level": "hard", "question": "What is 91 - 11?", "options": ["92", "75", "109", "80"], "correct_index": 3}
+{"category": "math", "level": "basic", "question": "What is 32 + 37?", "options": ["78", "92", "69", "58"], "correct_index": 2}
+{"category": "math", "level": "medium", "question": "What is 98 + 2?", "options": ["102", "100", "85", "123"], "correct_index": 1}
+{"category": "math", "level": "hard", "question": "What is 168 / 6?", "options": ["51", "38", "28", "16"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 2 - 15?", "options": ["17", "-26", "1", "-13"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 89 - 10?", "options": ["79", "89", "108", "75"], "correct_index": 0}
+{"category": "math", "level": "hard", "question": "What is 77 - 12?", "options": ["76", "95", "65", "55"], "correct_index": 2}
+{"category": "math", "level": "basic", "question": "What is 19 + 38?", "options": ["52", "64", "84", "57"], "correct_index": 3}
+{"category": "math", "level": "medium", "question": "What is 27 - 2?", "options": ["21", "54", "25", "32"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Sachin Tendulkar", "Matthew Hayden", "Virat Kohli", "Brian Lara"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Shane Warne", "Muttiah Muralitharan", "Anil Kumble", "James Anderson"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who has scored the most runs in IPL history?", "options": ["Shikhar Dhawan", "Virat Kohli", "Rohit Sharma", "David Warner"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who scored 264 runs in an ODI match?", "options": ["Sachin Tendulkar", "Virender Sehwag", "Virat Kohli", "Rohit Sharma"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Which team won the first IPL season in 2008?", "options": ["Rajasthan Royals", "Chennai Super Kings", "Deccan Chargers", "Mumbai Indians"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which team won the first IPL season in 2008?", "options": ["Chennai Super Kings", "Mumbai Indians", "Rajasthan Royals", "Deccan Chargers"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Virat Kohli", "MS Dhoni", "Gautam Gambhir", "Yuvraj Singh"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Shane Warne", "Muttiah Muralitharan", "James Anderson", "Anil Kumble"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Virat Kohli", "Gautam Gambhir", "MS Dhoni", "Yuvraj Singh"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Shane Warne", "Anil Kumble", "Muttiah Muralitharan", "James Anderson"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["Australia", "Sri Lanka", "India", "Pakistan"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Harbhajan Singh", "Anil Kumble", "Javagal Srinath", "R Ashwin"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Brett Lee", "Shaun Tait", "Shoaib Akhtar"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Anil Kumble", "Harbhajan Singh", "R Ashwin", "Javagal Srinath"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Wally Hammond", "Don Bradman", "Andy Sandham", "Brian Lara"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Kapil Dev", "Lala Amarnath", "Sachin Tendulkar", "Sunil Gavaskar"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Shane Warne", "Anil Kumble", "James Anderson", "Muttiah Muralitharan"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Sachin Tendulkar", "Brian Lara", "Virat Kohli", "Matthew Hayden"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Shoaib Akhtar", "Shaun Tait", "Brett Lee"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which team won the first IPL season in 2008?", "options": ["Chennai Super Kings", "Rajasthan Royals", "Deccan Chargers", "Mumbai Indians"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Lala Amarnath", "Sunil Gavaskar", "Sachin Tendulkar", "Kapil Dev"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Muttiah Muralitharan", "Anil Kumble", "James Anderson", "Shane Warne"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["James Anderson", "Anil Kumble", "Muttiah Muralitharan", "Shane Warne"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who scored the first double century in ODI cricket?", "options": ["Chris Gayle", "Virender Sehwag", "Rohit Sharma", "Sachin Tendulkar"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Which team won the 2022 T20 World Cup?", "options": ["India", "Pakistan", "Australia", "England"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["R Ashwin", "Anil Kumble", "Harbhajan Singh", "Javagal Srinath"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Muttiah Muralitharan", "James Anderson", "Anil Kumble", "Shane Warne"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Matthew Hayden", "Sachin Tendulkar", "Brian Lara", "Virat Kohli"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Tom Latham", "Tim Southee", "Kane Williamson", "Ross Taylor"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who was the first team to win the IPL twice?", "options": ["Mumbai Indians", "Rajasthan Royals", "Kolkata Knight Riders", "Chennai Super Kings"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Virat Kohli", "Yuvraj Singh", "Gautam Gambhir"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who captained India to victory in the 2007 T20 World Cup?", "options": ["Virat Kohli", "Sourav Ganguly", "MS Dhoni", "Rahul Dravid"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Steve Smith", "Pat Cummins", "David Warner", "Mitchell Marsh"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who has scored the most runs in IPL history?", "options": ["Shikhar Dhawan", "David Warner", "Rohit Sharma", "Virat Kohli"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who is known as Captain Cool?", "options": ["Kapil Dev", "MS Dhoni", "Virat Kohli", "Rohit Sharma"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Virat Kohli", "Matthew Hayden", "Brian Lara", "Sachin Tendulkar"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who has scored the most runs in IPL history?", "options": ["Shikhar Dhawan", "David Warner", "Rohit Sharma", "Virat Kohli"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who has the most wickets in IPL history?", "options": ["Dwayne Bravo", "Amit Mishra", "Lasith Malinga", "Yuzvendra Chahal"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Sachin Tendulkar", "Virat Kohli", "Matthew Hayden", "Brian Lara"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Gautam Gambhir", "Virat Kohli", "Yuvraj Singh", "MS Dhoni"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Matthew Hayden", "Sachin Tendulkar", "Virat Kohli", "Brian Lara"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who has scored the most runs in IPL history?", "options": ["David Warner", "Rohit Sharma", "Shikhar Dhawan", "Virat Kohli"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Wally Hammond", "Andy Sandham", "Brian Lara", "Don Bradman"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Javagal Srinath", "R Ashwin", "Harbhajan Singh", "Anil Kumble"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who scored the first double century in ODI cricket?", "options": ["Virender Sehwag", "Rohit Sharma", "Sachin Tendulkar", "Chris Gayle"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Kapil Dev", "Lala Amarnath", "Sunil Gavaskar", "Sachin Tendulkar"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Don Bradman", "Andy Sandham", "Wally Hammond", "Brian Lara"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["Kapil Dev", "Virat Kohli", "Rohit Sharma", "MS Dhoni"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who is the fastest bowler in cricket history?", "options": ["Shoaib Akhtar", "Brett Lee", "Mitchell Starc", "Shaun Tait"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["R Ashwin", "Harbhajan Singh", "Javagal Srinath", "Anil Kumble"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["Chris Gayle", "Yuvraj Singh", "AB de Villiers", "KL Rahul"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Yuvraj Singh", "Virat Kohli", "MS Dhoni", "Gautam Gambhir"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Kapil Dev", "Sunil Gavaskar", "Sachin Tendulkar", "Lala Amarnath"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Ross Taylor", "Tim Southee", "Tom Latham", "Kane Williamson"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["Sri Lanka", "Pakistan", "India", "Australia"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who captained India to victory in the 2007 T20 World Cup?", "options": ["Rahul Dravid", "MS Dhoni", "Virat Kohli", "Sourav Ganguly"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Which team won the first IPL season in 2008?", "options": ["Deccan Chargers", "Mumbai Indians", "Rajasthan Royals", "Chennai Super Kings"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Javagal Srinath", "R Ashwin", "Harbhajan Singh", "Anil Kumble"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Sachin Tendulkar", "MS Dhoni", "Zaheer Khan", "Yuvraj Singh"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Sachin Tendulkar", "Lala Amarnath", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Brian Lara", "Don Bradman", "Wally Hammond", "Andy Sandham"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who is known as the God of Cricket?", "options": ["MS Dhoni", "Rohit Sharma", "Virat Kohli", "Sachin Tendulkar"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["Kapil Dev", "MS Dhoni", "Rohit Sharma", "Virat Kohli"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Sachin Tendulkar", "Zaheer Khan", "Yuvraj Singh", "MS Dhoni"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Yuvraj Singh", "Zaheer Khan", "MS Dhoni", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["MS Dhoni", "Rohit Sharma", "Virat Kohli", "Kapil Dev"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who has scored the fastest century in ODI cricket?", "options": ["Rohit Sharma", "Shahid Afridi", "AB de Villiers", "Chris Gayle"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the first team to win the IPL twice?", "options": ["Rajasthan Royals", "Kolkata Knight Riders", "Mumbai Indians", "Chennai Super Kings"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who scored the first double century in ODI cricket?", "options": ["Rohit Sharma", "Chris Gayle", "Sachin Tendulkar", "Virender Sehwag"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Lala Amarnath", "Sachin Tendulkar", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which team won the first IPL season in 2008?", "options": ["Deccan Chargers", "Mumbai Indians", "Rajasthan Royals", "Chennai Super Kings"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Steve Smith", "Mitchell Marsh", "David Warner", "Pat Cummins"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Which team won the 2022 T20 World Cup?", "options": ["Australia", "Pakistan", "India", "England"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who has scored the most runs in IPL history?", "options": ["Virat Kohli", "Shikhar Dhawan", "David Warner", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Herschelle Gibbs", "Kieron Pollard", "Yuvraj Singh", "Chris Gayle"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["James Anderson", "Shane Warne", "Muttiah Muralitharan", "Anil Kumble"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Muttiah Muralitharan", "Anil Kumble", "Shane Warne", "James Anderson"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Kane Williamson", "Ross Taylor", "Tom Latham", "Tim Southee"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Lala Amarnath", "Kapil Dev", "Sachin Tendulkar", "Sunil Gavaskar"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["David Warner", "Mitchell Marsh", "Pat Cummins", "Steve Smith"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who won the 2011 Cricket World Cup?", "options": ["Sri Lanka", "India", "Pakistan", "Australia"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who scored the first double century in ODI cricket?", "options": ["Chris Gayle", "Rohit Sharma", "Virender Sehwag", "Sachin Tendulkar"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Which team won the 2022 T20 World Cup?", "options": ["India", "Pakistan", "England", "Australia"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Which team won the first IPL season in 2008?", "options": ["Chennai Super Kings", "Rajasthan Royals", "Deccan Chargers", "Mumbai Indians"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Muttiah Muralitharan", "Anil Kumble", "James Anderson", "Shane Warne"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which team won the first IPL season in 2008?", "options": ["Chennai Super Kings", "Mumbai Indians", "Deccan Chargers", "Rajasthan Royals"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Matthew Hayden", "Sachin Tendulkar", "Brian Lara", "Virat Kohli"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who scored 264 runs in an ODI match?", "options": ["Sachin Tendulkar", "Rohit Sharma", "Virender Sehwag", "Virat Kohli"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["MS Dhoni", "Sachin Tendulkar", "Yuvraj Singh", "Zaheer Khan"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Sachin Tendulkar", "Lala Amarnath", "Kapil Dev", "Sunil Gavaskar"], "correct_index": 1}
 {"category": "cricket", "level": "medium", "question": "Who has scored the fastest century in ODI cricket?", "options": ["Rohit Sharma", "Chris Gayle", "AB de Villiers", "Shahid Afridi"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Which Indian player scored 264 runs in an ODI match?", "options": ["Rohit Sharma", "Virender Sehwag", "Virat Kohli", "Sachin Tendulkar"], "correct_index": 0}
-{"category": "cricket", "level": "basic", "question": "Which country won the first ever Cricket World Cup in 1975?", "options": ["England", "Australia", "West Indies", "India"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who was the first batsman to score 10,000 runs in ODI cricket?", "options": ["Sourav Ganguly", "Sachin Tendulkar", "Inzamam-ul-Haq", "Ricky Ponting"], "correct_index": 1}
-{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken a hat-trick in the 2011 World Cup?", "options": ["Zaheer Khan", "Harbhajan Singh", "Yuvraj Singh", "Munaf Patel"], "correct_index": 2}
-{"category": "cricket", "level": "basic", "question": "Who has the record for the most catches in Test cricket?", "options": ["Mahela Jayawardene", "Jacques Kallis", "Rahul Dravid", "Ricky Ponting"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Which player has scored the most centuries in international cricket?", "options": ["Ricky Ponting", "Kumar Sangakkara", "Virat Kohli", "Sachin Tendulkar"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Brett Lee", "Shoaib Akhtar", "Shaun Tait", "Mitchell Starc"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Which team won the first IPL season in 2008?", "options": ["Mumbai Indians", "Rajasthan Royals", "Deccan Chargers", "Chennai Super Kings"], "correct_index": 1}
-{"category": "cricket", "level": "medium", "question": "Which batsman is famously known as 'Mr. 360'?", "options": ["AB de Villiers", "Suresh Raina", "Glenn Maxwell", "Suryakumar Yadav"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Don Bradman", "Brian Lara", "Wally Hammond", "Andy Sandham"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who holds the record for the highest score by a batsman on Test debut?", "options": ["Yasir Hameed", "Lawrence Rowe", "Rohit Sharma", "Tip Foster"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Which bowler has the best bowling figures in an ODI match?", "options": ["Chaminda Vaas", "Rashid Khan", "Shane Bond", "Shahid Afridi"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who was the first captain to win the T20 World Cup twice?", "options": ["Eoin Morgan", "Darren Sammy", "Kane Williamson", "MS Dhoni"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Which player has the record for the fastest Test century?", "options": ["Viv Richards", "Adam Gilchrist", "Brendon McCullum", "Misbah-ul-Haq"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a single Test innings?", "options": ["Anil Kumble", "Harbhajan Singh", "R Ashwin", "Javagal Srinath"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Who scored the first century in T20 internationals?", "options": ["Suresh Raina", "Chris Gayle", "Mahela Jayawardene", "Brendon McCullum"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in a single World Cup edition?", "options": ["Muttiah Muralitharan", "Zaheer Khan", "Mitchell Starc", "Glenn McGrath"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Which team has won the most consecutive Test matches?", "options": ["West Indies", "India", "Australia", "England"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Who was the first cricketer to score 10,000 runs in Test cricket?", "options": ["Sunil Gavaskar", "Brian Lara", "Sachin Tendulkar", "Allan Border"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who was the first team to win the IPL twice?", "options": ["Rajasthan Royals", "Kolkata Knight Riders", "Chennai Super Kings", "Mumbai Indians"], "correct_index": 2}
-{"category": "cricket", "level": "medium", "question": "Who is the only player to score a century in their 100th Test match?", "options": ["Hashim Amla", "Colin Cowdrey", "Sachin Tendulkar", "Ricky Ponting"], "correct_index": 3}
-{"category": "cricket", "level": "hard", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["KL Rahul", "Yuvraj Singh", "Chris Gayle", "AB de Villiers"], "correct_index": 1}
-{"category": "cricket", "level": "basic", "question": "Who was the first bowler to take a hat-trick in the IPL?", "options": ["Makhaya Ntini", "L Balaji", "Lasith Malinga", "Amit Mishra"], "correct_index": 3}
-{"category": "cricket", "level": "medium", "question": "Which batsman was the first to score a century in all Test-playing nations?", "options": ["Ricky Ponting", "Jacques Kallis", "Rahul Dravid", "Sachin Tendulkar"], "correct_index": 2}
-{"category": "cricket", "level": "hard", "question": "Who was the first Indian to take 100 wickets in IPL?", "options": ["Yuzvendra Chahal", "Lasith Malinga", "Harbhajan Singh", "Amit Mishra"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who was the first batsman to score 1000 runs in a calendar year?", "options": ["Sunil Gavaskar", "Sachin Tendulkar", "Ricky Ponting", "Virender Sehwag"], "correct_index": 0}
-{"category": "cricket", "level": "medium", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Muttiah Muralitharan", "Shane Warne", "James Anderson", "Anil Kumble"], "correct_index": 0}
-{"category": "cricket", "level": "hard", "question": "Which player holds the record for the most sixes in Test cricket?", "options": ["Chris Gayle", "Brendon McCullum", "Adam Gilchrist", "Ben Stokes"], "correct_index": 3}
-{"category": "cricket", "level": "basic", "question": "Who was the first player to hit 100 sixes in ODI cricket?", "options": ["Sachin Tendulkar", "Chris Gayle", "Shahid Afridi", "Sanath Jayasuriya"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Jupiter", "Venus", "Earth", "Mars"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Tiger", "Elephant", "Lion", "Peacock"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["6", "7", "8", "5"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Indian", "Arctic", "Pacific", "Atlantic"], "correct_index": 2}
-{"category": "gk", "level": "hard", "question": "Who is known as the Father of the Nation in India?", "options": ["Mahatma Gandhi", "Jawaharlal Nehru", "Sardar Patel", "Bhagat Singh"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Hydrogen", "Oxygen", "Carbon Dioxide", "Nitrogen"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yen", "Ringgit", "Won", "Yuan"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "How many colors are there in a rainbow?", "options": ["7", "5", "6", "8"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Charles Dickens", "Jane Austen", "Mark Twain", "William Shakespeare"], "correct_index": 3}
-{"category": "gk", "level": "medium", "question": "What is the hardest natural substance on Earth?", "options": ["Iron", "Platinum", "Gold", "Diamond"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "Which is the longest river in the world?", "options": ["Yangtze", "Nile", "Amazon", "Mississippi"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Diwali", "Holi", "Eid", "Christmas"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "What does CPU stand for?", "options": ["Central Processing Unit", "Control Processing Unit", "Computer Personal Unit", "Central Process Unit"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Which is the smallest continent by land area?", "options": ["South America", "Antarctica", "Europe", "Australia"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "Who was the first person to step on the Moon?", "options": ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Michael Collins"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Which element has the chemical symbol 'Au'?", "options": ["Gold", "Aluminum", "Argon", "Silver"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "What is the largest internal organ in the human body?", "options": ["Heart", "Brain", "Lungs", "Liver"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "In which year did World War II end?", "options": ["1939", "1945", "1950", "1918"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "Which country gifted the Statue of Liberty to the USA?", "options": ["France", "United Kingdom", "Italy", "Spain"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "What is the capital city of Australia?", "options": ["Canberra", "Melbourne", "Sydney", "Brisbane"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Alexander Graham Bell", "Guglielmo Marconi", "Thomas Edison"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "Which is the only mammal capable of true flight?", "options": ["Flying Squirrel", "Bat", "Ostrich", "Penguin"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "What is the currency of the United Kingdom?", "options": ["Pound Sterling", "Dollar", "Euro", "Franc"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Geology", "Volcanology", "Meteorology", "Seismology"], "correct_index": 3}
-{"category": "gk", "level": "medium", "question": "Which Indian city is known as the 'Pink City'?", "options": ["Jaipur", "Mysore", "Jodhpur", "Udaipur"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Who is the author of the 'Harry Potter' book series?", "options": ["C.S. Lewis", "George R.R. Martin", "J.K. Rowling", "J.R.R. Tolkien"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Which is the largest desert in the world?", "options": ["Sahara", "Antarctic Desert", "Arabian Desert", "Gobi"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "What is the primary gas found in the Earth's atmosphere?", "options": ["Nitrogen", "Hydrogen", "Carbon Dioxide", "Oxygen"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Which planet has the most moons?", "options": ["Neptune", "Uranus", "Saturn", "Jupiter"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Who discovered Penicillin?", "options": ["Marie Curie", "Joseph Lister", "Alexander Fleming", "Louis Pasteur"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "What is the chemical symbol for Tungsten?", "options": ["W", "Tg", "Tn", "Tu"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Tom Latham", "Kane Williamson", "Tim Southee", "Ross Taylor"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["MS Dhoni", "Zaheer Khan", "Yuvraj Singh", "Sachin Tendulkar"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["Pakistan", "Australia", "India", "Sri Lanka"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Anil Kumble", "Javagal Srinath", "Harbhajan Singh", "R Ashwin"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Muttiah Muralitharan", "Anil Kumble", "James Anderson", "Shane Warne"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Matthew Hayden", "Brian Lara", "Virat Kohli", "Sachin Tendulkar"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Brett Lee", "Shoaib Akhtar", "Shaun Tait"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Mitchell Marsh", "David Warner", "Steve Smith", "Pat Cummins"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["James Anderson", "Anil Kumble", "Shane Warne", "Muttiah Muralitharan"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Mitchell Marsh", "Pat Cummins", "Steve Smith", "David Warner"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who has scored the fastest century in ODI cricket?", "options": ["Chris Gayle", "Shahid Afridi", "AB de Villiers", "Rohit Sharma"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["KL Rahul", "AB de Villiers", "Yuvraj Singh", "Chris Gayle"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Pat Cummins", "Mitchell Marsh", "David Warner", "Steve Smith"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who is known as the God of Cricket?", "options": ["MS Dhoni", "Virat Kohli", "Sachin Tendulkar", "Rohit Sharma"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Tim Southee", "Tom Latham", "Kane Williamson", "Ross Taylor"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Yuvraj Singh", "Sachin Tendulkar", "Zaheer Khan", "MS Dhoni"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["James Anderson", "Shane Warne", "Muttiah Muralitharan", "Anil Kumble"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["KL Rahul", "Yuvraj Singh", "Chris Gayle", "AB de Villiers"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["Chris Gayle", "Yuvraj Singh", "KL Rahul", "AB de Villiers"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who scored the first double century in ODI cricket?", "options": ["Sachin Tendulkar", "Rohit Sharma", "Chris Gayle", "Virender Sehwag"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Sachin Tendulkar", "Brian Lara", "Virat Kohli", "Matthew Hayden"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who scored the first double century in ODI cricket?", "options": ["Virender Sehwag", "Sachin Tendulkar", "Chris Gayle", "Rohit Sharma"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Brett Lee", "Mitchell Starc", "Shaun Tait", "Shoaib Akhtar"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["Chris Gayle", "KL Rahul", "AB de Villiers", "Yuvraj Singh"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who won the 2011 Cricket World Cup?", "options": ["Australia", "India", "Pakistan", "Sri Lanka"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Anil Kumble", "James Anderson", "Muttiah Muralitharan", "Shane Warne"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Zaheer Khan", "Sachin Tendulkar", "Yuvraj Singh", "MS Dhoni"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["Chris Gayle", "AB de Villiers", "Yuvraj Singh", "KL Rahul"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Which team won the first IPL season in 2008?", "options": ["Mumbai Indians", "Rajasthan Royals", "Chennai Super Kings", "Deccan Chargers"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the fastest 50 in T20 Internationals?", "options": ["KL Rahul", "Chris Gayle", "Yuvraj Singh", "AB de Villiers"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["Shane Warne", "Muttiah Muralitharan", "James Anderson", "Anil Kumble"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who is known as the God of Cricket?", "options": ["Rohit Sharma", "Virat Kohli", "MS Dhoni", "Sachin Tendulkar"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who has scored the fastest century in ODI cricket?", "options": ["Rohit Sharma", "AB de Villiers", "Chris Gayle", "Shahid Afridi"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who has the most wickets in IPL history?", "options": ["Lasith Malinga", "Amit Mishra", "Yuzvendra Chahal", "Dwayne Bravo"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Kieron Pollard", "Herschelle Gibbs", "Yuvraj Singh", "Chris Gayle"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which bowler has taken the most wickets in Test cricket?", "options": ["Anil Kumble", "Muttiah Muralitharan", "Shane Warne", "James Anderson"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Brett Lee", "Shoaib Akhtar", "Shaun Tait"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the first team to win the IPL twice?", "options": ["Chennai Super Kings", "Rajasthan Royals", "Kolkata Knight Riders", "Mumbai Indians"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Pat Cummins", "David Warner", "Steve Smith", "Mitchell Marsh"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who is known as the God of Cricket?", "options": ["Virat Kohli", "MS Dhoni", "Sachin Tendulkar", "Rohit Sharma"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Zaheer Khan", "Sachin Tendulkar", "Yuvraj Singh", "MS Dhoni"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Sunil Gavaskar", "Sachin Tendulkar", "Kapil Dev", "Lala Amarnath"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Javagal Srinath", "Anil Kumble", "R Ashwin", "Harbhajan Singh"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Mitchell Marsh", "Pat Cummins", "David Warner", "Steve Smith"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which team won the 2022 T20 World Cup?", "options": ["India", "England", "Pakistan", "Australia"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Which team won the first IPL season in 2008?", "options": ["Deccan Chargers", "Rajasthan Royals", "Chennai Super Kings", "Mumbai Indians"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who captained India to victory in the 2007 T20 World Cup?", "options": ["Virat Kohli", "MS Dhoni", "Sourav Ganguly", "Rahul Dravid"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who is known as the God of Cricket?", "options": ["MS Dhoni", "Rohit Sharma", "Sachin Tendulkar", "Virat Kohli"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who has scored the fastest century in ODI cricket?", "options": ["AB de Villiers", "Rohit Sharma", "Shahid Afridi", "Chris Gayle"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who has scored the fastest century in ODI cricket?", "options": ["AB de Villiers", "Shahid Afridi", "Chris Gayle", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who scored 264 runs in an ODI match?", "options": ["Virat Kohli", "Virender Sehwag", "Sachin Tendulkar", "Rohit Sharma"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who was the first team to win the IPL twice?", "options": ["Chennai Super Kings", "Kolkata Knight Riders", "Rajasthan Royals", "Mumbai Indians"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who won the 2011 Cricket World Cup?", "options": ["Sri Lanka", "Australia", "Pakistan", "India"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who scored 264 runs in an ODI match?", "options": ["Virender Sehwag", "Virat Kohli", "Sachin Tendulkar", "Rohit Sharma"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who scored 264 runs in an ODI match?", "options": ["Rohit Sharma", "Virat Kohli", "Virender Sehwag", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which team won the 2022 T20 World Cup?", "options": ["Pakistan", "Australia", "England", "India"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Herschelle Gibbs", "Yuvraj Singh", "Chris Gayle", "Kieron Pollard"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who has the most wickets in IPL history?", "options": ["Lasith Malinga", "Yuzvendra Chahal", "Dwayne Bravo", "Amit Mishra"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["MS Dhoni", "Gautam Gambhir", "Yuvraj Singh", "Virat Kohli"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Virat Kohli", "Sachin Tendulkar", "Brian Lara", "Matthew Hayden"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Steve Smith", "Mitchell Marsh", "David Warner", "Pat Cummins"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who was the first bowler to take 800 wickets in Test cricket?", "options": ["James Anderson", "Shane Warne", "Muttiah Muralitharan", "Anil Kumble"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Kapil Dev", "Sunil Gavaskar", "Sachin Tendulkar", "Lala Amarnath"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["MS Dhoni", "Sachin Tendulkar", "Zaheer Khan", "Yuvraj Singh"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Yuvraj Singh", "Zaheer Khan", "MS Dhoni", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who has scored the most runs in IPL history?", "options": ["Virat Kohli", "Shikhar Dhawan", "David Warner", "Rohit Sharma"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who has the most wickets in IPL history?", "options": ["Lasith Malinga", "Amit Mishra", "Dwayne Bravo", "Yuzvendra Chahal"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who is known as Captain Cool?", "options": ["Virat Kohli", "Kapil Dev", "MS Dhoni", "Rohit Sharma"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Anil Kumble", "Harbhajan Singh", "R Ashwin", "Javagal Srinath"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Wally Hammond", "Brian Lara", "Don Bradman", "Andy Sandham"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who scored 264 runs in an ODI match?", "options": ["Rohit Sharma", "Virat Kohli", "Virender Sehwag", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["R Ashwin", "Harbhajan Singh", "Anil Kumble", "Javagal Srinath"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who won the 2011 Cricket World Cup?", "options": ["India", "Australia", "Pakistan", "Sri Lanka"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Shoaib Akhtar", "Brett Lee", "Shaun Tait"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which team won the first IPL season in 2008?", "options": ["Deccan Chargers", "Chennai Super Kings", "Mumbai Indians", "Rajasthan Royals"], "correct_index": 3}
+{"category": "cricket", "level": "hard", "question": "Who was the first team to win the IPL twice?", "options": ["Rajasthan Royals", "Chennai Super Kings", "Mumbai Indians", "Kolkata Knight Riders"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Yuvraj Singh", "Kieron Pollard", "Chris Gayle", "Herschelle Gibbs"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Javagal Srinath", "R Ashwin", "Anil Kumble", "Harbhajan Singh"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who won the 2011 Cricket World Cup?", "options": ["Pakistan", "India", "Australia", "Sri Lanka"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Harbhajan Singh", "Javagal Srinath", "R Ashwin", "Anil Kumble"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who was the winning captain of New Zealand in the 2021 WTC Final?", "options": ["Ross Taylor", "Tim Southee", "Kane Williamson", "Tom Latham"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Shaun Tait", "Shoaib Akhtar", "Brett Lee"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Don Bradman", "Brian Lara", "Wally Hammond", "Andy Sandham"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["Pat Cummins", "Steve Smith", "David Warner", "Mitchell Marsh"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Which team won the 2022 T20 World Cup?", "options": ["India", "England", "Australia", "Pakistan"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who scored 264 runs in an ODI match?", "options": ["Rohit Sharma", "Virat Kohli", "Virender Sehwag", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who has the most wickets in IPL history?", "options": ["Yuzvendra Chahal", "Lasith Malinga", "Dwayne Bravo", "Amit Mishra"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who holds the record for the highest individual score in Test cricket?", "options": ["Matthew Hayden", "Virat Kohli", "Sachin Tendulkar", "Brian Lara"], "correct_index": 3}
+{"category": "cricket", "level": "basic", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Kapil Dev", "Sachin Tendulkar", "Sunil Gavaskar", "Lala Amarnath"], "correct_index": 3}
+{"category": "cricket", "level": "medium", "question": "Who won the 2011 Cricket World Cup?", "options": ["Australia", "India", "Pakistan", "Sri Lanka"], "correct_index": 1}
+{"category": "cricket", "level": "hard", "question": "Who was the first batsman to score a triple century in Test cricket?", "options": ["Wally Hammond", "Brian Lara", "Andy Sandham", "Don Bradman"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who has scored the fastest century in ODI cricket?", "options": ["Shahid Afridi", "AB de Villiers", "Rohit Sharma", "Chris Gayle"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Who was the first Indian to score a century in Test cricket?", "options": ["Lala Amarnath", "Sunil Gavaskar", "Kapil Dev", "Sachin Tendulkar"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who is the fastest bowler in cricket history?", "options": ["Mitchell Starc", "Shaun Tait", "Shoaib Akhtar", "Brett Lee"], "correct_index": 2}
+{"category": "cricket", "level": "basic", "question": "Who was the winning captain of Australia in the 2023 ODI World Cup?", "options": ["David Warner", "Mitchell Marsh", "Pat Cummins", "Steve Smith"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["R Ashwin", "Javagal Srinath", "Anil Kumble", "Harbhajan Singh"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Harbhajan Singh", "Anil Kumble", "Javagal Srinath", "R Ashwin"], "correct_index": 1}
+{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Yuvraj Singh", "Gautam Gambhir", "MS Dhoni", "Virat Kohli"], "correct_index": 2}
+{"category": "cricket", "level": "medium", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["R Ashwin", "Harbhajan Singh", "Anil Kumble", "Javagal Srinath"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Which Indian bowler has taken all 10 wickets in a Test innings?", "options": ["Anil Kumble", "R Ashwin", "Harbhajan Singh", "Javagal Srinath"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Which team won the 2022 T20 World Cup?", "options": ["England", "Australia", "India", "Pakistan"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who hit six sixes in an over in the 2007 T20 World Cup?", "options": ["Yuvraj Singh", "Kieron Pollard", "Chris Gayle", "Herschelle Gibbs"], "correct_index": 0}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Yuvraj Singh", "Sachin Tendulkar", "Zaheer Khan", "MS Dhoni"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who has the most wickets in IPL history?", "options": ["Yuzvendra Chahal", "Amit Mishra", "Dwayne Bravo", "Lasith Malinga"], "correct_index": 0}
+{"category": "cricket", "level": "medium", "question": "Who is known as the God of Cricket?", "options": ["Rohit Sharma", "Virat Kohli", "Sachin Tendulkar", "MS Dhoni"], "correct_index": 2}
+{"category": "cricket", "level": "hard", "question": "Who was the Player of the Tournament in the 2011 World Cup?", "options": ["Yuvraj Singh", "MS Dhoni", "Sachin Tendulkar", "Zaheer Khan"], "correct_index": 0}
+{"category": "cricket", "level": "basic", "question": "Who hit the winning six in the 2011 World Cup final?", "options": ["Gautam Gambhir", "MS Dhoni", "Yuvraj Singh", "Virat Kohli"], "correct_index": 1}
+{"category": "cricket", "level": "medium", "question": "Which team won the first IPL season in 2008?", "options": ["Rajasthan Royals", "Deccan Chargers", "Chennai Super Kings", "Mumbai Indians"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Who discovered Penicillin?", "options": ["Alexander Fleming", "Joseph Lister", "Marie Curie", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Amartya Sen", "Rabindranath Tagore", "C.V. Raman", "Mother Teresa"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is the currency of Japan?", "options": ["Ringgit", "Yuan", "Won", "Yen"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who discovered Penicillin?", "options": ["Alexander Fleming", "Joseph Lister", "Marie Curie", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["France", "China", "Russia", "USA"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["China", "France", "USA", "Russia"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Guglielmo Marconi", "Nikola Tesla", "Thomas Edison", "Alexander Graham Bell"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Who discovered Penicillin?", "options": ["Louis Pasteur", "Marie Curie", "Alexander Fleming", "Joseph Lister"], "correct_index": 2}
 {"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["Russia", "China", "France", "USA"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "What is the largest known volcano in our solar system?", "options": ["Mauna Loa", "Mount Kilimanjaro", "Olympus Mons", "Mount Everest"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "Who wrote the book 'A Brief History of Time'?", "options": ["Carl Sagan", "Stephen Hawking", "Albert Einstein", "Neil deGrasse Tyson"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "Which part of the brain regulates body temperature?", "options": ["Medulla", "Hypothalamus", "Cerebellum", "Cerebrum"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "Which country was formerly known as Persia?", "options": ["Syria", "Turkey", "Iran", "Iraq"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "What is the rarest naturally occurring element on Earth?", "options": ["Astatine", "Francium", "Plutonium", "Radon"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Who painted the 'Mona Lisa'?", "options": ["Michelangelo", "Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Mariana Trench", "Puerto Rico Trench", "Java Trench", "Tonga Trench"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Dorothy Hodgkin", "Ada Lovelace", "Rosalind Franklin", "Marie Curie"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "Which element has the highest melting point?", "options": ["Osmium", "Rhenium", "Tungsten", "Carbon"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Who is the author of 'The Origin of Species'?", "options": ["Alfred Russel Wallace", "Charles Darwin", "Louis Pasteur", "Gregor Mendel"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "What is the smallest prime number greater than 100?", "options": ["103", "109", "107", "101"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "Which country is known as the Land of the Rising Sun?", "options": ["Japan", "Thailand", "China", "South Korea"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["Mumbai", "Chennai", "Kolkata", "New Delhi"], "correct_index": 3}
-{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Jupiter", "Mars", "Earth", "Venus"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Tiger", "Elephant", "Peacock", "Lion"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["7", "6", "8", "5"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Pacific", "Indian", "Arctic", "Atlantic"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Who is known as the Father of the Nation in India?", "options": ["Bhagat Singh", "Mahatma Gandhi", "Sardar Patel", "Jawaharlal Nehru"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Carbon Dioxide", "Hydrogen", "Nitrogen", "Oxygen"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yuan", "Ringgit", "Won", "Yen"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "How many colors are there in a rainbow?", "options": ["5", "6", "8", "7"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Mark Twain", "Charles Dickens", "William Shakespeare", "Jane Austen"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["5", "7", "6", "8"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Rabindranath Tagore", "Amartya Sen", "Mother Teresa", "C.V. Raman"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "How many continents are there on Earth?", "options": ["5", "8", "6", "7"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Diwali", "Christmas", "Eid"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["USA", "China", "Russia", "France"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "What is the study of earthquakes called?", "options": ["Seismology", "Volcanology", "Meteorology", "Geology"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Carbon Dioxide", "Nitrogen", "Hydrogen", "Oxygen"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who is the author of 'The Origin of Species'?", "options": ["Alfred Russel Wallace", "Gregor Mendel", "Charles Darwin", "Louis Pasteur"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Mother Teresa", "Amartya Sen", "Rabindranath Tagore", "C.V. Raman"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which planet is known as the Red Planet?", "options": ["Venus", "Jupiter", "Earth", "Mars"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["France", "USA", "China", "Russia"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Dorothy Hodgkin", "Rosalind Franklin", "Marie Curie", "Ada Lovelace"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Rabindranath Tagore", "Mother Teresa", "C.V. Raman", "Amartya Sen"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["8", "6", "7", "5"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the Red Planet?", "options": ["Mars", "Earth", "Jupiter", "Venus"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the currency of Japan?", "options": ["Yen", "Won", "Ringgit", "Yuan"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Marie Curie", "Ada Lovelace", "Rosalind Franklin", "Dorothy Hodgkin"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the 'Morning Star'?", "options": ["Mercury", "Jupiter", "Venus", "Mars"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which country has the most time zones?", "options": ["Russia", "France", "USA", "China"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Indian", "Arctic", "Pacific", "Atlantic"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which is the largest ocean on Earth?", "options": ["Pacific", "Arctic", "Atlantic", "Indian"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which is the largest ocean on Earth?", "options": ["Arctic", "Atlantic", "Pacific", "Indian"], "correct_index": 2}
 {"category": "gk", "level": "medium", "question": "What is the hardest natural substance on Earth?", "options": ["Iron", "Diamond", "Gold", "Platinum"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "Which is the longest river in the world?", "options": ["Nile", "Yangtze", "Amazon", "Mississippi"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Christmas", "Diwali", "Eid"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "What does CPU stand for?", "options": ["Central Processing Unit", "Central Process Unit", "Computer Personal Unit", "Control Processing Unit"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Which is the smallest continent by land area?", "options": ["Europe", "South America", "Australia", "Antarctica"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Who was the first person to step on the Moon?", "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "Michael Collins"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "Which element has the chemical symbol 'Au'?", "options": ["Gold", "Argon", "Silver", "Aluminum"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "What is the largest internal organ in the human body?", "options": ["Brain", "Lungs", "Heart", "Liver"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "In which year did World War II end?", "options": ["1939", "1918", "1945", "1950"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "Which country gifted the Statue of Liberty to the USA?", "options": ["Spain", "France", "Italy", "United Kingdom"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "What is the capital city of Australia?", "options": ["Brisbane", "Sydney", "Canberra", "Melbourne"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Alexander Graham Bell", "Thomas Edison", "Guglielmo Marconi"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "Which is the only mammal capable of true flight?", "options": ["Bat", "Flying Squirrel", "Penguin", "Ostrich"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "What is the currency of the United Kingdom?", "options": ["Franc", "Pound Sterling", "Dollar", "Euro"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Geology", "Volcanology", "Meteorology", "Seismology"], "correct_index": 3}
-{"category": "gk", "level": "medium", "question": "Which Indian city is known as the 'Pink City'?", "options": ["Udaipur", "Mysore", "Jodhpur", "Jaipur"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "Who is the author of the 'Harry Potter' book series?", "options": ["J.K. Rowling", "George R.R. Martin", "C.S. Lewis", "J.R.R. Tolkien"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "Which is the largest desert in the world?", "options": ["Gobi", "Arabian Desert", "Antarctic Desert", "Sahara"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "What is the primary gas found in the Earth's atmosphere?", "options": ["Carbon Dioxide", "Nitrogen", "Hydrogen", "Oxygen"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "Which planet has the most moons?", "options": ["Jupiter", "Neptune", "Uranus", "Saturn"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "Who discovered Penicillin?", "options": ["Joseph Lister", "Alexander Fleming", "Louis Pasteur", "Marie Curie"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "What is the chemical symbol for Tungsten?", "options": ["W", "Tu", "Tg", "Tn"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the study of earthquakes called?", "options": ["Meteorology", "Geology", "Seismology", "Volcanology"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Java Trench", "Tonga Trench", "Mariana Trench", "Puerto Rico Trench"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which country is known as the Land of the Rising Sun?", "options": ["South Korea", "Japan", "China", "Thailand"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the 'Morning Star'?", "options": ["Mars", "Jupiter", "Venus", "Mercury"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which planet is known as the 'Morning Star'?", "options": ["Jupiter", "Mars", "Mercury", "Venus"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "What is the capital of India?", "options": ["Chennai", "Kolkata", "New Delhi", "Mumbai"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Rabindranath Tagore", "Mother Teresa", "Amartya Sen", "C.V. Raman"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Charles Dickens", "Mark Twain", "William Shakespeare", "Jane Austen"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Nitrogen", "Carbon Dioxide", "Oxygen", "Hydrogen"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["C.V. Raman", "Mother Teresa", "Rabindranath Tagore", "Amartya Sen"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the chemical symbol for Tungsten?", "options": ["Tn", "W", "Tu", "Tg"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Who painted the 'Mona Lisa'?", "options": ["Leonardo da Vinci", "Pablo Picasso", "Michelangelo", "Vincent van Gogh"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["Russia", "China", "France", "USA"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the chemical symbol for Tungsten?", "options": ["W", "Tu", "Tg", "Tn"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["China", "Russia", "France", "USA"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who invented the telephone?", "options": ["Thomas Edison", "Alexander Graham Bell", "Guglielmo Marconi", "Nikola Tesla"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Jane Austen", "Mark Twain", "Charles Dickens", "William Shakespeare"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yuan", "Yen", "Ringgit", "Won"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Which country is known as the Land of the Rising Sun?", "options": ["South Korea", "Thailand", "Japan", "China"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Hydrogen", "Nitrogen", "Oxygen", "Carbon Dioxide"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the 'Morning Star'?", "options": ["Venus", "Mercury", "Jupiter", "Mars"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Tonga Trench", "Puerto Rico Trench", "Mariana Trench", "Java Trench"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Who discovered Penicillin?", "options": ["Alexander Fleming", "Marie Curie", "Joseph Lister", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who invented the telephone?", "options": ["Guglielmo Marconi", "Alexander Graham Bell", "Thomas Edison", "Nikola Tesla"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Which is the largest ocean on Earth?", "options": ["Atlantic", "Indian", "Pacific", "Arctic"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Jane Austen", "Mark Twain", "Charles Dickens", "William Shakespeare"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Alexander Graham Bell", "Thomas Edison", "Guglielmo Marconi"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Meteorology", "Seismology", "Volcanology", "Geology"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yen", "Won", "Yuan", "Ringgit"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who painted the 'Mona Lisa'?", "options": ["Pablo Picasso", "Leonardo da Vinci", "Michelangelo", "Vincent van Gogh"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Which is the only mammal capable of true flight?", "options": ["Bat", "Ostrich", "Flying Squirrel", "Penguin"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Tonga Trench", "Mariana Trench", "Java Trench", "Puerto Rico Trench"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the chemical symbol for Tungsten?", "options": ["Tu", "W", "Tg", "Tn"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the hardest natural substance on Earth?", "options": ["Platinum", "Iron", "Gold", "Diamond"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Hydrogen", "Nitrogen", "Oxygen", "Carbon Dioxide"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which is the longest river in the world?", "options": ["Nile", "Mississippi", "Amazon", "Yangtze"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which is the longest river in the world?", "options": ["Nile", "Yangtze", "Mississippi", "Amazon"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the Red Planet?", "options": ["Venus", "Jupiter", "Earth", "Mars"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Guglielmo Marconi"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["7", "5", "6", "8"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which is the only mammal capable of true flight?", "options": ["Penguin", "Flying Squirrel", "Ostrich", "Bat"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who is the author of 'The Origin of Species'?", "options": ["Louis Pasteur", "Charles Darwin", "Gregor Mendel", "Alfred Russel Wallace"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Venus", "Jupiter", "Mars"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["France", "China", "USA", "Russia"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which is the longest river in the world?", "options": ["Mississippi", "Yangtze", "Amazon", "Nile"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["8", "6", "7", "5"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Which country has the most time zones?", "options": ["China", "Russia", "France", "USA"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Dorothy Hodgkin", "Rosalind Franklin", "Ada Lovelace", "Marie Curie"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which is the largest ocean on Earth?", "options": ["Atlantic", "Arctic", "Indian", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["Kolkata", "Mumbai", "Chennai", "New Delhi"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "What is the chemical symbol for Tungsten?", "options": ["Tg", "W", "Tn", "Tu"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "How many continents are there on Earth?", "options": ["5", "7", "8", "6"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who painted the 'Mona Lisa'?", "options": ["Vincent van Gogh", "Michelangelo", "Leonardo da Vinci", "Pablo Picasso"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["Russia", "USA", "China", "France"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["William Shakespeare", "Charles Dickens", "Mark Twain", "Jane Austen"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["7", "8", "5", "6"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which is the longest river in the world?", "options": ["Yangtze", "Nile", "Amazon", "Mississippi"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Which festival is known as the Festival of Lights?", "options": ["Christmas", "Eid", "Diwali", "Holi"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Diwali", "Eid", "Christmas"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which festival is known as the Festival of Lights?", "options": ["Diwali", "Holi", "Eid", "Christmas"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Mariana Trench", "Tonga Trench", "Java Trench", "Puerto Rico Trench"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Who is known as the Father of the Nation in India?", "options": ["Mahatma Gandhi", "Bhagat Singh", "Sardar Patel", "Jawaharlal Nehru"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yuan", "Won", "Ringgit", "Yen"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "What is the hardest natural substance on Earth?", "options": ["Gold", "Diamond", "Iron", "Platinum"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Alexander Graham Bell", "Thomas Edison", "Nikola Tesla", "Guglielmo Marconi"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Pacific", "Atlantic", "Indian", "Arctic"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which country is known as the Land of the Rising Sun?", "options": ["Japan", "China", "Thailand", "South Korea"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the chemical symbol for Tungsten?", "options": ["W", "Tn", "Tu", "Tg"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["USA", "Russia", "France", "China"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Guglielmo Marconi", "Thomas Edison", "Alexander Graham Bell"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["6", "5", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the 'Morning Star'?", "options": ["Venus", "Jupiter", "Mars", "Mercury"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Nitrogen", "Oxygen", "Carbon Dioxide", "Hydrogen"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["5", "8", "6", "7"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which is the only mammal capable of true flight?", "options": ["Bat", "Penguin", "Ostrich", "Flying Squirrel"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Lion", "Peacock", "Tiger", "Elephant"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Who is known as the Father of the Nation in India?", "options": ["Sardar Patel", "Bhagat Singh", "Mahatma Gandhi", "Jawaharlal Nehru"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who discovered Penicillin?", "options": ["Alexander Fleming", "Joseph Lister", "Marie Curie", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which is the only mammal capable of true flight?", "options": ["Ostrich", "Bat", "Flying Squirrel", "Penguin"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the chemical symbol for Tungsten?", "options": ["Tn", "Tg", "Tu", "W"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who discovered Penicillin?", "options": ["Marie Curie", "Joseph Lister", "Alexander Fleming", "Louis Pasteur"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Meteorology", "Seismology", "Geology", "Volcanology"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the national animal of India?", "options": ["Elephant", "Lion", "Peacock", "Tiger"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the Red Planet?", "options": ["Venus", "Mars", "Earth", "Jupiter"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Who is the author of 'The Origin of Species'?", "options": ["Gregor Mendel", "Alfred Russel Wallace", "Charles Darwin", "Louis Pasteur"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "What is the hardest natural substance on Earth?", "options": ["Platinum", "Iron", "Diamond", "Gold"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the chemical symbol for Tungsten?", "options": ["W", "Tu", "Tn", "Tg"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Java Trench", "Mariana Trench", "Tonga Trench", "Puerto Rico Trench"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Who is the author of 'The Origin of Species'?", "options": ["Charles Darwin", "Alfred Russel Wallace", "Gregor Mendel", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the study of earthquakes called?", "options": ["Meteorology", "Volcanology", "Geology", "Seismology"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which country is known as the Land of the Rising Sun?", "options": ["South Korea", "China", "Japan", "Thailand"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Carbon Dioxide", "Nitrogen", "Oxygen", "Hydrogen"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which country is known as the Land of the Rising Sun?", "options": ["South Korea", "Thailand", "Japan", "China"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Eid", "Diwali", "Christmas"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which is the longest river in the world?", "options": ["Nile", "Mississippi", "Yangtze", "Amazon"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who invented the telephone?", "options": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "Which is the largest ocean on Earth?", "options": ["Arctic", "Indian", "Atlantic", "Pacific"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["USA", "France", "Russia", "China"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Tiger", "Peacock", "Elephant", "Lion"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Volcanology", "Meteorology", "Seismology", "Geology"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Yuan", "Won", "Yen", "Ringgit"], "correct_index": 2}
 {"category": "gk", "level": "hard", "question": "Which country has the most time zones?", "options": ["France", "Russia", "USA", "China"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "What is the largest known volcano in our solar system?", "options": ["Mount Kilimanjaro", "Mount Everest", "Olympus Mons", "Mauna Loa"], "correct_index": 2}
-{"category": "gk", "level": "medium", "question": "Who wrote the book 'A Brief History of Time'?", "options": ["Carl Sagan", "Stephen Hawking", "Neil deGrasse Tyson", "Albert Einstein"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "Which part of the brain regulates body temperature?", "options": ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"], "correct_index": 3}
-{"category": "gk", "level": "basic", "question": "Which country was formerly known as Persia?", "options": ["Syria", "Iraq", "Turkey", "Iran"], "correct_index": 3}
-{"category": "gk", "level": "medium", "question": "What is the rarest naturally occurring element on Earth?", "options": ["Plutonium", "Radon", "Francium", "Astatine"], "correct_index": 3}
-{"category": "gk", "level": "hard", "question": "Who painted the 'Mona Lisa'?", "options": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Mariana Trench", "Tonga Trench", "Puerto Rico Trench", "Java Trench"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Marie Curie", "Ada Lovelace", "Dorothy Hodgkin", "Rosalind Franklin"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Which element has the highest melting point?", "options": ["Rhenium", "Tungsten", "Carbon", "Osmium"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "Who is the author of 'The Origin of Species'?", "options": ["Alfred Russel Wallace", "Charles Darwin", "Louis Pasteur", "Gregor Mendel"], "correct_index": 1}
-{"category": "gk", "level": "medium", "question": "What is the smallest prime number greater than 100?", "options": ["101", "107", "103", "109"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Which country is known as the Land of the Rising Sun?", "options": ["Japan", "Thailand", "South Korea", "China"], "correct_index": 0}
-{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["New Delhi", "Kolkata", "Mumbai", "Chennai"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Jupiter", "Venus"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Peacock", "Tiger", "Elephant", "Lion"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "How many continents are there on Earth?", "options": ["7", "6", "5", "8"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Pacific", "Atlantic", "Arctic", "Indian"], "correct_index": 0}
-{"category": "gk", "level": "hard", "question": "Who is known as the Father of the Nation in India?", "options": ["Jawaharlal Nehru", "Bhagat Singh", "Mahatma Gandhi", "Sardar Patel"], "correct_index": 2}
-{"category": "gk", "level": "basic", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Carbon Dioxide", "Hydrogen", "Nitrogen", "Oxygen"], "correct_index": 0}
-{"category": "gk", "level": "medium", "question": "What is the currency of Japan?", "options": ["Won", "Yen", "Ringgit", "Yuan"], "correct_index": 1}
-{"category": "gk", "level": "hard", "question": "How many colors are there in a rainbow?", "options": ["6", "7", "8", "5"], "correct_index": 1}
-{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Java Trench", "Tonga Trench", "Puerto Rico Trench", "Mariana Trench"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Nitrogen", "Hydrogen", "Oxygen", "Carbon Dioxide"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who painted the 'Mona Lisa'?", "options": ["Pablo Picasso", "Michelangelo", "Leonardo da Vinci", "Vincent van Gogh"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which is the only mammal capable of true flight?", "options": ["Bat", "Ostrich", "Flying Squirrel", "Penguin"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who is known as the Father of the Nation in India?", "options": ["Sardar Patel", "Bhagat Singh", "Jawaharlal Nehru", "Mahatma Gandhi"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "What is the hardest natural substance on Earth?", "options": ["Platinum", "Iron", "Gold", "Diamond"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who is known as the Father of the Nation in India?", "options": ["Sardar Patel", "Bhagat Singh", "Jawaharlal Nehru", "Mahatma Gandhi"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Who is the author of 'The Origin of Species'?", "options": ["Alfred Russel Wallace", "Gregor Mendel", "Charles Darwin", "Louis Pasteur"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "Who discovered Penicillin?", "options": ["Alexander Fleming", "Marie Curie", "Joseph Lister", "Louis Pasteur"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Who is the author of 'The Origin of Species'?", "options": ["Gregor Mendel", "Charles Darwin", "Alfred Russel Wallace", "Louis Pasteur"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["China", "France", "USA", "Russia"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "What is the chemical symbol for Tungsten?", "options": ["Tg", "Tu", "Tn", "W"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Christmas", "Diwali", "Eid"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which is the largest ocean on Earth?", "options": ["Pacific", "Indian", "Atlantic", "Arctic"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "What is the deepest known point in the Earth's oceans?", "options": ["Puerto Rico Trench", "Java Trench", "Tonga Trench", "Mariana Trench"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which is the largest ocean on Earth?", "options": ["Atlantic", "Arctic", "Pacific", "Indian"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Mother Teresa", "Rabindranath Tagore", "C.V. Raman", "Amartya Sen"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Ada Lovelace", "Rosalind Franklin", "Marie Curie", "Dorothy Hodgkin"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Diwali", "Eid", "Holi", "Christmas"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["6", "5", "7", "8"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the hardest natural substance on Earth?", "options": ["Iron", "Gold", "Diamond", "Platinum"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Which is the longest river in the world?", "options": ["Amazon", "Nile", "Mississippi", "Yangtze"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which country has the most time zones?", "options": ["USA", "Russia", "China", "France"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the 'Morning Star'?", "options": ["Mercury", "Jupiter", "Venus", "Mars"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Who wrote the play 'Romeo and Juliet'?", "options": ["William Shakespeare", "Charles Dickens", "Mark Twain", "Jane Austen"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Which is the only mammal capable of true flight?", "options": ["Flying Squirrel", "Ostrich", "Bat", "Penguin"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the currency of Japan?", "options": ["Yuan", "Ringgit", "Yen", "Won"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Peacock", "Tiger", "Elephant", "Lion"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "What is the hardest natural substance on Earth?", "options": ["Platinum", "Iron", "Gold", "Diamond"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "Who is the author of 'The Origin of Species'?", "options": ["Charles Darwin", "Gregor Mendel", "Louis Pasteur", "Alfred Russel Wallace"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Peacock", "Lion", "Tiger", "Elephant"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which country is known as the Land of the Rising Sun?", "options": ["China", "Thailand", "Japan", "South Korea"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the capital of India?", "options": ["Chennai", "Kolkata", "New Delhi", "Mumbai"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Tiger", "Lion", "Peacock", "Elephant"], "correct_index": 0}
+{"category": "gk", "level": "medium", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Thomas Edison", "Alexander Graham Bell", "Guglielmo Marconi"], "correct_index": 2}
+{"category": "gk", "level": "hard", "question": "What is the chemical symbol for Tungsten?", "options": ["Tg", "Tu", "Tn", "W"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Dorothy Hodgkin", "Ada Lovelace", "Rosalind Franklin", "Marie Curie"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the 'Morning Star'?", "options": ["Mars", "Venus", "Jupiter", "Mercury"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who discovered Penicillin?", "options": ["Marie Curie", "Joseph Lister", "Louis Pasteur", "Alexander Fleming"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Who painted the 'Mona Lisa'?", "options": ["Pablo Picasso", "Michelangelo", "Vincent van Gogh", "Leonardo da Vinci"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Which gas do plants absorb from the atmosphere?", "options": ["Carbon Dioxide", "Hydrogen", "Oxygen", "Nitrogen"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which planet is known as the 'Morning Star'?", "options": ["Jupiter", "Mercury", "Mars", "Venus"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "Which planet is known as the Red Planet?", "options": ["Venus", "Jupiter", "Earth", "Mars"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "What is the capital of India?", "options": ["New Delhi", "Mumbai", "Kolkata", "Chennai"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Which is the longest river in the world?", "options": ["Yangtze", "Amazon", "Mississippi", "Nile"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "What is the national animal of India?", "options": ["Elephant", "Lion", "Peacock", "Tiger"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "What is the study of earthquakes called?", "options": ["Seismology", "Meteorology", "Geology", "Volcanology"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who is known as the Father of the Nation in India?", "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Bhagat Singh", "Sardar Patel"], "correct_index": 1}
+{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Volcanology", "Seismology", "Geology", "Meteorology"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "Which is the longest river in the world?", "options": ["Nile", "Mississippi", "Yangtze", "Amazon"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who was the first Indian to win a Nobel Prize?", "options": ["Rabindranath Tagore", "Mother Teresa", "C.V. Raman", "Amartya Sen"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "What is the capital of India?", "options": ["Mumbai", "Chennai", "New Delhi", "Kolkata"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which festival is known as the Festival of Lights?", "options": ["Diwali", "Holi", "Eid", "Christmas"], "correct_index": 0}
+{"category": "gk", "level": "hard", "question": "Who is the author of 'The Origin of Species'?", "options": ["Louis Pasteur", "Alfred Russel Wallace", "Gregor Mendel", "Charles Darwin"], "correct_index": 3}
+{"category": "gk", "level": "basic", "question": "What is the study of earthquakes called?", "options": ["Volcanology", "Meteorology", "Seismology", "Geology"], "correct_index": 2}
+{"category": "gk", "level": "medium", "question": "Which planet is known as the Red Planet?", "options": ["Earth", "Mars", "Venus", "Jupiter"], "correct_index": 1}
+{"category": "gk", "level": "hard", "question": "Who was the first woman to win a Nobel Prize?", "options": ["Ada Lovelace", "Dorothy Hodgkin", "Marie Curie", "Rosalind Franklin"], "correct_index": 2}
+{"category": "gk", "level": "basic", "question": "Who invented the telephone?", "options": ["Nikola Tesla", "Guglielmo Marconi", "Thomas Edison", "Alexander Graham Bell"], "correct_index": 3}
+{"category": "gk", "level": "medium", "question": "Who painted the 'Mona Lisa'?", "options": ["Michelangelo", "Pablo Picasso", "Vincent van Gogh", "Leonardo da Vinci"], "correct_index": 3}
+{"category": "gk", "level": "hard", "question": "What is the national animal of India?", "options": ["Tiger", "Peacock", "Lion", "Elephant"], "correct_index": 0}
+{"category": "gk", "level": "basic", "question": "Which festival is known as the Festival of Lights?", "options": ["Holi", "Diwali", "Eid", "Christmas"], "correct_index": 1}
+{"category": "gk", "level": "medium", "question": "How many continents are there on Earth?", "options": ["7", "5", "8", "6"], "correct_index": 0}
