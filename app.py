@@ -26387,6 +26387,155 @@ async def cricx_guess_handler(message: Message):
         f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
     )
 # ═══════════════════════════════════════════════════════════
+async def award_quiz_rewards(
+    session: dict[str, object], ranked: list[tuple[int, int]]
+) -> None:
+    await db.execute("BEGIN IMMEDIATE")
+    try:
+        for rank, (user_id, _score) in enumerate(
+            [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
+        ):
+            player = next(player for player in session["players"] if player.id == user_id)
+            amount = QUIZ_REWARDS[rank - 1]
+            cursor = await db.execute(
+                """INSERT OR IGNORE INTO quiz_reward_claims(
+                session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
+                (session["session_id"], user_id, rank, amount),
+            )
+            if cursor.rowcount == 1:
+                await db.execute(
+                    """INSERT INTO users(user_id, first_name, username, seyu_gems)
+                    VALUES(?,?,?,?)
+                    ON CONFLICT(user_id) DO UPDATE SET
+                    first_name=excluded.first_name, username=excluded.username,
+                    seyu_gems=users.seyu_gems + excluded.seyu_gems""",
+                    (
+                        user_id,
+                        str(getattr(player, "first_name", "") or ""),
+                        str(getattr(player, "username", "") or ""),
+                        amount,
+                    ),
+                )
+        await db.commit()
+    except Exception:
+        await db.rollback()
+        raise
+
+
+def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
+    players = session["players"]
+    if session["state"] == "lobby":
+        prefix = (
+            "<b>You are already in this Quiz lobby.</b>"
+            if any(player.id == user_id for player in players)
+            else "<b>A Quiz lobby is already active in this group.</b>"
+        )
+        return (
+            f"{prefix}\n\n"
+            f"Creator: {session['creator_name']}\n"
+            f"Players: {len(players)}/{UNLIMITED_PLAYERS_LABEL}\n"
+            "Use the existing lobby. No duplicate quiz will be created."
+        )
+    prefix = (
+        "<b>You are already in an active Quiz.</b>"
+        if any(player.id == user_id for player in players)
+        else "<b>A Quiz is already active in this group.</b>"
+    )
+    return (
+        f"{prefix}\n\n"
+        f"Creator: {session['creator_name']}\n"
+        f"Players: {len(players)}\n"
+        "Wait until this quiz ends before starting another one."
+    )
+
+
+async def restore_quiz_sessions() -> None:
+    cursor = await db.execute(
+        "SELECT chat_id, message_id, state, expires_at, payload FROM quiz_sessions"
+    )
+    rows = await cursor.fetchall()
+    for row in rows:
+        chat_id = int(row["chat_id"])
+        message_id = int(row["message_id"])
+        expires_at = float(row["expires_at"])
+        if expires_at <= time.time():
+            try:
+                await bot.delete_message(chat_id, message_id)
+            except (TelegramBadRequest, TelegramForbiddenError):
+                pass
+            await delete_persisted_quiz_session(chat_id)
+            continue
+        try:
+            data = json.loads(str(row["payload"]))
+            players = [
+                SimpleNamespace(
+                    id=int(player["id"]),
+                    first_name=str(player.get("first_name") or "Player"),
+                    username=str(player.get("username") or ""),
+                    is_bot=False,
+                )
+                for player in data["players"]
+            ]
+            state = str(row["state"])
+            if state not in {
+                "lobby", "loading", "answering", "round_result", "final_result"
+            }:
+                raise ValueError("invalid quiz state")
+            if not 1 <= len(players) <= 25:
+                raise ValueError("invalid quiz player count")
+            if not 0 <= int(data["round"]) <= max(QUIZ_ROUND_CHOICES):
+                raise ValueError("saved quiz uses an incompatible round count")
+            session = {
+                "session_id": str(data["session_id"]),
+                "state": state,
+                "creator_id": int(data["creator_id"]),
+                "creator_name": str(data["creator_name"]),
+                "topic_kind": str(data.get("topic_kind") or "general"),
+                "topic_label": str(data.get("topic_label") or "General Knowledge"),
+                "topic_key": str(data.get("topic_key") or "general"),
+                "level": str(data.get("level") or "basic"),
+                "rounds": int(data.get("rounds") or QUIZ_ROUNDS),
+                "players": players,
+                "message_id": message_id,
+                "round": int(data["round"]),
+                "scores": dict(data["scores"]),
+                "total_speed_ms": dict(data["total_speed_ms"]),
+                "question_hashes": list(data["question_hashes"]),
+                "current_question": data.get("current_question"),
+                "poll_id": data.get("poll_id"),
+                "poll_message_id": data.get("poll_message_id"),
+                "answers": dict(data.get("answers") or {}),
+                "round_started_at": data.get("round_started_at"),
+                "created_at": float(data["created_at"]),
+                "expires_at": expires_at,
+            }
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
+            await delete_persisted_quiz_session(chat_id)
+            continue
+        quiz_sessions[chat_id] = session
+        if state == "lobby":
+            session["state"] = "loading"
+            session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
+            state = "loading"
+            await persist_quiz_session(chat_id, session)
+        if state == "answering" and not session.get("poll_id"):
+            session["state"] = "loading"
+            session["round"] = max(0, int(session["round"]) - 1)
+            session["current_question"] = None
+            session["answers"] = {}
+            await persist_quiz_session(chat_id, session)
+        if session.get("poll_id"):
+            quiz_poll_sessions[str(session["poll_id"])] = chat_id
+        quiz_player_sessions[int(session["creator_id"])] = chat_id
+        for player in players:
+            quiz_player_sessions[int(player.id)] = chat_id
+        if state == "lobby":
+            quiz_tasks[chat_id] = asyncio.create_task(
+                expire_quiz_lobby(chat_id, message_id)
+            )
+        else:
+            quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
+
 
 async def main() -> None:
 
