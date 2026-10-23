@@ -28088,7 +28088,7 @@ async def settle_prediction(message: Message):
 @router.message(Command("howtoplay"))
 async def how_to_play_command(message: Message):
     text = (
-        "<b>🎮 Seyuki Games Guide 🎮</b>\n\n"
+        "<b>🎮 CricxManish Games Guide 🎮</b>\n\n"
         "<b>1. 💣 Loot Drop</b>\n"
         "Admin drops a button in the group. The fastest members to tap it win free Cric Tokens!\n"
         "Command: <code>/lootdrop</code> (Admin only)\n\n"
