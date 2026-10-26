@@ -1,500 +1,500 @@
-q0 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q1 | medium | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q2 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q3 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q4 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q5 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q6 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q7 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q8 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q9 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q10 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q11 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q12 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q13 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q14 | hard | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q15 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q16 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q17 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q18 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q19 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q20 | hard | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q21 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q22 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q23 | hard | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q24 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q25 | medium | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q26 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q27 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q28 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q29 | hard | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q30 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q31 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q32 | hard | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q33 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q34 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q35 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q36 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q37 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q38 | hard | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q39 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q40 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q41 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q42 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q43 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q44 | hard | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q45 | basic | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q46 | medium | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q47 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q48 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q49 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q50 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q51 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q52 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q53 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q54 | basic | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q55 | medium | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q56 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q57 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q58 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q59 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q60 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q61 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q62 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q63 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q64 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q65 | hard | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q66 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q67 | medium | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q68 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q69 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q70 | medium | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q71 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q72 | basic | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q73 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q74 | hard | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q75 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q76 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q77 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q78 | basic | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q79 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q80 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q81 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q82 | medium | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q83 | hard | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q84 | basic | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q85 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q86 | hard | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q87 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q88 | medium | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q89 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q90 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q91 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q92 | hard | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q93 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q94 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q95 | hard | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q96 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q97 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q98 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q99 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q100 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q101 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q102 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q103 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q104 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q105 | basic | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q106 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q107 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q108 | basic | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q109 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q110 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q111 | basic | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q112 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q113 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q114 | basic | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q115 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q116 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q117 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q118 | medium | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q119 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q120 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q121 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q122 | hard | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q123 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q124 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q125 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q126 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q127 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q128 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q129 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q130 | medium | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q131 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q132 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q133 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q134 | hard | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q135 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q136 | medium | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q137 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q138 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q139 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q140 | hard | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q141 | basic | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q142 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q143 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q144 | basic | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q145 | medium | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q146 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q147 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q148 | medium | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q149 | hard | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q150 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q151 | medium | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q152 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q153 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q154 | medium | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q155 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q156 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q157 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q158 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q159 | basic | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q160 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q161 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q162 | basic | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q163 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q164 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q165 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q166 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q167 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q168 | basic | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q169 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q170 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q171 | basic | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q172 | medium | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q173 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q174 | basic | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q175 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q176 | hard | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q177 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q178 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q179 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q180 | basic | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q181 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q182 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q183 | basic | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q184 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q185 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q186 | basic | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q187 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q188 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q189 | basic | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q190 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q191 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q192 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q193 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q194 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q195 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q196 | medium | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q197 | hard | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q198 | basic | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q199 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q200 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q201 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q202 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q203 | hard | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q204 | basic | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q205 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q206 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q207 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q208 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q209 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q210 | basic | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q211 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q212 | hard | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q213 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q214 | medium | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q215 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q216 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q217 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q218 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q219 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q220 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q221 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q222 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q223 | medium | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q224 | hard | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q225 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q226 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q227 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q228 | basic | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q229 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q230 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q231 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q232 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q233 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q234 | basic | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q235 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q236 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q237 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q238 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q239 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q240 | basic | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q241 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q242 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q243 | basic | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q244 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q245 | hard | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q246 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q247 | medium | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q248 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q249 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q250 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q251 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q252 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q253 | medium | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q254 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q255 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q256 | medium | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q257 | hard | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q258 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q259 | medium | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q260 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q261 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q262 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q263 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q264 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q265 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q266 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q267 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q268 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q269 | hard | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q270 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q271 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q272 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q273 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q274 | medium | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q275 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q276 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q277 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q278 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q279 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q280 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q281 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q282 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q283 | medium | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q284 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q285 | basic | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q286 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q287 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q288 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q289 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q290 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q291 | basic | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q292 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q293 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q294 | basic | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q295 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q296 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q297 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q298 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q299 | hard | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q300 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q301 | medium | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q302 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q303 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q304 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q305 | hard | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q306 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q307 | medium | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q308 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q309 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q310 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q311 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q312 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q313 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q314 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q315 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q316 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q317 | hard | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q318 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q319 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q320 | hard | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q321 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q322 | medium | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q323 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q324 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q325 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q326 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q327 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q328 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q329 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q330 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q331 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q332 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q333 | basic | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q334 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q335 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q336 | basic | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q337 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q338 | hard | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q339 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q340 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q341 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q342 | basic | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q343 | medium | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q344 | hard | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q345 | basic | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q346 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q347 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q348 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q349 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q350 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q351 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q352 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q353 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q354 | basic | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q355 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q356 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q357 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q358 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q359 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q360 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q361 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q362 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q363 | basic | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q364 | medium | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q365 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q366 | basic | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q367 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q368 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q369 | basic | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q370 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q371 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q372 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q373 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q374 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q375 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q376 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q377 | hard | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q378 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q379 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q380 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q381 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q382 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q383 | hard | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q384 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q385 | medium | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q386 | hard | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q387 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q388 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q389 | hard | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q390 | basic | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q391 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q392 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q393 | basic | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q394 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q395 | hard | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q396 | basic | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q397 | medium | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q398 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q399 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q400 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q401 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q402 | basic | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q403 | medium | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q404 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q405 | basic | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q406 | medium | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q407 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q408 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q409 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q410 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q411 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q412 | medium | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q413 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q414 | basic | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q415 | medium | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q416 | hard | Present | वह फुटबॉल खेल रहा है। | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
-q417 | basic | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q418 | medium | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q419 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q420 | basic | Present | मैं एक सेब खाता हूँ। | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
-q421 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q422 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q423 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q424 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q425 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q426 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q427 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q428 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q429 | basic | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q430 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q431 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q432 | basic | Present | हम शाम को खेलेंगे। | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
-q433 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q434 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q435 | basic | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q436 | medium | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q437 | hard | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q438 | basic | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q439 | medium | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q440 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q441 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q442 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q443 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q444 | basic | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q445 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q446 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q447 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q448 | medium | Present | मैंने अपना काम खत्म कर लिया है। | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
-q449 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q450 | basic | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q451 | medium | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q452 | hard | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q453 | basic | Present | हमने मैच जीता। | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
-q454 | medium | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q455 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q456 | basic | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q457 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q458 | hard | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q459 | basic | Present | वह मुंबई जा चुका है। | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
-q460 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q461 | hard | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q462 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q463 | medium | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q464 | hard | Present | मैं तुम्हें फोन करूंगा। | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
-q465 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q466 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q467 | hard | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q468 | basic | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q469 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q470 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q471 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q472 | medium | Present | हम टीवी देख रहे हैं। | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
-q473 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q474 | basic | Present | वे स्कूल जाते हैं। | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
-q475 | medium | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q476 | hard | Present | मैं दिल्ली गया था। | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
-q477 | basic | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q478 | medium | Present | उसने एक केला खाया। | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
-q479 | hard | Present | तुम मेरे दोस्त हो। | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
-q480 | basic | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q481 | medium | Present | मेरे पास एक कुत्ता है। | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
-q482 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q483 | basic | Present | वह खाना बना रही थी। | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
-q484 | medium | Present | वह कल आएगा। | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
-q485 | hard | Present | यह एक बड़ा घर है। | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
-q486 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q487 | medium | Present | वह किताब पढ़ती है। | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
-q488 | hard | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q489 | basic | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q490 | medium | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q491 | hard | Present | मेरे पिता एक शिक्षक हैं। | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
-q492 | basic | Present | वे गाने गा रहे थे। | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
-q493 | medium | Present | हम क्रिकेट खेलते हैं। | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
-q494 | hard | Present | उन्होंने एक नई कार खरीदी है। | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
-q495 | basic | Present | वह पानी पीता है। | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
-q496 | medium | Present | उसने एक कहानी लिखी। | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
-q497 | hard | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
-q498 | basic | Present | उसे आम पसंद हैं। | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
-q499 | medium | Present | मैं एक पत्र लिख रहा हूँ। | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q0 | basic | Present | वह कल आएगा। (Set 1) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q1 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 2) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q2 | hard | Present | वह खाना बना रही थी। (Set 3) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q3 | basic | Present | हम शाम को खेलेंगे। (Set 4) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q4 | medium | Present | वह फुटबॉल खेल रहा है। (Set 5) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q5 | hard | Present | मैं एक पत्र लिख रहा हूँ। (Set 6) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q6 | basic | Present | वह कल आएगा। (Set 7) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q7 | medium | Present | वह किताब पढ़ती है। (Set 8) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q8 | hard | Present | वह कल आएगा। (Set 9) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q9 | basic | Present | उसने एक कहानी लिखी। (Set 10) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q10 | medium | Present | वह किताब पढ़ती है। (Set 11) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q11 | hard | Present | हम टीवी देख रहे हैं। (Set 12) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q12 | basic | Present | मैं दिल्ली गया था। (Set 13) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q13 | medium | Present | तुम मेरे दोस्त हो। (Set 14) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q14 | hard | Present | वह मुंबई जा चुका है। (Set 15) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q15 | basic | Present | उन्होंने एक नई कार खरीदी है। (Set 16) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q16 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 17) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q17 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 18) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q18 | basic | Present | वह पानी पीता है। (Set 19) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q19 | medium | Present | मैं दिल्ली गया था। (Set 20) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q20 | hard | Present | वह किताब पढ़ती है। (Set 21) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q21 | basic | Present | वे गाने गा रहे थे। (Set 22) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q22 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 23) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q23 | hard | Present | तुम मेरे दोस्त हो। (Set 24) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q24 | basic | Present | हम टीवी देख रहे हैं। (Set 25) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q25 | medium | Present | उसने एक कहानी लिखी। (Set 26) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q26 | hard | Present | हम क्रिकेट खेलते हैं। (Set 27) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q27 | basic | Present | वह मुंबई जा चुका है। (Set 28) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q28 | medium | Present | तुम मेरे दोस्त हो। (Set 29) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q29 | hard | Present | वह फुटबॉल खेल रहा है। (Set 30) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q30 | basic | Present | हमने मैच जीता। (Set 31) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q31 | medium | Present | तुम मेरे दोस्त हो। (Set 32) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q32 | hard | Present | मैं दिल्ली गया था। (Set 33) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q33 | basic | Present | मैं एक सेब खाता हूँ। (Set 34) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q34 | medium | Present | मैं दिल्ली गया था। (Set 35) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q35 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 36) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q36 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 37) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q37 | medium | Present | वह कल आएगा। (Set 38) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q38 | hard | Present | वह किताब पढ़ती है। (Set 39) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q39 | basic | Present | वह किताब पढ़ती है। (Set 40) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q40 | medium | Present | उसने एक कहानी लिखी। (Set 41) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q41 | hard | Present | वह पानी पीता है। (Set 42) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q42 | basic | Present | तुम मेरे दोस्त हो। (Set 43) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q43 | medium | Present | वे गाने गा रहे थे। (Set 44) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q44 | hard | Present | उसने एक कहानी लिखी। (Set 45) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q45 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 46) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q46 | medium | Present | वह मुंबई जा चुका है। (Set 47) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q47 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 48) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q48 | basic | Present | वह फुटबॉल खेल रहा है। (Set 49) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q49 | medium | Present | वह पानी पीता है। (Set 50) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q50 | hard | Present | यह एक बड़ा घर है। (Set 51) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q51 | basic | Present | हम शाम को खेलेंगे। (Set 52) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q52 | medium | Present | मैं तुम्हें फोन करूंगा। (Set 53) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q53 | hard | Present | मैं दिल्ली गया था। (Set 54) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q54 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 55) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q55 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 56) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q56 | hard | Present | वह किताब पढ़ती है। (Set 57) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q57 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 58) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q58 | medium | Present | मेरे पास एक कुत्ता है। (Set 59) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q59 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 60) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q60 | basic | Present | हम टीवी देख रहे हैं। (Set 61) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q61 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 62) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q62 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 63) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q63 | basic | Present | वह मुंबई जा चुका है। (Set 64) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q64 | medium | Present | हम क्रिकेट खेलते हैं। (Set 65) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q65 | hard | Present | मैं एक सेब खाता हूँ। (Set 66) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q66 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 67) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q67 | medium | Present | वह पानी पीता है। (Set 68) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q68 | hard | Present | हमने मैच जीता। (Set 69) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q69 | basic | Present | वह कल आएगा। (Set 70) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q70 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 71) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q71 | hard | Present | वे गाने गा रहे थे। (Set 72) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q72 | basic | Present | तुम मेरे दोस्त हो। (Set 73) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q73 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 74) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q74 | hard | Present | मैं एक सेब खाता हूँ। (Set 75) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q75 | basic | Present | यह एक बड़ा घर है। (Set 76) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q76 | medium | Present | उसने एक कहानी लिखी। (Set 77) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q77 | hard | Present | मेरे पास एक कुत्ता है। (Set 78) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q78 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 79) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q79 | medium | Present | हम शाम को खेलेंगे। (Set 80) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q80 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 81) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q81 | basic | Present | तुम मेरे दोस्त हो। (Set 82) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q82 | medium | Present | उसने एक केला खाया। (Set 83) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q83 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 84) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q84 | basic | Present | हम क्रिकेट खेलते हैं। (Set 85) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q85 | medium | Present | वे स्कूल जाते हैं। (Set 86) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q86 | hard | Present | वे स्कूल जाते हैं। (Set 87) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q87 | basic | Present | वे स्कूल जाते हैं। (Set 88) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q88 | medium | Present | वह किताब पढ़ती है। (Set 89) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q89 | hard | Present | हम शाम को खेलेंगे। (Set 90) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q90 | basic | Present | वह खाना बना रही थी। (Set 91) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q91 | medium | Present | मेरे पास एक कुत्ता है। (Set 92) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q92 | hard | Present | हम टीवी देख रहे हैं। (Set 93) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q93 | basic | Present | यह एक बड़ा घर है। (Set 94) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q94 | medium | Present | वह मुंबई जा चुका है। (Set 95) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q95 | hard | Present | मैं दिल्ली गया था। (Set 96) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q96 | basic | Present | मैं दिल्ली गया था। (Set 97) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q97 | medium | Present | हम टीवी देख रहे हैं। (Set 98) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q98 | hard | Present | मैं एक सेब खाता हूँ। (Set 99) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q99 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 100) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q100 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 101) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q101 | hard | Present | वह मुंबई जा चुका है। (Set 102) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q102 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 103) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q103 | medium | Present | हम टीवी देख रहे हैं। (Set 104) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q104 | hard | Present | उसने एक कहानी लिखी। (Set 105) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q105 | basic | Present | उन्होंने एक नई कार खरीदी है। (Set 106) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q106 | medium | Present | हम क्रिकेट खेलते हैं। (Set 107) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q107 | hard | Present | मैं एक पत्र लिख रहा हूँ। (Set 108) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q108 | basic | Present | हम टीवी देख रहे हैं। (Set 109) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q109 | medium | Present | तुम मेरे दोस्त हो। (Set 110) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q110 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 111) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q111 | basic | Present | उसने एक केला खाया। (Set 112) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q112 | medium | Present | मेरे पास एक कुत्ता है। (Set 113) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q113 | hard | Present | उसने एक कहानी लिखी। (Set 114) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q114 | basic | Present | हम क्रिकेट खेलते हैं। (Set 115) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q115 | medium | Present | उसने एक केला खाया। (Set 116) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q116 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 117) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q117 | basic | Present | हम शाम को खेलेंगे। (Set 118) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q118 | medium | Present | तुम मेरे दोस्त हो। (Set 119) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q119 | hard | Present | उसने एक कहानी लिखी। (Set 120) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q120 | basic | Present | मेरे पास एक कुत्ता है। (Set 121) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q121 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 122) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q122 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 123) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q123 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 124) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q124 | medium | Present | वे स्कूल जाते हैं। (Set 125) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q125 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 126) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q126 | basic | Present | वे गाने गा रहे थे। (Set 127) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q127 | medium | Present | मैं दिल्ली गया था। (Set 128) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q128 | hard | Present | मैं दिल्ली गया था। (Set 129) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q129 | basic | Present | वह पानी पीता है। (Set 130) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q130 | medium | Present | उसने एक कहानी लिखी। (Set 131) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q131 | hard | Present | वे गाने गा रहे थे। (Set 132) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q132 | basic | Present | मैं एक सेब खाता हूँ। (Set 133) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q133 | medium | Present | वह मुंबई जा चुका है। (Set 134) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q134 | hard | Present | मैं एक सेब खाता हूँ। (Set 135) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q135 | basic | Present | मैंने अपना काम खत्म कर लिया है। (Set 136) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q136 | medium | Present | वे स्कूल जाते हैं। (Set 137) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q137 | hard | Present | उसने एक केला खाया। (Set 138) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q138 | basic | Present | उसने एक कहानी लिखी। (Set 139) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q139 | medium | Present | हम टीवी देख रहे हैं। (Set 140) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q140 | hard | Present | हमने मैच जीता। (Set 141) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q141 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 142) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q142 | medium | Present | वह मुंबई जा चुका है। (Set 143) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q143 | hard | Present | हम टीवी देख रहे हैं। (Set 144) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q144 | basic | Present | वह किताब पढ़ती है। (Set 145) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q145 | medium | Present | वह मुंबई जा चुका है। (Set 146) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q146 | hard | Present | वे स्कूल जाते हैं। (Set 147) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q147 | basic | Present | हम क्रिकेट खेलते हैं। (Set 148) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q148 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 149) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q149 | hard | Present | वह किताब पढ़ती है। (Set 150) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q150 | basic | Present | वह खाना बना रही थी। (Set 151) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q151 | medium | Present | वे स्कूल जाते हैं। (Set 152) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q152 | hard | Present | वे गाने गा रहे थे। (Set 153) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q153 | basic | Present | तुम मेरे दोस्त हो। (Set 154) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q154 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 155) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q155 | hard | Present | वह पानी पीता है। (Set 156) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q156 | basic | Present | उसने एक केला खाया। (Set 157) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q157 | medium | Present | वह पानी पीता है। (Set 158) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q158 | hard | Present | यह एक बड़ा घर है। (Set 159) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q159 | basic | Present | मैं दिल्ली गया था। (Set 160) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q160 | medium | Present | तुम मेरे दोस्त हो। (Set 161) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q161 | hard | Present | वे गाने गा रहे थे। (Set 162) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q162 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 163) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q163 | medium | Present | वे स्कूल जाते हैं। (Set 164) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q164 | hard | Present | मैं एक सेब खाता हूँ। (Set 165) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q165 | basic | Present | हम क्रिकेट खेलते हैं। (Set 166) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q166 | medium | Present | हम शाम को खेलेंगे। (Set 167) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q167 | hard | Present | वह पानी पीता है। (Set 168) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q168 | basic | Present | उसने एक कहानी लिखी। (Set 169) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q169 | medium | Present | वह खाना बना रही थी। (Set 170) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q170 | hard | Present | मैं एक पत्र लिख रहा हूँ। (Set 171) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q171 | basic | Present | उसने एक कहानी लिखी। (Set 172) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q172 | medium | Present | हमने मैच जीता। (Set 173) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q173 | hard | Present | वह खाना बना रही थी। (Set 174) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q174 | basic | Present | वह कल आएगा। (Set 175) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q175 | medium | Present | उन्होंने एक नई कार खरीदी है। (Set 176) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q176 | hard | Present | वह मुंबई जा चुका है। (Set 177) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q177 | basic | Present | वह पानी पीता है। (Set 178) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q178 | medium | Present | हम शाम को खेलेंगे। (Set 179) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q179 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 180) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q180 | basic | Present | वह खाना बना रही थी। (Set 181) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q181 | medium | Present | उसने एक केला खाया। (Set 182) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q182 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 183) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q183 | basic | Present | उसे आम पसंद हैं। (Set 184) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q184 | medium | Present | वह पानी पीता है। (Set 185) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q185 | hard | Present | मेरे पास एक कुत्ता है। (Set 186) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q186 | basic | Present | हम टीवी देख रहे हैं। (Set 187) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q187 | medium | Present | वह खाना बना रही थी। (Set 188) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q188 | hard | Present | हमने मैच जीता। (Set 189) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q189 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 190) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q190 | medium | Present | हमने मैच जीता। (Set 191) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q191 | hard | Present | वे गाने गा रहे थे। (Set 192) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q192 | basic | Present | वे स्कूल जाते हैं। (Set 193) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q193 | medium | Present | वह कल आएगा। (Set 194) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q194 | hard | Present | वह किताब पढ़ती है। (Set 195) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q195 | basic | Present | मैं दिल्ली गया था। (Set 196) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q196 | medium | Present | वह पानी पीता है। (Set 197) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q197 | hard | Present | उसने एक केला खाया। (Set 198) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q198 | basic | Present | हम टीवी देख रहे हैं। (Set 199) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q199 | medium | Present | हम क्रिकेट खेलते हैं। (Set 200) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q200 | hard | Present | मैं एक पत्र लिख रहा हूँ। (Set 201) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q201 | basic | Present | हम क्रिकेट खेलते हैं। (Set 202) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q202 | medium | Present | हम शाम को खेलेंगे। (Set 203) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q203 | hard | Present | उसने एक कहानी लिखी। (Set 204) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q204 | basic | Present | हम शाम को खेलेंगे। (Set 205) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q205 | medium | Present | हम क्रिकेट खेलते हैं। (Set 206) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q206 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 207) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q207 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 208) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q208 | medium | Present | वह पानी पीता है। (Set 209) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q209 | hard | Present | उसने एक कहानी लिखी। (Set 210) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q210 | basic | Present | उसने एक केला खाया। (Set 211) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q211 | medium | Present | उसने एक केला खाया। (Set 212) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q212 | hard | Present | वह खाना बना रही थी। (Set 213) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q213 | basic | Present | मैंने अपना काम खत्म कर लिया है। (Set 214) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q214 | medium | Present | वे स्कूल जाते हैं। (Set 215) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q215 | hard | Present | मैं एक सेब खाता हूँ। (Set 216) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q216 | basic | Present | वे स्कूल जाते हैं। (Set 217) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q217 | medium | Present | वह मुंबई जा चुका है। (Set 218) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q218 | hard | Present | वह कल आएगा। (Set 219) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q219 | basic | Present | मैं एक सेब खाता हूँ। (Set 220) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q220 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 221) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q221 | hard | Present | वह कल आएगा। (Set 222) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q222 | basic | Present | मेरे पास एक कुत्ता है। (Set 223) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q223 | medium | Present | उन्होंने एक नई कार खरीदी है। (Set 224) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q224 | hard | Present | हम टीवी देख रहे हैं। (Set 225) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q225 | basic | Present | उसने एक केला खाया। (Set 226) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q226 | medium | Present | मेरे पास एक कुत्ता है। (Set 227) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q227 | hard | Present | उसने एक केला खाया। (Set 228) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q228 | basic | Present | उसने एक केला खाया। (Set 229) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q229 | medium | Present | हमने मैच जीता। (Set 230) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q230 | hard | Present | मैं दिल्ली गया था। (Set 231) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q231 | basic | Present | हम टीवी देख रहे हैं। (Set 232) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q232 | medium | Present | यह एक बड़ा घर है। (Set 233) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q233 | hard | Present | वह कल आएगा। (Set 234) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q234 | basic | Present | मेरे पास एक कुत्ता है। (Set 235) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q235 | medium | Present | उसने एक कहानी लिखी। (Set 236) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q236 | hard | Present | हम टीवी देख रहे हैं। (Set 237) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q237 | basic | Present | हम क्रिकेट खेलते हैं। (Set 238) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q238 | medium | Present | हम शाम को खेलेंगे। (Set 239) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q239 | hard | Present | मेरे पास एक कुत्ता है। (Set 240) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q240 | basic | Present | वह मुंबई जा चुका है। (Set 241) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q241 | medium | Present | उसे आम पसंद हैं। (Set 242) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q242 | hard | Present | वह पानी पीता है। (Set 243) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q243 | basic | Present | वे स्कूल जाते हैं। (Set 244) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q244 | medium | Present | वह मुंबई जा चुका है। (Set 245) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q245 | hard | Present | हमने मैच जीता। (Set 246) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q246 | basic | Present | वह पानी पीता है। (Set 247) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q247 | medium | Present | हमने मैच जीता। (Set 248) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q248 | hard | Present | वे गाने गा रहे थे। (Set 249) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q249 | basic | Present | वे गाने गा रहे थे। (Set 250) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q250 | medium | Present | मैं दिल्ली गया था। (Set 251) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q251 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 252) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q252 | basic | Present | हम टीवी देख रहे हैं। (Set 253) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q253 | medium | Present | उसे आम पसंद हैं। (Set 254) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q254 | hard | Present | उसने एक केला खाया। (Set 255) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q255 | basic | Present | वह पानी पीता है। (Set 256) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q256 | medium | Present | मैं एक सेब खाता हूँ। (Set 257) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q257 | hard | Present | वह फुटबॉल खेल रहा है। (Set 258) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q258 | basic | Present | मेरे पास एक कुत्ता है। (Set 259) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q259 | medium | Present | वह खाना बना रही थी। (Set 260) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q260 | hard | Present | वह खाना बना रही थी। (Set 261) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q261 | basic | Present | वह खाना बना रही थी। (Set 262) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q262 | medium | Present | वह कल आएगा। (Set 263) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q263 | hard | Present | उसे आम पसंद हैं। (Set 264) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q264 | basic | Present | मेरे पास एक कुत्ता है। (Set 265) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q265 | medium | Present | वे स्कूल जाते हैं। (Set 266) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q266 | hard | Present | उसे आम पसंद हैं। (Set 267) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q267 | basic | Present | उसे आम पसंद हैं। (Set 268) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q268 | medium | Present | तुम मेरे दोस्त हो। (Set 269) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q269 | hard | Present | वह फुटबॉल खेल रहा है। (Set 270) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q270 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 271) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q271 | medium | Present | उसने एक केला खाया। (Set 272) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q272 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 273) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q273 | basic | Present | यह एक बड़ा घर है। (Set 274) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q274 | medium | Present | मेरे पास एक कुत्ता है। (Set 275) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q275 | hard | Present | वह पानी पीता है। (Set 276) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q276 | basic | Present | उसे आम पसंद हैं। (Set 277) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q277 | medium | Present | वह कल आएगा। (Set 278) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q278 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 279) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q279 | basic | Present | हमने मैच जीता। (Set 280) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q280 | medium | Present | वह पानी पीता है। (Set 281) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q281 | hard | Present | मेरे पास एक कुत्ता है। (Set 282) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q282 | basic | Present | वह पानी पीता है। (Set 283) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q283 | medium | Present | उसने एक केला खाया। (Set 284) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q284 | hard | Present | वह खाना बना रही थी। (Set 285) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q285 | basic | Present | यह एक बड़ा घर है। (Set 286) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q286 | medium | Present | उसने एक कहानी लिखी। (Set 287) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q287 | hard | Present | हम क्रिकेट खेलते हैं। (Set 288) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q288 | basic | Present | उसने एक केला खाया। (Set 289) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q289 | medium | Present | उसने एक कहानी लिखी। (Set 290) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q290 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 291) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q291 | basic | Present | मेरे पास एक कुत्ता है। (Set 292) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q292 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 293) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q293 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 294) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q294 | basic | Present | मैंने अपना काम खत्म कर लिया है। (Set 295) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q295 | medium | Present | तुम मेरे दोस्त हो। (Set 296) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q296 | hard | Present | मैं दिल्ली गया था। (Set 297) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q297 | basic | Present | वह मुंबई जा चुका है। (Set 298) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q298 | medium | Present | उसे आम पसंद हैं। (Set 299) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q299 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 300) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q300 | basic | Present | मैं एक सेब खाता हूँ। (Set 301) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q301 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 302) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q302 | hard | Present | मैं दिल्ली गया था। (Set 303) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q303 | basic | Present | मैंने अपना काम खत्म कर लिया है। (Set 304) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q304 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 305) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q305 | hard | Present | वह पानी पीता है। (Set 306) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q306 | basic | Present | उसे आम पसंद हैं। (Set 307) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q307 | medium | Present | यह एक बड़ा घर है। (Set 308) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q308 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 309) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q309 | basic | Present | वे स्कूल जाते हैं। (Set 310) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q310 | medium | Present | हमने मैच जीता। (Set 311) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q311 | hard | Present | मैं दिल्ली गया था। (Set 312) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q312 | basic | Present | वे स्कूल जाते हैं। (Set 313) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q313 | medium | Present | हम टीवी देख रहे हैं। (Set 314) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q314 | hard | Present | यह एक बड़ा घर है। (Set 315) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q315 | basic | Present | हम शाम को खेलेंगे। (Set 316) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q316 | medium | Present | वह फुटबॉल खेल रहा है। (Set 317) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q317 | hard | Present | उसने एक केला खाया। (Set 318) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q318 | basic | Present | वे स्कूल जाते हैं। (Set 319) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q319 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 320) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q320 | hard | Present | मेरे पास एक कुत्ता है। (Set 321) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q321 | basic | Present | वह खाना बना रही थी। (Set 322) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q322 | medium | Present | वह मुंबई जा चुका है। (Set 323) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q323 | hard | Present | वह खाना बना रही थी। (Set 324) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q324 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 325) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q325 | medium | Present | वह किताब पढ़ती है। (Set 326) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q326 | hard | Present | वे गाने गा रहे थे। (Set 327) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q327 | basic | Present | वह किताब पढ़ती है। (Set 328) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q328 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 329) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q329 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 330) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q330 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 331) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q331 | medium | Present | वह पानी पीता है। (Set 332) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q332 | hard | Present | वह मुंबई जा चुका है। (Set 333) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q333 | basic | Present | वह कल आएगा। (Set 334) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q334 | medium | Present | वह कल आएगा। (Set 335) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q335 | hard | Present | वे स्कूल जाते हैं। (Set 336) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q336 | basic | Present | वह खाना बना रही थी। (Set 337) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q337 | medium | Present | मेरे पास एक कुत्ता है। (Set 338) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q338 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 339) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q339 | basic | Present | हम क्रिकेट खेलते हैं। (Set 340) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q340 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 341) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q341 | hard | Present | हम क्रिकेट खेलते हैं। (Set 342) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q342 | basic | Present | उसने एक केला खाया। (Set 343) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q343 | medium | Present | वह फुटबॉल खेल रहा है। (Set 344) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q344 | hard | Present | हम क्रिकेट खेलते हैं। (Set 345) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q345 | basic | Present | हमने मैच जीता। (Set 346) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q346 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 347) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q347 | hard | Present | वह पानी पीता है। (Set 348) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q348 | basic | Present | वह मुंबई जा चुका है। (Set 349) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q349 | medium | Present | हम शाम को खेलेंगे। (Set 350) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q350 | hard | Present | उसने एक केला खाया। (Set 351) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q351 | basic | Present | उसे आम पसंद हैं। (Set 352) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q352 | medium | Present | मैं दिल्ली गया था। (Set 353) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q353 | hard | Present | वह कल आएगा। (Set 354) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q354 | basic | Present | मैं दिल्ली गया था। (Set 355) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q355 | medium | Present | हमने मैच जीता। (Set 356) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q356 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 357) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q357 | basic | Present | यह एक बड़ा घर है। (Set 358) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q358 | medium | Present | हम क्रिकेट खेलते हैं। (Set 359) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q359 | hard | Present | वह खाना बना रही थी। (Set 360) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q360 | basic | Present | वह फुटबॉल खेल रहा है। (Set 361) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q361 | medium | Present | मैं एक सेब खाता हूँ। (Set 362) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q362 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 363) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q363 | basic | Present | उसने एक केला खाया। (Set 364) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q364 | medium | Present | मैं दिल्ली गया था। (Set 365) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q365 | hard | Present | हम क्रिकेट खेलते हैं। (Set 366) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q366 | basic | Present | उसे आम पसंद हैं। (Set 367) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q367 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 368) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q368 | hard | Present | वह खाना बना रही थी। (Set 369) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q369 | basic | Present | हमने मैच जीता। (Set 370) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q370 | medium | Present | तुम मेरे दोस्त हो। (Set 371) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q371 | hard | Present | वे स्कूल जाते हैं। (Set 372) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q372 | basic | Present | वह फुटबॉल खेल रहा है। (Set 373) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q373 | medium | Present | यह एक बड़ा घर है। (Set 374) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q374 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 375) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q375 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 376) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q376 | medium | Present | उसे आम पसंद हैं। (Set 377) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q377 | hard | Present | यह एक बड़ा घर है। (Set 378) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q378 | basic | Present | मैं तुम्हें फोन करूंगा। (Set 379) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q379 | medium | Present | वह पानी पीता है। (Set 380) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q380 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 381) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q381 | basic | Present | उसे आम पसंद हैं। (Set 382) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q382 | medium | Present | वह मुंबई जा चुका है। (Set 383) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q383 | hard | Present | हम क्रिकेट खेलते हैं। (Set 384) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q384 | basic | Present | हमने मैच जीता। (Set 385) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q385 | medium | Present | मेरे पिता एक शिक्षक हैं। (Set 386) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q386 | hard | Present | हम क्रिकेट खेलते हैं। (Set 387) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q387 | basic | Present | हम क्रिकेट खेलते हैं। (Set 388) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q388 | medium | Present | वे गाने गा रहे थे। (Set 389) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q389 | hard | Present | हमने मैच जीता। (Set 390) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q390 | basic | Present | उसे आम पसंद हैं। (Set 391) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q391 | medium | Present | वह कल आएगा। (Set 392) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q392 | hard | Present | यह एक बड़ा घर है। (Set 393) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q393 | basic | Present | वे गाने गा रहे थे। (Set 394) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q394 | medium | Present | वह खाना बना रही थी। (Set 395) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q395 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 396) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q396 | basic | Present | वे स्कूल जाते हैं। (Set 397) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q397 | medium | Present | वह खाना बना रही थी। (Set 398) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q398 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 399) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q399 | basic | Present | तुम मेरे दोस्त हो। (Set 400) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q400 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 401) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q401 | hard | Present | वह पानी पीता है। (Set 402) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q402 | basic | Present | उसे आम पसंद हैं। (Set 403) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q403 | medium | Present | वह कल आएगा। (Set 404) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q404 | hard | Present | मेरे पास एक कुत्ता है। (Set 405) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q405 | basic | Present | वह मुंबई जा चुका है। (Set 406) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q406 | medium | Present | उसने एक कहानी लिखी। (Set 407) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q407 | hard | Present | यह एक बड़ा घर है। (Set 408) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q408 | basic | Present | वह पानी पीता है। (Set 409) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q409 | medium | Present | वह खाना बना रही थी। (Set 410) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q410 | hard | Present | हम शाम को खेलेंगे। (Set 411) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q411 | basic | Present | वह कल आएगा। (Set 412) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q412 | medium | Present | मैंने अपना काम खत्म कर लिया है। (Set 413) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q413 | hard | Present | तुम मेरे दोस्त हो। (Set 414) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q414 | basic | Present | वह किताब पढ़ती है। (Set 415) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q415 | medium | Present | वह किताब पढ़ती है। (Set 416) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q416 | hard | Present | हम टीवी देख रहे हैं। (Set 417) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q417 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 418) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q418 | medium | Present | उसे आम पसंद हैं। (Set 419) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q419 | hard | Present | मैं एक सेब खाता हूँ। (Set 420) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q420 | basic | Present | हमने मैच जीता। (Set 421) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q421 | medium | Present | उसे आम पसंद हैं। (Set 422) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q422 | hard | Present | वह फुटबॉल खेल रहा है। (Set 423) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q423 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 424) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q424 | medium | Present | वे गाने गा रहे थे। (Set 425) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q425 | hard | Present | हम शाम को खेलेंगे। (Set 426) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q426 | basic | Present | वह खाना बना रही थी। (Set 427) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q427 | medium | Present | हम क्रिकेट खेलते हैं। (Set 428) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q428 | hard | Present | उन्होंने एक नई कार खरीदी है। (Set 429) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q429 | basic | Present | यह एक बड़ा घर है। (Set 430) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q430 | medium | Present | मैं तुम्हें फोन करूंगा। (Set 431) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q431 | hard | Present | वह पानी पीता है। (Set 432) | He drinks water. | He drinks water. || He drank water. || He is drinking water. || He will drink water.
+q432 | basic | Present | मैंने अपना काम खत्म कर लिया है। (Set 433) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q433 | medium | Present | हम क्रिकेट खेलते हैं। (Set 434) | We play cricket. | We play cricket. || We played cricket. || We are playing cricket. || We will play cricket.
+q434 | hard | Present | वह फुटबॉल खेल रहा है। (Set 435) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q435 | basic | Present | मैं एक पत्र लिख रहा हूँ। (Set 436) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q436 | medium | Present | वे गाने गा रहे थे। (Set 437) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q437 | hard | Present | उसने एक कहानी लिखी। (Set 438) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q438 | basic | Present | उन्होंने एक नई कार खरीदी है। (Set 439) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q439 | medium | Present | यह एक बड़ा घर है। (Set 440) | It is a big house. | It is a big house. || It was a big house. || It will be a big house. || It is a small house.
+q440 | hard | Present | वह फुटबॉल खेल रहा है। (Set 441) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q441 | basic | Present | वह कल आएगा। (Set 442) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q442 | medium | Present | उसने एक कहानी लिखी। (Set 443) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q443 | hard | Present | हम टीवी देख रहे हैं। (Set 444) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q444 | basic | Present | मैं दिल्ली गया था। (Set 445) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q445 | medium | Present | वह कल आएगा। (Set 446) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q446 | hard | Present | उसने एक केला खाया। (Set 447) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q447 | basic | Present | मैं दिल्ली गया था। (Set 448) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q448 | medium | Present | हमने मैच जीता। (Set 449) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q449 | hard | Present | उसने एक केला खाया। (Set 450) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q450 | basic | Present | उसने एक कहानी लिखी। (Set 451) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q451 | medium | Present | मैं तुम्हें फोन करूंगा। (Set 452) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q452 | hard | Present | हम शाम को खेलेंगे। (Set 453) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q453 | basic | Present | उसने एक केला खाया। (Set 454) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q454 | medium | Present | हम शाम को खेलेंगे। (Set 455) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q455 | hard | Present | उसने एक कहानी लिखी। (Set 456) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q456 | basic | Present | मेरे पास एक कुत्ता है। (Set 457) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
+q457 | medium | Present | वह फुटबॉल खेल रहा है। (Set 458) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q458 | hard | Present | मैं दिल्ली गया था। (Set 459) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q459 | basic | Present | वह फुटबॉल खेल रहा है। (Set 460) | He is playing football. | He is playing football. || He plays football. || He played football. || He will play football.
+q460 | medium | Present | उसने एक कहानी लिखी। (Set 461) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q461 | hard | Present | उसे आम पसंद हैं। (Set 462) | She likes mangoes. | She likes mangoes. || She liked mangoes. || She will like mangoes. || She is liking mangoes.
+q462 | basic | Present | वह कल आएगा। (Set 463) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q463 | medium | Present | वह मुंबई जा चुका है। (Set 464) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q464 | hard | Present | हम शाम को खेलेंगे। (Set 465) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q465 | basic | Present | उन्होंने एक नई कार खरीदी है। (Set 466) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q466 | medium | Present | वह किताब पढ़ती है। (Set 467) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q467 | hard | Present | वह किताब पढ़ती है। (Set 468) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q468 | basic | Present | वह कल आएगा। (Set 469) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q469 | medium | Present | हम टीवी देख रहे हैं। (Set 470) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q470 | hard | Present | मैंने अपना काम खत्म कर लिया है। (Set 471) | I have finished my work. | I have finished my work. || I finished my work. || I had finished my work. || I am finishing my work.
+q471 | basic | Present | वह खाना बना रही थी। (Set 472) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q472 | medium | Present | वह खाना बना रही थी। (Set 473) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q473 | hard | Present | मैं दिल्ली गया था। (Set 474) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q474 | basic | Present | वह मुंबई जा चुका है। (Set 475) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q475 | medium | Present | हमने मैच जीता। (Set 476) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q476 | hard | Present | वह खाना बना रही थी। (Set 477) | She was cooking food. | She was cooking food. || She is cooking food. || She cooked food. || She will cook food.
+q477 | basic | Present | हम टीवी देख रहे हैं। (Set 478) | We are watching TV. | We are watching TV. || We watch TV. || We watched TV. || We will watch TV.
+q478 | medium | Present | तुम मेरे दोस्त हो। (Set 479) | You are my friend. | You are my friend. || You were my friend. || You will be my friend. || You are my best friend.
+q479 | hard | Present | वे गाने गा रहे थे। (Set 480) | They were singing songs. | They were singing songs. || They are singing songs. || They sang songs. || They will sing songs.
+q480 | basic | Present | हमने मैच जीता। (Set 481) | We won the match. | We won the match. || We win the match. || We are winning the match. || We will win the match.
+q481 | medium | Present | उसने एक केला खाया। (Set 482) | He ate a banana. | He ate a banana. || He eats a banana. || He is eating a banana. || He will eat a banana.
+q482 | hard | Present | वह मुंबई जा चुका है। (Set 483) | He has gone to Mumbai. | He has gone to Mumbai. || He went to Mumbai. || He had gone to Mumbai. || He is going to Mumbai.
+q483 | basic | Present | मेरे पिता एक शिक्षक हैं। (Set 484) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q484 | medium | Present | उन्होंने एक नई कार खरीदी है। (Set 485) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q485 | hard | Present | मैं दिल्ली गया था। (Set 486) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q486 | basic | Present | हम शाम को खेलेंगे। (Set 487) | We will play in the evening. | We will play in the evening. || We played in the evening. || We are playing in the evening. || We play in the evening.
+q487 | medium | Present | वह किताब पढ़ती है। (Set 488) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q488 | hard | Present | मैं तुम्हें फोन करूंगा। (Set 489) | I will call you. | I will call you. || I called you. || I am calling you. || I call you.
+q489 | basic | Present | उन्होंने एक नई कार खरीदी है। (Set 490) | They have bought a new car. | They have bought a new car. || They bought a new car. || They had bought a new car. || They are buying a new car.
+q490 | medium | Present | मैं एक सेब खाता हूँ। (Set 491) | I eat an apple. | I eat an apple. || I ate an apple. || I am eating an apple. || I will eat an apple.
+q491 | hard | Present | मैं दिल्ली गया था। (Set 492) | I went to Delhi. | I went to Delhi. || I go to Delhi. || I am going to Delhi. || I will go to Delhi.
+q492 | basic | Present | वह किताब पढ़ती है। (Set 493) | She reads a book. | She reads a book. || She read a book. || She is reading a book. || She will read a book.
+q493 | medium | Present | मैं एक पत्र लिख रहा हूँ। (Set 494) | I am writing a letter. | I am writing a letter. || I write a letter. || I wrote a letter. || I will write a letter.
+q494 | hard | Present | वे स्कूल जाते हैं। (Set 495) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q495 | basic | Present | उसने एक कहानी लिखी। (Set 496) | She wrote a story. | She wrote a story. || She writes a story. || She is writing a story. || She will write a story.
+q496 | medium | Present | वह कल आएगा। (Set 497) | He will come tomorrow. | He will come tomorrow. || He came tomorrow. || He is coming tomorrow. || He comes tomorrow.
+q497 | hard | Present | मेरे पिता एक शिक्षक हैं। (Set 498) | My father is a teacher. | My father is a teacher. || My father was a teacher. || My father will be a teacher. || My father is a doctor.
+q498 | basic | Present | वे स्कूल जाते हैं। (Set 499) | They go to school. | They go to school. || They went to school. || They are going to school. || They will go to school.
+q499 | medium | Present | मेरे पास एक कुत्ता है। (Set 500) | I have a dog. | I have a dog. || I had a dog. || I will have a dog. || I have a cat.
