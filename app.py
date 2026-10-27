@@ -25605,8 +25605,11 @@ async def claim_loot(cb: CallbackQuery):
     if uid in loot["claimed"]: return await cb.answer("You already claimed!", show_alert=True)
     if len(loot["claimed"]) >= loot["limit"]: return await cb.answer("Too slow! All loot claimed.", show_alert=True)
     loot["claimed"].append(uid)
-    await add_cric_tokens(uid, loot["amount"], "lootdrop")
-    await cb.answer(f"You claimed {loot['amount']} Cric Tokens!", show_alert=True)
+    awarded = await add_cric_tokens(uid, loot["amount"], "lootdrop")
+    if awarded == 0:
+        await cb.answer(f"Daily limit reached! You couldn't claim the {loot['amount']} tokens.", show_alert=True)
+    else:
+        await cb.answer(f"You claimed {awarded} Cric Tokens!", show_alert=True)
     if len(loot["claimed"]) == loot["limit"]:
         await cb.message.edit_text(f"Loot Drop Finished! {loot['limit']} users claimed {loot['amount']} Tokens each.")
 
@@ -28528,7 +28531,7 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
 
     await db.execute(
         """INSERT INTO users(user_id, seyu_gems) VALUES(?, ?) 
-        ON CONFLICT(user_id) DO UPDATE SET seyu_gems = seyu_gems + excluded.seyu_gems""",
+        ON CONFLICT(user_id) DO UPDATE SET seyu_gems = users.seyu_gems + excluded.seyu_gems""",
         (user_id, award)
     )
     await db.execute(
