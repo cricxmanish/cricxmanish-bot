@@ -25929,6 +25929,7 @@ async def start_guess(message: Message):
 async def game_text_handler(message: Message):
     chat_id = message.chat.id
     text = message.text.strip().upper()
+    
     if chat_id in active_anagrams and text == active_anagrams[chat_id]:
         if await add_cric_tokens(message.from_user.id, 30, "anagram"):
             await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
@@ -25936,6 +25937,7 @@ async def game_text_handler(message: Message):
             await message.reply("Correct! But you have reached your daily limit for this game.")
         active_anagrams.pop(chat_id, None)
         return
+        
     if chat_id in active_guesses:
         game = active_guesses[chat_id]
         if text.lower() == game["answer"].lower():
@@ -25945,22 +25947,6 @@ async def game_text_handler(message: Message):
             else:
                 await message.reply("Correct! But you have reached your daily limit for this game.")
             active_guesses.pop(chat_id, None)
-            return
-        
-    if chat_id in active_guesses:
-        game = active_guesses[chat_id]
-        correct_answer = active_guesses.get(f"{chat_id}_answer", "").upper()
-        
-        if text == correct_answer:
-            reward = 30 if game == "riddle" else (25 if game == "country" else 20)
-            if await add_cric_tokens(message.from_user.id, reward, game):
-                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
-            else:
-                await message.reply("Correct! But you have reached your daily limit for this game.")
-            
-            active_guesses.pop(chat_id, None)
-            active_guesses.pop(f"{chat_id}_answer", None)
-            game_timeouts.pop(chat_id, None)
             return
             
     raise SkipHandler
@@ -25986,7 +25972,6 @@ async def start_cricx_game(message: Message):
     hint = CRICX_WORDS[word]
     
     cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
-    game_timeouts[chat_id] = "cricx"
     
     await message.answer(
         f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
@@ -25995,7 +25980,6 @@ async def start_cricx_game(message: Message):
         f"❤️ Lives: 7\n"
         f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
     )
-    asyncio.create_task(timeout_game(chat_id, "cricx", 900))
 
 @router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
 async def cricx_guess_handler(message: Message):
@@ -26004,7 +25988,6 @@ async def cricx_guess_handler(message: Message):
         raise SkipHandler
     
     guess = message.text.strip().upper()
-    
     session = cricx_sessions[chat_id]
     word = session["word"]
     
@@ -26015,7 +25998,6 @@ async def cricx_guess_handler(message: Message):
             else:
                 await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
             cricx_sessions.pop(chat_id, None)
-            game_timeouts.pop(chat_id, None)
             return
         else:
             session["wrong"] += 1
@@ -26033,7 +26015,6 @@ async def cricx_guess_handler(message: Message):
     if lives <= 0:
         await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
         cricx_sessions.pop(chat_id, None)
-        game_timeouts.pop(chat_id, None)
         return
         
     if all(letter in session["guessed"] for letter in word):
@@ -26042,148 +26023,17 @@ async def cricx_guess_handler(message: Message):
         else:
             await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
         cricx_sessions.pop(chat_id, None)
-        game_timeouts.pop(chat_id, None)
         return
 
+    wrong_letters = ', '.join([l for l in session['guessed'] if l not in word]) or 'None'
     await message.reply(
         f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
         f"<b>Hint:</b> <i>{session['hint']}</i>\n"
         f"<code>{cricx_display(word, session['guessed'])}</code>\n\n"
         f"❤️ Lives: {lives}\n"
-        f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
+        f"❌ Wrong: {wrong_letters}"
     )
 
-
-
-async def award_quiz_rewards(
-    session: dict[str, object], ranked: list[tuple[int, int]]
-) -> None:
-    for rank, (user_id, _score) in enumerate(
-        [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
-    ):
-        player = next(player for player in session["players"] if player.id == user_id)
-        amount = QUIZ_REWARDS[rank - 1]
-        cursor = await db.execute(
-            """INSERT OR IGNORE INTO quiz_reward_claims(
-            session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
-            (session["session_id"], user_id, rank, amount),
-        )
-        if cursor.rowcount == 1:
-            await add_cric_tokens(user_id, amount, "quiz")
-    await db.commit()
-
-def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
-    players = session["players"]
-    if session["state"] == "lobby":
-        prefix = (
-            "<b>You are already in this Quiz lobby.</b>"
-            if any(player.id == user_id for player in players)
-            else "<b>A Quiz lobby is already active in this group.</b>"
-        )
-        return (
-            f"{prefix}\n\n"
-            f"Creator: {session['creator_name']}\n"
-            f"Players: {len(players)}/{UNLIMITED_PLAYERS_LABEL}\n"
-            "Use the existing lobby. No duplicate quiz will be created."
-        )
-    prefix = (
-        "<b>You are already in an active Quiz.</b>"
-        if any(player.id == user_id for player in players)
-        else "<b>A Quiz is already active in this group.</b>"
-    )
-    return (
-        f"{prefix}\n\n"
-        f"Creator: {session['creator_name']}\n"
-        f"Players: {len(players)}\n"
-        "Wait until this quiz ends before starting another one."
-    )
-
-async def restore_quiz_sessions() -> None:
-    cursor = await db.execute(
-        "SELECT chat_id, message_id, state, expires_at, payload FROM quiz_sessions"
-    )
-    rows = await cursor.fetchall()
-    for row in rows:
-        chat_id = int(row["chat_id"])
-        message_id = int(row["message_id"])
-        expires_at = float(row["expires_at"])
-        if expires_at <= time.time():
-            try:
-                await bot.delete_message(chat_id, message_id)
-            except (TelegramBadRequest, TelegramForbiddenError):
-                pass
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        try:
-            data = json.loads(str(row["payload"]))
-            players = [
-                SimpleNamespace(
-                    id=int(player["id"]),
-                    first_name=str(player.get("first_name") or "Player"),
-                    username=str(player.get("username") or ""),
-                    is_bot=False,
-                )
-                for player in data["players"]
-            ]
-            state = str(row["state"])
-            if state not in {
-                "lobby", "loading", "answering", "round_result", "final_result"
-            }:
-                raise ValueError("invalid quiz state")
-            if not 1 <= len(players) <= 25:
-                raise ValueError("invalid quiz player count")
-            if not 0 <= int(data["round"]) <= max(QUIZ_ROUND_CHOICES):
-                raise ValueError("saved quiz uses an incompatible round count")
-            session = {
-                "session_id": str(data["session_id"]),
-                "state": state,
-                "creator_id": int(data["creator_id"]),
-                "creator_name": str(data["creator_name"]),
-                "topic_kind": str(data.get("topic_kind") or "general"),
-                "topic_label": str(data.get("topic_label") or "General Knowledge"),
-                "topic_key": str(data.get("topic_key") or "general"),
-                "level": str(data.get("level") or "basic"),
-                "rounds": int(data.get("rounds") or QUIZ_ROUNDS),
-                "players": players,
-                "message_id": message_id,
-                "round": int(data["round"]),
-                "scores": dict(data["scores"]),
-                "total_speed_ms": dict(data["total_speed_ms"]),
-                "question_hashes": list(data["question_hashes"]),
-                "current_question": data.get("current_question"),
-                "poll_id": data.get("poll_id"),
-                "poll_message_id": data.get("poll_message_id"),
-                "answers": dict(data.get("answers") or {}),
-                "round_started_at": data.get("round_started_at"),
-                "created_at": float(data["created_at"]),
-                "expires_at": expires_at,
-            }
-        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        quiz_sessions[chat_id] = session
-        if state == "lobby":
-            session["state"] = "loading"
-            session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
-            state = "loading"
-            await persist_quiz_session(chat_id, session)
-        if state == "answering" and not session.get("poll_id"):
-            session["state"] = "loading"
-            session["round"] = max(0, int(session["round"]) - 1)
-            session["current_question"] = None
-            session["answers"] = {}
-            await persist_quiz_session(chat_id, session)
-        if session.get("poll_id"):
-            quiz_poll_sessions[str(session["poll_id"])] = chat_id
-        quiz_player_sessions[int(session["creator_id"])] = chat_id
-        for player in players:
-            quiz_player_sessions[int(player.id)] = chat_id
-        if state == "lobby":
-            quiz_tasks[chat_id] = asyncio.create_task(
-                expire_quiz_lobby(chat_id, message_id)
-            )
-        else:
-            quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
 async def main() -> None:
 
