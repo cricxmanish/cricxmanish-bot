@@ -28537,6 +28537,13 @@ async def backup_db_to_telegram():
         print(f"[DB BACKUP] Backup failed: {e}")
 
 async def periodic_backup_loop():
+    # 1. Run backup immediately on startup
+    try:
+        await backup_db_to_telegram()
+    except Exception as e:
+        print(f"[DB BACKUP] Initial backup failed: {e}")
+        
+    # 2. Then wait 10 mins and repeat
     while True:
         await asyncio.sleep(DB_BACKUP_INTERVAL)
         try:
