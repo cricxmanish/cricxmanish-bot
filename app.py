@@ -784,10 +784,8 @@ async def sc_store_cb(callback: CallbackQuery) -> None:
         if len(codes_rows) < qty:
             await callback.answer("❌ Not enough stock left.", show_alert=True)
             return
-        cur = await db.execute(
-            "UPDATE users SET seyu_gems=seyu_gems-? WHERE user_id=? AND seyu_gems>=?", (total, uid, total))
-        if not cur.rowcount:
-            await db.commit()
+        deducted = await deduct_cric_tokens(uid, total, "store_redeem")
+        if not deducted:
             await callback.answer(f"❌ Not enough Cric Tokens. Need {total:,}.", show_alert=True)
             return
         for r in codes_rows:
@@ -1461,6 +1459,16 @@ async def setup_db() -> None:
         );
         CREATE INDEX IF NOT EXISTS users_seyu_gems_rank_idx
           ON users(seyu_gems DESC, last_seen_at DESC, user_id ASC);
+
+        CREATE TABLE IF NOT EXISTS token_transactions(
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL,
+          amount INTEGER NOT NULL,
+          source TEXT NOT NULL,
+          tx_type TEXT NOT NULL CHECK(tx_type IN ('credit', 'debit')),
+          created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE INDEX IF NOT EXISTS token_transactions_user_idx ON token_transactions(user_id, id DESC);
         CREATE TABLE IF NOT EXISTS user_messages(
           id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
           role TEXT NOT NULL, content TEXT NOT NULL,
@@ -1870,6 +1878,12 @@ async def setup_db() -> None:
               ON ai_api_keys(provider, enabled, cooldown_until, id);
             """
         )
+
+    try:
+        await db.execute("ALTER TABLE token_transactions ADD COLUMN is_expired INTEGER DEFAULT 0")
+    except Exception:
+        pass
+    
     await db.commit()
     await load_secure_credentials()
     await load_ai_key_pool()
@@ -18455,12 +18469,16 @@ def main_menu(is_admin: bool, private_context: bool = True) -> InlineKeyboardMar
             InlineKeyboardButton(text="Games", callback_data="games", style="primary"),
         ],
         [
+            InlineKeyboardButton(text="💼 Wallet", callback_data="wallet", style="primary"),
             InlineKeyboardButton(text="Store", callback_data="store", style="primary"),
-            InlineKeyboardButton(text="Group Management", callback_data="group_management", style="primary"),
         ],
         [
+            InlineKeyboardButton(text="Group Management", callback_data="group_management", style="primary"),
             InlineKeyboardButton(text="Friends", callback_data="friends", style="primary"),
+        ],
+        [
             InlineKeyboardButton(text="Your Chats", callback_data="your_chats:0", style="primary"),
+            InlineKeyboardButton(text="Leaderboard", callback_data="leaderboard", style="primary"),
         ],
         [
             InlineKeyboardButton(
@@ -18470,10 +18488,9 @@ def main_menu(is_admin: bool, private_context: bool = True) -> InlineKeyboardMar
             ),
         ],
         [
-            InlineKeyboardButton(text="Leaderboard", callback_data="leaderboard", style="primary"),
             InlineKeyboardButton(text="Updates", url="https://t.me/cricxmanish", style="primary"),
+            InlineKeyboardButton(text="Report Issues", url="https://t.me/Cricxmanish18", style="danger"),
         ],
-        [InlineKeyboardButton(text="Report Issues", url="https://t.me/Cricxmanish18", style="danger")],
     ]
     if is_admin and private_context:
         rows.append([
@@ -25548,7 +25565,7 @@ async def mystery_box(message: Message):
     if profile.get("seyu_gems", 0) < cost:
         return await message.answer("You need at least 100 Cric Tokens to open a Mystery Box!")
     
-    await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id = ?", (cost, uid))
+    await deduct_cric_tokens(uid, cost, "mysterybox")
     await db.commit()
     user_profile_cache.pop(uid, None) # Clear cache for accurate balances
     
@@ -25606,7 +25623,8 @@ async def duel_response(cb: CallbackQuery):
         del pending_duels[duel_id]
         return await cb.message.edit_text("Duel rejected.")
     challenger, opponent = map(int, duel_id.split("_")[:2])
-    await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id IN (?, ?)", (duel["amount"], challenger, opponent))
+    await deduct_cric_tokens(challenger, duel["amount"], "dice_duel")
+    await deduct_cric_tokens(opponent, duel["amount"], "dice_duel")
     await db.commit()
     await cb.message.edit_text("Duel Accepted! Rolling the dice...")
     msg1 = await cb.message.answer_dice(emoji="🎲")
@@ -25677,7 +25695,8 @@ async def rps_choice(cb: CallbackQuery):
     await cb.answer(f"You chose {choice}.")
     await cb.message.edit_text(f"You chose {choice}. Waiting for opponent...", reply_markup=None)
     if game["p1"] and game["p2"]:
-        await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id IN (?, ?)", (game["amount"], challenger, opponent))
+        await deduct_cric_tokens(challenger, game["amount"], "rps_duel")
+        await deduct_cric_tokens(opponent, game["amount"], "rps_duel")
         await db.commit()
         p1, p2 = game["p1"], game["p2"]
         if p1 == p2:
@@ -25774,7 +25793,7 @@ async def place_bet(message: Message):
     prof = await get_profile(uid)
     if prof.get("seyu_gems", 0) < amount: return await message.answer("You don't have enough Cric Tokens for this bet.")
     if uid in pred["bets"]: return await message.answer("You have already placed a bet in this match!")
-    await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id = ?", (amount, uid))
+    await deduct_cric_tokens(uid, amount, "prediction_bet")
     await db.commit()
     pred["bets"][uid] = {"team": team, "amount": amount, "name": message.from_user.first_name}
     await message.answer(f"✅ <b>{message.from_user.mention_html()}</b> placed a bet of <b>{amount}</b> Tokens on <b>{team}</b>!")
@@ -27087,6 +27106,91 @@ async def give_tokens_command(message: Message) -> None:
     profile = await get_profile(target_id)
     new_balance = profile.get("seyu_gems", 0) if profile else 0
     await message.answer(f"✅ Added {amount} Cric Tokens to {target_id}. New balance: {new_balance}")
+
+
+
+async def get_wallet_text(uid: int) -> str:
+    profile = await get_profile(uid)
+    balance = int(profile.get("seyu_gems", 0))
+    
+    cursor = await db.execute(
+        "SELECT amount, source, tx_type, created_at FROM token_transactions WHERE user_id=? ORDER BY id DESC LIMIT 10",
+        (uid,)
+    )
+    rows = await cursor.fetchall()
+    
+    text = f"<b>💼 Your Wallet</b>\n\n"
+    text += f"<b>Current Balance:</b> {balance:,} Cric Tokens\n"
+    text += f"<i>⚠️ Tokens expire 7 days after earning!</i>\n\n"
+    text += "<b>Recent Transactions:</b>\n"
+    
+    if not rows:
+        text += "<i>No transactions found yet. Play a game to start earning!</i>"
+    else:
+        for row in rows:
+            amt = int(row["amount"])
+            src = str(row["source"]).replace("_", " ").title()
+            tx = str(row["tx_type"])
+            date = str(row["created_at"]).split(" ")[0]
+            
+            if tx == "credit":
+                text += f"🟢 <b>+{amt:,}</b> | {src} ({date})\n"
+            else:
+                text += f"🔴 <b>-{amt:,}</b> | {src} ({date})\n"
+    return text
+
+@router.message(Command("wallet"))
+async def wallet_command(message: Message):
+    text = await get_wallet_text(message.from_user.id)
+    await message.answer(text)
+
+@router.callback_query(F.data == "wallet")
+async def wallet_callback(callback: CallbackQuery):
+    if not await group_menu_callback_allowed(callback):
+        return
+    await callback.answer()
+    text = await get_wallet_text(callback.from_user.id)
+    markup = InlineKeyboardMarkup(inline_keyboard=[[
+        InlineKeyboardButton(text="🏠 Back to Main Menu", callback_data="home", style="success")
+    ]])
+    await render_menu_text(callback, text, markup)
+
+# ══════════════ 7-DAY TOKEN EXPIRATION TASK ══════════════
+async def expire_tokens_loop():
+    while True:
+        await asyncio.sleep(3600) # Check every hour
+        try:
+            # Find credits older than 7 days that haven't been marked expired
+            cursor = await db.execute(
+                "SELECT id, user_id, amount FROM token_transactions WHERE tx_type='credit' AND is_expired=0 AND created_at <= datetime('now', '-7 days')"
+            )
+            expired = await cursor.fetchall()
+            for tx in expired:
+                uid = tx["user_id"]
+                amt = tx["amount"]
+                
+                # Deduct from user, capped at 0
+                await db.execute(
+                    "UPDATE users SET seyu_gems = MAX(0, seyu_gems - ?) WHERE user_id = ?",
+                    (amt, uid)
+                )
+                # Log the expiration as a debit so they see it in the wallet
+                await db.execute(
+                    "INSERT INTO token_transactions(user_id, amount, source, tx_type) VALUES(?,?,?,'debit')",
+                    (uid, amt, "expired_7_days")
+                )
+                # Mark the original credit as expired
+                await db.execute(
+                    "UPDATE token_transactions SET is_expired=1 WHERE id=?",
+                    (tx["id"],)
+                )
+            if expired:
+                await db.commit()
+                user_profile_cache.clear() # Clear cache so balances update instantly
+                log.info(f"[EXPIRY] Processed {len(expired)} expired transactions.")
+        except Exception as e:
+            log.exception("Token expiry task failed")
+
 
 async def main() -> None:
 
@@ -28431,7 +28535,39 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
     except Exception:
         pass
 
+    # Log the credit transaction
+    await db.execute(
+        "INSERT INTO token_transactions(user_id, amount, source, tx_type) VALUES(?,?,?,'credit')",
+        (user_id, award, source)
+    )
+    await db.commit()
+
     return award
+
+async def deduct_cric_tokens(user_id: int, amount: int, source: str) -> bool:
+    """Safely deducts tokens and logs the transaction."""
+    if amount <= 0:
+        return False
+
+    cursor = await db.execute(
+        "UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id = ? AND seyu_gems >= ?",
+        (amount, user_id, amount)
+    )
+    if cursor.rowcount == 0:
+        return False # Not enough balance
+
+    await db.execute(
+        "INSERT INTO token_transactions(user_id, amount, source, tx_type) VALUES(?,?,?,'debit')",
+        (user_id, amount, source)
+    )
+    await db.commit()
+
+    try:
+        user_profile_cache.pop(user_id, None)
+    except Exception:
+        pass
+
+    return True
 
 # ════════════════════════════════════════════════════════════════════════════════
 
