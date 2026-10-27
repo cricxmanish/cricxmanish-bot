@@ -27099,8 +27099,10 @@ async def main() -> None:
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
     global music_assistant_label, group_activity_flush_task
     global group_activity_window_started_at
+    await restore_db_from_telegram()
     await setup_db()
     await sc_ensure()
+    asyncio.create_task(periodic_backup_loop())
     group_activity_window_started_at = time.time()
     group_activity_flush_task = asyncio.create_task(group_activity_flush_loop())
     cleanup_all_music_buffers()
@@ -28438,6 +28440,110 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
     return award
 
 # ════════════════════════════════════════════════════════════════════════════════
+
+
+
+# ==================== DB BACKUP MODULE (Fix #8) ====================
+# Automatically backs up SQLite to Telegram and restores it on boot.
+# Prevents Render Free Tier from wiping user data.
+
+import aiohttp
+
+DB_BACKUP_CHAT_ID = int(os.environ.get("DB_BACKUP_CHAT_ID", "0"))
+DB_BACKUP_INTERVAL = 600  # 10 minutes
+
+def _api_base() -> str:
+    token = os.environ.get("BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
+    return f"https://api.telegram.org/bot{token}"
+
+async def restore_db_from_telegram():
+    if not DB_BACKUP_CHAT_ID:
+        print("[DB BACKUP] No DB_BACKUP_CHAT_ID set; starting fresh.")
+        return
+    try:
+        api = _api_base()
+        async with aiohttp.ClientSession() as session:
+            # Get pinned message
+            async with session.get(f"{api}/getChat", params={"chat_id": DB_BACKUP_CHAT_ID}) as r:
+                data = await r.json()
+            pinned = (data.get("result") or {}).get("pinned_message") or {}
+            file_id = (pinned.get("document") or {}).get("file_id")
+            
+            if not file_id:
+                print("[DB BACKUP] No pinned backup found in channel. Starting fresh.")
+                return
+                
+            # Get file path
+            async with session.get(f"{api}/getFile", params={"file_id": file_id}) as r:
+                fdata = await r.json()
+            file_path = (fdata.get("result") or {}).get("file_path")
+            
+            if not file_path:
+                print("[DB BACKUP] Could not resolve file_path.")
+                return
+                
+            # Download
+            token = os.environ.get("BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
+            dl = f"https://api.telegram.org/file/bot{token}/{file_path}"
+            async with session.get(dl) as r:
+                blob = await r.read()
+                
+            # Save to DB file
+            tmp = DB_PATH + ".restore"
+            with open(tmp, "wb") as f:
+                f.write(blob)
+            os.replace(tmp, DB_PATH)
+            print(f"[DB BACKUP] Restored {len(blob)} bytes from Telegram.")
+    except Exception as e:
+        print(f"[DB BACKUP] Restore failed (continuing fresh): {e}")
+
+async def backup_db_to_telegram():
+    if not DB_BACKUP_CHAT_ID or not os.path.exists(DB_PATH):
+        return
+    try:
+        api = _api_base()
+        async with aiohttp.ClientSession() as session:
+            # Unpin and delete old backup to save space
+            async with session.get(f"{api}/getChat", params={"chat_id": DB_BACKUP_CHAT_ID}) as r:
+                data = await r.json()
+            pinned = (data.get("result") or {}).get("pinned_message") or {}
+            old_id = pinned.get("message_id")
+            if old_id:
+                await session.post(f"{api}/deleteMessage", data={
+                    "chat_id": DB_BACKUP_CHAT_ID, "message_id": old_id
+                })
+            
+            # Upload new backup
+            with open(DB_PATH, "rb") as f:
+                form = aiohttp.FormData()
+                form.add_field("chat_id", str(DB_BACKUP_CHAT_ID))
+                form.add_field("document", f, filename="cricxmanish.sqlite3", content_type="application/octet-stream")
+                async with session.post(f"{api}/sendDocument", data=form) as r:
+                    res = await r.json()
+                    
+            if not res.get("ok"):
+                print(f"[DB BACKUP] Upload failed: {res}")
+                return
+                
+            # Pin new backup
+            msg_id = res["result"]["message_id"]
+            await session.post(f"{api}/pinChatMessage", data={
+                "chat_id": DB_BACKUP_CHAT_ID,
+                "message_id": msg_id,
+                "disable_notification": "true",
+            })
+            print(f"[DB BACKUP] Uploaded & pinned message {msg_id}")
+    except Exception as e:
+        print(f"[DB BACKUP] Backup failed: {e}")
+
+async def periodic_backup_loop():
+    while True:
+        await asyncio.sleep(DB_BACKUP_INTERVAL)
+        try:
+            await backup_db_to_telegram()
+        except Exception as e:
+            print(f"[DB BACKUP] Loop error: {e}")
+# ==================== END DB BACKUP MODULE ====================
 
 
 if __name__ == "__main__":
