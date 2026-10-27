@@ -28457,6 +28457,15 @@ def _api_base() -> str:
     return f"https://api.telegram.org/bot{token}"
 
 async def restore_db_from_telegram():
+
+    import os
+    # Clean up old WAL files before restoring to prevent corruption
+    for ext in ['-wal', '-shm']:
+        p = f"cricxmanish.sqlite3{ext}"
+        if os.path.exists(p):
+            try: os.remove(p)
+            except: pass
+    
     if not DB_BACKUP_CHAT_ID:
         log.info("[DB BACKUP] No DB_BACKUP_CHAT_ID set; starting fresh.")
         return
