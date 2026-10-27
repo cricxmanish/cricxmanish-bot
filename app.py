@@ -28500,7 +28500,7 @@ async def games_sequencemaster(callback: CallbackQuery) -> None:
 DAILY_EARN_CAP = int(os.getenv("DAILY_EARN_CAP", "1000"))
 
 async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
-    """Credit Cric Tokens, capped at DAILY_EARN_CAP per UTC day."""
+    """Credit Cric Tokens, capped at DAILY_EARN_CAP per game per UTC day."""
     if amount <= 0:
         return 0
 
@@ -28516,16 +28516,23 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
     )
 
     today = datetime.now(timezone.utc).date().isoformat()
+    
+    # These sources are NOT capped by the daily limit
+    uncapped_sources = {"mysterybox", "dice", "lootdrop", "rps", "give", "admin", "prediction"}
+    
+    if source in uncapped_sources:
+        award = amount
+    else:
+        # Check how much the user earned TODAY from THIS SPECIFIC GAME
+        cursor = await db.execute(
+            "SELECT COALESCE(SUM(amount), 0) FROM game_earnings "
+            "WHERE user_id=? AND earned_date=? AND source=?",
+            (user_id, today, source),
+        )
+        row = await cursor.fetchone()
+        earned_today = int(row[0]) if row else 0
+        award = min(amount, max(0, DAILY_EARN_CAP - earned_today))
 
-    cursor = await db.execute(
-        "SELECT COALESCE(SUM(amount), 0) FROM game_earnings "
-        "WHERE user_id=? AND earned_date=?",
-        (user_id, today),
-    )
-    row = await cursor.fetchone()
-    earned_today = int(row[0]) if row else 0
-
-    award = min(amount, max(0, DAILY_EARN_CAP - earned_today))
     if award <= 0:
         return 0
 
@@ -28541,14 +28548,13 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
            DO UPDATE SET amount = amount + excluded.amount""",
         (user_id, today, source, award),
     )
-    await db.commit()
-
+    
     try:
         user_profile_cache.pop(user_id, None)
     except Exception:
         pass
-
-    # Log the credit transaction
+        
+    # Log the credit transaction for the /wallet command
     await db.execute(
         "INSERT INTO token_transactions(user_id, amount, source, tx_type) VALUES(?,?,?,'credit')",
         (user_id, award, source)
