@@ -1061,7 +1061,7 @@ sequencemaster_recent_signatures: deque[str] = deque(maxlen=250)
 crossgrid_sessions: dict[int, dict[str, object]] = {}
 crossgrid_locks: dict[int, asyncio.Lock] = defaultdict(asyncio.Lock)
 crossgrid_tasks: dict[int, asyncio.Task] = {}
-crossgrid_recent_signatures: deque[str] = deque(maxlen=20)
+crossgrid_recent_signatures: deque[str] = deque(maxlen=200)
 crossgrid_image_cache: dict[str, tuple[float, bytes]] = {}
 mafia_sessions: dict[int, dict[str, object]] = {}
 mafia_locks: dict[int, asyncio.Lock] = defaultdict(asyncio.Lock)
@@ -11471,50 +11471,53 @@ CROSSGRID_IMAGE_CACHE_TTL_SECONDS = 30 * 60
 CROSSGRID_IMAGE_CACHE_MAX_ENTRIES = 64
 
 CROSSGRID_WORD_BANK = (
-    ("TELEGRAM", "chat"),
-    ("VICTORY", "winner"),
-    ("FRIEND", "player"),
-    ("PUZZLE", "challenge"),
-    ("TROPHY", "prize"),
-    ("SECRET", "hidden"),
-    ("GAMING", "play"),
-    ("REWARD", "bonus"),
-    ("SUNSET", "evening"),
-    ("OCEAN", "water"),
-    ("FOREST", "trees"),
-    ("FLOWER", "bloom"),
-    ("ROCKET", "space"),
-    ("PLANET", "world"),
-    ("MUSIC", "melody"),
-    ("MONKEY", "animal"),
-    ("GARDEN", "plants"),
-    ("SUMMER", "season"),
-    ("WINTER", "cold"),
-    ("BRIDGE", "crossing"),
-    ("CASTLE", "royal"),
-    ("DRAGON", "legend"),
-    ("CRYSTAL", "stone"),
-    ("JOURNEY", "travel"),
-    ("RAINBOW", "colors"),
-    ("SHADOW", "darkness"),
-    ("CANDLE", "flame"),
-    ("COFFEE", "drink"),
-    ("COOKIE", "snack"),
-    ("TIGER", "stripes"),
-    ("EAGLE", "bird"),
-    ("LEMON", "sour"),
-    ("ORANGE", "citrus"),
-    ("PURPLE", "color"),
-    ("SILVER", "metal"),
-    ("GOLDEN", "shiny"),
-    ("HAPPY", "joy"),
-    ("DREAM", "sleep"),
-    ("MAGIC", "mystery"),
-    ("LUCKY", "fortune"),
-    ("STARS", "night"),
-    ("CLOUD", "sky"),
-    ("RIVER", "water"),
-    ("ISLAND", "land"),
+    ("TELEGRAM", "chat"), ("VICTORY", "winner"), ("FRIEND", "player"), ("PUZZLE", "challenge"),
+    ("TROPHY", "prize"), ("SECRET", "hidden"), ("GAMING", "play"), ("REWARD", "bonus"),
+    ("SUNSET", "evening"), ("OCEAN", "water"), ("FOREST", "trees"), ("FLOWER", "bloom"),
+    ("ROCKET", "space"), ("PLANET", "world"), ("MUSIC", "melody"), ("MONKEY", "animal"),
+    ("GARDEN", "plants"), ("SUMMER", "season"), ("WINTER", "cold"), ("BRIDGE", "crossing"),
+    ("CASTLE", "royal"), ("DRAGON", "legend"), ("CRYSTAL", "stone"), ("JOURNEY", "travel"),
+    ("RAINBOW", "colors"), ("SHADOW", "darkness"), ("CANDLE", "flame"), ("COFFEE", "drink"),
+    ("COOKIE", "snack"), ("TIGER", "stripes"), ("EAGLE", "bird"), ("LEMON", "sour"),
+    ("ORANGE", "citrus"), ("PURPLE", "color"), ("SILVER", "metal"), ("GOLDEN", "shiny"),
+    ("HAPPY", "joy"), ("DREAM", "sleep"), ("MAGIC", "mystery"), ("LUCKY", "fortune"),
+    ("STARS", "night"), ("CLOUD", "sky"), ("RIVER", "water"), ("ISLAND", "land"),
+    ("ANCHOR", "ship"), ("SILENCE", "quiet"), ("WHISPER", "soft"), ("THUNDER", "storm"),
+    ("DOLPHIN", "swim"), ("GALAXY", "space"), ("HORIZON", "line"), ("LANTERN", "light"),
+    ("MIRROR", "glass"), ("NATURE", "earth"), ("ORBIT", "circle"), ("PIONEER", "brave"),
+    ("QUARTZ", "mineral"), ("RESCUE", "save"), ("SPIRIT", "soul"), ("TEMPLE", "shrine"),
+    ("UNICORN", "myth"), ("VOLCANO", "lava"), ("WIZARD", "magic"), ("YELLOW", "color"),
+    ("ZEBRA", "stripes"), ("BREEZE", "wind"), ("COMPASS", "direction"), ("DESERT", "sand"),
+    ("ECHO", "sound"), ("FALCON", "bird"), ("GLACIER", "ice"), ("HARBOR", "port"),
+    ("IGLOO", "snow"), ("JUNGLE", "wild"), ("KETTLE", "tea"), ("LIBRARY", "books"),
+    ("MEADOW", "grass"), ("NEEDLE", "sharp"), ("OASIS", "water"), ("PEBBLE", "rock"),
+    ("QUIVER", "arrows"), ("RIDDLE", "puzzle"), ("SAILOR", "sea"), ("TUNNEL", "dark"),
+    ("UMBRELLA", "rain"), ("VALLEY", "low"), ("WAGON", "cart"), ("YACHT", "boat"),
+    ("ZIGZAG", "line"), ("ARCHER", "bow"), ("BEACON", "light"), ("CANYON", "deep"),
+    ("DAGGER", "blade"), ("ELBOW", "arm"), ("FROST", "ice"), ("GLOBE", "earth"),
+    ("HELMET", "head"), ("INDIGO", "blue"), ("JIGSAW", "puzzle"), ("KNIGHT", "armor"),
+    ("LASER", "beam"), ("MARBLE", "stone"), ("NOODLE", "food"), ("ONION", "layers"),
+    ("PEARL", "oyster"), ("QUILL", "pen"), ("ROBIN", "bird"), ("STONE", "hard"),
+    ("THORN", "sharp"), ("UPPER", "high"), ("VIVID", "bright"), ("WHEAT", "grain"),
+    ("YOUTH", "young"), ("ZIPPER", "jacket"), ("BAMBOO", "plant"), ("CARROT", "orange"),
+    ("DONKEY", "animal"), ("ENGINE", "motor"), ("FABRIC", "cloth"), ("GARLIC", "smell"),
+    ("HAMMER", "tool"), ("INSECT", "bug"), ("JACKET", "coat"), ("KITTEN", "cat"),
+    ("LIZARD", "scales"), ("MAGNET", "attract"), ("NECTAR", "sweet"), ("OYSTER", "pearl"),
+    ("PARROT", "bird"), ("QUARRY", "mine"), ("RABBIT", "bunny"), ("SADDLE", "horse"),
+    ("TOMATO", "red"), ("URCHIN", "spikes"), ("VIOLIN", "music"), ("WALNUT", "nut"),
+    ("YOGURT", "dairy"), ("ZOMBIE", "undead"), ("ALMOND", "nut"), ("BASKET", "weave"),
+    ("CACTUS", "desert"), ("DINNER", "meal"), ("EXPLORE", "discover"), ("FINGER", "hand"),
+    ("GALLEY", "ship"), ("HUNTER", "prey"), ("IMPACT", "hit"), ("JOCKEY", "horse"),
+    ("KETCHUP", "sauce"), ("LEATHER", "hide"), ("MACHINE", "gear"), ("NETWORK", "web"),
+    ("OCEANIC", "sea"), ("PICTURE", "frame"), ("QUALITY", "good"), ("REPTILE", "scales"),
+    ("SHELTER", "safe"), ("TRAFFIC", "cars"), ("UNIFORM", "clothes"), ("VILLAGE", "town"),
+    ("WHISKEY", "drink"), ("YELLING", "loud"), ("ZEALOUS", "eager"), ("ABSORB", "soak"),
+    ("BLANKET", "warm"), ("CIRCUIT", "wires"), ("DESSERT", "sweet"), ("ELEGANT", "grace"),
+    ("FEATHER", "light"), ("GIRAFFE", "tall"), ("HARMONY", "music"), ("INVADER", "enemy"),
+    ("JOURNAL", "diary"), ("KITCHEN", "cook"), ("LANTERN", "light"), ("MYSTERY", "unknown"),
+    ("NATURAL", "earth"), ("ORCHARD", "trees"), ("PATTERN", "shapes"), ("QUARTER", "four"),
+    ("ROOSTER", "bird"), ("SURFING", "waves"), ("TRINKET", "small"), ("UPGRADE", "better"),
+    ("VACUUM", "clean"), ("WALLET", "money"), ("YOUNGER", "less"), ("ZODIAC", "stars")
 )
 
 ARCADE_SPECS: dict[str, dict[str, object]] = {
@@ -12390,18 +12393,7 @@ async def arcade_award_rewards(
             (str(session["session_id"]), user_id, rank, amount),
         )
         if cursor.rowcount:
-            await db.execute(
-                """INSERT INTO users(user_id, first_name, username, seyu_gems)
-                VALUES(?,?,?,?)
-                ON CONFLICT(user_id) DO UPDATE SET
-                seyu_gems=users.seyu_gems+excluded.seyu_gems""",
-                (
-                    user_id,
-                    str(arcade_players(session)[user_id]["first_name"]),
-                    str(arcade_players(session)[user_id].get("username") or ""),
-                    amount,
-                ),
-            )
+            await add_cric_tokens(user_id, amount, "arcade")
             awarded[user_id] = amount
     await db.commit()
     return awarded
@@ -26929,36 +26921,19 @@ async def give_tokens_command(message: Message) -> None:
 async def award_quiz_rewards(
     session: dict[str, object], ranked: list[tuple[int, int]]
 ) -> None:
-    await db.execute("BEGIN IMMEDIATE")
-    try:
-        for rank, (user_id, _score) in enumerate(
-            [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
-        ):
-            player = next(player for player in session["players"] if player.id == user_id)
-            amount = QUIZ_REWARDS[rank - 1]
-            cursor = await db.execute(
-                """INSERT OR IGNORE INTO quiz_reward_claims(
-                session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
-                (session["session_id"], user_id, rank, amount),
-            )
-            if cursor.rowcount == 1:
-                await db.execute(
-                    """INSERT INTO users(user_id, first_name, username, seyu_gems)
-                    VALUES(?,?,?,?)
-                    ON CONFLICT(user_id) DO UPDATE SET
-                    first_name=excluded.first_name, username=excluded.username,
-                    seyu_gems=users.seyu_gems + excluded.seyu_gems""",
-                    (
-                        user_id,
-                        str(getattr(player, "first_name", "") or ""),
-                        str(getattr(player, "username", "") or ""),
-                        amount,
-                    ),
-                )
-        await db.commit()
-    except Exception:
-        await db.rollback()
-        raise
+    for rank, (user_id, _score) in enumerate(
+        [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
+    ):
+        player = next(player for player in session["players"] if player.id == user_id)
+        amount = QUIZ_REWARDS[rank - 1]
+        cursor = await db.execute(
+            """INSERT OR IGNORE INTO quiz_reward_claims(
+            session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
+            (session["session_id"], user_id, rank, amount),
+        )
+        if cursor.rowcount == 1:
+            await add_cric_tokens(user_id, amount, "quiz")
+    await db.commit()
 
 def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
     players = session["players"]
