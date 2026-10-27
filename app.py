@@ -26261,6 +26261,220 @@ async def create_quiz_lobby(message: Message, creator: object, topic: tuple[str,
         quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
 
+
+# ═══════════════════════════════════════════════════════════
+# MASTER GAMES RECOVERY (Overrides broken code above)
+# ═══════════════════════════════════════════════════════════
+
+@router.message(Command("riddle"))
+async def start_riddle(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    riddle = random.choice(list(RIDDLES.keys()))
+    hindi = RIDDLES_HINDI.get(riddle, "")
+    active_guesses[chat_id] = {"answer": RIDDLES[riddle], "type": "riddle"}
+    hindi_line = f"\n\n🇮🇳 <b>हिंदी में:</b> <i>{hindi}</i>" if hindi else ""
+    await message.answer(
+        f"<b>🧩 Riddle Time! (पहेली)</b>{chr(10)}{chr(10)}"
+        f"🇬🇧 <b>English:</b> {riddle}{hindi_line}{chr(10)}{chr(10)}"
+        f"First to answer (English or Hindi) wins 30 Tokens!{chr(10)}"
+        f"<i>Answer can be in English or Hindi</i>"
+    )
+
+@router.message(Command("country"))
+async def start_country(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    emojis = random.choice(list(COUNTRIES.keys()))
+    active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
+    await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
+
+@router.message(Command("anagram"))
+async def start_anagram(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    word = random.choice(["VIRAT KOHLI", "ROHIT SHARMA", "MS DHONI", "SACHIN TENDULKAR", "KAPIL DEV", "RAHUL DRAVID", "JASPRIT BUMRAH", "RAVINDRA JADEJA", "YUVRAJ SINGH", "SURESH RAINA", "GAUTAM GAMBHIR", "ZAHEER KHAN", "ANIL KUMBLE", "VVS LAXMAN", "IRFAN PATHAN"])
+    scrambled = "".join(random.sample(word.replace(" ", ""), len(word.replace(" ", ""))))
+    active_anagrams[chat_id] = word.upper()
+    await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
+
+@router.message(Command("guess"))
+async def start_guess(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    hint = random.choice(["🐐 🏏 💯", "👑 🏏 🔥", "🦁 🏏 🏆", "🎯 🏏 🧱", "⚡ 🏏 🚀", "🧊 🏏 👑"])
+    answers = {"🐐 🏏 💯": "SACHIN TENDULKAR", "👑 🏏 🔥": "VIRAT KOHLI", "🦁 🏏 🏆": "MS DHONI", "🎯 🏏 🧱": "RAHUL DRAVID", "⚡ 🏏 🚀": "HARDIK PANDYA", "🧊 🏏 👑": "ROHIT SHARMA"}
+    active_guesses[chat_id] = {"answer": answers[hint], "type": "guess"}
+    await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
+
+def cricx_display(word, guessed):
+    return " ".join([letter if letter in guessed else "🔴" for letter in word])
+
+@router.message(Command("cricxgame"))
+async def start_cricx_game(message: Message):
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("This game can only be played in a group.")
+        return
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    word = random.choice(list(CRICX_WORDS.keys()))
+    hint = CRICX_WORDS[word]
+    cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    await message.answer(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{hint}</i>\n"
+        f"<code>{cricx_display(word, set())}</code>\n\n"
+        f"❤️ Lives: 7\n"
+        f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
+    )
+
+@router.message(Command("rps"))
+async def rps_duel(message: Message):
+    if not message.reply_to_message or not message.reply_to_message.from_user:
+        return await message.answer("Reply to a user with /rps <amount> to challenge them.")
+    args = message.text.split()
+    if len(args) != 2 or not args[1].isdigit(): return await message.answer("Usage: /rps <amount> (e.g. /rps 50)")
+    amount = int(args[1])
+    challenger = message.from_user.id
+    opponent = message.reply_to_message.from_user.id
+    if challenger == opponent: return await message.answer("You cannot play against yourself!")
+    c_prof = await get_profile(challenger)
+    o_prof = await get_profile(opponent)
+    if c_prof.get("seyu_gems", 0) < amount or o_prof.get("seyu_gems", 0) < amount:
+        return await message.answer("Both players need enough Cric Tokens for this bet.")
+    rps_id = f"{challenger}_{opponent}_{int(time.time())}"
+    pending_rps[rps_id] = {"amount": amount, "chat_id": message.chat.id, "p1": None, "p2": None}
+    markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="Accept RPS", callback_data=f"rps_acc_{rps_id}", style="success"), InlineKeyboardButton(text="Reject", callback_data=f"rps_rej_{rps_id}", style="danger")]])
+    await message.reply(f"{message.from_user.mention_html()} challenged {message.reply_to_message.from_user.mention_html()} to Rock Paper Scissors for {amount} Tokens!" + chr(10) + "Opponent, do you accept?", reply_markup=markup)
+
+@router.callback_query(F.data.startswith("rps_acc_"))
+async def rps_accept(cb: CallbackQuery):
+    rps_id = cb.data.replace("rps_acc_", "")
+    if rps_id not in pending_rps: return await cb.answer("Expired.", show_alert=True)
+    challenger, opponent = map(int, rps_id.split("_")[:2])
+    await cb.message.edit_text("RPS Accepted! Check your private messages to make your choice.")
+    markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="✊ Rock", callback_data=f"rps_c_{rps_id}_rock"), InlineKeyboardButton(text="✋ Paper", callback_data=f"rps_c_{rps_id}_paper"), InlineKeyboardButton(text="✌️ Scissors", callback_data=f"rps_c_{rps_id}_scissors")]])
+    try:
+        await cb.bot.send_message(challenger, "Make your choice for the RPS Duel:", reply_markup=markup)
+        await cb.bot.send_message(opponent, "Make your choice for the RPS Duel:", reply_markup=markup)
+    except Exception:
+        await cb.message.reply("I couldn't DM one of you. Please start the bot in private chat first.")
+
+@router.callback_query(F.data.startswith("rps_c_"))
+async def rps_choice(cb: CallbackQuery):
+    parts = cb.data.split("_")
+    choice = parts[-1]
+    rps_id = "_".join(parts[2:-1])
+    if rps_id not in pending_rps: return await cb.answer("Game expired.", show_alert=True)
+    game = pending_rps[rps_id]
+    challenger, opponent = map(int, rps_id.split("_")[:2])
+    if cb.from_user.id == challenger:
+        if game["p1"]: return await cb.answer("You already chose!")
+        game["p1"] = choice
+    elif cb.from_user.id == opponent:
+        if game["p2"]: return await cb.answer("You already chose!")
+        game["p2"] = choice
+    else: return await cb.answer("You are not part of this game.")
+    await cb.answer(f"You chose {choice}.")
+    await cb.message.edit_text(f"You chose {choice}. Waiting for opponent...", reply_markup=None)
+    if game["p1"] and game["p2"]:
+        await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id IN (?, ?)", (game["amount"], challenger, opponent))
+        await db.commit()
+        p1, p2 = game["p1"], game["p2"]
+        if p1 == p2:
+            await db.execute("UPDATE users SET seyu_gems = seyu_gems + ? WHERE user_id IN (?, ?)", (game["amount"], challenger, opponent))
+            await db.commit()
+            await cb.bot.send_message(game["chat_id"], f"Both chose {p1}. It's a tie! Tokens refunded.")
+        else:
+            wins = {"rock": "scissors", "paper": "rock", "scissors": "paper"}
+            winner = challenger if wins[p1] == p2 else opponent
+            await add_cric_tokens(winner, game["amount"] * 2, "rps")
+            await cb.bot.send_message(game["chat_id"], f"<b>RPS Results!</b>" + chr(10) + f"Player 1: {p1} | Player 2: {p2}" + chr(10) + f"<a href='tg://user?id={winner}'>Winner</a> takes {game['amount']*2} Tokens!")
+        del pending_rps[rps_id]
+
+@router.message(F.text & ~F.text.startswith("/"))
+async def game_text_handler(message: Message):
+    chat_id = message.chat.id
+    text = message.text.strip().upper()
+    
+    if chat_id in active_anagrams and text == active_anagrams[chat_id]:
+        if await add_cric_tokens(message.from_user.id, 30, "anagram"):
+            await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
+        else:
+            await message.reply("Correct! But you have reached your daily limit for this game.")
+        active_anagrams.pop(chat_id, None)
+        return
+        
+    if chat_id in active_guesses:
+        game = active_guesses[chat_id]
+        if text.lower() == game["answer"].lower():
+            reward = 30 if game["type"] == "riddle" else 25
+            if await add_cric_tokens(message.from_user.id, reward, game["type"]):
+                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
+            else:
+                await message.reply("Correct! But you have reached your daily limit for this game.")
+            active_guesses.pop(chat_id, None)
+            return
+            
+    raise SkipHandler
+
+@router.message(F.text & ~F.text.startswith("/"))
+async def cricx_guess_handler(message: Message):
+    chat_id = message.chat.id
+    if chat_id not in cricx_sessions:
+        raise SkipHandler
+    
+    guess = message.text.strip().upper()
+    session = cricx_sessions[chat_id]
+    word = session["word"]
+    
+    if len(guess) > 1:
+        if guess == word:
+            if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+            else:
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+            cricx_sessions.pop(chat_id, None)
+            return
+        else:
+            session["wrong"] += 1
+    elif len(guess) == 1 and guess.isalpha():
+        if guess in session["guessed"]:
+            raise SkipHandler
+        session["guessed"].add(guess)
+        if guess not in word:
+            session["wrong"] += 1
+    else:
+        raise SkipHandler
+
+    lives = 7 - session["wrong"]
+    
+    if lives <= 0:
+        await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
+        cricx_sessions.pop(chat_id, None)
+        return
+        
+    if all(letter in session["guessed"] for letter in word):
+        if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+        else:
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+        cricx_sessions.pop(chat_id, None)
+        return
+
+    await message.reply(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{session['hint']}</i>\n"
+        f"<code>{cricx_display(word, session['guessed'])}</code>\n\n"
+        f"❤️ Lives: {lives}\n"
+        f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
+    )
+
 async def main() -> None:
 
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
