@@ -914,8 +914,7 @@ async def sst_open(callback: CallbackQuery) -> None:
         reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="🔄 Refresh", callback_data="sst:open")]]))
 
 
-@router.message(Command("codebreaker"))
-async def early_codebreaker_command(message: Message) -> None:
+def early_codebreaker_command(message: Message) -> None:
     # Register this command before broad group text/command handlers so they
     # cannot consume it before the Code Breaker flow gets a chance to run.
     await start_codebreaker(message)
@@ -13805,8 +13804,7 @@ async def rank_command(message: Message) -> None:
     await message.reply("\n".join(lines), parse_mode="HTML", disable_web_page_preview=True)
 
 
-@router.message(Command("crossgrid"))
-async def crossgrid_game_command(message: Message) -> None:
+def crossgrid_game_command(message: Message) -> None:
     await start_crossgrid(message)
 
 
@@ -18304,8 +18302,7 @@ async def create_quiz_lobby(
         quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
 
-@router.message(Command("quiz"))
-async def quiz_command(message: Message) -> None:
+def quiz_command(message: Message) -> None:
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("The quiz can only be started in a group.")
         return
@@ -18353,78 +18350,6 @@ async def quiz_categories(callback: CallbackQuery) -> None:
     await callback.message.edit_text(
         "<b>Choose Quiz Category</b>\n\nSelect the topic for this quiz.",
         reply_markup=quiz_categories_markup(page),
-    )
-
-
-@router.callback_query(F.data == "quiz:cancel_setup")
-async def quiz_cancel_setup(callback: CallbackQuery) -> None:
-    await callback.answer("Quiz setup cancelled.")
-    if callback.message:
-        await callback.message.edit_text(
-            "<b>Quiz setup cancelled.</b>\n\n"
-            "Use /quiz whenever you want to start a new quiz.",
-        )
-
-
-@router.callback_query(F.data.startswith("quiz:category:"))
-async def quiz_category(callback: CallbackQuery) -> None:
-    slug = callback.data.split(":", 2)[2]
-    if quiz_topic_removed(slug):
-        await callback.answer("This quiz category has been removed.", show_alert=True)
-        return
-    topic = quiz_category_from_slug(slug)
-    await answer_quiz_callback(callback)
-    await callback.message.edit_text(
-        f"<b>{html.escape(topic[1])} Quiz</b>\n\nChoose difficulty:",
-        reply_markup=quiz_levels_markup(topic[2]),
-    )
-
-
-@router.callback_query(F.data.startswith("quiz:level:"))
-async def quiz_level(callback: CallbackQuery) -> None:
-    parts = callback.data.split(":")
-    if len(parts) != 4 or parts[3] not in QUIZ_LEVELS:
-        await callback.answer("This level button is invalid.", show_alert=True)
-        return
-    if quiz_topic_removed(parts[2]):
-        await callback.answer("This quiz category has been removed.", show_alert=True)
-        return
-    topic = quiz_category_from_slug(parts[2])
-    level = parts[3]
-    await answer_quiz_callback(callback)
-    await callback.message.edit_text(
-        f"<b>{html.escape(topic[1])} Quiz</b>\n\n"
-        f"Level selected: <b>{quiz_level_title(level)}</b>\n"
-        "How many rounds should this quiz have?",
-        reply_markup=quiz_rounds_markup(topic[2], level),
-    )
-
-
-@router.callback_query(F.data.startswith("quiz:rounds:"))
-async def quiz_rounds(callback: CallbackQuery) -> None:
-    parts = callback.data.split(":")
-    if len(parts) != 5 or parts[4].isdigit() is False:
-        await callback.answer("This rounds button is invalid.", show_alert=True)
-        return
-    rounds = int(parts[4])
-    if rounds not in QUIZ_ROUND_CHOICES or parts[3] not in QUIZ_LEVELS:
-        await callback.answer("This quiz setup is invalid.", show_alert=True)
-        return
-    if quiz_topic_removed(parts[2]):
-        await callback.answer("This quiz category has been removed.", show_alert=True)
-        return
-    topic = quiz_category_from_slug(parts[2])
-    if not callback.message or not callback.from_user:
-        return
-    await asyncio.gather(
-        answer_quiz_callback(callback, "Starting quiz…"),
-        create_quiz_lobby(
-            callback.message,
-            callback.from_user,
-            topic,
-            parts[3],
-            rounds,
-        ),
     )
 
 
@@ -25716,8 +25641,7 @@ async def duel_response(cb: CallbackQuery):
     await cb.message.reply(f"<b>Dice Duel Results!</b>" + chr(10) + f"Challenger: {c_roll} | Opponent: {o_roll}" + chr(10) + f"Winner takes {payout} Tokens!")
     del pending_duels[duel_id]
 
-@router.message(Command("rps"))
-async def rps_duel(message: Message):
+def rps_duel(message: Message):
     if not message.reply_to_message or not message.reply_to_message.from_user:
         return await message.answer("Reply to a user with /rps <amount> to challenge them.")
     args = message.text.split()
@@ -25794,8 +25718,7 @@ async def timeout_game(chat_id: int, game_key: str, duration: int = 900):
         game_timeouts.pop(chat_id, None)
         await bot.send_message(chat_id, f"⏰ <b>Game Timeout!</b> The {game_key.replace('_', ' ').title()} game was closed automatically because nobody answered.")
 
-@router.message(Command("riddle"))
-async def start_riddle(message: Message):
+def start_riddle(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -25822,8 +25745,7 @@ async def start_riddle(message: Message):
     )
     asyncio.create_task(timeout_game(chat_id, "riddle", 900))
 
-@router.message(Command("country"))
-async def start_country(message: Message):
+def start_country(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -25842,8 +25764,7 @@ async def start_country(message: Message):
     await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
     asyncio.create_task(timeout_game(chat_id, "country", 900))
 
-@router.message(Command("anagram"))
-async def start_anagram(message: Message):
+def start_anagram(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -25872,8 +25793,7 @@ async def start_anagram(message: Message):
     await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
     asyncio.create_task(timeout_game(chat_id, "anagram", 900))
 
-@router.message(Command("guess"))
-async def start_guess(message: Message):
+def start_guess(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -25928,8 +25848,7 @@ async def start_guess(message: Message):
 def cricx_display(word, guessed):
     return " ".join([letter if letter in guessed else "_" for letter in word])
 
-@router.message(Command("cricxgame"))
-async def start_cricx_game(message: Message):
+def start_cricx_game(message: Message):
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("This game can only be played in a group.")
         return
@@ -25989,8 +25908,7 @@ async def game_text_handler(message: Message):
 def cricx_display(word, guessed):
     return " ".join([letter if letter in guessed else "_" for letter in word])
 
-@router.message(Command("cricxgame"))
-async def start_cricx_game(message: Message):
+def start_cricx_game(message: Message):
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("This game can only be played in a group.")
         return
@@ -26135,8 +26053,7 @@ async def restore_quiz_sessions() -> None:
         else:
             quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
-@router.message(Command("quiz"))
-async def quiz_command(message: Message) -> None:
+def quiz_command(message: Message) -> None:
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("The quiz can only be started in a group.")
         return
@@ -26158,45 +26075,6 @@ async def quiz_command(message: Message) -> None:
         return
     topic = normalize_quiz_topic(argument)
     await message.answer(f"<b>{html.escape(topic[1])} Quiz</b>\n\nChoose difficulty:", reply_markup=quiz_levels_markup(topic[2]))
-
-@router.callback_query(F.data == "quiz:cancel_setup")
-async def quiz_cancel_setup(callback: CallbackQuery) -> None:
-    await callback.answer("Quiz setup cancelled.")
-    if callback.message:
-        await callback.message.edit_text("<b>Quiz setup cancelled.</b>\n\nUse /quiz whenever you want to start a new quiz.")
-
-@router.callback_query(F.data.startswith("quiz:category:"))
-async def quiz_category(callback: CallbackQuery) -> None:
-    slug = callback.data.split(":", 2)[2]
-    topic = quiz_category_from_slug(slug)
-    await answer_quiz_callback(callback)
-    await callback.message.edit_text(f"<b>{html.escape(topic[1])} Quiz</b>\n\nChoose difficulty:", reply_markup=quiz_levels_markup(topic[2]))
-
-@router.callback_query(F.data.startswith("quiz:level:"))
-async def quiz_level(callback: CallbackQuery) -> None:
-    parts = callback.data.split(":")
-    if len(parts) != 4 or parts[3] not in QUIZ_LEVELS:
-        await callback.answer("This level button is invalid.", show_alert=True)
-        return
-    topic = quiz_category_from_slug(parts[2])
-    level = parts[3]
-    await answer_quiz_callback(callback)
-    await callback.message.edit_text(f"<b>{html.escape(topic[1])} Quiz</b>\n\nLevel selected: <b>{quiz_level_title(level)}</b>\nHow many rounds should this quiz have?", reply_markup=quiz_rounds_markup(topic[2], level))
-
-@router.callback_query(F.data.startswith("quiz:rounds:"))
-async def quiz_rounds(callback: CallbackQuery) -> None:
-    parts = callback.data.split(":")
-    if len(parts) != 5 or parts[4].isdigit() is False:
-        await callback.answer("This rounds button is invalid.", show_alert=True)
-        return
-    rounds = int(parts[4])
-    if rounds not in QUIZ_ROUND_CHOICES or parts[3] not in QUIZ_LEVELS:
-        await callback.answer("This quiz setup is invalid.", show_alert=True)
-        return
-    topic = quiz_category_from_slug(parts[2])
-    if not callback.message or not callback.from_user:
-        return
-    await asyncio.gather(answer_quiz_callback(callback, "Starting quiz…"), create_quiz_lobby(callback.message, callback.from_user, topic, parts[3], rounds))
 
 @router.callback_query(F.data.startswith("quiz:join:"))
 async def quiz_join(callback: CallbackQuery) -> None:
@@ -26266,8 +26144,7 @@ async def create_quiz_lobby(message: Message, creator: object, topic: tuple[str,
 # MASTER GAMES RECOVERY (Overrides broken code above)
 # ═══════════════════════════════════════════════════════════
 
-@router.message(Command("riddle"))
-async def start_riddle(message: Message):
+def start_riddle(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26282,8 +26159,7 @@ async def start_riddle(message: Message):
         f"<i>Answer can be in English or Hindi</i>"
     )
 
-@router.message(Command("country"))
-async def start_country(message: Message):
+def start_country(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26291,8 +26167,7 @@ async def start_country(message: Message):
     active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
     await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
 
-@router.message(Command("anagram"))
-async def start_anagram(message: Message):
+def start_anagram(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26301,8 +26176,7 @@ async def start_anagram(message: Message):
     active_anagrams[chat_id] = word.upper()
     await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
 
-@router.message(Command("guess"))
-async def start_guess(message: Message):
+def start_guess(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26314,8 +26188,7 @@ async def start_guess(message: Message):
 def cricx_display(word, guessed):
     return " ".join([letter if letter in guessed else "🔴" for letter in word])
 
-@router.message(Command("cricxgame"))
-async def start_cricx_game(message: Message):
+def start_cricx_game(message: Message):
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("This game can only be played in a group.")
         return
@@ -26333,8 +26206,7 @@ async def start_cricx_game(message: Message):
         f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
     )
 
-@router.message(Command("rps"))
-async def rps_duel(message: Message):
+def rps_duel(message: Message):
     if not message.reply_to_message or not message.reply_to_message.from_user:
         return await message.answer("Reply to a user with /rps <amount> to challenge them.")
     args = message.text.split()
@@ -26476,29 +26348,25 @@ async def cricx_guess_handler(message: Message):
     )
 
 
-@router.message(Command("codebreaker"))
-async def emergency_codebreaker(message: Message):
+def emergency_codebreaker(message: Message):
     if 'start_codebreaker' in globals():
         await start_codebreaker(message)
     else:
         await message.answer("Code Breaker is being restored. Please try later.")
 
-@router.message(Command("crossgrid"))
-async def emergency_crossgrid(message: Message):
+def emergency_crossgrid(message: Message):
     if 'start_crossgrid' in globals():
         await start_crossgrid(message)
     else:
         await message.answer("Crossgrid is being restored. Please try later.")
 
-@router.message(Command("quiz"))
-async def emergency_quiz(message: Message):
+def emergency_quiz(message: Message):
     if 'quiz_command' in globals():
         await quiz_command(message)
     else:
         await message.answer("Quiz is being restored. Please try later.")
 
-@router.message(Command("riddle"))
-async def emergency_riddle(message: Message):
+def emergency_riddle(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26515,8 +26383,7 @@ async def emergency_riddle(message: Message):
         f"<i>Answer can be in English or Hindi</i>"
     )
 
-@router.message(Command("country"))
-async def emergency_country(message: Message):
+def emergency_country(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26526,8 +26393,7 @@ async def emergency_country(message: Message):
     active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
     await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
 
-@router.message(Command("anagram"))
-async def emergency_anagram(message: Message):
+def emergency_anagram(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26536,8 +26402,7 @@ async def emergency_anagram(message: Message):
     active_anagrams[chat_id] = word.upper()
     await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
 
-@router.message(Command("guess"))
-async def emergency_guess(message: Message):
+def emergency_guess(message: Message):
     chat_id = message.chat.id
     if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
@@ -26546,8 +26411,7 @@ async def emergency_guess(message: Message):
     active_guesses[chat_id] = {"answer": answers[hint], "type": "guess"}
     await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
 
-@router.message(Command("cricxgame"))
-async def emergency_cricx(message: Message):
+def emergency_cricx(message: Message):
     if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
         await message.answer("This game can only be played in a group.")
         return
@@ -26568,8 +26432,7 @@ async def emergency_cricx(message: Message):
         f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
     )
 
-@router.message(Command("rps"))
-async def emergency_rps(message: Message):
+def emergency_rps(message: Message):
     if 'rps_duel' in globals():
         await rps_duel(message)
     else:
@@ -26603,6 +26466,190 @@ async def emergency_game_text_handler(message: Message):
 
 @router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
 async def emergency_cricx_handler(message: Message):
+    chat_id = message.chat.id
+    if chat_id not in cricx_sessions:
+        raise SkipHandler
+    
+    guess = message.text.strip().upper()
+    session = cricx_sessions[chat_id]
+    word = session["word"]
+    
+    if len(guess) > 1:
+        if guess == word:
+            if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+            else:
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+            cricx_sessions.pop(chat_id, None)
+            return
+        else:
+            session["wrong"] += 1
+    elif len(guess) == 1 and guess.isalpha():
+        if guess in session["guessed"]:
+            raise SkipHandler
+        session["guessed"].add(guess)
+        if guess not in word:
+            session["wrong"] += 1
+    else:
+        raise SkipHandler
+
+    lives = 7 - session["wrong"]
+    
+    if lives <= 0:
+        await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
+        cricx_sessions.pop(chat_id, None)
+        return
+        
+    if all(letter in session["guessed"] for letter in word):
+        if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+        else:
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+        cricx_sessions.pop(chat_id, None)
+        return
+
+    display = " ".join([letter if letter in session["guessed"] else "🔴" for letter in word])
+    wrong_letters = ', '.join([l for l in session['guessed'] if l not in word]) or 'None'
+    
+    await message.reply(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{session['hint']}</i>\n"
+        f"<code>{display}</code>\n\n"
+        f"❤️ Lives: {lives}\n"
+        f"❌ Wrong: {wrong_letters}"
+    )
+
+
+
+# ═══════════════════════════════════════════════════════════
+# FINAL CLEAN GAME COMMANDS (Injected by fix42)
+# ═══════════════════════════════════════════════════════════
+
+@router.message(Command("riddle"))
+async def start_riddle(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    riddle = random.choice(list(RIDDLES.keys()))
+    hindi = RIDDLES_HINDI.get(riddle, "")
+    active_guesses[chat_id] = {"answer": RIDDLES[riddle], "type": "riddle"}
+    hindi_line = f"\n\n🇮🇳 <b>हिंदी में:</b> <i>{hindi}</i>" if hindi else ""
+    await message.answer(
+        f"<b>🧩 Riddle Time! (पहेली)</b>{chr(10)}{chr(10)}"
+        f"🇬🇧 <b>English:</b> {riddle}{hindi_line}{chr(10)}{chr(10)}"
+        f"First to answer (English or Hindi) wins 30 Tokens!{chr(10)}"
+        f"<i>Answer can be in English or Hindi</i>"
+    )
+
+@router.message(Command("country"))
+async def start_country(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    emojis = random.choice(list(COUNTRIES.keys()))
+    active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
+    await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
+
+@router.message(Command("anagram"))
+async def start_anagram(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    word = random.choice(["VIRAT KOHLI", "ROHIT SHARMA", "MS DHONI", "SACHIN TENDULKAR", "KAPIL DEV", "RAHUL DRAVID", "JASPRIT BUMRAH", "RAVINDRA JADEJA"])
+    scrambled = "".join(random.sample(word.replace(" ", ""), len(word.replace(" ", ""))))
+    active_anagrams[chat_id] = word.upper()
+    await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
+
+@router.message(Command("guess"))
+async def start_guess(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    hint = random.choice(["🐐 🏏 💯", "👑 🏏 🔥", "🦁 🏏 🏆", "🎯 🏏 🧱", "⚡ 🏏 🚀", "🧊 🏏 👑"])
+    answers = {"🐐 🏏 💯": "SACHIN TENDULKAR", "👑 🏏 🔥": "VIRAT KOHLI", "🦁 🏏 🏆": "MS DHONI", "🎯 🏏 🧱": "RAHUL DRAVID", "⚡ 🏏 🚀": "HARDIK PANDYA", "🧊 🏏 👑": "ROHIT SHARMA"}
+    active_guesses[chat_id] = {"answer": answers[hint], "type": "guess"}
+    await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
+
+@router.message(Command("cricxgame"))
+async def start_cricx_game(message: Message):
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("This game can only be played in a group.")
+        return
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    word = random.choice(list(CRICX_WORDS.keys()))
+    hint = CRICX_WORDS[word]
+    cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    display = " ".join([letter if letter in [] else "🔴" for letter in word])
+    await message.answer(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{hint}</i>\n"
+        f"<code>{display}</code>\n\n"
+        f"❤️ Lives: 7\n"
+        f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
+    )
+
+@router.message(Command("rps"))
+async def rps_duel(message: Message):
+    if not message.reply_to_message or not message.reply_to_message.from_user:
+        return await message.answer("Reply to a user with /rps <amount> to challenge them.")
+    args = message.text.split()
+    if len(args) != 2 or not args[1].isdigit(): return await message.answer("Usage: /rps <amount> (e.g. /rps 50)")
+    amount = int(args[1])
+    challenger = message.from_user.id
+    opponent = message.reply_to_message.from_user.id
+    if challenger == opponent: return await message.answer("You cannot play against yourself!")
+    c_prof = await get_profile(challenger)
+    o_prof = await get_profile(opponent)
+    if c_prof.get("seyu_gems", 0) < amount or o_prof.get("seyu_gems", 0) < amount:
+        return await message.answer("Both players need enough Cric Tokens for this bet.")
+    rps_id = f"{challenger}_{opponent}_{int(time.time())}"
+    pending_rps[rps_id] = {"amount": amount, "chat_id": message.chat.id, "p1": None, "p2": None}
+    markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="Accept RPS", callback_data=f"rps_acc_{rps_id}", style="success"), InlineKeyboardButton(text="Reject", callback_data=f"rps_rej_{rps_id}", style="danger")]])
+    await message.reply(f"{message.from_user.mention_html()} challenged {message.reply_to_message.from_user.mention_html()} to Rock Paper Scissors for {amount} Tokens!" + chr(10) + "Opponent, do you accept?", reply_markup=markup)
+
+@router.callback_query(F.data.startswith("rps_acc_"))
+async def rps_accept(cb: CallbackQuery):
+    rps_id = cb.data.replace("rps_acc_", "")
+    if rps_id not in pending_rps: return await cb.answer("Expired.", show_alert=True)
+    challenger, opponent = map(int, rps_id.split("_")[:2])
+    await cb.message.edit_text("RPS Accepted! Check your private messages to make your choice.")
+    markup = InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="✊ Rock", callback_data=f"rps_c_{rps_id}_rock"), InlineKeyboardButton(text="✋ Paper", callback_data=f"rps_c_{rps_id}_paper"), InlineKeyboardButton(text="✌️ Scissors", callback_data=f"rps_c_{rps_id}_scissors")]])
+    try:
+        await cb.bot.send_message(challenger, "Make your choice for the RPS Duel:", reply_markup=markup)
+        await cb.bot.send_message(opponent, "Make your choice for the RPS Duel:", reply_markup=markup)
+    except Exception:
+        await cb.message.reply("I couldn't DM one of you. Please start the bot in private chat first.")
+
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
+async def game_text_handler(message: Message):
+    chat_id = message.chat.id
+    text = message.text.strip().upper()
+    
+    if chat_id in active_anagrams and text == active_anagrams[chat_id]:
+        if await add_cric_tokens(message.from_user.id, 30, "anagram"):
+            await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
+        else:
+            await message.reply("Correct! But you have reached your daily limit for this game.")
+        active_anagrams.pop(chat_id, None)
+        return
+        
+    if chat_id in active_guesses:
+        game = active_guesses[chat_id]
+        if text.lower() == game["answer"].lower():
+            reward = 30 if game["type"] == "riddle" else 25
+            if await add_cric_tokens(message.from_user.id, reward, game["type"]):
+                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
+            else:
+                await message.reply("Correct! But you have reached your daily limit for this game.")
+            active_guesses.pop(chat_id, None)
+            return
+            
+    raise SkipHandler
+
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
+async def cricx_guess_handler(message: Message):
     chat_id = message.chat.id
     if chat_id not in cricx_sessions:
         raise SkipHandler
