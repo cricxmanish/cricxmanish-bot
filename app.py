@@ -25738,97 +25738,31 @@ async def start_country(message: Message):
 @router.message(Command("anagram"))
 async def start_anagram(message: Message):
     chat_id = message.chat.id
-    word = random.choice(["VIRAT KOHLI", "ROHIT SHARMA", "MS DHONI", "SACHIN TENDULKAR", "KAPIL DEV", "RAHUL DRAVID"])
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+        
+    players = [
+        "VIRAT KOHLI", "ROHIT SHARMA", "MS DHONI", "SACHIN TENDULKAR", 
+        "KAPIL DEV", "RAHUL DRAVID", "JASPRIT BUMRAH", "RAVINDRA JADEJA", 
+        "YUVRAJ SINGH", "SURESH RAINA", "GAUTAM GAMBHIR", "ZAHEER KHAN", 
+        "ANIL KUMBLE", "VVS LAXMAN", "IRFAN PATHAN", "SOURAV GANGULY", 
+        "VIRENDER SEHWAG", "HARBHAJAN SINGH", "MOHAMMED SHAMI", "SHUBMAN GILL", 
+        "RISHABH PANT", "KL RAHUL", "HARDIK PANDYA", "AXAR PATEL", 
+        "KULDEEP YADAV", "YUZVENDRA CHAHAL", "SURYAKUMAR YADAV", "SANJU SAMSON", 
+        "ISHAN KISHAN", "WASHINGTON SUNDAR"
+    ]
+    available = [p for p in players if p not in anagram_recent]
+    if not available:
+        anagram_recent.clear()
+        available = players
+    word = random.choice(available)
+    anagram_recent.append(word)
+    
     scrambled = "".join(random.sample(word.replace(" ", ""), len(word.replace(" ", ""))))
     active_anagrams[chat_id] = word.upper()
-    await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>")
-
-@router.message(F.text & ~F.text.startswith("/"))
-async def game_text_handler(message: Message):
-    chat_id = message.chat.id
-    text = message.text.strip().upper()
-    if chat_id in active_anagrams and text == active_anagrams[chat_id]:
-        if await add_cric_tokens(message.from_user.id, 30, "anagram"):
-            await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
-            del active_anagrams[chat_id]
-        else:
-            await message.reply("Correct! But you have reached your daily limit for this game.")
-            del active_anagrams[chat_id]
-        return
-    if chat_id in active_guesses:
-        game = active_guesses[chat_id]
-        if text.lower() == game["answer"].lower():
-            reward = 30 if game["type"] == "riddle" else 25
-            if await add_cric_tokens(message.from_user.id, reward, game["type"]):
-                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
-            else:
-                await message.reply("Correct! But you have reached your daily limit for this game.")
-            del active_guesses[chat_id]
-            return
-
-@router.message(Command("predict"))
-async def start_prediction(message: Message):
-    if message.from_user.id not in ADMIN_IDS and not await group_admin(message.chat.id, message.from_user.id): return
-    args = message.text.split()
-    if len(args) != 3: return await message.answer("Usage: /predict <TeamA> <TeamB>")
-    chat_id = message.chat.id
-    teamA, teamB = args[1].upper(), args[2].upper()
-    active_predictions[chat_id] = {"teamA": teamA, "teamB": teamB, "bets": {}, "status": "open"}
-    await message.answer(f"<b>Match Prediction Open!</b>" + chr(10) + chr(10) + f"{teamA} vs {teamB}" + chr(10) + chr(10) + f"Users can bet tokens by typing:" + chr(10) + f"<code>/bet &lt;amount&gt; {teamA}</code>" + chr(10) + f"<code>/bet &lt;amount&gt; {teamB}</code>" + chr(10) + chr(10) + f"<i>Admins: Use /lockbets when the match is about to end to stop late betting.</i>")
-
-@router.message(Command("bet"))
-async def place_bet(message: Message):
-    chat_id = message.chat.id
-    uid = message.from_user.id
-    if chat_id not in active_predictions: return await message.answer("No active prediction in this group.")
-    pred = active_predictions[chat_id]
-    if pred["status"] != "open": return await message.answer("Bets are locked! The match is too close to the end.")
-    args = message.text.split()
-    if len(args) != 3 or not args[1].isdigit():
-        return await message.answer(f"Usage: <code>/bet &lt;amount&gt; {pred['teamA']}</code> or <code>/bet &lt;amount&gt; {pred['teamB']}</code>")
-    amount = int(args[1])
-    team = args[2].upper()
-    if team not in (pred["teamA"], pred["teamB"]): return await message.answer(f"Invalid team. Choose {pred['teamA']} or {pred['teamB']}.")
-    if amount < 10: return await message.answer("Minimum bet is 10 Tokens.")
-    prof = await get_profile(uid)
-    if prof.get("seyu_gems", 0) < amount: return await message.answer("You don't have enough Cric Tokens for this bet.")
-    if uid in pred["bets"]: return await message.answer("You have already placed a bet in this match!")
-    await deduct_cric_tokens(uid, amount, "prediction_bet")
-    await db.commit()
-    pred["bets"][uid] = {"team": team, "amount": amount, "name": message.from_user.first_name}
-    await message.answer(f"✅ <b>{message.from_user.mention_html()}</b> placed a bet of <b>{amount}</b> Tokens on <b>{team}</b>!")
-
-@router.message(Command("lockbets"))
-async def lock_bets(message: Message):
-    if message.from_user.id not in ADMIN_IDS and not await group_admin(message.chat.id, message.from_user.id): return
-    chat_id = message.chat.id
-    if chat_id not in active_predictions: return
-    active_predictions[chat_id]["status"] = "locked"
-    await message.answer("<b>🔒 BETS ARE LOCKED!</b>" + chr(10) + "No more bets will be accepted. Use /winner <team> to settle.")
-
-@router.message(Command("winner"))
-async def settle_prediction(message: Message):
-    if message.from_user.id not in ADMIN_IDS and not await group_admin(message.chat.id, message.from_user.id): return
-    chat_id = message.chat.id
-    args = message.text.split()
-    if len(args) != 2 or chat_id not in active_predictions: return
-    winning_team = args[1].upper()
-    pred = active_predictions[chat_id]
-    if winning_team not in (pred["teamA"], pred["teamB"]): return await message.answer("Invalid team.")
-    if pred["status"] == "settled": return await message.answer("This match is already settled.")
-    winners = []
-    for uid, data in pred["bets"].items():
-        if data["team"] == winning_team:
-            winners.append((uid, data["amount"]))
-            payout = data["amount"] * 2
-            await add_cric_tokens(uid, payout, "prediction")
-    await db.commit()
-    if not winners:
-        await message.answer(f"<b>Match Settled: {winning_team} won!</b>" + chr(10) + "Nobody bet on the winning team. The tokens are lost.")
-    else:
-        winner_text = chr(10).join([f"• {pred['bets'][uid]['name']} won {amt*2} Tokens" for uid, amt in winners])
-        await message.answer(f"<b>Match Settled: {winning_team} won!</b>" + chr(10) + chr(10) + f"<b>Winners:</b>{chr(10)}{winner_text}")
-    del active_predictions[chat_id]
+    
+    await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
+    asyncio.create_task(timeout_game(chat_id, "anagram", 900))
 
 @router.message(Command("guess"))
 async def start_guess(message: Message):
@@ -26806,6 +26740,17 @@ CRICX_WORDS = {
     "BUMRAH": "Known for his unorthodox action and deadly yorkers.",
     "JADEJA": "Excellent fielder and spin-bowling all-rounder, 'Sir'.",
     "GANGULY": "The Prince of Kolkata, famous for his shirt-waving at Lord's.",
+    "KUMBLE": "Legendary leg-spinner, holds the record for most Test wickets for India.",
+    "ZAHEER": "Left-arm fast bowler known for his swing and aggression.",
+    "IRFAN": "Known for his swing bowling and hitting the first ball of a match for a six.",
+    "RAINA": "Known as 'Mr. IPL' and famous for his inside-out cover drive.",
+    "GAMBHIR": "Scored the winning runs in the 2011 World Cup Final.",
+    "LAXMAN": "Known as 'Very Very Special' for his elegant wristy shots.",
+    "SHAMI": "Known for his deadly seam position and reverse swing.",
+    "PANT": "Wicketkeeper-batter famous for his reverse sweep in Tests.",
+    "GILL": "Young opener known for his elegant timing and cover drives.",
+    "HARDIK": "Explosive all-rounder known as 'Kung Fu Pandya'.",
+    "RAHUL": "Elegant right-handed batter and wicketkeeper.",
     "YORKER": "A delivery aimed directly at the batsman's toes.",
     "BOUNCER": "A short-pitched delivery aimed at the batsman's head.",
     "GOOGLY": "A leg-spinner's delivery that turns the opposite way.",
@@ -26832,7 +26777,18 @@ CRICX_WORDS = {
     "POWERPLAY": "The first few overs of a limited-overs match with fielding restrictions.",
     "WICKET": "The target a bowler aims to hit, or a batsman getting out.",
     "APPEAL": "When a team shouts to the umpire asking for an out.",
-    "TOSS": "A coin flip at the start of the match to decide who bats first."
+    "TOSS": "A coin flip at the start of the match to decide who bats first.",
+    "CENTURY": "A score of 100 runs by a single batsman.",
+    "DUCK": "A batsman getting out for zero runs.",
+    "NOBALL": "An illegal delivery by the bowler due to overstepping.",
+    "WIDEBALL": "A delivery that is too wide for the batsman to hit.",
+    "TEST": "The longest format of the game, played over 5 days.",
+    "ODI": "A 50-over format of the game.",
+    "T20": "A 20-over format of the game.",
+    "RUNOUT": "Dismissal by hitting the stumps while the batsman is running.",
+    "LBW": "Leg Before Wicket, a way of getting out.",
+    "STUMPING": "Dismissal by the wicketkeeper hitting the stumps while the batsman is out of his crease.",
+    "SLIP": "A catching position behind the batsman on the off-side."
 }
 
 def cricx_display(word, guessed):
