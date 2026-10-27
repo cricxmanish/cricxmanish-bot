@@ -26696,6 +26696,10 @@ async def message_handler(message: Message) -> None:
             and message.reply_to_message.from_user
             and message.reply_to_message.from_user.id == bot.id
         )
+        # Do not trigger AI if there is an active game in this group
+        if group_active_games(chat_id):
+            raise SkipHandler
+            
         if not (mentioned or named or replied):
             raise SkipHandler
         now = time.monotonic()
