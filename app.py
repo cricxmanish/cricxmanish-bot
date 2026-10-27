@@ -25547,15 +25547,34 @@ async def mystery_box(message: Message):
     profile = await get_profile(uid)
     if profile.get("seyu_gems", 0) < cost:
         return await message.answer("You need at least 100 Cric Tokens to open a Mystery Box!")
+    
     await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id = ?", (cost, uid))
     await db.commit()
+    user_profile_cache.pop(uid, None) # Clear cache for accurate balances
+    
     roll = random.randint(1, 100)
-    if roll <= 60: win = 0; text = "Common Box (0 Tokens) - Better luck next time!"
-    elif roll <= 90: win = 50; text = "Rare Box (50 Tokens)"
-    elif roll <= 99: win = 200; text = "Epic Box (200 Tokens)!"
-    else: win = 1000; text = "JACKPOT! LEGENDARY BOX (1000 Tokens)!!"
-    if win > 0: await add_cric_tokens(uid, win, "mysterybox")
+    if roll <= 45: 
+        win = 20
+        text = "Common Box (20 Tokens)"
+    elif roll <= 80: 
+        win = 50
+        text = "Uncommon Box (50 Tokens)"
+    elif roll <= 93: 
+        win = 150
+        text = "Rare Box (150 Tokens)!"
+    elif roll <= 98: 
+        win = 300
+        text = "Epic Box (300 Tokens)!!"
+    else: 
+        win = 1000
+        text = "JACKPOT! LEGENDARY BOX (1000 Tokens)!!!"
+        
+    awarded = await add_cric_tokens(uid, win, "mysterybox")
+    if awarded < win:
+        text = f"{text}\n<i>(Daily cap reached! You only received {awarded} Tokens)</i>"
+        
     await message.reply(f"<b>Mystery Box Opened!</b>" + chr(10) + f"You spent {cost} Tokens." + chr(10) + f"You won: <b>{text}</b>")
+
 
 @router.message(Command("dice"))
 async def dice_duel(message: Message):
