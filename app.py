@@ -25327,6 +25327,63 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, C
 
 active_loot = {}
 active_anagrams = {}
+
+# ── Riddle Translations (Fix #2) ──────────────────────────────────────────────
+RIDDLES_HINDI = {
+    "What has keys but can't open locks?": "ऐसी चीज़ क्या है जिसमें चाबियाँ हैं पर ताले नहीं खुलते?",
+    "What has a head, a tail, but no body?": "ऐसी चीज़ क्या है जिसका सिर है, पूँछ है, पर शरीर नहीं?",
+    "What gets wetter the more it dries?": "जो जितना सूखता है उतना गीला होता है — वो क्या है?",
+    "What has hands but can't clap?": "ऐसी चीज़ क्या है जिसके हाथ हैं पर ताली नहीं बजा सकते?",
+    "What has a face and two hands but no arms or legs?": "ऐसी चीज़ क्या है जिसका चेहरा और दो हाथ हैं पर बाज़ू और टाँगें नहीं?",
+    "What goes up but never comes down?": "जो ऊपर जाता है पर कभी नीचे नहीं आता — वो क्या है?",
+    "What can you catch but not throw?": "जिसे पकड़ सकते हैं पर फेंक नहीं सकते — वो क्या है?",
+    "What has one eye but can't see?": "ऐसी चीज़ क्या है जिसकी एक आँख है पर देख नहीं सकती?",
+    "What has many teeth but can't bite?": "ऐसी चीज़ क्या है जिसके कई दाँत हैं पर काट नहीं सकती?",
+    "What gets bigger the more you take away?": "जितना ज़्यादा निकालते हो उतना बड़ा होता है — वो क्या है?",
+    "What has to be broken before you can use it?": "जिसे इस्तेमाल करने से पहले तोड़ना पड़ता है — वो क्या है?",
+    "I'm tall when I'm young, and short when I'm old. What am I?": "जवान होने पर लंबा, बूढ़ा होने पर छोटा — मैं क्या हूँ?",
+    "What month of the year has 28 days?": "साल का कौन सा महीना जिसमें 28 दिन होते हैं?",
+    "What is full of holes but still holds water?": "ऐसी चीज़ क्या है जो छेदों से भरी है पर पानी रखती है?",
+    "What question can you never answer yes to?": "ऐसा कौन सा सवाल है जिसका जवाब कभी 'हाँ' नहीं हो सकता?",
+    "What is always in front of you but can't be seen?": "जो हमेशा तुम्हारे आगे है पर दिखाई नहीं देता — वो क्या है?",
+    "There's a one-story house in which everything is yellow. What color are the stairs?": "एक मंज़िले पीले घर में सीढ़ियों का रंग क्या होगा?",
+    "What can you break, even if you never pick it up or touch it?": "जिसे छुए बगैर भी तोड़ सकते हैं — वो क्या है?",
+    "What goes up and down but doesn't move?": "जो ऊपर-नीचे होता है पर हिलता नहीं — वो क्या है?",
+    "It belongs to you, but other people use it more than you do. What is it?": "जो तुम्हारा है पर दूसरे तुमसे ज़्यादा इस्तेमाल करते हैं — वो क्या है?",
+}
+
+RIDDLE_ANSWERS_HINDI = {
+    "keyboard": ["कीबोर्ड"],
+    "coin": ["सिक्का"],
+    "towel": ["तौलिया"],
+    "clock": ["घड़ी", "घडी"],
+    "age": ["उम्र", "आयु"],
+    "cold": ["सर्दी", "ठंड", "जुकाम"],
+    "needle": ["सुई"],
+    "comb": ["कंघी"],
+    "hole": ["छेद", "गड्ढा"],
+    "egg": ["अंडा", "अण्डा"],
+    "candle": ["मोमबत्ती"],
+    "all of them": ["सभी", "सारे"],
+    "sponge": ["स्पंज"],
+    "are you asleep yet": ["क्या तुम सो रहे हो", "सो रहे हो"],
+    "future": ["भविष्य"],
+    "no stairs": ["कोई सीढ़ी नहीं", "सीढ़ियां नहीं"],
+    "promise": ["वादा"],
+    "staircase": ["सीढ़ी", "सीढ़ियां"],
+    "your name": ["तुम्हारा नाम", "आपका नाम"],
+}
+
+def is_riddle_correct(text: str, correct_answer: str) -> bool:
+    # Case insensitive match
+    if text.strip().lower() == correct_answer.strip().lower():
+        return True
+    # Check Hindi aliases
+    hindi_options = RIDDLE_ANSWERS_HINDI.get(correct_answer.lower(), [])
+    if text.strip() in hindi_options:
+        return True
+    return False
+
 active_guesses = {}
 active_predictions = {}
 pending_duels = {}
@@ -25514,13 +25571,24 @@ async def rps_choice(cb: CallbackQuery):
 @router.message(Command("riddle"))
 async def start_riddle(message: Message):
     chat_id = message.chat.id
+    if chat_id in active_guesses:
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
     riddle = random.choice(list(RIDDLES.keys()))
+    hindi = RIDDLES_HINDI.get(riddle, "")
     active_guesses[chat_id] = {"answer": RIDDLES[riddle], "type": "riddle"}
-    await message.answer(f"<b>🧩 Riddle Time!</b>" + chr(10) + chr(10) + riddle + chr(10) + chr(10) + "First to answer wins 30 Tokens!")
+    hindi_line = f"\n\n🇮🇳 <b>हिंदी में:</b> <i>{hindi}</i>" if hindi else ""
+    await message.answer(
+        f"<b>🧩 Riddle Time! (पहेली)</b>{chr(10)}{chr(10)}"
+        f"🇬🇧 <b>English:</b> {riddle}{hindi_line}{chr(10)}{chr(10)}"
+        f"First to answer (English or Hindi) wins 30 Tokens!{chr(10)}"
+        f"<i>Answer can be in English or Hindi (e.g. 'clock' or 'घड़ी')</i>"
+    )
 
 @router.message(Command("country"))
 async def start_country(message: Message):
     chat_id = message.chat.id
+    if chat_id in active_guesses:
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
     emojis = random.choice(list(COUNTRIES.keys()))
     active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
     await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
