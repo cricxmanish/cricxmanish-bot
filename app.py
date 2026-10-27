@@ -16928,6 +16928,8 @@ def quiz_bank_category(session: dict[str, object]) -> str:
         return f"state:{topic_key}"
     if topic_kind == "math":
         return "math"
+    if topic_kind == "translation" or "translation" in topic_key:
+        return "translation"
     if "cricket" in topic_kind or "cricket" in topic_key:
         return "cricket"
     return "gk"
@@ -17919,8 +17921,12 @@ async def generate_quiz_question(session: dict[str, object]) -> dict[str, object
     bank = await get_quiz_question_bank()
     category = quiz_bank_category(session)
     level = str(session.get("level", "basic")).casefold()
-    candidates = list(bank.get((category, level), ()))
-    
+    if category == "translation":
+        trans_bank = translation_file_bank().get(level, [])
+        candidates = [translation_quiz_candidate(item, level) for item in trans_bank]
+    else:
+        candidates = list(bank.get((category, level), ()))
+        
     if not candidates:
         candidates = local_quiz_questions(session)
         
