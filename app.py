@@ -28450,7 +28450,7 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
 import aiohttp
 
 DB_BACKUP_CHAT_ID = int(os.environ.get("DB_BACKUP_CHAT_ID", "0"))
-DB_BACKUP_INTERVAL = 600  # 10 minutes
+DB_BACKUP_INTERVAL = 120  # 2 minutes
 
 def _api_base() -> str:
     token = os.environ.get("BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
@@ -28537,6 +28537,19 @@ async def backup_db_to_telegram():
             log.info(f"[DB BACKUP] Uploaded & pinned message {msg_id}")
     except Exception as e:
         log.info(f"[DB BACKUP] Backup failed: {e}")
+
+
+@router.message(Command("backup"))
+async def manual_backup_command(message: Message) -> None:
+    if not message.from_user or message.from_user.id not in ADMIN_IDS or message.chat.type != ChatType.PRIVATE:
+        return
+    msg = await message.answer("⏳ Backing up database to Telegram...")
+    try:
+        await backup_db_to_telegram()
+        await msg.edit_text("✅ <b>Success!</b> Database has been saved to your Backup Channel. You can now safely deploy or restart.")
+    except Exception as e:
+        await msg.edit_text(f"❌ Backup failed: {e}")
+
 
 async def periodic_backup_loop():
     # 1. Run backup immediately on startup
