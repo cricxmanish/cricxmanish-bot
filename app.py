@@ -25652,7 +25652,7 @@ async def rps_accept(cb: CallbackQuery):
 async def rps_choice(cb: CallbackQuery):
     parts = cb.data.split("_")
     choice = parts[-1]
-    rps_id = "_".join(parts[3:-1])
+    rps_id = "_".join(parts[2:-1])
     if rps_id not in pending_rps: return await cb.answer("Game expired.", show_alert=True)
     game = pending_rps[rps_id]
     challenger, opponent = map(int, rps_id.split("_")[:2])
@@ -25664,7 +25664,7 @@ async def rps_choice(cb: CallbackQuery):
         game["p2"] = choice
     else: return await cb.answer("You are not part of this game.")
     await cb.answer(f"You chose {choice}.")
-    await cb.message.edit_text(f"You chose {choice}. Waiting for opponent...")
+    await cb.message.edit_text(f"You chose {choice}. Waiting for opponent...", reply_markup=None)
     if game["p1"] and game["p2"]:
         await db.execute("UPDATE users SET seyu_gems = seyu_gems - ? WHERE user_id IN (?, ?)", (game["amount"], challenger, opponent))
         await db.commit()
