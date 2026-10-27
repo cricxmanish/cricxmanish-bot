@@ -28527,8 +28527,9 @@ async def add_cric_tokens(user_id: int, amount: int, source: str) -> int:
         return 0
 
     await db.execute(
-        "UPDATE users SET seyu_gems = seyu_gems + ? WHERE user_id=?",
-        (award, user_id),
+        """INSERT INTO users(user_id, seyu_gems) VALUES(?, ?) 
+        ON CONFLICT(user_id) DO UPDATE SET seyu_gems = seyu_gems + excluded.seyu_gems""",
+        (user_id, award)
     )
     await db.execute(
         """INSERT INTO game_earnings(user_id, earned_date, source, amount)
