@@ -28461,7 +28461,7 @@ async def restore_db_from_telegram():
     import os
     # Clean up old WAL files before restoring to prevent corruption
     for ext in ['-wal', '-shm']:
-        p = f"cricxmanish.sqlite3{ext}"
+        p = f"{DB_PATH}{ext}"
         if os.path.exists(p):
             try: os.remove(p)
             except: pass
@@ -28471,7 +28471,18 @@ async def restore_db_from_telegram():
         return
     try:
         Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
+        import sqlite3
+        try:
+            _conn = sqlite3.connect(DB_PATH)
+            _conn.execute('PRAGMA wal_checkpoint(TRUNCATE);')
+            _conn.commit()
+            _conn.close()
+            log.info("[DB BACKUP] WAL Checkpoint successful. DB file is fully updated.")
+        except Exception as e:
+            log.error(f"[DB BACKUP] WAL Checkpoint failed: {e}")
+            
         api = _api_base()
+
         async with aiohttp.ClientSession() as session:
             # Get pinned message
             async with session.get(f"{api}/getChat", params={"chat_id": DB_BACKUP_CHAT_ID}) as r:
@@ -28512,7 +28523,18 @@ async def backup_db_to_telegram():
         return
     try:
         Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
+        import sqlite3
+        try:
+            _conn = sqlite3.connect(DB_PATH)
+            _conn.execute('PRAGMA wal_checkpoint(TRUNCATE);')
+            _conn.commit()
+            _conn.close()
+            log.info("[DB BACKUP] WAL Checkpoint successful. DB file is fully updated.")
+        except Exception as e:
+            log.error(f"[DB BACKUP] WAL Checkpoint failed: {e}")
+            
         api = _api_base()
+
         async with aiohttp.ClientSession() as session:
             # Unpin and delete old backup to save space
             async with session.get(f"{api}/getChat", params={"chat_id": DB_BACKUP_CHAT_ID}) as r:
