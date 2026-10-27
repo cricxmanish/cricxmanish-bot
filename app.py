@@ -28458,9 +28458,10 @@ def _api_base() -> str:
 
 async def restore_db_from_telegram():
     if not DB_BACKUP_CHAT_ID:
-        print("[DB BACKUP] No DB_BACKUP_CHAT_ID set; starting fresh.")
+        log.info("[DB BACKUP] No DB_BACKUP_CHAT_ID set; starting fresh.")
         return
     try:
+        Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
         api = _api_base()
         async with aiohttp.ClientSession() as session:
             # Get pinned message
@@ -28470,7 +28471,7 @@ async def restore_db_from_telegram():
             file_id = (pinned.get("document") or {}).get("file_id")
             
             if not file_id:
-                print("[DB BACKUP] No pinned backup found in channel. Starting fresh.")
+                log.info("[DB BACKUP] No pinned backup found in channel. Starting fresh.")
                 return
                 
             # Get file path
@@ -28479,7 +28480,7 @@ async def restore_db_from_telegram():
             file_path = (fdata.get("result") or {}).get("file_path")
             
             if not file_path:
-                print("[DB BACKUP] Could not resolve file_path.")
+                log.info("[DB BACKUP] Could not resolve file_path.")
                 return
                 
             # Download
@@ -28493,14 +28494,15 @@ async def restore_db_from_telegram():
             with open(tmp, "wb") as f:
                 f.write(blob)
             os.replace(tmp, DB_PATH)
-            print(f"[DB BACKUP] Restored {len(blob)} bytes from Telegram.")
+            log.info(f"[DB BACKUP] Restored {len(blob)} bytes from Telegram.")
     except Exception as e:
-        print(f"[DB BACKUP] Restore failed (continuing fresh): {e}")
+        log.info(f"[DB BACKUP] Restore failed (continuing fresh): {e}")
 
 async def backup_db_to_telegram():
     if not DB_BACKUP_CHAT_ID or not os.path.exists(DB_PATH):
         return
     try:
+        Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
         api = _api_base()
         async with aiohttp.ClientSession() as session:
             # Unpin and delete old backup to save space
@@ -28522,7 +28524,7 @@ async def backup_db_to_telegram():
                     res = await r.json()
                     
             if not res.get("ok"):
-                print(f"[DB BACKUP] Upload failed: {res}")
+                log.info(f"[DB BACKUP] Upload failed: {res}")
                 return
                 
             # Pin new backup
@@ -28532,16 +28534,16 @@ async def backup_db_to_telegram():
                 "message_id": msg_id,
                 "disable_notification": "true",
             })
-            print(f"[DB BACKUP] Uploaded & pinned message {msg_id}")
+            log.info(f"[DB BACKUP] Uploaded & pinned message {msg_id}")
     except Exception as e:
-        print(f"[DB BACKUP] Backup failed: {e}")
+        log.info(f"[DB BACKUP] Backup failed: {e}")
 
 async def periodic_backup_loop():
     # 1. Run backup immediately on startup
     try:
         await backup_db_to_telegram()
     except Exception as e:
-        print(f"[DB BACKUP] Initial backup failed: {e}")
+        log.info(f"[DB BACKUP] Initial backup failed: {e}")
         
     # 2. Then wait 10 mins and repeat
     while True:
@@ -28549,7 +28551,7 @@ async def periodic_backup_loop():
         try:
             await backup_db_to_telegram()
         except Exception as e:
-            print(f"[DB BACKUP] Loop error: {e}")
+            log.info(f"[DB BACKUP] Loop error: {e}")
 # ==================== END DB BACKUP MODULE ====================
 
 
