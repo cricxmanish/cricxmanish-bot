@@ -25929,15 +25929,23 @@ async def start_guess(message: Message):
 async def game_text_handler(message: Message):
     chat_id = message.chat.id
     text = message.text.strip().upper()
-    
     if chat_id in active_anagrams and text == active_anagrams[chat_id]:
         if await add_cric_tokens(message.from_user.id, 30, "anagram"):
             await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
         else:
             await message.reply("Correct! But you have reached your daily limit for this game.")
         active_anagrams.pop(chat_id, None)
-        game_timeouts.pop(chat_id, None)
         return
+    if chat_id in active_guesses:
+        game = active_guesses[chat_id]
+        if text.lower() == game["answer"].lower():
+            reward = 30 if game["type"] == "riddle" else 25
+            if await add_cric_tokens(message.from_user.id, reward, game["type"]):
+                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
+            else:
+                await message.reply("Correct! But you have reached your daily limit for this game.")
+            active_guesses.pop(chat_id, None)
+            return
         
     if chat_id in active_guesses:
         game = active_guesses[chat_id]
