@@ -25925,6 +25925,41 @@ async def start_guess(message: Message):
     await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
     asyncio.create_task(timeout_game(chat_id, "guess", 900))
 
+def cricx_display(word, guessed):
+    return " ".join([letter if letter in guessed else "_" for letter in word])
+
+@router.message(Command("cricxgame"))
+async def start_cricx_game(message: Message):
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("This game can only be played in a group.")
+        return
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+        
+    available = [w for w in CRICX_WORDS.keys() if w not in cricx_recent]
+    if not available:
+        cricx_recent.clear()
+        available = list(CRICX_WORDS.keys())
+    word = random.choice(available)
+    cricx_recent.append(word)
+    hint = CRICX_WORDS[word]
+    
+    cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    
+    await message.answer(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{hint}</i>\n"
+        f"<code>{cricx_display(word, set())}</code>\n\n"
+        f"❤️ Lives: 7\n"
+        f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
+    )
+
+
+# ═══════════════════════════════════════════════════════════
+# RESTORED ENGINE HANDLERS & CLASSIC GAMES
+# ═══════════════════════════════════════════════════════════
+
 @router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
 async def game_text_handler(message: Message):
     chat_id = message.chat.id
@@ -26033,6 +26068,197 @@ async def cricx_guess_handler(message: Message):
         f"❤️ Lives: {lives}\n"
         f"❌ Wrong: {wrong_letters}"
     )
+
+# ── QUIZ ENGINE RESTORE ──
+async def award_quiz_rewards(session: dict[str, object], ranked: list[tuple[int, int]]) -> None:
+    for rank, (user_id, _score) in enumerate([item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1):
+        player = next(player for player in session["players"] if player.id == user_id)
+        amount = QUIZ_REWARDS[rank - 1]
+        cursor = await db.execute("""INSERT OR IGNORE INTO quiz_reward_claims(session_id, user_id, rank, amount) VALUES(?,?,?,?)""", (session["session_id"], user_id, rank, amount))
+        if cursor.rowcount == 1:
+            await add_cric_tokens(user_id, amount, "quiz")
+    await db.commit()
+
+def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
+    players = session["players"]
+    if session["state"] == "lobby":
+        prefix = "<b>You are already in this Quiz lobby.</b>" if any(player.id == user_id for player in players) else "<b>A Quiz lobby is already active in this group.</b>"
+        return f"{prefix}\n\nCreator: {session['creator_name']}\nPlayers: {len(players)}/{UNLIMITED_PLAYERS_LABEL}\nUse the existing lobby. No duplicate quiz will be created."
+    prefix = "<b>You are already in an active Quiz.</b>" if any(player.id == user_id for player in players) else "<b>A Quiz is already active in this group.</b>"
+    return f"{prefix}\n\nCreator: {session['creator_name']}\nPlayers: {len(players)}\nWait until this quiz ends before starting another one."
+
+async def restore_quiz_sessions() -> None:
+    cursor = await db.execute("SELECT chat_id, message_id, state, expires_at, payload FROM quiz_sessions")
+    rows = await cursor.fetchall()
+    for row in rows:
+        chat_id = int(row["chat_id"])
+        message_id = int(row["message_id"])
+        expires_at = float(row["expires_at"])
+        if expires_at <= time.time():
+            try:
+                await bot.delete_message(chat_id, message_id)
+            except (TelegramBadRequest, TelegramForbiddenError):
+                pass
+            await delete_persisted_quiz_session(chat_id)
+            continue
+        try:
+            data = json.loads(str(row["payload"]))
+            players = [SimpleNamespace(id=int(player["id"]), first_name=str(player.get("first_name") or "Player"), username=str(player.get("username") or ""), is_bot=False) for player in data["players"]]
+            state = str(row["state"])
+            if state not in {"lobby", "loading", "answering", "round_result", "final_result"}:
+                raise ValueError("invalid quiz state")
+            if not 1 <= len(players) <= 25:
+                raise ValueError("invalid quiz player count")
+            session = {"session_id": str(data["session_id"]), "state": state, "creator_id": int(data["creator_id"]), "creator_name": str(data["creator_name"]), "topic_kind": str(data.get("topic_kind") or "general"), "topic_label": str(data.get("topic_label") or "General Knowledge"), "topic_key": str(data.get("topic_key") or "general"), "level": str(data.get("level") or "basic"), "rounds": int(data.get("rounds") or QUIZ_ROUNDS), "players": players, "message_id": message_id, "round": int(data["round"]), "scores": dict(data["scores"]), "total_speed_ms": dict(data["total_speed_ms"]), "question_hashes": list(data["question_hashes"]), "current_question": data.get("current_question"), "poll_id": data.get("poll_id"), "poll_message_id": data.get("poll_message_id"), "answers": dict(data.get("answers") or {}), "round_started_at": data.get("round_started_at"), "created_at": float(data["created_at"]), "expires_at": expires_at}
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
+            await delete_persisted_quiz_session(chat_id)
+            continue
+        quiz_sessions[chat_id] = session
+        if state == "lobby":
+            session["state"] = "loading"
+            session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
+            state = "loading"
+            await persist_quiz_session(chat_id, session)
+        if state == "answering" and not session.get("poll_id"):
+            session["state"] = "loading"
+            session["round"] = max(0, int(session["round"]) - 1)
+            session["current_question"] = None
+            session["answers"] = {}
+            await persist_quiz_session(chat_id, session)
+        if session.get("poll_id"):
+            quiz_poll_sessions[str(session["poll_id"])] = chat_id
+        quiz_player_sessions[int(session["creator_id"])] = chat_id
+        for player in players:
+            quiz_player_sessions[int(player.id)] = chat_id
+        if state == "lobby":
+            quiz_tasks[chat_id] = asyncio.create_task(expire_quiz_lobby(chat_id, message_id))
+        else:
+            quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
+
+@router.message(Command("quiz"))
+async def quiz_command(message: Message) -> None:
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("The quiz can only be started in a group.")
+        return
+    if not message.from_user or message.from_user.is_bot:
+        return
+    if await group_command_is_locked(message):
+        return
+    argument = quiz_command_argument(message)
+    active_game = other_active_group_game(message.chat.id, "quiz")
+    if active_game:
+        await message.answer(group_game_conflict_text(active_game, "Quiz"))
+        return
+    if not argument:
+        session = quiz_sessions.get(message.chat.id)
+        if session:
+            await message.answer(quiz_active_notice(session, message.from_user.id))
+            return
+        await message.answer("<b>Choose Quiz Category</b>\n\nChoose a category first. Then select Basic, Medium, or Hard, followed by 3, 5, 10, or 15 rounds.\n\nThe quiz uses fast Telegram vote polls with four options.", reply_markup=quiz_categories_markup())
+        return
+    topic = normalize_quiz_topic(argument)
+    await message.answer(f"<b>{html.escape(topic[1])} Quiz</b>\n\nChoose difficulty:", reply_markup=quiz_levels_markup(topic[2]))
+
+@router.callback_query(F.data == "quiz:cancel_setup")
+async def quiz_cancel_setup(callback: CallbackQuery) -> None:
+    await callback.answer("Quiz setup cancelled.")
+    if callback.message:
+        await callback.message.edit_text("<b>Quiz setup cancelled.</b>\n\nUse /quiz whenever you want to start a new quiz.")
+
+@router.callback_query(F.data.startswith("quiz:category:"))
+async def quiz_category(callback: CallbackQuery) -> None:
+    slug = callback.data.split(":", 2)[2]
+    topic = quiz_category_from_slug(slug)
+    await answer_quiz_callback(callback)
+    await callback.message.edit_text(f"<b>{html.escape(topic[1])} Quiz</b>\n\nChoose difficulty:", reply_markup=quiz_levels_markup(topic[2]))
+
+@router.callback_query(F.data.startswith("quiz:level:"))
+async def quiz_level(callback: CallbackQuery) -> None:
+    parts = callback.data.split(":")
+    if len(parts) != 4 or parts[3] not in QUIZ_LEVELS:
+        await callback.answer("This level button is invalid.", show_alert=True)
+        return
+    topic = quiz_category_from_slug(parts[2])
+    level = parts[3]
+    await answer_quiz_callback(callback)
+    await callback.message.edit_text(f"<b>{html.escape(topic[1])} Quiz</b>\n\nLevel selected: <b>{quiz_level_title(level)}</b>\nHow many rounds should this quiz have?", reply_markup=quiz_rounds_markup(topic[2], level))
+
+@router.callback_query(F.data.startswith("quiz:rounds:"))
+async def quiz_rounds(callback: CallbackQuery) -> None:
+    parts = callback.data.split(":")
+    if len(parts) != 5 or parts[4].isdigit() is False:
+        await callback.answer("This rounds button is invalid.", show_alert=True)
+        return
+    rounds = int(parts[4])
+    if rounds not in QUIZ_ROUND_CHOICES or parts[3] not in QUIZ_LEVELS:
+        await callback.answer("This quiz setup is invalid.", show_alert=True)
+        return
+    topic = quiz_category_from_slug(parts[2])
+    if not callback.message or not callback.from_user:
+        return
+    await asyncio.gather(answer_quiz_callback(callback, "Starting quiz…"), create_quiz_lobby(callback.message, callback.from_user, topic, parts[3], rounds))
+
+@router.callback_query(F.data.startswith("quiz:join:"))
+async def quiz_join(callback: CallbackQuery) -> None:
+    if not callback.message or not callback.from_user:
+        return
+    chat_id = int(callback.data.rsplit(":", 1)[1])
+    async with quiz_locks[chat_id]:
+        session = quiz_sessions.get(chat_id)
+        if not session or session["state"] != "lobby":
+            await callback.answer("This quiz lobby has expired.", show_alert=True)
+            return
+        players = session["players"]
+        if any(player.id == callback.from_user.id for player in players):
+            await callback.answer("You have already joined this quiz.")
+            return
+        players.append(callback.from_user)
+        quiz_player_sessions[callback.from_user.id] = chat_id
+        await persist_quiz_session(chat_id, session)
+        try:
+            await callback.message.edit_text(quiz_lobby_text(session), reply_markup=quiz_lobby_markup(chat_id, len(players)))
+        except Exception:
+            pass
+    await callback.answer("You joined the quiz.")
+
+@router.callback_query(F.data.startswith("quiz:start:"))
+async def quiz_start_callback(callback: CallbackQuery) -> None:
+    if not callback.message or not callback.from_user:
+        return
+    chat_id = int(callback.data.rsplit(":", 1)[1])
+    await callback.answer()
+    await start_quiz_game(chat_id, callback.from_user.id, callback.message)
+
+@router.callback_query(F.data == "quiz:over")
+async def quiz_over(callback: CallbackQuery) -> None:
+    await callback.answer("This quiz is already over.")
+
+async def start_quiz_game(chat_id: int, actor_id: int, message: Message) -> None:
+    session = quiz_sessions.get(chat_id)
+    if not session:
+        await message.answer("This Quiz lobby has expired.")
+        return
+    if len(session["players"]) < 2:
+        await message.answer("At least 2 players must join before starting.")
+        return
+    session["state"] = "loading"
+    session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
+    cancel_quiz_task(chat_id)
+    await persist_quiz_session(chat_id, session)
+    await edit_quiz_message(chat_id, int(session["message_id"]), f"<b>{html.escape(quiz_title(session))}</b>\n\nLoading a fresh question...")
+    quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
+
+async def create_quiz_lobby(message: Message, creator: object, topic: tuple[str, str, str], level: str, rounds: int) -> None:
+    chat_id = message.chat.id
+    topic_kind, topic_label, topic_key = topic
+    creator_id = int(getattr(creator, "id"))
+    async with quiz_locks[chat_id]:
+        quiz_message = await message.answer(f"<b>{html.escape(topic_label)} Quiz</b>\n\nCreated by: {quiz_player_name(creator)}\nLevel: <b>{quiz_level_title(level)}</b>\nRounds: <b>{rounds}</b>")
+        session = {"session_id": f"{chat_id}:{time.time_ns()}", "state": "loading", "creator_id": creator_id, "creator_name": quiz_player_name(creator), "topic_kind": topic_kind, "topic_label": topic_label, "topic_key": topic_key, "level": level, "rounds": rounds, "players": [creator], "message_id": quiz_message.message_id, "round": 0, "scores": {str(creator_id): 0}, "total_speed_ms": {}, "question_hashes": [], "current_question": None, "poll_id": None, "poll_message_id": None, "answers": {}, "round_started_at": None, "created_at": time.time(), "expires_at": time.time() + QUIZ_GAME_SECONDS}
+        quiz_sessions[chat_id] = session
+        quiz_player_sessions[creator_id] = chat_id
+        await persist_quiz_session(chat_id, session)
+        quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
 
 
 async def main() -> None:
