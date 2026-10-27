@@ -19276,6 +19276,59 @@ def games_menu() -> InlineKeyboardMarkup:
     )
 
 
+
+@router.message(Command("howtoplay"))
+async def how_to_play_command(message: Message):
+    args = (message.text or "").split(maxsplit=1)
+    
+    # If they just type /howtoplay, show the Games menu
+    if len(args) == 1:
+        await message.answer(
+            "<b>🎮 How to Play</b>\n\n"
+            "Select a game from the menu below to see its rules, or type "
+            "<code>/howtoplay [game_name]</code> (e.g., <code>/howtoplay quiz</code>).",
+            reply_markup=games_menu()
+        )
+        return
+        
+    game = args[1].strip().casefold()
+    
+    if game in {"quiz"}:
+        text = "<b>🧠 Quiz</b>\n\nAnswer Telegram polls. Speed breaks ties. Top 5 players win Tokens!"
+    elif game in {"tictac", "tic", "tictactoe"}:
+        text = "<b>❌⭕ Tic Tac Toe</b>\n\nExactly 2 players. The creator is X. Make a line of 3 to win. 5-minute timer."
+    elif game in {"emoji", "emojirush"}:
+        text = arcade_help_text("emoji")
+    elif game == "mathbattle":
+        text = arcade_help_text("mathbattle")
+    elif game in {"translation", "tbattle"}:
+        text = arcade_help_text("tbattle")
+    elif game == "crossgrid":
+        text = "<b>🧩 Cross Grid</b>\n\nFind hidden words in an 8x8 grid. Type words in chat. First correct answer claims the word."
+    elif game == "codebreaker":
+        text = codebreaker_help_text()
+    elif game == "sequencemaster":
+        text = sequence_master_help_text()
+    elif game == "riddle":
+        text = "<b>🧩 Riddle</b>\n\nBot sends a riddle in English & Hindi. First to answer correctly wins 30 Tokens!"
+    elif game == "country":
+        text = "<b>🌍 Guess the Country</b>\n\nBot sends emojis. First to guess the country wins 25 Tokens!"
+    elif game in {"guess", "guesscricketer"}:
+        text = "<b>🕵️ Guess the Cricketer</b>\n\nBot sends emoji hints. First to type the cricketer's full name wins 20 Tokens!"
+    elif game == "anagram":
+        text = "<b>🔤 Anagram</b>\n\nBot sends scrambled letters. Type the correct name to win 30 Tokens!"
+    elif game == "cricxgame":
+        text = "<b>🏏 Cric X Manish</b>\n\nHangman-style game. Guess letters or the full word. 7 lives. Win 50 Tokens!"
+    elif game == "mysterybox":
+        text = "<b>🎁 Mystery Box</b>\n\nSpend 100 Tokens to get a random reward (up to 1000 Tokens)!"
+    elif game == "wallet":
+        text = "<b>💼 Wallet</b>\n\nCheck your balance and your last 10 transactions. Tokens expire 7 days after earning."
+    else:
+        text = f"❓ Game <b>{html.escape(game)}</b> not found. Use the menu below to see all games."
+        
+    await message.answer(text, reply_markup=games_menu())
+
+
 def back_menu() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         inline_keyboard=[[InlineKeyboardButton(text="🏠 Back to Main Menu", callback_data="home", style="success")]]
