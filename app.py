@@ -11912,12 +11912,22 @@ def group_active_games(chat_id: int) -> list[tuple[str, str]]:
         active.append(("quiz", quiz_title(quiz_session)))
     if tictac_sessions.get(chat_id):
         active.append(("tictac", "Tic Tac Toe"))
+    if active_guesses.get(chat_id):
+        game_key = str(active_guesses[chat_id])
+        title = game_key.title()
+        if game_key == "guess": title = "Guess the Cricketer"
+        elif game_key == "riddle": title = "Riddle"
+        elif game_key == "country": title = "Guess the Country"
+        active.append((game_key, title))
+    if active_anagrams.get(chat_id):
+        active.append(("anagram", "Anagram"))
+    if cricx_sessions.get(chat_id):
+        active.append(("cricx", "Cric X Manish Game"))
     if mafia_sessions.get(chat_id):
         active.append(("mafia", "Mafia"))
     if death_note_sessions.get(chat_id):
         active.append(("deathnote", "Death Note"))
     return active
-
 
 def other_active_group_game(chat_id: int, starting_game: str) -> str | None:
     # Tic Tac Toe is independent from the other games. Its lobby/match can
@@ -12871,8 +12881,8 @@ async def force_end_group_games(chat_id: int, only: set[str] | None = None) -> l
     death_note_session = death_note_sessions.get(chat_id) if _want("deathnote") else None
     codebreaker_session = codebreaker_sessions.get(chat_id) if _want("codebreaker") else None
     sequence_session = sequencemaster_sessions.get(chat_id) if _want("sequencemaster") else None
+    crossgrid_session = crossgrid_sessions.get(chat_id) if _want("crossgrid") else None
 
-    # Clear session state before awaiting cancellation, so workers cannot accept more answers.
     pending_tasks: list[asyncio.Task] = []
     for task_map, tkeys in (
         (arcade_tasks, arcade_keys),
@@ -12911,6 +12921,15 @@ async def force_end_group_games(chat_id: int, only: set[str] | None = None) -> l
         codebreaker_sessions.pop(chat_id, None)
     if _want("sequencemaster"):
         sequencemaster_sessions.pop(chat_id, None)
+        
+    if _want("guess") or _want("riddle") or _want("country"):
+        active_guesses.pop(chat_id, None)
+        active_guesses.pop(f"{chat_id}_answer", None)
+    if _want("anagram"):
+        active_anagrams.pop(chat_id, None)
+    if _want("cricx"):
+        cricx_sessions.pop(chat_id, None)
+    game_timeouts.pop(chat_id, None)
 
     if arcade_session:
         arcade_session["state"] = "finished"
@@ -12945,7 +12964,7 @@ async def force_end_group_games(chat_id: int, only: set[str] | None = None) -> l
         try:
             await delete_persisted_tictac_session(chat_id)
         except Exception:
-            log.exception("Could not clear persisted Tic Tac Toe session for %s", chat_id)
+            pass
         try:
             await bot.edit_message_text(
                 chat_id=chat_id,
@@ -12969,7 +12988,7 @@ async def force_end_group_games(chat_id: int, only: set[str] | None = None) -> l
         try:
             await delete_persisted_quiz_session(chat_id)
         except Exception:
-            log.exception("Could not clear persisted Quiz session for %s", chat_id)
+            pass
         try:
             await bot.edit_message_text(
                 chat_id=chat_id,
@@ -12982,7 +13001,6 @@ async def force_end_group_games(chat_id: int, only: set[str] | None = None) -> l
     for g, _t in active_games:
         game_started_at.pop((chat_id, g), None)
     return active_games
-
 
 game_started_at: dict[tuple[int, str], float] = {}
 GAME_STUCK_TIMEOUT = 15 * 60
@@ -25763,30 +25781,66 @@ async def rps_choice(cb: CallbackQuery):
             await cb.bot.send_message(game["chat_id"], f"<b>RPS Results!</b>" + chr(10) + f"Player 1: {p1} | Player 2: {p2}" + chr(10) + f"<a href='tg://user?id={winner}'>Winner</a> takes {game['amount']*2} Tokens!")
         del pending_rps[rps_id]
 
+
+game_timeouts = {}
+
+async def timeout_game(chat_id: int, game_key: str, duration: int = 900):
+    await asyncio.sleep(duration)
+    if game_timeouts.get(chat_id) == game_key:
+        active_guesses.pop(chat_id, None)
+        active_guesses.pop(f"{chat_id}_answer", None)
+        active_anagrams.pop(chat_id, None)
+        cricx_sessions.pop(chat_id, None)
+        game_timeouts.pop(chat_id, None)
+        await bot.send_message(chat_id, f"⏰ <b>Game Timeout!</b> The {game_key.replace('_', ' ').title()} game was closed automatically because nobody answered.")
+
 @router.message(Command("riddle"))
 async def start_riddle(message: Message):
     chat_id = message.chat.id
-    if chat_id in active_guesses:
+    if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
-    riddle = random.choice(list(RIDDLES.keys()))
+        
+    available = [r for r in RIDDLES.keys() if r not in riddle_recent]
+    if not available:
+        riddle_recent.clear()
+        available = list(RIDDLES.keys())
+    riddle = random.choice(available)
+    riddle_recent.append(riddle)
+    
     hindi = RIDDLES_HINDI.get(riddle, "")
-    active_guesses[chat_id] = {"answer": RIDDLES[riddle], "type": "riddle"}
+    active_guesses[chat_id] = "riddle"
+    game_timeouts[chat_id] = "riddle"
+    
+    active_guesses[f"{chat_id}_answer"] = RIDDLES[riddle]
+    
     hindi_line = f"\n\n🇮🇳 <b>हिंदी में:</b> <i>{hindi}</i>" if hindi else ""
     await message.answer(
         f"<b>🧩 Riddle Time! (पहेली)</b>{chr(10)}{chr(10)}"
         f"🇬🇧 <b>English:</b> {riddle}{hindi_line}{chr(10)}{chr(10)}"
         f"First to answer (English or Hindi) wins 30 Tokens!{chr(10)}"
-        f"<i>Answer can be in English or Hindi (e.g. 'clock' or 'घड़ी')</i>"
+        f"<i>Answer can be in English or Hindi</i>"
     )
+    asyncio.create_task(timeout_game(chat_id, "riddle", 900))
 
 @router.message(Command("country"))
 async def start_country(message: Message):
     chat_id = message.chat.id
-    if chat_id in active_guesses:
+    if group_active_games(chat_id):
         return await message.reply("⚠️ A game is already active in this group. Finish it first!")
-    emojis = random.choice(list(COUNTRIES.keys()))
-    active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
+        
+    available = [c for c in COUNTRIES.keys() if c not in country_recent]
+    if not available:
+        country_recent.clear()
+        available = list(COUNTRIES.keys())
+    emojis = random.choice(available)
+    country_recent.append(emojis)
+    
+    active_guesses[chat_id] = "country"
+    game_timeouts[chat_id] = "country"
+    active_guesses[f"{chat_id}_answer"] = COUNTRIES[emojis]
+    
     await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
+    asyncio.create_task(timeout_game(chat_id, "country", 900))
 
 @router.message(Command("anagram"))
 async def start_anagram(message: Message):
@@ -25813,6 +25867,7 @@ async def start_anagram(message: Message):
     
     scrambled = "".join(random.sample(word.replace(" ", ""), len(word.replace(" ", ""))))
     active_anagrams[chat_id] = word.upper()
+    game_timeouts[chat_id] = "anagram"
     
     await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
     asyncio.create_task(timeout_game(chat_id, "anagram", 900))
@@ -25820,1032 +25875,90 @@ async def start_anagram(message: Message):
 @router.message(Command("guess"))
 async def start_guess(message: Message):
     chat_id = message.chat.id
-    hint = random.choice(["🐐 🏏 💯", "👑 🏏 🔥", "🦁 🏏 🏆", "🎯 🏏 🧱", "⚡ 🏏 🚀", "🧊 🏏 👑"])
-    answers = {"🐐 🏏 💯": "SACHIN TENDULKAR", "👑 🏏 🔥": "VIRAT KOHLI", "🦁 🏏 🏆": "MS DHONI", "🎯 🏏 🧱": "RAHUL DRAVID", "⚡ 🏏 🚀": "HARDIK PANDYA", "🧊 🏏 👑": "ROHIT SHARMA"}
-    active_guesses[chat_id] = {"answer": answers[hint], "type": "guess"}
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+        
+    hints = {
+        "🐐 🏏 💯": "SACHIN TENDULKAR", 
+        "👑 🏏 🔥": "VIRAT KOHLI", 
+        "🦁 🏏 🏆": "MS DHONI", 
+        "🎯 🏏 🧱": "RAHUL DRAVID", 
+        "⚡ 🏏 🚀": "HARDIK PANDYA", 
+        "🧊 🏏 👑": "ROHIT SHARMA",
+        "🇮🇳 🏏 🏆": "KAPIL DEV", 
+        "💨 🏏 🎯": "JASPRIT BUMRAH", 
+        "🦁 🏏 🌀": "RAVINDRA JADEJA",
+        "🎨 🏏 👑": "YUVRAJ SINGH", 
+        "🎯 🏏 🧤": "SURESH RAINA", 
+        "🇮🇳 🏏 🧠": "GAUTAM GAMBHIR",
+        "🐍 🏏 🎯": "ZAHEER KHAN",
+        "🔴 🏏 ⚾": "ANIL KUMBLE",
+        "🦢 🏏 🏏": "VVS LAXMAN",
+        "💪 🏏 🎯": "IRFAN PATHAN",
+        "👑 🏏 👑": "SOURAV GANGULY",
+        "🔥 🏏 🎯": "VIRENDER SEHWAG",
+        "🌀 🏏 🎯": "HARBHAJAN SINGH",
+        "💨 🏏 🎯": "MOHAMMED SHAMI",
+        "⭐ 🏏 🎯": "SHUBMAN GILL",
+        "🧤 🏏 💥": "RISHABH PANT",
+        "🧤 🏏 🎯": "KL RAHUL",
+        "💪 🏏 🚀": "HARDIK PANDYA",
+        "🌀 🏏 🎯": "AXAR PATEL",
+        "🌀 🏏 🎯": "KULDEEP YADAV",
+        "🌀 🏏 🎯": "YUZVENDRA CHAHAL",
+        "💥 🏏 🎯": "SURYAKUMAR YADAV",
+        "🧤 🏏 💥": "SANJU SAMSON",
+        "🧤 🏏 🎯": "ISHAN KISHAN",
+        "🌀 🏏 🎯": "WASHINGTON SUNDAR"
+    }
+    available = [h for h in hints.keys() if h not in guess_recent]
+    if not available:
+        guess_recent.clear()
+        available = list(hints.keys())
+    hint = random.choice(available)
+    guess_recent.append(hint)
+    
+    active_guesses[chat_id] = "guess"
+    game_timeouts[chat_id] = "guess"
+    active_guesses[f"{chat_id}_answer"] = hints[hint]
+    
     await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
+    asyncio.create_task(timeout_game(chat_id, "guess", 900))
 
-
-
-@router.message()
-async def message_handler(message: Message) -> None:
-    global API_KEY, runtime_router_key_source
-    global TELEGRAM_API_ID, TELEGRAM_API_HASH, runtime_telegram_credentials_source
-    global MONGO_URL, MONGO_PASSWORD, SHRUTI_API_KEY
-    if await should_preserve_linked_channel_message(message):
-        return
-    if not message.from_user or message.from_user.is_bot:
-        return
-    if message.text and message.text.startswith("/") and not message.text.startswith("/start"):
-        raise SkipHandler
-    if message.from_user.id in admin_media_waiting:
-        if (
-            message.chat.type != ChatType.PRIVATE
-            or message.chat.id != message.from_user.id
-            or message.from_user.id not in ADMIN_IDS
-        ):
-            return
-        media_mode, expires_at = admin_media_waiting.pop(message.from_user.id)
-        if time.monotonic() >= expires_at:
-            await message.answer(
-                "The admin media session expired. Start again from the Admin Panel.",
-                reply_markup=admin_menu(),
-            )
-            return
-        if message.text and message.text.strip().casefold() == "/cancel":
-            await message.answer("Media editing cancelled.", reply_markup=admin_menu())
-            return
-        media = media_from_message(message)
-        if not media:
-            admin_media_waiting[message.from_user.id] = (
-                media_mode,
-                time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-            )
-            await message.answer(
-                "Please send a photo, GIF, sticker, video, document, audio, "
-                "voice note, or video note."
-            )
-            return
-        if media_mode == "daily_zone_template":
-            if media[0] not in {"photo", "document"}:
-                admin_media_waiting[message.from_user.id] = (
-                    media_mode,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "Template must be a photo or an image document. "
-                    "Send the template image or use /cancel."
-                )
-                return
-            try:
-                width, height = await save_daily_zone_template_upload(message)
-            except (OSError, ValueError, TelegramBadRequest):
-                log.exception("Daily Zone template upload failed")
-                await message.answer(
-                    "That template could not be saved. Send a valid image "
-                    "at least 256×256 pixels, then try again."
-                )
-                admin_media_waiting[message.from_user.id] = (
-                    media_mode,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                return
-            await message.answer(
-                f"Daily Zone template saved ({width}×{height}). "
-                "This is now the only active template.",
-                reply_markup=daily_zone_panel_markup(),
-            )
-            return
-        if media_mode == "music_template":
-            if media[0] not in {"photo", "document"}:
-                admin_media_waiting[message.from_user.id] = (
-                    media_mode,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "Music template must be a photo or an image document. "
-                    "Send the template image or use /cancel."
-                )
-                return
-            try:
-                width, height = await save_music_template_upload(message)
-            except (OSError, ValueError, TelegramBadRequest):
-                log.exception("Music title-card template upload failed")
-                await message.answer(
-                    "That music template could not be saved. Send a valid "
-                    "landscape image at least 256×256 pixels, then try again."
-                )
-                admin_media_waiting[message.from_user.id] = (
-                    media_mode,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                return
-            await message.answer(
-                f"Music title-card template saved ({width}×{height}). "
-                "New music cards will use it immediately.",
-                reply_markup=daily_zone_panel_markup(),
-            )
-            return
-        if media_mode.startswith("global_command_media_"):
-            command_name = media_mode.rsplit(":", 1)[1]
-            commands = parse_custom_commands(
-                runtime_settings.get("global_custom_commands", "{}")
-            )
-            commands[command_name] = {"type": media[0], "id": media[1]}
-            await set_runtime_setting(
-                "global_custom_commands",
-                json.dumps(commands, ensure_ascii=False),
-            )
-            await message.answer(
-                f"Global command <code>/{command_name}</code> saved with "
-                f"{custom_media_label(media[0])}.",
-                reply_markup=admin_menu(),
-            )
-            return
-    if message.from_user.id in admin_runtime_waiting:
-        if (
-            message.chat.type != ChatType.PRIVATE
-            or message.chat.id != message.from_user.id
-            or message.from_user.id not in ADMIN_IDS
-        ):
-            return
-        key, expires_at = admin_runtime_waiting.pop(message.from_user.id)
-        if time.monotonic() >= expires_at:
-            await message.answer(
-                "The admin input session expired. Start editing again from the Admin Panel.",
-                reply_markup=admin_menu(),
-            )
-            return
-        value = (message.text or "").strip()
-        credential_input = key in {
-            "openrouter_api_key",
-            "shruti_api_key",
-            "telegram_api_id",
-            "telegram_api_hash",
-            "mongo_url",
-            "mongo_password",
-            "nextgen_api_key_add",
-        } or key.startswith("mongo_pool_") or key.startswith("ai_api_key_add:")
-        if credential_input:
-            try:
-                await message.delete()
-            except Exception:
-                pass
-        if not value:
-            admin_runtime_waiting[message.from_user.id] = (
-                key,
-                time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-            )
-            await message.answer("Send a text value or use the Cancel button.")
-            return
-        if key == "global_command_name_add":
-            if value.casefold() == "/cancel":
-                await message.answer("Command setup cancelled.", reply_markup=admin_menu())
-                return
-            command_name = normalize_custom_command_name(value)
-            if not command_name:
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "Invalid command name. Use a name like <code>/slap</code>."
-                )
-                return
-            commands = parse_custom_commands(
-                runtime_settings.get("global_custom_commands", "{}")
-            )
-            if command_name in commands:
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    f"<code>/{command_name}</code> already exists. "
-                    "Use its edit button to replace the media."
-                )
-                return
-            admin_media_waiting[message.from_user.id] = (
-                f"global_command_media_add:{command_name}",
-                time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-            )
-            await message.answer(
-                f"Now send the media for global command <code>/{command_name}</code>."
-            )
-            return
-        if key == "openrouter_api_key":
-            if len(value) < 20 or len(value) > 512 or any(char.isspace() for char in value):
-                await message.answer(
-                    "That router API key format is invalid. Send the key again or use Cancel.",
-                    reply_markup=admin_back("ai"),
-                )
-                return
-            try:
-                await save_secure_credential(key, value)
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)),
-                    reply_markup=credentials_markup(),
-                )
-                return
-            API_KEY = value
-            runtime_router_key_source = "Encrypted Admin Panel"
-            ai_key_pool[:] = [
-                item for item in ai_key_pool
-                if not (item.get("id") is None and item.get("provider") == "openrouter")
-            ]
-            ai_key_pool.insert(0, {
-                "id": None,
-                "provider": "openrouter",
-                "value": value,
-                "enabled": True,
-                "failure_count": 0,
-                "cooldown_until": 0.0,
-                "last_error": "",
-                "source": "Encrypted Admin Panel",
-            })
-            await message.answer(
-                "Router API key is active now. New chat requests will use it.",
-                reply_markup=admin_back("ai"),
-            )
-            return
-        if key == "shruti_api_key":
-            if len(value) < 8 or len(value) > 512 or any(char.isspace() for char in value):
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "That Shruti API key format is invalid. Send it again or use Cancel.",
-                    reply_markup=credentials_markup(),
-                )
-                return
-            try:
-                await save_secure_credential(key, value)
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)),
-                    reply_markup=credentials_markup(),
-                )
-                return
-            SHRUTI_API_KEY = value
-            await message.answer(
-                "Shruti API key is encrypted and active now. Music requests can use it without a restart.",
-                reply_markup=credentials_markup(),
-            )
-            return
-        if key.startswith("ai_api_key_add:"):
-            provider = key.rsplit(":", 1)[1]
-            if (
-                provider != "airouter"
-                or len(value) < 20
-                or len(value) > 512
-                or any(char.isspace() for char in value)
-            ):
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "That AI API key format is invalid. Send it again or use Cancel.",
-                    reply_markup=admin_back("ai_keys"),
-                )
-                return
-            try:
-                added = await add_ai_api_key(provider, value)
-            except (RuntimeError, ValueError) as error:
-                await message.answer(
-                    html.escape(str(error)), reply_markup=admin_back("ai_keys")
-                )
-                return
-            await message.answer(
-                (
-                    f"{provider.title()} key added to the encrypted rotation pool."
-                    if added
-                    else f"That {provider.title()} key is already configured."
-                ),
-                reply_markup=admin_back("ai_keys"),
-            )
-            return
-        if key == "ai_sticker_pack_add":
-            try:
-                added = await add_ai_sticker_pack(value)
-            except (TelegramBadRequest, ValueError) as error:
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "Sticker pack could not be loaded. Check that the link is public "
-                    f"and valid, then try again.\n\n{html.escape(str(error))}",
-                    reply_markup=admin_back("ai_stickers"),
-                )
-                return
-            await message.answer(
-                "Sticker pack added to AI chat rotation."
-                if added else "That sticker pack is already configured.",
-                reply_markup=admin_back("ai_stickers"),
-            )
-            return
-        if key == "nextgen_api_key_add":
-            if (
-                len(value) < 8
-                or len(value) > 512
-                or any(char.isspace() for char in value)
-            ):
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "That NextGen key format is invalid. Send it again or use Cancel.",
-                    reply_markup=admin_back("nextgen"),
-                )
-                return
-            try:
-                added = await add_nextgen_key(value)
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)),
-                    reply_markup=credentials_markup(),
-                )
-                return
-            await message.answer(
-                "NextGen key added." if added else "That NextGen key is already configured.",
-                reply_markup=admin_back("nextgen"),
-            )
-            return
-        if key == "mongo_pool_url" or key.startswith("mongo_pool_url_edit:"):
-            if len(value) > 2048 or not value.startswith(
-                ("mongodb://", "mongodb+srv://")
-            ):
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "That Mongo URL is invalid. Send it again or use Cancel.",
-                    reply_markup=admin_back("mongo"),
-                )
-                return
-            admin_pending_mongo_urls[message.from_user.id] = value
-            next_key = (
-                "mongo_pool_password"
-                if key == "mongo_pool_url"
-                else f"mongo_pool_password_edit:{key.rsplit(':', 1)[1]}"
-            )
-            admin_runtime_waiting[message.from_user.id] = (
-                next_key,
-                time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-            )
-            await message.answer(
-                "Send the Mongo password for this pair. It will be deleted immediately.",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(text="Cancel", callback_data="adm:input_cancel")
-                ]]),
-            )
-            return
-        if key == "mongo_pool_password" or key.startswith("mongo_pool_password_edit:"):
-            pending_url = admin_pending_mongo_urls.pop(message.from_user.id, "")
-            if not pending_url or len(value) > 2048:
-                await message.answer(
-                    "The Mongo URL step is no longer active. Start again from the pool panel.",
-                    reply_markup=admin_back("mongo"),
-                )
-                return
-            try:
-                if key == "mongo_pool_password":
-                    added = await add_mongo_connection(
-                        "Mongo connection", pending_url, value
-                    )
-                    response = (
-                        "Mongo connection added and encrypted."
-                        if added else "That Mongo URL/password pair is already configured."
-                    )
-                else:
-                    connection_id = int(key.rsplit(":", 1)[1])
-                    updated = await update_mongo_connection(
-                        connection_id, pending_url, value
-                    )
-                    response = (
-                        "Mongo connection updated and encrypted."
-                        if updated else "Mongo connection not found."
-                    )
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)), reply_markup=admin_back("mongo")
-                )
-                return
-            await message.answer(response, reply_markup=admin_back("mongo"))
-            return
-        if key in {"mongo_url", "mongo_password"}:
-            if len(value) > 2048 or (key == "mongo_url" and not value.startswith(
-                ("mongodb://", "mongodb+srv://")
-            )):
-                admin_runtime_waiting[message.from_user.id] = (
-                    key,
-                    time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                )
-                await message.answer(
-                    "That Mongo value is invalid. Send it again or use Cancel.",
-                    reply_markup=credentials_markup(),
-                )
-                return
-            try:
-                await save_secure_credential(key, value)
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)),
-                    reply_markup=credentials_markup(),
-                )
-                return
-            if key == "mongo_url":
-                MONGO_URL = value
-            else:
-                MONGO_PASSWORD = value
-            await message.answer(
-                "Mongo credential saved and encrypted.",
-                reply_markup=credentials_markup(),
-            )
-            return
-        if key in {"telegram_api_id", "telegram_api_hash"}:
-            if key == "telegram_api_id":
-                if not re.fullmatch(r"\d{1,12}", value) or int(value) <= 0:
-                    admin_runtime_waiting[message.from_user.id] = (
-                        key,
-                        time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                    )
-                    await message.answer(
-                        "API ID must be a positive number. Send it again or use Cancel.",
-                        reply_markup=admin_back("telegram"),
-                    )
-                    return
-                parsed_api_id = int(value)
-            else:
-                if not re.fullmatch(r"[0-9a-fA-F]{32}", value):
-                    admin_runtime_waiting[message.from_user.id] = (
-                        key,
-                        time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-                    )
-                    await message.answer(
-                        "API Hash must be a 32-character hexadecimal value. "
-                        "Send it again or use Cancel.",
-                        reply_markup=admin_back("telegram"),
-                    )
-                    return
-                parsed_api_id = None
-            try:
-                await save_secure_credential(key, value)
-            except RuntimeError as error:
-                await message.answer(
-                    html.escape(str(error)),
-                    reply_markup=credentials_markup(),
-                )
-                return
-            if key == "telegram_api_id":
-                TELEGRAM_API_ID = int(parsed_api_id or 0)
-            else:
-                TELEGRAM_API_HASH = value
-            runtime_telegram_credentials_source = "Encrypted Admin Panel"
-            await refresh_mtproto_stack()
-            await message.answer(
-                f"Telegram {('API ID' if key == 'telegram_api_id' else 'API Hash')} "
-                "updated and encrypted. MTProto/voice clients were refreshed if configured.",
-                reply_markup=credentials_markup(),
-            )
-            return
-        if re.search(
-            r"(?:sk-or-|api[_-]?key|api[_-]?hash|bot[_-]?token|session|cookie|otp|password)",
-            value,
-            re.IGNORECASE,
-        ):
-            await message.answer(
-                "Credential-like input was rejected. Use Replit Secrets for credentials; "
-                "this panel accepts only a public model identifier.",
-                reply_markup=admin_back("ai"),
-            )
-            return
-        try:
-            validated = validate_runtime_setting(key, value)
-        except ValueError as error:
-            admin_runtime_waiting[message.from_user.id] = (
-                key,
-                time.monotonic() + ADMIN_INPUT_TTL_SECONDS,
-            )
-            await message.answer(html.escape(str(error)))
-            return
-        await set_runtime_setting(key, validated)
-        await message.answer(
-            "Safe runtime setting saved and active for new requests.",
-            reply_markup=admin_back("ai"),
-        )
-        return
-    if message.chat.type == ChatType.PRIVATE and message.from_user.id in social_waiting:
-        mode = social_waiting.pop(message.from_user.id)
-        if mode == "chat_request":
-            target_id = await resolve_social_target(
-                message, (message.text or "").split()
-            )
-            if not target_id or not (message.text or "").strip().lstrip("-").isdigit():
-                await message.answer("Please send a valid numeric Telegram user ID.")
-                social_waiting[message.from_user.id] = mode
-                return
-            await create_chat_request(message, target_id)
-            await message.answer(
-                "You can return to the main menu anytime.",
-                reply_markup=main_menu(message.from_user.id in ADMIN_IDS),
-            )
-            return
-    if (
-        message.chat.type == ChatType.PRIVATE
-        and message.from_user.id not in profile_waiting
-        and await relay_active_chat(message)
-    ):
-        return
-    if message.chat.type == ChatType.PRIVATE and message.from_user.id in group_feature_waiting:
-        chat_id, mode = group_feature_waiting.pop(message.from_user.id)
-        if message.text and message.text.strip().casefold() == "/cancel":
-            await message.answer("Editing cancelled.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode == "welcome_text" and message.text:
-            value = message.text.strip()
-            if len(value) > 3500:
-                await message.answer("Welcome text is too long. Keep it under 3500 characters.")
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            await update_group_feature(chat_id, "welcome_text", value)
-            await message.answer("Welcome text saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode == "welcome_media":
-            media = media_from_message(message)
-            if not media:
-                await message.answer(
-                    "Please send a photo, GIF, sticker, video, document, audio, "
-                    "voice note, or video note."
-                )
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            await update_group_feature(chat_id, "welcome_media_type", media[0])
-            await update_group_feature(chat_id, "welcome_media_id", media[1])
-            await message.answer("Welcome media saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode == "custom_command_name_add" and message.text:
-            command_name = normalize_custom_command_name(message.text)
-            if not command_name:
-                await message.answer(
-                    "Invalid command name. Use a name like <code>/slap</code> "
-                    "with only letters, numbers, and underscores."
-                )
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            settings = await get_group_features(chat_id)
-            commands = parse_custom_commands(settings["custom_commands"])
-            if command_name in commands:
-                await message.answer(
-                    f"<code>/{command_name}</code> already exists. Use its Edit button "
-                    "to replace the media."
-                )
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            if len(commands) >= 50:
-                await message.answer("This group already has the maximum of 50 custom commands.")
-                return
-            group_feature_waiting[message.from_user.id] = (
-                chat_id,
-                f"custom_command_media_add:{command_name}",
-            )
-            await message.answer(
-                f"Now send the media for <code>/{command_name}</code>.\n"
-                "GIFs, stickers, photos, videos, documents, audio, and voice notes are supported."
-            )
-            return
-        if mode.startswith("custom_command_media_add:") or mode.startswith(
-            "custom_command_media_edit:"
-        ):
-            command_name = mode.split(":", 1)[1]
-            media = media_from_message(message)
-            if not media:
-                await message.answer(
-                    "Please send the media file now: GIF, sticker, photo, video, "
-                    "document, audio, voice note, or video note."
-                )
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            settings = await get_group_features(chat_id)
-            commands = parse_custom_commands(settings["custom_commands"])
-            commands[command_name] = {"type": media[0], "id": media[1]}
-            await update_group_feature(
-                chat_id, "custom_commands", json.dumps(commands, ensure_ascii=False)
-            )
-            await group_log(
-                chat_id,
-                message.from_user.id,
-                "set_custom_command",
-                details=f"/{command_name}",
-            )
-            await message.answer(
-                f"Custom command <code>/{command_name}</code> saved "
-                f"with {custom_media_label(media[0])}.",
-                reply_markup=group_feature_panel(chat_id),
-            )
-            return
-        if mode == "welcome_buttons" and message.text:
-            value = message.text.strip()
-            if value.casefold() == "clear":
-                buttons = []
-            else:
-                buttons = []
-                for line in value.splitlines():
-                    if "|" not in line:
-                        continue
-                    label, url = (part.strip() for part in line.split("|", 1))
-                    if label and safe_url(url):
-                        buttons.append({"text": label[:32], "url": url})
-                if not buttons and value:
-                    await message.answer("No valid buttons found. Use: Button text | https://example.com")
-                    group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                    return
-            await update_group_feature(chat_id, "welcome_buttons", json.dumps(buttons, ensure_ascii=False))
-            await message.answer("Welcome buttons saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode in {"welcome_button_add"} or mode.startswith("welcome_button_edit:"):
-            if not message.text:
-                await message.answer("Please send: Button text | https://example.com")
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            value = message.text.strip()
-            if "|" not in value:
-                await message.answer("Format: Button text | https://example.com")
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            label, url = (part.strip() for part in value.split("|", 1))
-            if not label or not safe_url(url):
-                await message.answer("Invalid button. Use a label and an http(s) URL.")
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            settings = await get_group_features(chat_id)
-            try:
-                buttons = json.loads(settings["welcome_buttons"] or "[]")
-            except json.JSONDecodeError:
-                buttons = []
-            item = {"text": label[:32], "url": url}
-            if mode.startswith("welcome_button_edit:"):
-                index = int(mode.rsplit(":", 1)[1])
-                if 0 <= index < len(buttons):
-                    buttons[index] = item
-                else:
-                    await message.answer("That button no longer exists.")
-                    return
-            else:
-                buttons.append(item)
-            await update_group_feature(chat_id, "welcome_buttons", json.dumps(buttons[:20], ensure_ascii=False))
-            await message.answer("Welcome URL button saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode == "banned_settings" and message.text:
-            value = message.text.strip()
-            words = [] if value.casefold() == "clear" else [word.strip().casefold() for word in value.split(",") if word.strip()]
-            await update_group_feature(chat_id, "banned_words", json.dumps(words[:200], ensure_ascii=False))
-            await message.answer("Banned words list saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        if mode in {"banned_words_add", "banned_words_remove"} and message.text:
-            incoming = [
-                word.strip().casefold()
-                for word in message.text.split(",")
-                if word.strip()
-            ]
-            settings = await get_group_features(chat_id)
-            try:
-                words = [
-                    str(word).strip().casefold()
-                    for word in json.loads(str(settings["banned_words"] or "[]"))
-                    if str(word).strip()
-                ]
-            except json.JSONDecodeError:
-                words = []
-            if mode == "banned_words_add":
-                words = list(dict.fromkeys(words + incoming))[:200]
-                await update_group_feature(
-                    chat_id, "banned_words", json.dumps(words, ensure_ascii=False)
-                )
-                await message.answer(
-                    f"{len(incoming)} word(s) added to Banned Words.",
-                    reply_markup=group_feature_panel(chat_id),
-                )
-            else:
-                incoming_set = set(incoming)
-                removed = len([word for word in words if word in incoming_set])
-                words = [word for word in words if word not in incoming_set]
-                await update_group_feature(
-                    chat_id, "banned_words", json.dumps(words, ensure_ascii=False)
-                )
-                await message.answer(
-                    f"{removed} word(s) removed from Banned Words.",
-                    reply_markup=group_feature_panel(chat_id),
-                )
-            return
-        if mode == "banned_mute_time" and message.text:
-            value = message.text.strip().casefold()
-            minutes = parse_duration(value, default_minutes=0)
-            if minutes is None or not 1 <= minutes <= 43200:
-                await message.answer(
-                    "Invalid time. Use 1m to 7d, for example: 30m, 2h, or 1d."
-                )
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            await update_group_feature(chat_id, "banned_mute_minutes", minutes)
-            await message.answer(
-                f"Banned-word mute time saved: {minutes} minutes.",
-                reply_markup=group_feature_panel(chat_id),
-            )
-            return
-        if mode in {"spam_settings", "adult_settings"} and message.text:
-            value = message.text.strip().casefold()
-            if mode == "spam_settings":
-                if not value.isdigit():
-                    await message.answer("Please enter only the warning limit, for example: 3")
-                    group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                    return
-                limit = int(value)
-                if not 1 <= limit <= 20:
-                    await message.answer("The warning limit must be between 1 and 20.")
-                    group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                    return
-                await update_group_feature(chat_id, "spam_warn_limit", limit)
-                await message.answer("Anti-Spam warning limit saved.", reply_markup=group_feature_panel(chat_id))
-                return
-            values = value.split(",")
-            action = values[0].strip() if values else "delete"
-            limit = int(values[1].strip()) if len(values) > 1 and values[1].strip().isdigit() else 3
-            allowed = {"delete", "warn", "mute", "kick", "ban"}
-            if action not in allowed:
-                await message.answer("Invalid action. Use delete, warn, mute, kick, or ban.")
-                group_feature_waiting[message.from_user.id] = (chat_id, mode)
-                return
-            prefix = "spam" if mode.startswith("spam") else "adult"
-            await update_group_feature(chat_id, f"{prefix}_action", action)
-            await update_group_feature(chat_id, f"{prefix}_warn_limit", max(1, min(limit, 20)))
-            await message.answer("Safety settings saved.", reply_markup=group_feature_panel(chat_id))
-            return
-        await message.answer("Please send the requested value or use /cancel.")
-        group_feature_waiting[message.from_user.id] = (chat_id, mode)
-        return
-    if (
-        message.chat.type == ChatType.PRIVATE
-        and message.from_user.id in ADMIN_IDS
-        and message.from_user.id in daily_zone_waiting
-    ):
-        if message.text and message.text.strip().casefold() == "/cancel":
-            daily_zone_waiting.discard(message.from_user.id)
-            await message.answer("Daily Zone cancelled.", reply_markup=admin_menu())
-            return
-        if not admin_delivery_message_supported(message):
-            await message.answer(
-                "Send a text, photo, video, GIF, document, audio, voice, or sticker. "
-                "You can include a caption.",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(
-                        text="Cancel",
-                        callback_data="daily_zone_cancel",
-                    )
-                ]]),
-            )
-            return
-        daily_zone_waiting.discard(message.from_user.id)
-        await message.answer(
-            "Daily Zone draft received. Preparing the template preview now. "
-            "Nothing will be sent to groups until you press Send to all groups."
-        )
-        asyncio.create_task(prepare_daily_zone_draft(message))
-        return
-    if not message.text:
-        if await moderate_group_message(message):
-            return
-        if message.chat.type in {ChatType.GROUP, ChatType.SUPERGROUP}:
-            await process_group_afk_activity(message)
-        replied_to_bot = bool(
-            message.reply_to_message
-            and message.reply_to_message.from_user
-            and message.reply_to_message.from_user.id == bot.id
-        )
-        if message.sticker and (
-            message.chat.type == ChatType.PRIVATE or replied_to_bot
-        ):
-            if message.chat.type != ChatType.PRIVATE:
-                await remember_group(message)
-            await remember_user(message)
-            await maybe_send_ai_sticker(message, force=True)
-        return
-    if message.chat.type == ChatType.PRIVATE and message.from_user.id in profile_waiting:
-        mode = profile_waiting.pop(message.from_user.id)
-        value = message.text.strip()
-        if mode == "name":
-            if not value or len(value) > 50:
-                await message.answer("Please enter a name between 1 and 50 characters.")
-                profile_waiting[message.from_user.id] = "name"
-                return
-            await update_profile(message.from_user.id, custom_name=value)
-            await message.answer("Your profile name has been saved.", reply_markup=profile_menu())
-            return
-        if mode == "age":
-            if not value.isdigit() or not 6 <= int(value) <= 105:
-                await message.answer("Please enter an age between 6 and 105.")
-                profile_waiting[message.from_user.id] = "age"
-                return
-            await update_profile(message.from_user.id, age=int(value))
-            await message.answer("Your age has been saved.", reply_markup=profile_menu())
-            return
-    if (
-        message.chat.type == ChatType.PRIVATE
-        and message.from_user.id in ADMIN_IDS
-        and message.from_user.id in broadcast_waiting
-    ):
-        broadcast_waiting.discard(message.from_user.id)
-        if message.text and message.text.strip().casefold() == "/cancel":
-            await message.answer("Broadcast cancelled.", reply_markup=admin_menu())
-            return
-        if not admin_delivery_message_supported(message):
-            broadcast_waiting.add(message.from_user.id)
-            await message.answer(
-                "Send text, photo, video, GIF, document, audio, voice, or sticker. "
-                "You can include a caption.",
-                reply_markup=InlineKeyboardMarkup(inline_keyboard=[[
-                    InlineKeyboardButton(
-                        text="Cancel",
-                        callback_data="broadcast_cancel",
-                    )
-                ]]),
-            )
-            return
-        await message.answer("Broadcast queued for broadcast-ready users.")
-        asyncio.create_task(
-            broadcast_copy_message(message.chat.id, message.message_id)
-        )
-        return
-    if message.chat.type != ChatType.PRIVATE:
-        await remember_group(message)
-        if is_daily_zone_request(message.text):
-            await remember_user(message)
-            await replay_daily_zone_for_group(message)
-            return
-        if await moderate_group_message(message):
-            return
-        await process_group_afk_activity(message)
-        # In groups, ignore the common deep-link probe from regular members.
-        # Admins/owner may still use /start with the bot username and receive
-        # the normal CricxManish18 response.
-        if message.text and bot_username:
-            start_match = re.match(r"^\s*/start(?:@[\w_]+)?(?:\s+(.*))?\s*$", message.text, re.IGNORECASE)
-            if start_match:
-                payload = (start_match.group(1) or "").strip().lstrip("@").casefold()
-                if (
-                    payload == bot_username.casefold()
-                    and message.from_user.id not in ADMIN_IDS
-                    and not await group_admin(message.chat.id, message.from_user.id)
-                ):
-                    return
-        if await apply_group_filter(message):
-            return
-        text_lower = message.text.casefold()
-        mentioned = bot_username and f"@{bot_username.casefold()}" in text_lower
-        named = re.search(rf"(?<!\w){re.escape(BOT_NAME.casefold())}(?!\w)", text_lower)
-        replied = (
-            message.reply_to_message
-            and message.reply_to_message.from_user
-            and message.reply_to_message.from_user.id == bot.id
-        )
-        if not (mentioned or named or replied):
-            raise SkipHandler
-        now = time.monotonic()
-        if now - last_group_reply[message.chat.id] < 1.0:
-            return
-        last_group_reply[message.chat.id] = now
-        clean = re.sub(rf"@{re.escape(bot_username)}", "", message.text, flags=re.I).strip()
-    else:
-        clean = message.text.strip()
-    if not bool(runtime_settings.get("chat_mode", True)):
-        return
-    await remember_user(message)
-    await remember_message_facts(message.from_user.id, clean)
-    await save_message(message.from_user.id, "user", clean)
-    display_name = (
-        message.from_user.full_name
-        or message.from_user.first_name
-        or message.from_user.username
-        or "friend"
-    ).strip()
-    typing_stop = asyncio.Event()
-    typing_task = asyncio.create_task(typing_indicator(message.chat.id, typing_stop))
-    try:
-        answer = await ai_reply(
-            message.chat.id,
-            message.from_user.id,
-            display_name,
-            clean,
-        )
-        safe_answer = telegram_safe_ai_text(answer)
-    finally:
-        typing_stop.set()
-        typing_task.cancel()
-        await asyncio.gather(typing_task, return_exceptions=True)
-    if not bool(runtime_settings.get("chat_mode", True)):
-        return
-    await save_message(message.from_user.id, "assistant", answer)
-    if message.chat.type == ChatType.PRIVATE:
-        await message.answer(safe_answer)
-    else:
-        if random.random() < 0.05:
-            await message.reply(f"{message.from_user.mention_html()}, {safe_answer}")
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
+async def game_text_handler(message: Message):
+    chat_id = message.chat.id
+    text = message.text.strip().upper()
+    
+    if chat_id in active_anagrams and text == active_anagrams[chat_id]:
+        if await add_cric_tokens(message.from_user.id, 30, "anagram"):
+            await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
         else:
-            await message.reply(safe_answer)
-    await maybe_send_ai_sticker(message)
-
-
-
-async def _run_render_health_server() -> None:
-    """Bind a dummy HTTP port so Render's free Web Service stays alive."""
-    try:
-        from aiohttp import web
-    except ImportError:
-        log.warning("aiohttp unavailable; skipping health server")
+            await message.reply("Correct! But you have reached your daily limit for this game.")
+        active_anagrams.pop(chat_id, None)
+        game_timeouts.pop(chat_id, None)
         return
-    port = int(os.getenv("PORT", "10000"))
-    log.info("Health server binding to port %s", port)
-
-    async def _ok(_request):
-        return web.Response(text="CricxManish18 bot is alive")
-
-    try:
-        app = web.Application()
-        app.router.add_get("/", _ok)
-        app.router.add_get("/health", _ok)
-        runner = web.AppRunner(app)
-        await runner.setup()
-        site = web.TCPSite(runner, "0.0.0.0", port)
-        await site.start()
-        log.info("Health server listening on port %s", port)
-    except Exception as exc:
-        import traceback
-        log.error("Health server FAILED: %s\n%s", exc, traceback.format_exc())
-        return
-    try:
-        while True:
-            await asyncio.sleep(3600)
-    except asyncio.CancelledError:
-        await runner.cleanup()
-        raise
-
-
-
-# ═══════════════════ CRIC X MANISH GAME ═══════════════════
-cricx_sessions: dict[int, dict[str, object]] = {}
-
-CRICX_WORDS = {
-    "WILLIAMSON": "Winning captain of New Zealand in the 2021 WTC Final.",
-    "CUMMINS": "Winning captain of Australia in the 2023 ODI World Cup.",
-    "SACHIN": "The God of Cricket, holds the record for 100 centuries.",
-    "DHONI": "Captain Cool who hit the winning six in the 2011 World Cup.",
-    "KOHLI": "The Run Machine, known for his aggressive celebrations.",
-    "ROHIT": "Hitman who scored three double centuries in ODIs.",
-    "KAPIL": "The captain who lifted the 1983 World Cup.",
-    "DRAVID": "The Wall of Indian cricket, known for his defensive technique.",
-    "YUVRAJ": "Hit six sixes in an over in the 2007 T20 World Cup.",
-    "SEHWAG": "Very aggressive opener nicknamed the Nawab of Najafgarh.",
-    "BUMRAH": "Known for his unorthodox action and deadly yorkers.",
-    "JADEJA": "Excellent fielder and spin-bowling all-rounder, 'Sir'.",
-    "GANGULY": "The Prince of Kolkata, famous for his shirt-waving at Lord's.",
-    "KUMBLE": "Legendary leg-spinner, holds the record for most Test wickets for India.",
-    "ZAHEER": "Left-arm fast bowler known for his swing and aggression.",
-    "IRFAN": "Known for his swing bowling and hitting the first ball of a match for a six.",
-    "RAINA": "Known as 'Mr. IPL' and famous for his inside-out cover drive.",
-    "GAMBHIR": "Scored the winning runs in the 2011 World Cup Final.",
-    "LAXMAN": "Known as 'Very Very Special' for his elegant wristy shots.",
-    "SHAMI": "Known for his deadly seam position and reverse swing.",
-    "PANT": "Wicketkeeper-batter famous for his reverse sweep in Tests.",
-    "GILL": "Young opener known for his elegant timing and cover drives.",
-    "HARDIK": "Explosive all-rounder known as 'Kung Fu Pandya'.",
-    "RAHUL": "Elegant right-handed batter and wicketkeeper.",
-    "YORKER": "A delivery aimed directly at the batsman's toes.",
-    "BOUNCER": "A short-pitched delivery aimed at the batsman's head.",
-    "GOOGLY": "A leg-spinner's delivery that turns the opposite way.",
-    "DOOSRA": "A mystery off-spinner's delivery that turns away from the batsman.",
-    "SWING": "The art of making the ball move in the air.",
-    "MAIDEN": "An over in which no runs are conceded.",
-    "HATTRICK": "Three wickets taken in three consecutive deliveries.",
-    "CHINAMAN": "A left-arm unorthodox spinner.",
-    "CARROM": "A ball that skids low and straight after pitching.",
-    "SIXER": "A shot that clears the boundary rope without bouncing.",
-    "BOUNDARY": "A shot that reaches the edge of the field (4 runs).",
-    "HELICOPTER": "MS Dhoni's famous finishing shot.",
-    "SWEEP": "A shot played by kneeling on one leg to a spin bowler.",
-    "PULL": "A shot played to a short ball on the leg side.",
-    "CUT": "A shot played square of the wicket on the off-side.",
-    "HOOK": "A shot played to a bouncer, usually in front of square.",
-    "COVER": "A fielding position on the off-side.",
-    "STUMPS": "The three wooden poles at each end of the pitch.",
-    "BAILS": "The small wooden pieces placed on top of the stumps.",
-    "UMPIRE": "The official who makes decisions on the field.",
-    "PAVILION": "The building where players sit when not on the field.",
-    "TROPHY": "The prize given to the winner of a tournament.",
-    "STADIUM": "A large sports arena where matches are played.",
-    "POWERPLAY": "The first few overs of a limited-overs match with fielding restrictions.",
-    "WICKET": "The target a bowler aims to hit, or a batsman getting out.",
-    "APPEAL": "When a team shouts to the umpire asking for an out.",
-    "TOSS": "A coin flip at the start of the match to decide who bats first.",
-    "CENTURY": "A score of 100 runs by a single batsman.",
-    "DUCK": "A batsman getting out for zero runs.",
-    "NOBALL": "An illegal delivery by the bowler due to overstepping.",
-    "WIDEBALL": "A delivery that is too wide for the batsman to hit.",
-    "TEST": "The longest format of the game, played over 5 days.",
-    "ODI": "A 50-over format of the game.",
-    "T20": "A 20-over format of the game.",
-    "RUNOUT": "Dismissal by hitting the stumps while the batsman is running.",
-    "LBW": "Leg Before Wicket, a way of getting out.",
-    "STUMPING": "Dismissal by the wicketkeeper hitting the stumps while the batsman is out of his crease.",
-    "SLIP": "A catching position behind the batsman on the off-side."
-}
+        
+    if chat_id in active_guesses:
+        game = active_guesses[chat_id]
+        correct_answer = active_guesses.get(f"{chat_id}_answer", "").upper()
+        
+        if text == correct_answer:
+            reward = 30 if game == "riddle" else (25 if game == "country" else 20)
+            if await add_cric_tokens(message.from_user.id, reward, game):
+                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
+            else:
+                await message.reply("Correct! But you have reached your daily limit for this game.")
+            
+            active_guesses.pop(chat_id, None)
+            active_guesses.pop(f"{chat_id}_answer", None)
+            game_timeouts.pop(chat_id, None)
+            return
+            
+    raise SkipHandler
 
 def cricx_display(word, guessed):
-    return " ".join([letter if letter in guessed else "🔴" for letter in word])
+    return " ".join([letter if letter in guessed else "_" for letter in word])
 
 @router.message(Command("cricxgame"))
 async def start_cricx_game(message: Message):
@@ -26853,13 +25966,19 @@ async def start_cricx_game(message: Message):
         await message.answer("This game can only be played in a group.")
         return
     chat_id = message.chat.id
-    if chat_id in cricx_sessions:
-        await message.answer("A game is already running in this group!")
-        return
-    
-    word = random.choice(list(CRICX_WORDS.keys()))
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+        
+    available = [w for w in CRICX_WORDS.keys() if w not in cricx_recent]
+    if not available:
+        cricx_recent.clear()
+        available = list(CRICX_WORDS.keys())
+    word = random.choice(available)
+    cricx_recent.append(word)
     hint = CRICX_WORDS[word]
+    
     cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    game_timeouts[chat_id] = "cricx"
     
     await message.answer(
         f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
@@ -26868,29 +25987,30 @@ async def start_cricx_game(message: Message):
         f"❤️ Lives: 7\n"
         f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
     )
+    asyncio.create_task(timeout_game(chat_id, "cricx", 900))
 
-@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text)
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
 async def cricx_guess_handler(message: Message):
     chat_id = message.chat.id
     if chat_id not in cricx_sessions:
         raise SkipHandler
     
     guess = message.text.strip().upper()
-    if guess.startswith("/"):
-        raise SkipHandler
-        
+    
     session = cricx_sessions[chat_id]
     word = session["word"]
     
-    # Guess whole word
     if len(guess) > 1:
         if guess == word:
-            await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won!")
-            del cricx_sessions[chat_id]
+            if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+            else:
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+            cricx_sessions.pop(chat_id, None)
+            game_timeouts.pop(chat_id, None)
             return
         else:
             session["wrong"] += 1
-    # Guess letter
     elif len(guess) == 1 and guess.isalpha():
         if guess in session["guessed"]:
             raise SkipHandler
@@ -26904,12 +26024,17 @@ async def cricx_guess_handler(message: Message):
     
     if lives <= 0:
         await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
-        del cricx_sessions[chat_id]
+        cricx_sessions.pop(chat_id, None)
+        game_timeouts.pop(chat_id, None)
         return
         
     if all(letter in session["guessed"] for letter in word):
-        await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won!")
-        del cricx_sessions[chat_id]
+        if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+        else:
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+        cricx_sessions.pop(chat_id, None)
+        game_timeouts.pop(chat_id, None)
         return
 
     await message.reply(
@@ -26919,286 +26044,6 @@ async def cricx_guess_handler(message: Message):
         f"❤️ Lives: {lives}\n"
         f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
     )
-# ═══════════════════════════════════════════════════════════
-
-
-@router.message(Command("give"))
-async def give_tokens_command(message: Message) -> None:
-    if not message.from_user or message.from_user.id not in ADMIN_IDS or message.chat.type != ChatType.PRIVATE:
-        return
-    args = message.text.split()
-    if len(args) != 3:
-        await message.answer("<b>Usage:</b> <code>/give user_id amount</code>")
-        return
-    try:
-        target_id = int(args[1])
-        amount = int(args[2])
-    except ValueError:
-        await message.answer("❌ Invalid User ID or Amount.")
-        return
-    await db.execute("INSERT INTO users(user_id, seyu_gems) VALUES(?, ?) ON CONFLICT(user_id) DO UPDATE SET seyu_gems = seyu_gems + ?", (target_id, amount, amount))
-    await db.commit()
-    user_profile_cache.pop(target_id, None)
-    profile = await get_profile(target_id)
-    new_balance = profile.get("seyu_gems", 0) if profile else 0
-    await message.answer(f"✅ Added {amount} Cric Tokens to {target_id}. New balance: {new_balance}")
-
-
-@router.message(Command("give"))
-async def give_tokens_command(message: Message) -> None:
-    if not message.from_user or message.from_user.id not in ADMIN_IDS or message.chat.type != ChatType.PRIVATE:
-        return
-    args = message.text.split()
-    if len(args) != 3:
-        await message.answer("<b>Usage:</b> <code>/give user_id amount</code>\n\n<i>Example: /give 5721614152 500</i>")
-        return
-    try:
-        target_id = int(args[1])
-        amount = int(args[2])
-    except ValueError:
-        await message.answer("❌ Invalid User ID or Amount.")
-        return
-    await db.execute("UPDATE users SET seyu_gems = seyu_gems + ? WHERE user_id = ?", (amount, target_id))
-    await db.commit()
-    profile = await get_profile(target_id)
-    new_balance = profile.get("seyu_gems", 0) if profile else 0
-    await message.answer(f"✅ Successfully added <b>{amount:,}</b> Cric Tokens to user <code>{target_id}</code>.\n💰 Their new balance is: <b>{new_balance:,}</b>")
-
-
-async def award_quiz_rewards(
-    session: dict[str, object], ranked: list[tuple[int, int]]
-) -> None:
-    for rank, (user_id, _score) in enumerate(
-        [item for item in ranked if item[1] > 0][: len(QUIZ_REWARDS)], 1
-    ):
-        player = next(player for player in session["players"] if player.id == user_id)
-        amount = QUIZ_REWARDS[rank - 1]
-        cursor = await db.execute(
-            """INSERT OR IGNORE INTO quiz_reward_claims(
-            session_id, user_id, rank, amount) VALUES(?,?,?,?)""",
-            (session["session_id"], user_id, rank, amount),
-        )
-        if cursor.rowcount == 1:
-            await add_cric_tokens(user_id, amount, "quiz")
-    await db.commit()
-
-def quiz_active_notice(session: dict[str, object], user_id: int) -> str:
-    players = session["players"]
-    if session["state"] == "lobby":
-        prefix = (
-            "<b>You are already in this Quiz lobby.</b>"
-            if any(player.id == user_id for player in players)
-            else "<b>A Quiz lobby is already active in this group.</b>"
-        )
-        return (
-            f"{prefix}\n\n"
-            f"Creator: {session['creator_name']}\n"
-            f"Players: {len(players)}/{UNLIMITED_PLAYERS_LABEL}\n"
-            "Use the existing lobby. No duplicate quiz will be created."
-        )
-    prefix = (
-        "<b>You are already in an active Quiz.</b>"
-        if any(player.id == user_id for player in players)
-        else "<b>A Quiz is already active in this group.</b>"
-    )
-    return (
-        f"{prefix}\n\n"
-        f"Creator: {session['creator_name']}\n"
-        f"Players: {len(players)}\n"
-        "Wait until this quiz ends before starting another one."
-    )
-
-async def restore_quiz_sessions() -> None:
-    cursor = await db.execute(
-        "SELECT chat_id, message_id, state, expires_at, payload FROM quiz_sessions"
-    )
-    rows = await cursor.fetchall()
-    for row in rows:
-        chat_id = int(row["chat_id"])
-        message_id = int(row["message_id"])
-        expires_at = float(row["expires_at"])
-        if expires_at <= time.time():
-            try:
-                await bot.delete_message(chat_id, message_id)
-            except (TelegramBadRequest, TelegramForbiddenError):
-                pass
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        try:
-            data = json.loads(str(row["payload"]))
-            players = [
-                SimpleNamespace(
-                    id=int(player["id"]),
-                    first_name=str(player.get("first_name") or "Player"),
-                    username=str(player.get("username") or ""),
-                    is_bot=False,
-                )
-                for player in data["players"]
-            ]
-            state = str(row["state"])
-            if state not in {
-                "lobby", "loading", "answering", "round_result", "final_result"
-            }:
-                raise ValueError("invalid quiz state")
-            if not 1 <= len(players) <= 25:
-                raise ValueError("invalid quiz player count")
-            if not 0 <= int(data["round"]) <= max(QUIZ_ROUND_CHOICES):
-                raise ValueError("saved quiz uses an incompatible round count")
-            session = {
-                "session_id": str(data["session_id"]),
-                "state": state,
-                "creator_id": int(data["creator_id"]),
-                "creator_name": str(data["creator_name"]),
-                "topic_kind": str(data.get("topic_kind") or "general"),
-                "topic_label": str(data.get("topic_label") or "General Knowledge"),
-                "topic_key": str(data.get("topic_key") or "general"),
-                "level": str(data.get("level") or "basic"),
-                "rounds": int(data.get("rounds") or QUIZ_ROUNDS),
-                "players": players,
-                "message_id": message_id,
-                "round": int(data["round"]),
-                "scores": dict(data["scores"]),
-                "total_speed_ms": dict(data["total_speed_ms"]),
-                "question_hashes": list(data["question_hashes"]),
-                "current_question": data.get("current_question"),
-                "poll_id": data.get("poll_id"),
-                "poll_message_id": data.get("poll_message_id"),
-                "answers": dict(data.get("answers") or {}),
-                "round_started_at": data.get("round_started_at"),
-                "created_at": float(data["created_at"]),
-                "expires_at": expires_at,
-            }
-        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
-            await delete_persisted_quiz_session(chat_id)
-            continue
-        quiz_sessions[chat_id] = session
-        if state == "lobby":
-            session["state"] = "loading"
-            session["expires_at"] = time.time() + QUIZ_GAME_SECONDS
-            state = "loading"
-            await persist_quiz_session(chat_id, session)
-        if state == "answering" and not session.get("poll_id"):
-            session["state"] = "loading"
-            session["round"] = max(0, int(session["round"]) - 1)
-            session["current_question"] = None
-            session["answers"] = {}
-            await persist_quiz_session(chat_id, session)
-        if session.get("poll_id"):
-            quiz_poll_sessions[str(session["poll_id"])] = chat_id
-        quiz_player_sessions[int(session["creator_id"])] = chat_id
-        for player in players:
-            quiz_player_sessions[int(player.id)] = chat_id
-        if state == "lobby":
-            quiz_tasks[chat_id] = asyncio.create_task(
-                expire_quiz_lobby(chat_id, message_id)
-            )
-        else:
-            quiz_tasks[chat_id] = asyncio.create_task(run_quiz_session(chat_id))
-
-@router.message(Command("give"))
-async def give_tokens_command(message: Message) -> None:
-    if not message.from_user or message.from_user.id not in ADMIN_IDS or message.chat.type != ChatType.PRIVATE:
-        return
-    args = message.text.split()
-    if len(args) != 3:
-        await message.answer("<b>Usage:</b> <code>/give user_id amount</code>")
-        return
-    try:
-        target_id = int(args[1])
-        amount = int(args[2])
-    except ValueError:
-        await message.answer("❌ Invalid User ID or Amount.")
-        return
-    await db.execute("INSERT INTO users(user_id, seyu_gems) VALUES(?, ?) ON CONFLICT(user_id) DO UPDATE SET seyu_gems = seyu_gems + ?", (target_id, amount, amount))
-    await db.commit()
-    user_profile_cache.pop(target_id, None)
-    profile = await get_profile(target_id)
-    new_balance = profile.get("seyu_gems", 0) if profile else 0
-    await message.answer(f"✅ Added {amount} Cric Tokens to {target_id}. New balance: {new_balance}")
-
-
-
-async def get_wallet_text(uid: int) -> str:
-    profile = await get_profile(uid)
-    balance = int(profile.get("seyu_gems", 0))
-    
-    cursor = await db.execute(
-        "SELECT amount, source, tx_type, created_at FROM token_transactions WHERE user_id=? ORDER BY id DESC LIMIT 10",
-        (uid,)
-    )
-    rows = await cursor.fetchall()
-    
-    text = f"<b>💼 Your Wallet</b>\n\n"
-    text += f"<b>Current Balance:</b> {balance:,} Cric Tokens\n"
-    text += f"<i>⚠️ Tokens expire 7 days after earning!</i>\n\n"
-    text += "<b>Recent Transactions:</b>\n"
-    
-    if not rows:
-        text += "<i>No transactions found yet. Play a game to start earning!</i>"
-    else:
-        for row in rows:
-            amt = int(row["amount"])
-            src = str(row["source"]).replace("_", " ").title()
-            tx = str(row["tx_type"])
-            date = str(row["created_at"]).split(" ")[0]
-            
-            if tx == "credit":
-                text += f"🟢 <b>+{amt:,}</b> | {src} ({date})\n"
-            else:
-                text += f"🔴 <b>-{amt:,}</b> | {src} ({date})\n"
-    return text
-
-@router.message(Command("wallet"))
-async def wallet_command(message: Message):
-    text = await get_wallet_text(message.from_user.id)
-    await message.answer(text)
-
-@router.callback_query(F.data == "wallet")
-async def wallet_callback(callback: CallbackQuery):
-    if not await group_menu_callback_allowed(callback):
-        return
-    await callback.answer()
-    text = await get_wallet_text(callback.from_user.id)
-    markup = InlineKeyboardMarkup(inline_keyboard=[[
-        InlineKeyboardButton(text="🏠 Back to Main Menu", callback_data="home", style="success")
-    ]])
-    await render_menu_text(callback, text, markup)
-
-# ══════════════ 7-DAY TOKEN EXPIRATION TASK ══════════════
-async def expire_tokens_loop():
-    while True:
-        await asyncio.sleep(3600) # Check every hour
-        try:
-            # Find credits older than 7 days that haven't been marked expired
-            cursor = await db.execute(
-                "SELECT id, user_id, amount FROM token_transactions WHERE tx_type='credit' AND is_expired=0 AND created_at <= datetime('now', '-7 days')"
-            )
-            expired = await cursor.fetchall()
-            for tx in expired:
-                uid = tx["user_id"]
-                amt = tx["amount"]
-                
-                # Deduct from user, capped at 0
-                await db.execute(
-                    "UPDATE users SET seyu_gems = MAX(0, seyu_gems - ?) WHERE user_id = ?",
-                    (amt, uid)
-                )
-                # Log the expiration as a debit so they see it in the wallet
-                await db.execute(
-                    "INSERT INTO token_transactions(user_id, amount, source, tx_type) VALUES(?,?,?,'debit')",
-                    (uid, amt, "expired_7_days")
-                )
-                # Mark the original credit as expired
-                await db.execute(
-                    "UPDATE token_transactions SET is_expired=1 WHERE id=?",
-                    (tx["id"],)
-                )
-            if expired:
-                await db.commit()
-                user_profile_cache.clear() # Clear cache so balances update instantly
-                log.info(f"[EXPIRY] Processed {len(expired)} expired transactions.")
-        except Exception as e:
-            log.exception("Token expiry task failed")
 
 
 async def main() -> None:
