@@ -17690,7 +17690,7 @@ def translation_file_bank() -> dict[str, list[tuple[str, str, list[str]]]]:
         return bank
     for line in text.splitlines():
         parts = [p.strip() for p in line.split("|")]
-        if len(parts) < 11:
+        if len(parts) < 12:
             continue
         _qid, level, tense, question, answer = parts[:5]
         level = level.casefold()
