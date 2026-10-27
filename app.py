@@ -26475,6 +26475,188 @@ async def cricx_guess_handler(message: Message):
         f"❌ Wrong: {', '.join([l for l in session['guessed'] if l not in word]) or 'None'}"
     )
 
+
+@router.message(Command("codebreaker"))
+async def emergency_codebreaker(message: Message):
+    if 'start_codebreaker' in globals():
+        await start_codebreaker(message)
+    else:
+        await message.answer("Code Breaker is being restored. Please try later.")
+
+@router.message(Command("crossgrid"))
+async def emergency_crossgrid(message: Message):
+    if 'start_crossgrid' in globals():
+        await start_crossgrid(message)
+    else:
+        await message.answer("Crossgrid is being restored. Please try later.")
+
+@router.message(Command("quiz"))
+async def emergency_quiz(message: Message):
+    if 'quiz_command' in globals():
+        await quiz_command(message)
+    else:
+        await message.answer("Quiz is being restored. Please try later.")
+
+@router.message(Command("riddle"))
+async def emergency_riddle(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    if 'RIDDLES' not in globals():
+        return await message.reply("Riddles are updating. Please try later.")
+    riddle = random.choice(list(RIDDLES.keys()))
+    hindi = RIDDLES_HINDI.get(riddle, "")
+    active_guesses[chat_id] = {"answer": RIDDLES[riddle], "type": "riddle"}
+    hindi_line = f"\n\n🇮🇳 <b>हिंदी में:</b> <i>{hindi}</i>" if hindi else ""
+    await message.answer(
+        f"<b>🧩 Riddle Time! (पहेली)</b>{chr(10)}{chr(10)}"
+        f"🇬🇧 <b>English:</b> {riddle}{hindi_line}{chr(10)}{chr(10)}"
+        f"First to answer (English or Hindi) wins 30 Tokens!{chr(10)}"
+        f"<i>Answer can be in English or Hindi</i>"
+    )
+
+@router.message(Command("country"))
+async def emergency_country(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    if 'COUNTRIES' not in globals():
+        return await message.reply("Countries are updating. Please try later.")
+    emojis = random.choice(list(COUNTRIES.keys()))
+    active_guesses[chat_id] = {"answer": COUNTRIES[emojis], "type": "country"}
+    await message.answer(f"<b>🌍 Guess the Country!</b>" + chr(10) + chr(10) + emojis + chr(10) + chr(10) + "First to answer wins 25 Tokens!")
+
+@router.message(Command("anagram"))
+async def emergency_anagram(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    word = random.choice(["VIRAT KOHLI", "ROHIT SHARMA", "MS DHONI", "SACHIN TENDULKAR", "KAPIL DEV", "RAHUL DRAVID", "JASPRIT BUMRAH", "RAVINDRA JADEJA"])
+    scrambled = "".join(random.sample(word.replace(" ", ""), len(word.replace(" ", ""))))
+    active_anagrams[chat_id] = word.upper()
+    await message.answer(f"<b>🔤 Cricket Anagram</b>" + chr(10) + chr(10) + f"Unscramble this name: <code>{scrambled}</code>\n\nFirst to type the name wins 30 Tokens!")
+
+@router.message(Command("guess"))
+async def emergency_guess(message: Message):
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    hint = random.choice(["🐐 🏏 💯", "👑 🏏 🔥", "🦁 🏏 🏆", "🎯 🏏 🧱", "⚡ 🏏 🚀", "🧊 🏏 👑"])
+    answers = {"🐐 🏏 💯": "SACHIN TENDULKAR", "👑 🏏 🔥": "VIRAT KOHLI", "🦁 🏏 🏆": "MS DHONI", "🎯 🏏 🧱": "RAHUL DRAVID", "⚡ 🏏 🚀": "HARDIK PANDYA", "🧊 🏏 👑": "ROHIT SHARMA"}
+    active_guesses[chat_id] = {"answer": answers[hint], "type": "guess"}
+    await message.answer(f"<b>🕵️ Guess the Cricketer</b>" + chr(10) + chr(10) + hint + chr(10) + chr(10) + "First to type the answer wins 20 Tokens!")
+
+@router.message(Command("cricxgame"))
+async def emergency_cricx(message: Message):
+    if message.chat.type not in {ChatType.GROUP, ChatType.SUPERGROUP}:
+        await message.answer("This game can only be played in a group.")
+        return
+    chat_id = message.chat.id
+    if group_active_games(chat_id):
+        return await message.reply("⚠️ A game is already active in this group. Finish it first!")
+    if 'CRICX_WORDS' not in globals():
+        return await message.reply("Cricx is updating. Please try later.")
+    word = random.choice(list(CRICX_WORDS.keys()))
+    hint = CRICX_WORDS[word]
+    cricx_sessions[chat_id] = {"word": word, "hint": hint, "guessed": set(), "wrong": 0, "creator": message.from_user.id}
+    display = " ".join([letter if letter in [] else "🔴" for letter in word])
+    await message.answer(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{hint}</i>\n"
+        f"<code>{display}</code>\n\n"
+        f"❤️ Lives: 7\n"
+        f"<i>Type single letters (A, B, C) or type the whole word to guess.</i>"
+    )
+
+@router.message(Command("rps"))
+async def emergency_rps(message: Message):
+    if 'rps_duel' in globals():
+        await rps_duel(message)
+    else:
+        await message.answer("RPS is restoring. Please try later.")
+
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
+async def emergency_game_text_handler(message: Message):
+    chat_id = message.chat.id
+    text = message.text.strip().upper()
+    
+    if chat_id in active_anagrams and text == active_anagrams[chat_id]:
+        if await add_cric_tokens(message.from_user.id, 30, "anagram"):
+            await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins 30 Cric Tokens!")
+        else:
+            await message.reply("Correct! But you have reached your daily limit for this game.")
+        active_anagrams.pop(chat_id, None)
+        return
+        
+    if chat_id in active_guesses:
+        game = active_guesses[chat_id]
+        if text.lower() == game["answer"].lower():
+            reward = 30 if game["type"] == "riddle" else 25
+            if await add_cric_tokens(message.from_user.id, reward, game["type"]):
+                await message.reply(f"<b>Correct!</b> {message.from_user.mention_html()} wins {reward} Cric Tokens!")
+            else:
+                await message.reply("Correct! But you have reached your daily limit for this game.")
+            active_guesses.pop(chat_id, None)
+            return
+            
+    raise SkipHandler
+
+@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}), F.text & ~F.text.startswith("/"))
+async def emergency_cricx_handler(message: Message):
+    chat_id = message.chat.id
+    if chat_id not in cricx_sessions:
+        raise SkipHandler
+    
+    guess = message.text.strip().upper()
+    session = cricx_sessions[chat_id]
+    word = session["word"]
+    
+    if len(guess) > 1:
+        if guess == word:
+            if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+            else:
+                await message.reply(f"🎉 <b>YES!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+            cricx_sessions.pop(chat_id, None)
+            return
+        else:
+            session["wrong"] += 1
+    elif len(guess) == 1 and guess.isalpha():
+        if guess in session["guessed"]:
+            raise SkipHandler
+        session["guessed"].add(guess)
+        if guess not in word:
+            session["wrong"] += 1
+    else:
+        raise SkipHandler
+
+    lives = 7 - session["wrong"]
+    
+    if lives <= 0:
+        await message.reply(f"💀 <b>Game Over!</b> The word was <b>{word}</b>.")
+        cricx_sessions.pop(chat_id, None)
+        return
+        
+    if all(letter in session["guessed"] for letter in word):
+        if await add_cric_tokens(message.from_user.id, 50, "cricx"):
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. {message.from_user.mention_html()} won 50 Tokens!")
+        else:
+            await message.reply(f"🎉 <b>CONGRATS!</b> The word was <b>{word}</b>. You won, but hit your daily limit!")
+        cricx_sessions.pop(chat_id, None)
+        return
+
+    display = " ".join([letter if letter in session["guessed"] else "🔴" for letter in word])
+    wrong_letters = ', '.join([l for l in session['guessed'] if l not in word]) or 'None'
+    
+    await message.reply(
+        f"🏏 <b>CRIC X MANISH GAME</b> 🏏\n\n"
+        f"<b>Hint:</b> <i>{session['hint']}</i>\n"
+        f"<code>{display}</code>\n\n"
+        f"❤️ Lives: {lives}\n"
+        f"❌ Wrong: {wrong_letters}"
+    )
+
+
 async def main() -> None:
 
     global bot, bot_username, db, http, music_http, music_executor, mtproto_client
